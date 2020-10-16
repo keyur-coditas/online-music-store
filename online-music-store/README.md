@@ -1,6 +1,6 @@
 # OnlineMusicStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
+An online music store that allows user to buy and sell music products online. The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
 
 ## Development server
 
