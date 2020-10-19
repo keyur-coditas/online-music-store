@@ -37,7 +37,6 @@ export class RegistrationComponent extends BaseClass implements OnInit {
     let cnfmpassword = this.registrationForm.controls['confirmPassword'].value;
     if(password === cnfmpassword) {
       let user:User = {
-        id: '',
         email: this.registrationForm.controls['email'].value,
         password: this.registrationForm.controls['password'].value,
       }

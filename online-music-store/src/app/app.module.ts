@@ -11,7 +11,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import * as AuthReducer from '../shared/Store/auth/auth.reducer'
+import { AuthenticationService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({auth: AuthReducer.reducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
