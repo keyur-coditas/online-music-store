@@ -8,10 +8,22 @@
 }
 .footer-background-dark{
    background-color: $dark-gray;
+   color: $white;
 }
 .btn-background-dark {
     background-color: $dark-gray;
 }
 .btn-color-dark {
+    color: $white;
+}
+.tab-dark.active {
+    background-color: $dark-gray;
+    color: $white;
+}
+.tabs-wrapper-background-dark {
+    color: $dark-gray;
+}
+.form-btn-dark{
+    background-color: $dark-gray;
     color: $white;
 }

@@ -1,0 +1,15 @@
+<div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div>
+            <div>
+                <input class="str-input" type="email" formControlName="email" placeholder="Enter your email" />
+            </div>
+            <div>
+                <input class="str-input" type="password" formControlName="password" placeholder="Enter password" />
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="registration-submit-btn str-btn" [ngClass]="[themeReference.FORM_BTN, themeReference.BTN_BACKGROUND_COLOR , themeReference.BTN_COLOR]">Submit</button>
+        </div>
+    </form>
+</div>

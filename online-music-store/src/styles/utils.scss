@@ -8,7 +8,21 @@
     &:active { 
         transform: scale(0.98); 
         /* Scaling button to 0.98 to its original size */ 
-        box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
-        /* Lowering the shadow */ 
+        -webkit-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);
+        -moz-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);
+        box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);
     } 
+}
+
+.str-input {
+    width: 20rem;
+    height: 2rem;
+    border: 1px solid $light-gray;
+    border-radius: 5px;
+    margin: 15px auto 0px 0px;
+    padding-left: 10px;
+}
+
+.text-center{
+    text-align: center;
 }

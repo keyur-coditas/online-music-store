@@ -8,7 +8,7 @@ export class BaseClass {
     themeReference: any;
     themeSubscription: Subscription;
     constructor(public appService: AppService) {
-
+      this.initializeThemeSubscription();
     }
 
     initializeThemeSubscription(): void {

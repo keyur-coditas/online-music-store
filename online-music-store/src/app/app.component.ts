@@ -15,7 +15,6 @@ export class AppComponent extends BaseClass implements OnInit, OnDestroy{
   }
   
   ngOnInit(): void {
-    this.initializeThemeSubscription();
   }
 
   changeTheme() {

@@ -24,6 +24,7 @@ server.post('/login', (req, res, next) => {
 
 server.post('/register', (req, res) => {
   const users = readUsers();
+  req.body.id = users.length + 1;
   const user = users.filter(u => u.username === req.body.username)[0];
 
   if (user === undefined || user === null) {
