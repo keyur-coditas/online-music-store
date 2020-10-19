@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@import './styles/variables.scss';
+@import './styles/themes/dark.scss';
+@import './styles/themes/light.scss';
+@import './styles//utils.scss';
+
+html, body, app-root {
+    margin: 0;
+    height: 100%;
+    min-height: 100%;
+    font-family: $sans-serif;
+  }
+  
+  body, app-root {
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+  main {
+    overflow-y: auto;
+    flex: auto;
+  }

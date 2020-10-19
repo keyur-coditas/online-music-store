@@ -1,0 +1,14 @@
+<header class="header" [class]="themeReference.HEADER_BACKGROUND_COLOR">
+    <div>
+       <img src="../../assets/images/logo.webp" alt="">
+    </div>
+    
+    <div class="header-logout">
+        <div>
+            <button tyle="button" (click)="changeTheme()" class="str-btn" [ngClass]="[themeReference.BTN_BACKGROUND_COLOR , themeReference.BTN_COLOR]">{{theme}}</button>
+        </div>
+        <div>
+            <button tyle="button" class="str-btn" [ngClass]="[themeReference.BTN_BACKGROUND_COLOR , themeReference.BTN_COLOR]">Logout</button>
+        </div>
+    </div>
+</header>

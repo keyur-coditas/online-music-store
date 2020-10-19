@@ -1,0 +1,17 @@
+@import '../variables.scss';
+
+.header-background-dark {
+    background-color: $black;
+}
+.body-background-dark {
+    background-color: $pale-white;
+}
+.footer-background-dark{
+   background-color: $dark-gray;
+}
+.btn-background-dark {
+    background-color: $dark-gray;
+}
+.btn-color-dark {
+    color: $white;
+}
