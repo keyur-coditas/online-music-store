@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppService } from '../../../shared/app.service';
 import { BaseClass } from '../../../shared/BaseClass';
-import { User } from '../../../shared/Models/User';
+import { User } from '../../../shared/Models/user';
 import { AuthenticationService } from '../auth.service';
 import * as AuthActions from '../../../shared/Store/auth/auth.actions';
 import { Router } from '@angular/router';
@@ -40,15 +40,8 @@ export class LoginComponent extends BaseClass implements OnInit {
         email: this.loginForm.controls['email'].value,
         password: this.loginForm.controls['password'].value,
       }
-      this.authenticationService.login(user).subscribe((val: any) => {
-       if(val && val.length > 0) {
-        alert('You have logged in successfully');
-        let{email, password} = val[0];
-        this.store.dispatch(AuthActions.loginComplete({email, password}));
-        this.router.navigate(['products']);
-       }
-      })
-   
+      let {email, password} = user;
+      this.store.dispatch(AuthActions.loginAttempted({email, password}));  
   }
 
 }

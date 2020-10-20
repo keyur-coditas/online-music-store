@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/shared/app.service';
-import { BaseClass } from 'src/shared/BaseClass';
-
+import { Store } from '@ngrx/store';
+import { AppService } from '../../shared/app.service';
+import { BaseClass } from '../../shared/BaseClass';
+import * as AuthActions from '../../shared/Store/auth/auth.actions';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,7 +10,7 @@ import { BaseClass } from 'src/shared/BaseClass';
 })
 export class HeaderComponent extends BaseClass implements OnInit {
 
-  constructor(appService: AppService) {
+  constructor(appService: AppService, private store: Store) {
     super(appService);
    }
 
@@ -19,6 +20,10 @@ export class HeaderComponent extends BaseClass implements OnInit {
   changeTheme() {
     this.appService.changeTheme(this.theme);
   }
+  logout() {
+    this.store.dispatch(AuthActions.logout());
+  }
+
   ngOnDestroy(): void {
     this.destroyThemeSubscription();
   }

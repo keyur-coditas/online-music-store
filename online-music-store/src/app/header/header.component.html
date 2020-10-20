@@ -5,10 +5,10 @@
     
     <div class="header-logout">
         <div>
-            <button tyle="button" (click)="changeTheme()" class="str-btn" [ngClass]="[themeReference.BTN_BACKGROUND_COLOR , themeReference.BTN_COLOR]">Change theme to {{theme === 'dark'?'light':'dark'}}</button>
+            <button tyle="button" (click)="changeTheme()" class="str-btn" [ngClass]="[themeReference.BTN_BACKGROUND_COLOR , themeReference.BTN_COLOR]">Switch to {{theme === 'dark'?'light':'dark'}} theme</button>
         </div>
         <div>
-            <button tyle="button" class="str-btn" [ngClass]="[themeReference.BTN_BACKGROUND_COLOR , themeReference.BTN_COLOR]">Logout</button>
+            <button tyle="button" class="str-btn" [ngClass]="[themeReference.BTN_BACKGROUND_COLOR , themeReference.BTN_COLOR]" (click)="logout()">Logout</button>
         </div>
     </div>
 </header>

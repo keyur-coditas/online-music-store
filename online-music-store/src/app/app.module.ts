@@ -15,6 +15,8 @@ import * as AuthReducer from '../shared/Store/auth/auth.reducer'
 import { AuthenticationService } from './auth/auth.service';
 import { ProductsComponent } from './products/products.component';
 import { CardComponent } from './products/card/card.component';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from 'src/shared/Store/auth/auth.effects';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { CardComponent } from './products/card/card.component';
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({auth: AuthReducer.reducer})
+    StoreModule.forRoot({auth: AuthReducer.reducer}),
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
