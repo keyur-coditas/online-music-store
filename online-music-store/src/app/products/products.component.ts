@@ -3,8 +3,7 @@ import { Action, Store } from '@ngrx/store';
 import { User } from '../../shared/Store/auth/user.model';
 import { Product } from '../../shared/Models/product';
 import { ProductService } from './products.service';
-import { AppState } from '../../shared/Store/auth/auth.reducer';
-
+import * as ProductActions from '../../shared/Store/products/product.actions';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -15,15 +14,16 @@ export class ProductsComponent implements OnInit {
   currentUser: any;
   constructor(
     private productsService: ProductService,
-    private store: Store<AppState>) { }
+    private store: Store<any>) { }
   
   ngOnInit(): void {
     this.currentUser = this.store
     .subscribe((data:any) => {
       this.currentUser = data.auth.currentUser;
-    })
-    this.productsService.getAllProducts().subscribe((data: any) => {
-     this.products = data;
+    });
+    this.store.dispatch(ProductActions.productFetchAttempt());
+    this.store.subscribe((data) => {
+      console.log('val ', data);
     })
   }
 

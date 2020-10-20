@@ -1,9 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { AppService } from 'src/shared/app.service';
 import { BaseClass } from 'src/shared/baseClass';
+import { PRODUCT_ADD_ATTEMPT } from 'src/shared/Store/products/product.actions';
 import { ProductService } from '../products.service';
-
+import * as ProductActions from '../../../shared//Store/products/product.actions';
+import { Product } from '../../../shared/Store/products/products.model';
 @Component({
   selector: 'app-product-operations',
   templateUrl: './product-operations.component.html',
@@ -12,15 +15,21 @@ import { ProductService } from '../products.service';
 export class ProductOperationsComponent extends BaseClass implements OnInit, OnDestroy {
   productForm: FormGroup;
   productOperation: string;
-
+  imagePath: string = '';
+  path: string = '../../../assets/images/';
+  currentUser: any;
   constructor(appService: AppService,
-    private productService:ProductService) {
+    private productService:ProductService,
+    private store: Store) {
     super(appService);
    }
 
   ngOnInit(): void {
    this.productOperation = this.productService.getProductOperation();
     this.productForm = this.createProductFormGroup();
+    this.store.subscribe((data:any) => {
+     this.currentUser = data.auth.currentUser.email;
+    })
   }
 
   createProductFormGroup() {
@@ -32,11 +41,22 @@ export class ProductOperationsComponent extends BaseClass implements OnInit, OnD
     });
 }
   onSubmit() {
-
+    const product:Product = {
+      name: this.productForm.controls['name'].value,
+      description: this.productForm.controls['description'].value,
+      price: this.productForm.controls['price'].value,
+      imageUrl: this.imagePath,
+      createdBy: this.currentUser
+    }
+    this.store.dispatch(ProductActions.productAddAttempted({product}));
   }
   onImagePicked(event) {
-    console.log('val ', event)
+   const file = (event.target as HTMLInputElement).files[0];
+  if(file) {
+    this.imagePath = this.path+file.name;
   }
+  }
+
   ngOnDestroy(): void {
     this.destroyThemeSubscription();
   }

@@ -2,10 +2,10 @@ import { Action, createReducer, on } from '@ngrx/store';
 import * as AuthActions from './auth.actions';
 import { User } from './user.model';
 
-export interface AppState {
+export interface AuthState {
     currentUser: User
 }
-export const initialState: AppState = {
+export const initialState: AuthState = {
   currentUser: {
     accessToken: '',
     email: '',
@@ -40,6 +40,6 @@ const loginCompleteReducer = createReducer(
 
 
 
-export function reducer(state: AppState | undefined, action: Action) {
+export function reducer(state: AuthState | undefined, action: Action) {
   return loginCompleteReducer(state, action);
 }

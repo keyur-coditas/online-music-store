@@ -16,7 +16,7 @@
       "id": 1,
       "name": "Yamaha, Acoustic Guitar F310 /Natural",
       "description": "Yamaha F310 is an excellent quality instrument. Its dreadnought style body provides loud acoustic tone with comfortable playability.",
-      "createdBy": "keyur@coditas.com",
+      "createdBy": 1,
       "imageUrl": "assets/images/yamaha_acoustic.webp",
       "price": 13990
     },
@@ -24,9 +24,28 @@
       "id": 1,
       "name": "Test name",
       "description": "Yamaha F310 is an excellent quality instrument. Its dreadnought style body provides loud acoustic tone with comfortable playability.",
-      "createdBy": "xyz@gmail.com",
+      "createdBy": 2,
       "imageUrl": "assets/images/yamaha_acoustic.webp",
       "price": 13990
+    },
+    {
+      "id": 3,
+      "name": "Yamaha, Acoustic Guitar F310 /Natural",
+      "description": "Yamaha F310 is an excellent quality instrument. Its dreadnought style body provides loud acoustic tone with comfortable playability.",
+      "createdBy": "keyur@coditas.com",
+      "imageUrl": "assets/images/yamaha_acoustic.webp",
+      "price": 13990
+    },
+    {
+      "product": {
+        "name": null,
+        "description": null,
+        "price": null,
+        "imageUrl": "",
+        "createdBy": "keyur@coditas.com"
+      },
+      "type": "[Product Page] product add Attempted ",
+      "id": 4
     }
   ]
 }
