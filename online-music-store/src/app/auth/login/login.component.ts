@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppService } from '../../../shared/app.service';
-import { BaseClass } from '../../../shared/BaseClass';
+import { BaseClass } from '../../../shared/baseClass';
 import { User } from '../../../shared/Models/user';
-import { AuthenticationService } from '../auth.service';
 import * as AuthActions from '../../../shared/Store/auth/auth.actions';
-import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,9 +15,7 @@ export class LoginComponent extends BaseClass implements OnInit {
 
   constructor(
     appService:AppService,
-    private authenticationService:AuthenticationService,
     private store: Store,
-    private router: Router
     ) {
     super(appService);
     this.loginForm = this.createLoginFormGroup();

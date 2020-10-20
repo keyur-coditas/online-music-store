@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AppService } from 'src/shared/app.service';
-import { BaseClass } from 'src/shared/BaseClass';
+import { BaseClass } from 'src/shared/baseClass';
 import { User } from '../../../shared/Models/user';
 import { AuthenticationService } from '../auth.service';
 

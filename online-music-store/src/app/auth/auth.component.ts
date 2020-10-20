@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/shared/app.service';
-import { BaseClass } from 'src/shared/BaseClass';
+import { BaseClass } from 'src/shared/baseClass';
 import * as APP_CONSTANTS from '../../shared/app.constants';
 @Component({
   selector: 'app-auth',

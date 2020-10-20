@@ -35,7 +35,7 @@ export class AuthEffects {
             return this.actions.pipe(
                  ofType(AuthActions.LOGIN_SUCCESS),
                  tap((action:any) => {
-                    localStorage.setItem('token', action.payload.accessToken);
+                    sessionStorage.setItem('accessToken', action.payload.accessToken);
                     alert('You have logged in successfully');
                     this.router.navigate(['products']);
                  }
@@ -57,7 +57,7 @@ export class AuthEffects {
             return this.actions.pipe(
                  ofType(AuthActions.LOGOUT),
                  tap((action) => {
-                    localStorage.clear();
+                    sessionStorage.clear();
                     this.router.navigate(['auth']);
                  }
                 )

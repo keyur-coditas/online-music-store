@@ -17,6 +17,7 @@ import { ProductsComponent } from './products/products.component';
 import { CardComponent } from './products/card/card.component';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from 'src/shared/Store/auth/auth.effects';
+import { ProductOperationsComponent } from './products/product-operations/product-operations.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AuthEffects } from 'src/shared/Store/auth/auth.effects';
     LoginComponent,
     RegistrationComponent,
     ProductsComponent,
-    CardComponent
+    CardComponent,
+    ProductOperationsComponent
   ],
   imports: [
     BrowserModule,

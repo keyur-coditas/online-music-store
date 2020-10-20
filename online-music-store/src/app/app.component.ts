@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AppService } from 'src/shared/app.service';
-import { BaseClass } from '../shared/BaseClass';
+import { BaseClass } from '../shared/baseClass';
 
 
 @Component({
