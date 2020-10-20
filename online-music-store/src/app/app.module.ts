@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import * as AuthReducer from '../shared/Store/auth/auth.reducer'
 import { AuthenticationService } from './auth/auth.service';
+import { ProductsComponent } from './products/products.component';
+import { CardComponent } from './products/card/card.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { AuthenticationService } from './auth/auth.service';
     FooterComponent,
     AuthComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ProductsComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

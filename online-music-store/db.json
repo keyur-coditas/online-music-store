@@ -10,5 +10,15 @@
       "password": "keyur@123",
       "id": 2
     }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Yamaha, Acoustic Guitar F310 /Natural",
+      "description": "Yamaha F310 is an excellent quality instrument. Its dreadnought style body provides loud acoustic tone with comfortable playability.",
+      "createdBy": 1,
+      "imageUrl":"assets/images/yamaha_acoustic.webp",
+      "price": 13990
+    }
   ]
 }

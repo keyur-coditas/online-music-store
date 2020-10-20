@@ -1,0 +1,32 @@
+@import '../../../styles/variables.scss';
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 20%;
+    border-radius: 5px;
+    background-color: $white;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .product-image {
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .container {
+    padding: 2px 16px;
+  }
+  .card-font-small {
+      font-size: 0.8rem;
+  }
+  .card-font-medium {
+      font-size: 0.9rem;
+  }
+  .card-header-margin {
+    margin: 0.8rem;
+}
+.card-details-margin {
+    margin: 0.5rem;
+}

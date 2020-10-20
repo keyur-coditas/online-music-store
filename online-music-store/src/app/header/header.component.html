@@ -5,7 +5,7 @@
     
     <div class="header-logout">
         <div>
-            <button tyle="button" (click)="changeTheme()" class="str-btn" [ngClass]="[themeReference.BTN_BACKGROUND_COLOR , themeReference.BTN_COLOR]">{{theme}}</button>
+            <button tyle="button" (click)="changeTheme()" class="str-btn" [ngClass]="[themeReference.BTN_BACKGROUND_COLOR , themeReference.BTN_COLOR]">Change theme to {{theme === 'dark'?'light':'dark'}}</button>
         </div>
         <div>
             <button tyle="button" class="str-btn" [ngClass]="[themeReference.BTN_BACKGROUND_COLOR , themeReference.BTN_COLOR]">Logout</button>
