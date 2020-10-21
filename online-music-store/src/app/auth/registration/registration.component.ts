@@ -1,10 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { AppService } from 'src/shared/app.service';
-import { BaseClass } from 'src/shared/baseClass';
-import { User } from '../../../shared/Models/user';
+import { AppService } from '../../shared/app.service';
+import { BaseClass } from '../../shared/baseClass';
+import { User } from '../../shared/Models/user';
 import { AuthenticationService } from '../auth.service';
-import * as AuthActions from '../../../shared/Store/auth/auth.actions';
+import * as AuthActions from '../../shared/Store/auth/auth.actions';
 import { Store } from '@ngrx/store';
 @Component({
   selector: 'app-registration',

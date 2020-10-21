@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Action, Store } from '@ngrx/store';
-import { User } from '../../shared/Store/auth/user.model';
-import { Product } from '../../shared/Models/product';
+import { User } from '../shared/Store/auth/user.model';
+import { Product } from '../shared/Models/product';
 import { ProductService } from './products.service';
-import * as ProductActions from '../../shared/Store/products/product.actions';
+import * as ProductActions from '../shared/Store/products/product.actions';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',

@@ -1,12 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { AppService } from 'src/shared/app.service';
-import { BaseClass } from 'src/shared/baseClass';
-import { PRODUCT_ADD_ATTEMPT } from 'src/shared/Store/products/product.actions';
+import { AppService } from '../../shared/app.service';
+import { BaseClass } from '../../shared/baseClass';
 import { ProductService } from '../products.service';
-import * as ProductActions from '../../../shared//Store/products/product.actions';
-import { Product } from '../../../shared/Store/products/products.model';
+import * as ProductActions from '../../shared//Store/products/product.actions';
+import { Product } from '../../shared/Store/products/products.model';
 @Component({
   selector: 'app-product-operations',
   templateUrl: './product-operations.component.html',

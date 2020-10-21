@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/shared/app.service';
-import { BaseClass } from 'src/shared/baseClass';
+import { AppService } from '../shared/app.service';
+import { BaseClass } from '../shared/baseClass';
 
 @Component({
   selector: 'app-footer',

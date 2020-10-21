@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { User } from '../../shared/Models/user';
-import * as URL_CONSTANTS from '../../shared/urls';
+import { User } from '../shared/Models/user';
+import * as URL_CONSTANTS from '../shared/urls';
 
 @Injectable({providedIn: 'root'})
 export class AuthenticationService {
