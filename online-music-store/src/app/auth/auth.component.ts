@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../shared/app.service';
-import { BaseClass } from '../shared/baseClass';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent extends BaseClass implements OnInit {
+export class AuthComponent  implements OnInit {
   activeTab = 'registration';
-  constructor(appService:AppService) {
-    super(appService);
+  constructor() {
+
    }
 
   ngOnInit(): void {
@@ -17,8 +16,5 @@ export class AuthComponent extends BaseClass implements OnInit {
 
   changeTab(tab:string) {
     this.activeTab = tab;
-  }
-  getClass() {
-      return this.themeReference.ACTIVE_TAB;
   }
 }

@@ -1,5 +1,7 @@
 @import '../../../styles/variables.scss';
 
-.registration-submit-btn {
+.str-submit-btn {
     width:8rem;
+    background-color: var(--form-btn-background);
+    color: var(--form-btn-color);
 }

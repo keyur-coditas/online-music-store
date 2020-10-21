@@ -1,8 +1,8 @@
 <div class="container">
     <div class="tab-container">
-        <ul class="tabs-wrapper" [ngClass]="[themeReference.TAB_TEXT_COLOR]">
-            <li class="tab" [class]="themeReference.TAB_TYPE" [class.active]="activeTab === 'login'" (click)="changeTab('login')">Login</li>
-            <li class="tab" [class]="themeReference.TAB_TYPE" [class.active]="activeTab === 'registration'"  (click)="changeTab('registration')">Register</li>
+        <ul class="tabs-wrapper">
+            <li class="tab" [class.active]="activeTab === 'login'" (click)="changeTab('login')">Login</li>
+            <li class="tab" [class.active]="activeTab === 'registration'"  (click)="changeTab('registration')">Register</li>
         </ul>
     </div>
     <div class="tab-content" [ngSwitch]="activeTab">

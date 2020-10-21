@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppService } from '../../shared/app.service';
-import { BaseClass } from '../../shared/baseClass';
 import { User } from '../../shared/Models/user';
 import * as AuthActions from '../../shared/Store/auth/auth.actions';
 @Component({
@@ -10,14 +9,12 @@ import * as AuthActions from '../../shared/Store/auth/auth.actions';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent extends BaseClass implements OnInit {
+export class LoginComponent  implements OnInit {
   loginForm: any;
 
   constructor(
-    appService:AppService,
-    private store: Store,
+    private store: Store
     ) {
-    super(appService);
     this.loginForm = this.createLoginFormGroup();
    }
 

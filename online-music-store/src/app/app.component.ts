@@ -1,6 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AppService } from './shared/app.service';
-import { BaseClass } from './shared/baseClass';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -8,20 +6,14 @@ import { BaseClass } from './shared/baseClass';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent extends BaseClass implements OnInit, OnDestroy{
+export class AppComponent implements OnInit{
   
-  constructor(public appService: AppService) {
-    super(appService);
+  constructor() {
+
   }
   
   ngOnInit(): void {
   }
 
-  changeTheme() {
-    this.appService.changeTheme(this.theme);
-  }
-  
-  ngOnDestroy(): void {
-    this.destroyThemeSubscription();
-  }
+
 }

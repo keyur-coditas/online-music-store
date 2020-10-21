@@ -3,8 +3,13 @@
     display: flex;
     justify-content: space-between;
     padding:15px;
+    background-color: var(--header-background-color);
 }
 .header-logout {
     display:flex;
     align-items: center;
+}
+.str-btn-colors {
+    background-color: var(--btn-background);
+    color: var(--btn-color);
 }

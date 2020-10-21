@@ -1,6 +1,4 @@
 @import './styles/variables.scss';
-@import './styles/themes/dark.scss';
-@import './styles/themes/light.scss';
 @import './styles//utils.scss';
 
 html, body, app-root {
@@ -19,4 +17,19 @@ html, body, app-root {
   main {
     overflow-y: auto;
     flex: auto;
+  }
+
+  // theme variables
+  :root {
+    --header-background-color: #cd0029;
+    --body-background-color: #fff;
+    --footer-background-color: #eaeaea;
+    --footer-color: #cd0029;
+    --btn-background: #fff;
+    --btn-color: #CC0028;
+    --tab-active-background: #cd0029;
+    --tab-active-color: #fff;
+    --tab-wrapper-color: #ec1313;
+    --form-btn-background: #cd0029;
+    --form-btn-color: #fff;
   }

@@ -1,7 +1,9 @@
 @import '../../styles/variables.scss'; 
 
 
-.footer {
+.str-footer {
     padding:15px;
     font-size: 10px;
+    background-color: var(--footer-background-color);
+    color: var(--footer-color);
 }

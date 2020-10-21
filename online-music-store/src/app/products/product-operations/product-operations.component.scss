@@ -6,8 +6,10 @@
     border-radius: 5px;
 }
 
-.registration-submit-btn {
+.str-submit-btn {
     width:8rem;
+    background-color: var(--form-btn-background);
+    color: var(--form-btn-color);
 }
 .image-label {
     font-size: 12px;

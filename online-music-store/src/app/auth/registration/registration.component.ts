@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AppService } from '../../shared/app.service';
-import { BaseClass } from '../../shared/baseClass';
 import { User } from '../../shared/Models/user';
 import { AuthenticationService } from '../auth.service';
 import * as AuthActions from '../../shared/Store/auth/auth.actions';
@@ -11,14 +10,12 @@ import { Store } from '@ngrx/store';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent extends BaseClass implements OnInit {
+export class RegistrationComponent  implements OnInit {
   registrationForm: FormGroup;
   constructor(
-     appService:AppService,
      private authenticationService:AuthenticationService,
      private store: Store
      ) {
-    super(appService);
     this.registrationForm = this.createRegistrationFormGroup();
    }
 

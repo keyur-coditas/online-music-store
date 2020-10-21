@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppService } from '../../shared/app.service';
-import { BaseClass } from '../../shared/baseClass';
 import { ProductService } from '../products.service';
 import * as ProductActions from '../../shared//Store/products/product.actions';
 import { Product } from '../../shared/Store/products/products.model';
@@ -11,16 +10,16 @@ import { Product } from '../../shared/Store/products/products.model';
   templateUrl: './product-operations.component.html',
   styleUrls: ['./product-operations.component.scss']
 })
-export class ProductOperationsComponent extends BaseClass implements OnInit, OnDestroy {
+export class ProductOperationsComponent implements OnInit {
   productForm: FormGroup;
   productOperation: string;
   imagePath: string = '';
   path: string = '../../../assets/images/';
   currentUser: any;
-  constructor(appService: AppService,
+  constructor(
     private productService:ProductService,
     private store: Store) {
-    super(appService);
+
    }
 
   ngOnInit(): void {
@@ -56,7 +55,4 @@ export class ProductOperationsComponent extends BaseClass implements OnInit, OnD
   }
   }
 
-  ngOnDestroy(): void {
-    this.destroyThemeSubscription();
-  }
 }

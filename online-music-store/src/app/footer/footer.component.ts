@@ -1,25 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../shared/app.service';
-import { BaseClass } from '../shared/baseClass';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent extends BaseClass implements OnInit {
+export class FooterComponent  implements OnInit {
 
-  constructor(appService:AppService) {
-    super(appService);
+  constructor() {
    }
 
    ngOnInit(): void {
-    this.initializeThemeSubscription();
   }
 
   
   ngOnDestroy(): void {
-    this.destroyThemeSubscription();
   }
 
 }
