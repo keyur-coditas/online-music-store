@@ -21,5 +21,46 @@
       "id": 4
     }
   ],
-  "products": []
+  "products": [
+    {
+      "name": "Yamaha, Acoustic Guitar FX310 /Natural",
+      "description": "Unbeatable value has made the dreadnought-style F310 a best seller. The perfect choice for discerning beginners, and also available as an electro-acoustic.",
+      "price": 14990,
+      "imageUrl": "../../../assets/images/yamaha_acoustic.webp",
+      "createdBy": "keyur2@coditas.com",
+      "id": 1
+    },
+    {
+      "name": " Yamaha, Acoustic Guitar F310 /Tobacco Brown",
+      "description": "Unbeatable value has made the dreadnought-style F310 a best seller. The perfect choice for discerning beginners, and also available as an electro-acoustic.",
+      "price": 9490,
+      "imageUrl": "../../../assets/images/yamaha_classical_guitar_c40.webp",
+      "createdBy": "keyur2@coditas.com",
+      "id": 2
+    },
+    {
+      "name": " Chateau, Acoustic Guitar, 41\", W305 -Black",
+      "description": "Unbeatable value has made the dreadnought-style F310 a best seller. The perfect choice for discerning beginners, and also available as an electro-acoustic.",
+      "price": 9250,
+      "imageUrl": "../../../assets/images/chateau_acoustic_guitar.webp",
+      "createdBy": "keyur2@coditas.com",
+      "id": 3
+    },
+    {
+      "name": "Pearl, Drum Set, 5 Pcs, Roadshow, Junior,",
+      "description": "Two Durable Covered Finishes 6-ply Poplar Shells Sturdy Hardware Package Dual-Point Cast Tuning Lugs 1 Ply Coated Snare Drum Head Coated Snare Drum Head",
+      "price": 29750,
+      "imageUrl": "../../../assets/images/drumset.webp",
+      "createdBy": "keyur2@coditas.com",
+      "id": 4
+    },
+    {
+      "name": "Chancellor, Drum Set, JBP0803, 5 Pcs, with Black",
+      "description": "This 5-piece Chancellor Drum set is an awesome bargain. Strongly recommended for all drummers and aspiring bands.",
+      "price": 24150,
+      "imageUrl": "../../../assets/images/evans_bass_drumhead2.webp",
+      "createdBy": "keyur2@coditas.com",
+      "id": 5
+    }
+  ]
 }

@@ -5,6 +5,7 @@ import { ProductService } from '../products.service';
 import * as ProductActions from '../../shared/store/products/product.actions';
 import { Product } from '../../shared/store/products/products.model';
 import * as APP_CONSTANTS from '../../shared/app.constants';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-product-operations',
   templateUrl: './product-operations.component.html',
@@ -24,7 +25,8 @@ export class ProductOperationsComponent implements OnInit {
   imageUrl: FormControl;
   constructor(
     private productService:ProductService,
-    private store: Store) {
+    private store: Store,
+    private router: Router) {
 
    }
 
@@ -81,5 +83,7 @@ initializeFormData() {
   this.price.setValue(price);
   this.description.setValue(description);
 }
-
+  cancel() {
+    this.router.navigate(['products']);
+  }
 }

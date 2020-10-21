@@ -18,5 +18,13 @@ export class AppService {
                 this.themeSubject.next('light');
             }
     }
+
+    isAuthenticated() {
+        if(sessionStorage.getItem('accessToken')) {
+            return true;
+        } else {
+            return false
+        }
+    }
     
 }

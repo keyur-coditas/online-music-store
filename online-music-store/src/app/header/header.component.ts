@@ -14,7 +14,8 @@ import { ThemeService } from '../shared/theme.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(appService: AppService,
+  constructor(
+     private appService: AppService,
      private store: Store,
      private router:Router,
      private productService: ProductService,
@@ -37,5 +38,7 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.store.dispatch(AuthActions.logout());
   }
-
+  isAuthenticated() {
+    return this.appService.isAuthenticated();
+  }
 }
