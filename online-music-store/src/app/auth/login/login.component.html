@@ -3,9 +3,15 @@
         <div>
             <div>
                 <input class="str-input" type="email" formControlName="email" placeholder="Enter your email" />
+                <div>
+                    <span class="str-error-msg-class" *ngIf="email.touched && email.invalid">Email is required</span>
+                </div>
             </div>
             <div>
                 <input class="str-input" type="password" formControlName="password" placeholder="Enter password" />
+                <div>
+                    <span class="str-error-msg-class" *ngIf="password.touched && password.invalid">Password is required</span>
+                </div>
             </div>
         </div>
         <div class="text-center">

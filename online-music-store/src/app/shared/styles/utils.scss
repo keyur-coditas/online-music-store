@@ -34,6 +34,11 @@
     padding-left: 10px;
 }
 
+.str-error-msg-class {
+    font-size: 12px;
+    color: $lighter-red;
+}
+
 @media screen and (max-width: 720px) {
    .str-input{
     width: 90%;

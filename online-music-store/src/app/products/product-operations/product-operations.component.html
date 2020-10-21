@@ -4,9 +4,15 @@
         <div class="text-center">
             <div>
                 <input class="str-input" type="text" formControlName="name" placeholder="Enter product name" />
+                <div class="str-product-error">
+                    <span class="str-error-msg-class" *ngIf="name.touched && name.invalid">Product name is required</span>
+                </div>
             </div>
             <div>
                 <input class="str-input" type="number" formControlName="price" placeholder="Enter price" />
+                <div class="str-product-error">
+                    <span class="str-error-msg-class" *ngIf="price.touched && price.invalid">Product price is required</span>
+                </div>
             </div>
             <div>
                 <textarea class="str-textarea" name="description" id="" cols="30" formControlName="description" rows="10" placeholder="Add a brief description of the product"></textarea>

@@ -4,7 +4,7 @@
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "types": [
-      "jest", "jquery", "jsdom", "node"
+      "jest", "node"
     ],
     "module": "commonjs",
     "allowJs": true,
