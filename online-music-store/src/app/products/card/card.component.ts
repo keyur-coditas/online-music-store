@@ -26,7 +26,6 @@ export class CardComponent implements OnInit {
   }
 
   updateProduct() {
-    console.log('update called ');
     this.productService.setProductOperation(APP_CONSTANTS.PRODUCT_UPDATE);
     this.productService.setProduct(this.product);
     this.router.navigate(['products/product-update']);
@@ -35,5 +34,9 @@ export class CardComponent implements OnInit {
     const product = this.product;
     this.store.dispatch(ProductActions.productDeleteAttempt({product}))
   }
-
+  viewProduct() {
+    this.productService.setProductOperation(APP_CONSTANTS.PRODUCT_VIEW);
+    this.productService.setProduct(this.product);
+    this.router.navigate(['products/product-update']);
+  }
 }

@@ -33,19 +33,20 @@ export class ProductOperationsComponent implements OnInit {
   ngOnInit(): void {
     this.productOperation = this.productService.getProductOperation();
     this.productForm = this.createProductFormGroup();
-    if(this.productOperation === APP_CONSTANTS.PRODUCT_UPDATE) {
+    if(this.productOperation === APP_CONSTANTS.PRODUCT_UPDATE || this.productOperation === APP_CONSTANTS.PRODUCT_VIEW) {
      this.selectedProduct = this.productService.getProduct();
      this.initializeFormData();
     } 
      this.store.subscribe((data:any) => {
       this.currentUser = data.auth.currentUser.email;
+
      })
   }
 
   createProductFormGroup() {
-    this.name = new FormControl('', [Validators.required]);
-    this.description = new FormControl();
-    this.price = new FormControl('',[Validators.required]);
+    this.name = new FormControl({value:''}, [Validators.required]);
+    this.description = new FormControl({value:''});
+    this.price = new FormControl({value:''},[Validators.required]);
     this.imageUrl = new FormControl();
     return new FormGroup({
         name: this.name,
@@ -85,5 +86,8 @@ initializeFormData() {
 }
   cancel() {
     this.router.navigate(['products']);
+  }
+  isFormFieldDisabled() {
+    return this.currentUser !== this.selectedProduct.createdBy;
   }
 }

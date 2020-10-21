@@ -9,25 +9,26 @@
                 </div>
             </div>
             <div>
-                <input class="str-input" type="number" formControlName="price" placeholder="Enter price" />
+                <input class="str-input" type="number" formControlName="price" placeholder="Enter price"  />
                 <div class="str-product-error">
                     <span class="str-error-msg-class" *ngIf="price.touched && price.invalid">Product price is required</span>
                 </div>
             </div>
             <div>
-                <textarea class="str-textarea" name="description" id="" cols="30" formControlName="description" rows="10" placeholder="Add a brief description of the product"></textarea>
+                <textarea class="str-textarea" name="description" id="" cols="30" formControlName="description" rows="10" placeholder="Add a brief description of the product">
+                </textarea>
             </div>
             <div *ngIf="imageUrlPreview">
                 <img width="200" height="200" [src]="imageUrlPreview" alt="">
             </div>
             <div>
-                <label for="" class="image-label">Choose a product image</label>
+                <label for="" class="image-label" >Choose a product image</label>
                 <input type="file" #filePicker formControlName="imageUrl" path="../../../assets/images/"  (change)="onImagePicked($event)">
             </div>
         </div>
         <div class="text-center">
             <button class="str-submit-btn str-btn" >{{productOperation }} Product</button>
-            <button class="str-submit-btn str-btn" (click)="cancel()">Cancel</button>
+            <button class="str-submit-btn str-btn" (click)="cancel()" >Cancel</button>
         </div>
     </form>
 </div>
