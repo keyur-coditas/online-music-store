@@ -8,7 +8,7 @@
         <p class="text-center card-font-small card-details-margin"><b><span>&#8377; </span> {{product.price}}</b></p>
     </div>
     <div class="text-center str-card-buttons-container">
-        <button class="str-card-buttons str-btn" type="button" (click)="updateProduct()">Update</button>
-        <button class="str-card-buttons str-btn" type="button" (click)="deleteProduct()">Delete</button>
+        <button *ngIf="currentUser === product.createdBy" class="str-card-buttons str-btn" type="button" (click)="updateProduct()">Update</button>
+        <button *ngIf="currentUser === product.createdBy" class="str-card-buttons str-btn" type="button" (click)="deleteProduct()">Delete</button>
     </div>
 </div>

@@ -13,12 +13,16 @@ import * as ProductActions from '../../shared/store/products/product.actions';
 export class CardComponent implements OnInit {
 
   @Input() product: Product;
-
+  currentUser: any = ''
   constructor(private productService:ProductService,
     private router: Router,
     private store: Store) { }
 
   ngOnInit(): void {
+     this.store.subscribe((data:any) => {
+      this.currentUser = data.auth.currentUser.email;
+      console.log("data", this.currentUser, this.product);
+    })
   }
 
   updateProduct() {
