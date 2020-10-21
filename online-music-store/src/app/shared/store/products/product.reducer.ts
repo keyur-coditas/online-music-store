@@ -23,6 +23,19 @@ on(ProductActions.productFetchSuccess, (state, payload:any) => {
       ...state,
       products: payload.payload.data
   }
+}),
+on(ProductActions.productUpdateSuccess, (state, payload:any) => {
+  console.log('data ', payload);
+  return {
+      ...state,
+      products: [...state.products, payload.payload.data]
+  }
+}),
+on(ProductActions.productDeleteSuccess, (state, payload:any) => {
+  console.log('data ', payload);
+  return {
+      
+  }
 })
 );
 

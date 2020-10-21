@@ -21,46 +21,5 @@
       "id": 4
     }
   ],
-  "products": [
-    {
-      "id": 1,
-      "name": "Yamaha, Acoustic Guitar F310 /Natural",
-      "description": "Yamaha F310 is an excellent quality instrument. Its dreadnought style body provides loud acoustic tone with comfortable playability.",
-      "createdBy": 1,
-      "imageUrl": "assets/images/yamaha_acoustic.webp",
-      "price": 13990
-    },
-    {
-      "name": "Yamaha, Classical Guitar C40 /Natural",
-      "description": "The C40 might be one of Yamaha's most inexpensive full-size classical models, but its quality and tone are outstanding. A real bargain for beginners.",
-      "price": 7190,
-      "imageUrl": "../../../assets/images/yamaha_classical_guitar_c40.webp",
-      "createdBy": "keyur@coditas.com",
-      "id": 2
-    },
-    {
-      "name": "Yamaha, Classical Guitar C40 /Natural",
-      "description": "The C40 might be one of Yamaha's most inexpensive full-size classical models, but its quality and tone are outstanding. A real bargain for beginners.",
-      "price": 7190,
-      "imageUrl": "../../../assets/images/yamaha_classical_guitar_c40.webp",
-      "createdBy": "keyur@coditas.com",
-      "id": 3
-    },
-    {
-      "name": " Evans, Bass Drumhead, EMAD 22\"(55.88 cm) Batter Clr BD22EMAD",
-      "description": "An ideal balance of punch, power, and low-end...the EMAD is a 10mil 1-ply head that employs an externally mounted adjustable damping system.",
-      "price": 3056,
-      "imageUrl": "../../../assets/images/evans_bass_drumhead.webp",
-      "createdBy": "",
-      "id": 4
-    },
-    {
-      "name": " Evans, Bass Drumhead, Calftone 22\"(55.88 cm) Batter BD22CT",
-      "description": "Evans™ Calftone drumheads are a synthetic alternative to traditional calfskin. They ",
-      "price": 3328,
-      "imageUrl": "../../../assets/images/evans_bass_drumhead2.webp",
-      "createdBy": "keyur2@coditas.com",
-      "id": 5
-    }
-  ]
+  "products": []
 }

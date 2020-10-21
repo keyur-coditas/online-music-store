@@ -4,4 +4,5 @@ export interface Product {
     imageUrl: string;
     createdBy: number;
     price: number;
+    id?: number;
 }

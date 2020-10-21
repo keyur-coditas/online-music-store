@@ -54,4 +54,77 @@ export class ProductEffects {
                 )
              )
          })
+
+         productsUpdateAttempt = createEffect(() => {
+            return this.actions.pipe(
+                 ofType(ProductActions.PRODUCT_UPDATE_ATTEMPT),
+                 mergeMap((action:any) => this.productsService.updateProduct(action.product)
+                     .pipe(
+                         map((data:any) => {
+                             console.log('data ', data);
+                           return { type: ProductActions.PRODUCT_UPDATE_SUCCESS, payload: {data} }
+                         }),
+                         catchError((error) => ( of({type: ProductActions.PRODUCT_UPDATE_FAILURE})) )
+                     )
+                )
+             )
+         })
+
+         productsUpdateSuccess = createEffect(() => {
+            return this.actions.pipe(
+                ofType(ProductActions.PRODUCT_UPDATE_SUCCESS),
+                tap((action:any) => {
+                   alert('You have updated product successfully');
+                   this.router.navigate(['products']);
+                }
+               )
+            )
+         }, {dispatch: false})
+
+         productsUpdateFailure = createEffect(() => {
+            return this.actions.pipe(
+                ofType(ProductActions.PRODUCT_UPDATE_FAILURE),
+                tap((action:any) => {
+                   alert('Could not update product');
+                   this.router.navigate(['products']);
+                }
+               )
+            )
+         }, {dispatch: false})
+
+
+         productsDeleteAttempt = createEffect(() => {
+            return this.actions.pipe(
+                 ofType(ProductActions.PRODUCT_DELETE_ATTEMPT),
+                 mergeMap((action:any) => this.productsService.deleteProduct(action.product)
+                     .pipe(
+                         map((data:any) => {
+                             console.log('data ', data);
+                           return { type: ProductActions.PRODUCT_DELETE_SUCCESS, payload: {data} }
+                         }),
+                         catchError((error) => ( of({type: ProductActions.PRODUCT_DELETE_FAILURE})) )
+                     )
+                )
+             )
+         })
+
+         productsDeleteSuccess = createEffect(() => {
+            return this.actions.pipe(
+                ofType(ProductActions.PRODUCT_DELETE_SUCCESS),
+                tap((action:any) => {
+                   alert('You have deleted the product successfully');
+                }
+               )
+            )
+         }, {dispatch: false})
+
+         productsDeleteFailure = createEffect(() => {
+            return this.actions.pipe(
+                ofType(ProductActions.PRODUCT_DELETE_FAILURE),
+                tap((action:any) => {
+                   alert('Could not delete product');
+                }
+               )
+            )
+         }, {dispatch: false})
 }

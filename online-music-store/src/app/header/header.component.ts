@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppService } from '../shared/app.service';
-import * as AuthActions from '../shared/Store/auth/auth.actions';
+import * as AuthActions from '../shared/store/auth/auth.actions';
 import { ProductService } from '../products/products.service';
 import * as APP_CONSTANTS from '../shared/app.constants';
 import { ThemeService } from '../shared/theme.service';

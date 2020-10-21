@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppService } from '../../shared/app.service';
 import { User } from '../../shared/Models/user';
-import * as AuthActions from '../../shared/Store/auth/auth.actions';
+import * as AuthActions from '../../shared/store/auth/auth.actions';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

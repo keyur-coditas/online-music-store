@@ -11,6 +11,9 @@
             <div>
                 <textarea class="str-textarea" name="description" id="" cols="30" formControlName="description" rows="10" placeholder="Add a brief description of the product"></textarea>
             </div>
+            <div *ngIf="imageUrlPreview">
+                <img width="200" height="200" [src]="imageUrlPreview" alt="">
+            </div>
             <div>
                 <label for="" class="image-label">Choose a product image</label>
                 <input type="file" #filePicker formControlName="imageUrl" path="../../../assets/images/"  (change)="onImagePicked($event)">
