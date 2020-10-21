@@ -33,3 +33,12 @@
     margin: 15px auto 0px 0px;
     padding-left: 10px;
 }
+
+@media screen and (max-width: 720px) {
+   .str-input{
+    width: 90%;
+   }
+   .str-textarea {
+       width: 90%;
+   }
+  }

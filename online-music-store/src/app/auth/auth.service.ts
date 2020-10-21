@@ -8,7 +8,6 @@ export class AuthenticationService {
     constructor(private httpService: HttpClient) {}
 
     register(user:User) {
-      console.log('user ', user);
       let {email, password} = user;
        return this.httpService.post(URL_CONSTANTS.HOST + URL_CONSTANTS.REGISTER, {email, password});
     }

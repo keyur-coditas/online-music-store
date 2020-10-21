@@ -47,7 +47,6 @@ export class ProductEffects {
                  mergeMap((action:any) => this.productsService.getAllProducts()
                      .pipe(
                          map((data:any) => {
-                             console.log('data ', data);
                            return { type: ProductActions.PRODUCT_FETCH_SUCCESS, payload: {data} }
                          }),
                          catchError((error) => ( of({type: ProductActions.PRODUCT_ADD_FAILURE})) )

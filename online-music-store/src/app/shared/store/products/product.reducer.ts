@@ -13,7 +13,6 @@ export const initialState: ProductsState = {
 const productsReducer = createReducer(
   initialState,
   on(ProductActions.productAddSuccess, (state, payload:any) => {
-    console.log('product ', payload);
     return {
         ...state,
         products: [...state.products, payload ]

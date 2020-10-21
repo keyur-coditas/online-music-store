@@ -48,11 +48,19 @@
     },
     {
       "name": " Evans, Bass Drumhead, EMAD 22\"(55.88 cm) Batter Clr BD22EMAD",
-      "description": "An ideal balance of punch, power, and low-end...the EMAD is a 10mil 1-ply head that employs an externally mounted adjustable damping system with two interchangeable damping rings that allow the player to adjust attack and focus. On an empty drum and tuned high, the EMAD delivers a centered pitch that reinforces the bass line.",
+      "description": "An ideal balance of punch, power, and low-end...the EMAD is a 10mil 1-ply head that employs an externally mounted adjustable damping system.",
       "price": 3056,
       "imageUrl": "../../../assets/images/evans_bass_drumhead.webp",
       "createdBy": "",
       "id": 4
+    },
+    {
+      "name": " Evans, Bass Drumhead, Calftone 22\"(55.88 cm) Batter BD22CT",
+      "description": "Evans™ Calftone drumheads are a synthetic alternative to traditional calfskin. They ",
+      "price": 3328,
+      "imageUrl": "../../../assets/images/evans_bass_drumhead2.webp",
+      "createdBy": "keyur2@coditas.com",
+      "id": 5
     }
   ]
 }

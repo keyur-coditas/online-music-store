@@ -70,7 +70,6 @@ export class AuthEffects {
                  mergeMap((action:any) => this.authService.register(action)
                      .pipe(
                          map((data:any) => {
-                             console.log('data ', data);
                             let email = action.email;
                             let accessToken = data.accessToken
                            return { type: AuthActions.SIGNUP_SUCCESS, payload: {email, accessToken} }
