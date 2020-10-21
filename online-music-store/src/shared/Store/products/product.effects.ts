@@ -19,7 +19,7 @@ export class ProductEffects {
         productAddAttempt = createEffect(() => {
             return this.actions.pipe(
                  ofType(ProductActions.PRODUCT_ADD_ATTEMPT),
-                 mergeMap((action:any) => this.productsService.addProduct(action)
+                 mergeMap((action:any) => this.productsService.addProduct(action.product)
                      .pipe(
                          map((data:any) => {
                            return { type: ProductActions.PRODUCT_ADD_SUCCESS, payload: {data} }
@@ -47,6 +47,7 @@ export class ProductEffects {
                  mergeMap((action:any) => this.productsService.getAllProducts()
                      .pipe(
                          map((data:any) => {
+                             console.log('data ', data);
                            return { type: ProductActions.PRODUCT_FETCH_SUCCESS, payload: {data} }
                          }),
                          catchError((error) => ( of({type: ProductActions.PRODUCT_ADD_FAILURE})) )

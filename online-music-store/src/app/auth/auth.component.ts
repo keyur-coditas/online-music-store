@@ -22,7 +22,4 @@ export class AuthComponent extends BaseClass implements OnInit {
   getClass() {
       return this.themeReference.ACTIVE_TAB;
   }
-  userRegistered() {
-    this.activeTab = 'login';
-  }
 }

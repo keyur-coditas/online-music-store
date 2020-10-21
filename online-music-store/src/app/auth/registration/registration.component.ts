@@ -4,7 +4,8 @@ import { AppService } from 'src/shared/app.service';
 import { BaseClass } from 'src/shared/baseClass';
 import { User } from '../../../shared/Models/user';
 import { AuthenticationService } from '../auth.service';
-
+import * as AuthActions from '../../../shared/Store/auth/auth.actions';
+import { Store } from '@ngrx/store';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -12,10 +13,10 @@ import { AuthenticationService } from '../auth.service';
 })
 export class RegistrationComponent extends BaseClass implements OnInit {
   registrationForm: FormGroup;
-  @Output() userRegisrered = new EventEmitter();
   constructor(
      appService:AppService,
-     private authenticationService:AuthenticationService
+     private authenticationService:AuthenticationService,
+     private store: Store
      ) {
     super(appService);
     this.registrationForm = this.createRegistrationFormGroup();
@@ -33,6 +34,7 @@ export class RegistrationComponent extends BaseClass implements OnInit {
   }
 
   onSubmit() {
+    let email = this.registrationForm.controls['email'].value;
     let password = this.registrationForm.controls['password'].value;
     let cnfmpassword = this.registrationForm.controls['confirmPassword'].value;
     if(password === cnfmpassword) {
@@ -40,10 +42,7 @@ export class RegistrationComponent extends BaseClass implements OnInit {
         email: this.registrationForm.controls['email'].value,
         password: this.registrationForm.controls['password'].value,
       }
-      this.authenticationService.register(user).subscribe(data => {
-       alert('You have been registered successfully! Please login to continue');
-       this.userRegisrered.emit();
-      });
+      this.store.dispatch(AuthActions.signup({email, password}));
     } else {
 
     }

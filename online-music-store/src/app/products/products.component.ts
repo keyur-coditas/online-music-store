@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
     });
     this.store.dispatch(ProductActions.productFetchAttempt());
     this.store.subscribe((data) => {
-      console.log('val ', data);
+      this.products = data.products.products;
     })
   }
 

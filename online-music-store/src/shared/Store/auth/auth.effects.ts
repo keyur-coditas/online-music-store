@@ -47,7 +47,7 @@ export class AuthEffects {
             return this.actions.pipe(
                  ofType(AuthActions.LOGIN_FAILURE),
                  tap((action) => {
-                    //  console.log('login successful ', action);
+                   sessionStorage.clear();
                  }
                 )
              )
@@ -64,4 +64,40 @@ export class AuthEffects {
              )
          }, {dispatch: false})
         
+         signupAttempt = createEffect(() => {
+            return this.actions.pipe(
+                 ofType(AuthActions.SIGNUP_ATTEMPT),
+                 mergeMap((action:any) => this.authService.register(action)
+                     .pipe(
+                         map((data:any) => {
+                             console.log('data ', data);
+                            let email = action.email;
+                            let accessToken = data.accessToken
+                           return { type: AuthActions.SIGNUP_SUCCESS, payload: {email, accessToken} }
+                         }),
+                         catchError((error) => ( of({type: AuthActions.SIGNUP_FAILURE})) )
+                     )
+                )
+             )
+         })
+
+         signupSuccess = createEffect(() => {
+            return this.actions.pipe(
+                 ofType(AuthActions.SIGNUP_SUCCESS),
+                 tap((action) => {
+                     alert('You have been registered successfully! Please login to continue');
+                 }
+                )
+             )
+         }, {dispatch: false})
+
+         signupFailure = createEffect(() => {
+            return this.actions.pipe(
+                 ofType(AuthActions.SIGNUP_FAILURE),
+                 tap((action) => {
+                     sessionStorage.clear();
+                 }
+                )
+             )
+         }, {dispatch: false})
 }

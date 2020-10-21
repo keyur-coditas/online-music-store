@@ -13,17 +13,16 @@ export const initialState: ProductsState = {
 const productsReducer = createReducer(
   initialState,
   on(ProductActions.productAddSuccess, (state, payload:any) => {
-      const stateCopy = { ...state};
-      stateCopy.products.push(payload);
-      const updatedState = {...stateCopy}
+    console.log('product ', payload);
     return {
         ...state,
-        products: [...state.products, ...updatedState.products ]
+        products: [...state.products, payload ]
     }
 }),
-on(ProductActions.productFetchSuccess, (state) => {
+on(ProductActions.productFetchSuccess, (state, payload:any) => {
   return {
-      ...state
+      ...state,
+      products: payload.payload.data
   }
 })
 );

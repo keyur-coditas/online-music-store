@@ -9,6 +9,16 @@
       "email": "xyz@gmail.com",
       "password": "$2a$10$JJJhQylcLUt.eaiYX6fL/uYKpEW5B7lTDg1.gdJ6Kr2qQUpZrA85q",
       "id": 2
+    },
+    {
+      "email": "keyur2@coditas.com",
+      "password": "$2a$10$r50rKcmnhpgMM11QkhbMYOCkDnO2/ZvQsmKTeDtHmwyzeYJtkwLry",
+      "id": 3
+    },
+    {
+      "email": "keyur3@coditas.com",
+      "password": "$2a$10$3Gtbz3YnhvkDP0uo3jyzAuStH56ZCaEXdWqasd8A6eEyqmzN.o0PG",
+      "id": 4
     }
   ],
   "products": [
@@ -21,30 +31,27 @@
       "price": 13990
     },
     {
-      "id": 1,
-      "name": "Test name",
-      "description": "Yamaha F310 is an excellent quality instrument. Its dreadnought style body provides loud acoustic tone with comfortable playability.",
-      "createdBy": 2,
-      "imageUrl": "assets/images/yamaha_acoustic.webp",
-      "price": 13990
-    },
-    {
-      "id": 3,
-      "name": "Yamaha, Acoustic Guitar F310 /Natural",
-      "description": "Yamaha F310 is an excellent quality instrument. Its dreadnought style body provides loud acoustic tone with comfortable playability.",
+      "name": "Yamaha, Classical Guitar C40 /Natural",
+      "description": "The C40 might be one of Yamaha's most inexpensive full-size classical models, but its quality and tone are outstanding. A real bargain for beginners.",
+      "price": 7190,
+      "imageUrl": "../../../assets/images/yamaha_classical_guitar_c40.webp",
       "createdBy": "keyur@coditas.com",
-      "imageUrl": "assets/images/yamaha_acoustic.webp",
-      "price": 13990
+      "id": 2
     },
     {
-      "product": {
-        "name": null,
-        "description": null,
-        "price": null,
-        "imageUrl": "",
-        "createdBy": "keyur@coditas.com"
-      },
-      "type": "[Product Page] product add Attempted ",
+      "name": "Yamaha, Classical Guitar C40 /Natural",
+      "description": "The C40 might be one of Yamaha's most inexpensive full-size classical models, but its quality and tone are outstanding. A real bargain for beginners.",
+      "price": 7190,
+      "imageUrl": "../../../assets/images/yamaha_classical_guitar_c40.webp",
+      "createdBy": "keyur@coditas.com",
+      "id": 3
+    },
+    {
+      "name": " Evans, Bass Drumhead, EMAD 22\"(55.88 cm) Batter Clr BD22EMAD",
+      "description": "An ideal balance of punch, power, and low-end...the EMAD is a 10mil 1-ply head that employs an externally mounted adjustable damping system with two interchangeable damping rings that allow the player to adjust attack and focus. On an empty drum and tuned high, the EMAD delivers a centered pitch that reinforces the bass line.",
+      "price": 3056,
+      "imageUrl": "../../../assets/images/evans_bass_drumhead.webp",
+      "createdBy": "",
       "id": 4
     }
   ]

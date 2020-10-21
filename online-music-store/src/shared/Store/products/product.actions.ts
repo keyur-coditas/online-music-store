@@ -26,6 +26,6 @@ export const productFetchAttempt = createAction(
   );
 
   export const productFetchSuccess = createAction(
-    PRODUCT_FETCH_ATTEMPT,
+    PRODUCT_FETCH_SUCCESS,
     props<{products: Product[]}>()
   );  
