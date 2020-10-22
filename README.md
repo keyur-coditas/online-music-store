@@ -4,7 +4,7 @@ An online music store that allows user to view and upload music products online 
 
 ## Install project dependencies
 
-Run `npm i` to install peoject dependencies
+Run `npm i` to install project dependencies
 
 ## Frontend server
 
