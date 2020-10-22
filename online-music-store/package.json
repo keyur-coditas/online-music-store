@@ -10,7 +10,8 @@
     "jest": "jest --watch",
     "server": "json-server db.json -m ./node_modules/json-server-auth",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "start-app":"npm run server && npm run start"
   },
   "private": true,
   "dependencies": {
