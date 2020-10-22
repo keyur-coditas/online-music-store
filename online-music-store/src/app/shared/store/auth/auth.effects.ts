@@ -5,13 +5,15 @@ import { Router } from '@angular/router';
 import { catchError, mergeMap, map, tap } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/auth/auth.service';
 import * as AuthActions from './auth.actions';
+import { ToastrService } from 'ngx-toastr';
 @Injectable()
 export class AuthEffects {
 
     constructor(
         private actions: Actions,
         private router: Router,
-        private authService: AuthenticationService
+        private authService: AuthenticationService,
+        private toastrService: ToastrService
         ) {
         }
   
@@ -36,7 +38,6 @@ export class AuthEffects {
                  ofType(AuthActions.LOGIN_SUCCESS),
                  tap((action:any) => {
                     sessionStorage.setItem('accessToken', action.payload.accessToken);
-                    alert('You have logged in successfully');
                     this.router.navigate(['products']);
                  }
                 )
@@ -47,6 +48,7 @@ export class AuthEffects {
             return this.actions.pipe(
                  ofType(AuthActions.LOGIN_FAILURE),
                  tap((action) => {
+                  this.toastrService.error('Couldnot login');
                    sessionStorage.clear();
                  }
                 )
@@ -84,7 +86,7 @@ export class AuthEffects {
             return this.actions.pipe(
                  ofType(AuthActions.SIGNUP_SUCCESS),
                  tap((action) => {
-                     alert('You have been registered successfully! Please login to continue');
+                    this.toastrService.success('Registered!');
                  }
                 )
              )
@@ -94,7 +96,7 @@ export class AuthEffects {
             return this.actions.pipe(
                  ofType(AuthActions.SIGNUP_FAILURE),
                  tap((action) => {
-                     alert('Could not register user');
+                    this.toastrService.error('Couldnot register');
                      sessionStorage.clear();
                  }
                 )

@@ -68,28 +68,12 @@
       "id": 5
     },
     {
-      "name": "B Steiner, Grand Piano, SIG-48D /Ebony High",
-      "description": "\nThis is a larger baby-grand piano with fuller sound due to its bigger size and longer strings.\n",
-      "price": 90000,
-      "imageUrl": "../../../assets/images/grand_piano.webp",
-      "createdBy": "keyur2@coditas.com",
-      "id": 6
-    },
-    {
       "name": "B Steiner, Grand Piano, SIG-48D /Ebony High 2",
       "description": "This is a larger baby-grand piano with fuller sound due to its bigger size and longer strings.\n",
       "price": 1000000,
       "imageUrl": "../../../assets/images/grand_piano.webp",
       "createdBy": "keyur@coditas.com",
       "id": 7
-    },
-    {
-      "name": "",
-      "description": "",
-      "price": "",
-      "imageUrl": "",
-      "createdBy": "keyur2@coditas.com",
-      "id": 8
     }
   ]
 }

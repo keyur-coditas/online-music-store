@@ -25,6 +25,8 @@ import { storeButton } from './lit-elements/button';
 import { createCustomElement } from '@angular/elements';
 import { ComponentName } from './web-component/custom-web-component';
 import { storeFormButton } from './lit-elements/form-button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 console.assert(storeFormButton !== undefined);
 
@@ -47,7 +49,13 @@ console.assert(storeFormButton !== undefined);
     ReactiveFormsModule,
     HttpClientModule,
     StoreModule.forRoot({auth: AuthReducer.reducer, products: ProductsReducer.reducer}),
-    EffectsModule.forRoot([AuthEffects, ProductEffects])
+    EffectsModule.forRoot([AuthEffects, ProductEffects]),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      preventDuplicates: true,
+      closeButton: true,
+    })
   ],
   providers: [],
   // bootstrap: [AppComponent],

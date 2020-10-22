@@ -31,6 +31,7 @@
     "document-register-element": "^1.7.2",
     "json-server-auth": "^2.0.2",
     "lit-element": "^2.4.0",
+    "ngx-toastr": "^13.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

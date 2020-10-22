@@ -6,13 +6,15 @@ import { catchError, mergeMap, map, tap } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/auth/auth.service';
 import * as ProductActions from './product.actions';
 import { ProductService } from 'src/app/products/products.service';
+import { ToastrService } from 'ngx-toastr';
 @Injectable()
 export class ProductEffects {
 
     constructor(
         private actions: Actions,
         private router: Router,
-        private productsService: ProductService
+        private productsService: ProductService,
+        private toastrService: ToastrService
         ) {
         }
   
@@ -34,7 +36,7 @@ export class ProductEffects {
             return this.actions.pipe(
                 ofType(ProductActions.productAddSuccess),
                 tap((action:any) => {
-                   alert('You have added product successfully');
+                   this.toastrService.success('Added!');
                    this.router.navigate(['products']);
                 }
                )
@@ -73,7 +75,7 @@ export class ProductEffects {
             return this.actions.pipe(
                 ofType(ProductActions.PRODUCT_UPDATE_SUCCESS),
                 tap((action:any) => {
-                   alert('You have updated product successfully');
+                  this.toastrService.success('Updated!');
                    this.router.navigate(['products']);
                 }
                )
@@ -84,7 +86,7 @@ export class ProductEffects {
             return this.actions.pipe(
                 ofType(ProductActions.PRODUCT_UPDATE_FAILURE),
                 tap((action:any) => {
-                   alert('Could not update product');
+                  this.toastrService.error('Couldnot update product');
                    this.router.navigate(['products']);
                 }
                )
@@ -110,7 +112,7 @@ export class ProductEffects {
             return this.actions.pipe(
                 ofType(ProductActions.PRODUCT_DELETE_SUCCESS),
                 tap((action:any) => {
-                   alert('You have deleted the product successfully');
+                   this.toastrService.success('Deleted!');
                 }
                )
             )
@@ -120,7 +122,7 @@ export class ProductEffects {
             return this.actions.pipe(
                 ofType(ProductActions.PRODUCT_DELETE_FAILURE),
                 tap((action:any) => {
-                   alert('Could not delete product');
+                   this.toastrService.error('Couldnot delete ptoduct');
                 }
                )
             )

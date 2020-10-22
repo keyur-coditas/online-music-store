@@ -1,6 +1,6 @@
 @import './app/shared/styles/variables.scss';
 @import './app/shared/styles/utils.scss';
-
+@import '~ngx-toastr/toastr';
 html, body, app-root {
     margin: 0;
     height: 100%;
