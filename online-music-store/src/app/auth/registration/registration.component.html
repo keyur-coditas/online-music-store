@@ -2,19 +2,19 @@
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
         <div>
             <div>
-                <input class="str-input" type="email" formControlName="email" placeholder="Enter your email" />
+                <input aria-label="email" class="str-input" type="email" formControlName="email" placeholder="Enter your email" />
                 <div>
                     <span class="str-error-msg-class" *ngIf="email.touched && email.invalid">Email is required</span>
                 </div>
             </div>
             <div>
-                <input class="str-input" type="password" formControlName="password" placeholder="Select a password" />
+                <input aria-label="password" class="str-input" type="password" formControlName="password" placeholder="Select a password" />
                 <div>
                     <span class="str-error-msg-class" *ngIf="password.touched && password.invalid">Password is required</span>
                 </div>
             </div>
             <div>
-                <input class="str-input" type="password" formControlName="confirmPassword" placeholder="Retype the password" />
+                <input aria-label="confirm-pssword" class="str-input" type="password" formControlName="confirmPassword" placeholder="Retype the password" />
                 <div>
                     <span class="str-error-msg-class" *ngIf="confirmPassword.touched && confirmPassword.invalid">Please confirm password </span>
                 </div>
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="text-center">
-            <button class="str-submit-btn str-btn" >Submit</button>
+            <button aria-label="Submit" class="str-submit-btn str-btn" >Submit</button>
         </div>
     </form>
 </div>

@@ -7,20 +7,24 @@ import { Product } from '../shared/store/products/products.model';
 export class ProductService {
     selectedProduct: Product;
     constructor(private httpService: HttpClient) {}
-    private productOperation: string = APP_CONSTANTS.PRODUCT_ADD;
+    private productOperationInfo: {productOperation:string, disableFormFields: boolean} = {
+        productOperation: APP_CONSTANTS.PRODUCT_ADD,
+        disableFormFields: false
+    };
 
     getAllProducts() {
         return this.httpService.get(URL_CONSTANTS.HOST+URL_CONSTANTS.PRODUCTS);
     }    
 
-    getProductOperation() {
-        return this.productOperation;
+    getProductInfo() {
+        return this.productOperationInfo;
     }
-    setProductOperation(operation: string) {
-        this.productOperation = operation;
+    setProductInfo(operation: {productOperation:string, disableFormFields: boolean}) {
+        this.productOperationInfo = operation;
     }
 
     addProduct(product: Product) {
+        // console.log('prod ', product);
         return this.httpService.post(URL_CONSTANTS.HOST+URL_CONSTANTS.PRODUCTS, product);
     }
     updateProduct(product: Product) {

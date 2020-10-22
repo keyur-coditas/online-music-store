@@ -32,7 +32,11 @@ export class HeaderComponent implements OnInit {
     }
   }
   addProduct() {
-    this.productService.setProductOperation(APP_CONSTANTS.PRODUCT_ADD);
+    let productOp = {
+      productOperation:APP_CONSTANTS.PRODUCT_ADD,
+      disableFormFields: false
+    }
+    this.productService.setProductInfo(productOp);
     this.router.navigate(['products/product-add'])
   }
   logout() {

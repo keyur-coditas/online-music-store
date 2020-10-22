@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { ApplicationRef, CUSTOM_ELEMENTS_SCHEMA, DoBootstrap, Injector, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
@@ -22,6 +22,8 @@ import { ProductEffects } from './shared/store/products/product.effects';
 import { ProductOperationsComponent } from './products/product-operations/product-operations.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools/src/instrument';
 import { storeButton } from './lit-elements/button';
+import { createCustomElement } from '@angular/elements';
+import { ComponentName } from './web-component/custom-web-component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,18 @@ import { storeButton } from './lit-elements/button';
     EffectsModule.forRoot([AuthEffects, ProductEffects])
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  // bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule implements DoBootstrap{
+
+  constructor(private injector: Injector) {
+  }
+  ngDoBootstrap(appRef: ApplicationRef): void {
+    const customElement = createCustomElement(ComponentName, { injector: this.injector });
+    customElements.define('custom-element', customElement);
+    appRef.bootstrap(AppComponent);
+  }
+  
+
+ }

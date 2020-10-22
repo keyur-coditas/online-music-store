@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ProductOperationsComponent implements OnInit {
   productForm: FormGroup;
-  productOperation: string;
+  productOperationInfo: {productOperation:string, disableFormFields: boolean};
   imagePath: string = '';
   path: string = '../../../assets/images/';
   currentUser: any;
@@ -31,22 +31,21 @@ export class ProductOperationsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.productOperation = this.productService.getProductOperation();
+    this.productOperationInfo = this.productService.getProductInfo();
     this.productForm = this.createProductFormGroup();
-    if(this.productOperation === APP_CONSTANTS.PRODUCT_UPDATE || this.productOperation === APP_CONSTANTS.PRODUCT_VIEW) {
-     this.selectedProduct = this.productService.getProduct();
+    this.selectedProduct = this.productService.getProduct();
+    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_UPDATE || this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_VIEW) {
      this.initializeFormData();
-    } 
-     this.store.subscribe((data:any) => {
-      this.currentUser = data.auth.currentUser.email;
-
-     })
+    }
+    this.store.subscribe((data:any) => {
+      this.currentUser = data.auth.currentUser.email
+    })
   }
 
   createProductFormGroup() {
-    this.name = new FormControl({value:''}, [Validators.required]);
-    this.description = new FormControl({value:''});
-    this.price = new FormControl({value:''},[Validators.required]);
+    this.name = new FormControl('', [Validators.required]);
+    this.description = new FormControl('');
+    this.price = new FormControl('',[Validators.required]);
     this.imageUrl = new FormControl();
     return new FormGroup({
         name: this.name,
@@ -63,7 +62,8 @@ onSubmit() {
     imageUrl: this.imagePath,
     createdBy: this.currentUser
   }
-  if(this.productOperation === APP_CONSTANTS.PRODUCT_ADD) {
+  if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {
+
     this.store.dispatch(ProductActions.productAddAttempted({product}));
   } else {
     product.id = this.selectedProduct.id;
@@ -86,8 +86,5 @@ initializeFormData() {
 }
   cancel() {
     this.router.navigate(['products']);
-  }
-  isFormFieldDisabled() {
-    return this.currentUser !== this.selectedProduct.createdBy;
   }
 }

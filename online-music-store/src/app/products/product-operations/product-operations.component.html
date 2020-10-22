@@ -3,19 +3,20 @@
     <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
         <div class="text-center">
             <div>
-                <input class="str-input" type="text" formControlName="name" placeholder="Enter product name" />
+                <input aria-label="name" class="str-input" type="text" formControlName="name" placeholder="Enter product name" [readonly]= "productOperationInfo.disableFormFields" />
                 <div class="str-product-error">
                     <span class="str-error-msg-class" *ngIf="name.touched && name.invalid">Product name is required</span>
                 </div>
             </div>
             <div>
-                <input class="str-input" type="number" formControlName="price" placeholder="Enter price"  />
+                <input aria-label="price" class="str-input" type="number" formControlName="price" placeholder="Enter price" [readonly]= "productOperationInfo.disableFormFields"  />
                 <div class="str-product-error">
                     <span class="str-error-msg-class" *ngIf="price.touched && price.invalid">Product price is required</span>
                 </div>
             </div>
             <div>
-                <textarea class="str-textarea" name="description" id="" cols="30" formControlName="description" rows="10" placeholder="Add a brief description of the product">
+                <textarea aria-label="description" class="str-textarea" name="description" id="" cols="30" formControlName="description" rows="10"
+                 placeholder="Add a brief description of the product" [readonly]= "productOperationInfo.disableFormFields">
                 </textarea>
             </div>
             <div *ngIf="imageUrlPreview">
@@ -23,12 +24,13 @@
             </div>
             <div>
                 <label for="" class="image-label" >Choose a product image</label>
-                <input type="file" #filePicker formControlName="imageUrl" path="../../../assets/images/"  (change)="onImagePicked($event)">
+                <input aria-label="product-image" type="file" #filePicker formControlName="imageUrl" path="../../../assets/images/" 
+                 (change)="onImagePicked($event)" [readonly]= "productOperationInfo.disableFormFields">
             </div>
         </div>
         <div class="text-center">
-            <button class="str-submit-btn str-btn" >{{productOperation }} Product</button>
-            <button class="str-submit-btn str-btn" (click)="cancel()" >Cancel</button>
+            <button aria-label="update" class="str-submit-btn str-btn" *ngIf="productOperationInfo.productOperation !== 'View'">{{productOperationInfo.productOperation }} Product</button>
+            <button aria-label="delete" class="str-submit-btn str-btn" (click)="cancel()" >Cancel</button>
         </div>
     </form>
 </div>
