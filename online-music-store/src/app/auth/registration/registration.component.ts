@@ -5,6 +5,7 @@ import { User } from '../../shared/Models/user';
 import { AuthenticationService } from '../auth.service';
 import * as AuthActions from '../../shared/store/auth/auth.actions';
 import { Store } from '@ngrx/store';
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',

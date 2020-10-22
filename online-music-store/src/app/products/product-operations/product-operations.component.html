@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="text-center">
-            <button aria-label="update" class="str-submit-btn str-btn" *ngIf="productOperationInfo.productOperation !== 'View'">{{productOperationInfo.productOperation }} Product</button>
+            <button aria-label="update" class="str-submit-btn str-btn" *ngIf="productOperationInfo.productOperation !== 'View'" [disabled]="productForm.invalid">{{productOperationInfo.productOperation }} Product</button>
             <button aria-label="delete" class="str-submit-btn str-btn" (click)="cancel()" >Cancel</button>
         </div>
     </form>

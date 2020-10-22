@@ -55,19 +55,21 @@ export class ProductOperationsComponent implements OnInit {
     });
 }
 onSubmit() {
-  const product:Product = {
-    name: this.name.value,
-    description: this.description.value,
-    price: this.price.value,
-    imageUrl: this.imagePath,
-    createdBy: this.currentUser
-  }
-  if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {
-
-    this.store.dispatch(ProductActions.productAddAttempted({product}));
-  } else {
-    product.id = this.selectedProduct.id;
-    this.store.dispatch(ProductActions.productUpdateAttempt({product}))
+  if(this.productForm.valid) {
+    const product:Product = {
+      name: this.name.value,
+      description: this.description.value,
+      price: this.price.value,
+      imageUrl: this.imagePath,
+      createdBy: this.currentUser
+    }
+    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {
+  
+      this.store.dispatch(ProductActions.productAddAttempted({product}));
+    } else {
+      product.id = this.selectedProduct.id;
+      this.store.dispatch(ProductActions.productUpdateAttempt({product}))
+    }
   }
 }
 onImagePicked(event) {

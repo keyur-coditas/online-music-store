@@ -94,6 +94,7 @@ export class AuthEffects {
             return this.actions.pipe(
                  ofType(AuthActions.SIGNUP_FAILURE),
                  tap((action) => {
+                     alert('Could not register user');
                      sessionStorage.clear();
                  }
                 )

@@ -24,6 +24,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools/src/instrument';
 import { storeButton } from './lit-elements/button';
 import { createCustomElement } from '@angular/elements';
 import { ComponentName } from './web-component/custom-web-component';
+import { storeFormButton } from './lit-elements/form-button';
+
+console.assert(storeFormButton !== undefined);
 
 @NgModule({
   declarations: [

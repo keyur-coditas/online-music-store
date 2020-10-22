@@ -1,5 +1,5 @@
 <div>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="loginForm">
         <div>
             <div>
                 <input aria-label="email" class="str-input" type="email" formControlName="email" placeholder="Enter your email" />
@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="text-center">
-            <button aria-label="Submit" class="str-submit-btn str-btn" >Submit</button>
+            <str-form-btn (click)="onSubmit()" buttonText="Submit" ></str-form-btn>
         </div>
     </form>
 </div>

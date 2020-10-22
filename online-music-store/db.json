@@ -19,6 +19,11 @@
       "email": "keyur3@coditas.com",
       "password": "$2a$10$3Gtbz3YnhvkDP0uo3jyzAuStH56ZCaEXdWqasd8A6eEyqmzN.o0PG",
       "id": 4
+    },
+    {
+      "email": "keyur3@gmail.com",
+      "password": "$2a$10$R1tPaFO29SSMFi1BI9V0r.yzf6lCJLcpiC.8GrZveelkYKGV8fUkW",
+      "id": 5
     }
   ],
   "products": [
@@ -39,7 +44,7 @@
       "id": 2
     },
     {
-      "name": " Chateau, Acoustic Guitar, 41\", W305 -Black",
+      "name": " Chateau, Acoustic Guitar, 41\", W305 -Black123",
       "description": "Unbeatable value has made the dreadnought-style F310 a best seller. The perfect choice for discerning beginners, and also available as an electro-acoustic.",
       "price": 9250,
       "imageUrl": "../../../assets/images/chateau_acoustic_guitar.webp",
@@ -77,6 +82,14 @@
       "imageUrl": "../../../assets/images/grand_piano.webp",
       "createdBy": "keyur@coditas.com",
       "id": 7
+    },
+    {
+      "name": "",
+      "description": "",
+      "price": "",
+      "imageUrl": "",
+      "createdBy": "keyur2@coditas.com",
+      "id": 8
     }
   ]
 }
