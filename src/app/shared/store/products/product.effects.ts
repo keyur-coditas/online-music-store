@@ -99,8 +99,8 @@ export class ProductEffects {
                  ofType(ProductActions.PRODUCT_DELETE_ATTEMPT),
                  mergeMap((action:any) => this.productsService.deleteProduct(action.product)
                      .pipe(
-                         map((data:any) => {
-                           return { type: ProductActions.PRODUCT_DELETE_SUCCESS, payload: {data} }
+                         map((data:any) => {  
+                           return { type: ProductActions.PRODUCT_DELETE_SUCCESS, payload: {action} }
                          }),
                          catchError((error) => ( of({type: ProductActions.PRODUCT_DELETE_FAILURE})) )
                      )
@@ -111,10 +111,10 @@ export class ProductEffects {
          productsDeleteSuccess = createEffect(() => {
             return this.actions.pipe(
                 ofType(ProductActions.PRODUCT_DELETE_SUCCESS),
-                tap((action:any) => {
-                   this.toastrService.success('Deleted!');
-                }
-               )
+                     map((data:any) => {
+                        return { type: ProductActions.PRODUCT_DELETE_SUCCESS, payload: {data} }
+                        }),
+                     catchError((error) => ( of({type: ProductActions.PRODUCT_DELETE_FAILURE})) )
             )
          }, {dispatch: false})
 

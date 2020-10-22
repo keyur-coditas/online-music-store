@@ -53,3 +53,8 @@ export const productFetchAttempt = createAction(
     PRODUCT_DELETE_ATTEMPT,
     props<{product: Product}>()
   ); 
+
+  export const productDeleteSuccess = createAction(
+    PRODUCT_DELETE_SUCCESS,
+    props<{product: Product}>()
+  ); 

@@ -23,7 +23,6 @@ export class CardComponent implements OnInit {
      this.store.subscribe((data:any) => {
       this.currentUser = data.auth.currentUser.email;
     })
-    // console.log('val ', this.product);
   }
 
   updateProduct() {
@@ -36,6 +35,7 @@ export class CardComponent implements OnInit {
     this.router.navigate(['products/product-update']);
   }
   deleteProduct() {
+
     const product = this.product;
     this.store.dispatch(ProductActions.productDeleteAttempt({product}))
   }

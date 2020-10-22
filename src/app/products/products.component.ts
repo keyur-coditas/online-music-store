@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { Product } from '../shared/Models/product';
 import * as ProductActions from '../shared/store/products/product.actions';
@@ -20,7 +21,7 @@ export class ProductsComponent implements OnInit {
     this.store.dispatch(ProductActions.productFetchAttempt());
     this.store.subscribe((data) => {
       this.products = data.products.products;
-    })
+    });
   }
 
 }

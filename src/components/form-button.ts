@@ -44,7 +44,6 @@ export class storeFormButton extends LitElement {
 
 
   render(){
-    console.log('form btn ');
     if(this.isCardButton) {
       return html`<button aria-label="Submit" class="str-card-buttons str-btn">${this.buttonText}</button>`;
     } else {

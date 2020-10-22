@@ -60,7 +60,7 @@ onSubmit() {
       name: this.name.value,
       description: this.description.value,
       price: this.price.value,
-      imageUrl: this.imagePath,
+      imageUrl: this.imageUrlPreview,
       createdBy: this.currentUser
     }
     if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {
