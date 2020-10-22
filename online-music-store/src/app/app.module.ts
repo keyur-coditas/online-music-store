@@ -20,15 +20,11 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './shared/store/auth/auth.effects';
 import { ProductEffects } from './shared/store/products/product.effects';
 import { ProductOperationsComponent } from './products/product-operations/product-operations.component';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools/src/instrument';
-import { storeButton } from './lit-elements/button';
 import { createCustomElement } from '@angular/elements';
 import { ComponentName } from './web-component/custom-web-component';
-import { storeFormButton } from './lit-elements/form-button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
-console.assert(storeFormButton !== undefined);
 
 @NgModule({
   declarations: [
@@ -58,7 +54,6 @@ console.assert(storeFormButton !== undefined);
     })
   ],
   providers: [],
-  // bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule implements DoBootstrap{
