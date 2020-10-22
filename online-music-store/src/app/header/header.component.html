@@ -1,8 +1,11 @@
 <header class="header">
     <img src="../../assets/images/logo.webp" alt="">
     <div class="header-logout">
-            <button tyle="button" (click)="addProduct()" class="str-btn str-btn-colors" *ngIf="isAuthenticated()">Add Product</button>
-            <button tyle="button" (click)="changeTheme()" class="str-btn str-btn-colors">Switch theme</button>
-            <button tyle="button" class="str-btn str-btn-colors" (click)="logout()" *ngIf="isAuthenticated()">Logout</button>
+            <str-btn *ngIf="isAuthenticated()" buttonText="Add Product" (click)="addProduct()"></str-btn>
+            <str-btn buttonText="Switch theme" (click)="changeTheme()"></str-btn>
+            <str-btn *ngIf="isAuthenticated()" buttonText="Logout" (click)="logout()"></str-btn>
+            <!-- <button tyle="button" (click)="addProduct()" class="str-btn str-btn-colors" *ngIf="isAuthenticated()">Add Product</button> -->
+            <!-- <button tyle="button" (click)="changeTheme()" class="str-btn str-btn-colors">Switch theme</button> -->          
+            <!-- <button tyle="button" class="str-btn str-btn-colors">Logout</button> -->
     </div>
 </header>

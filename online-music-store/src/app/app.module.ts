@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
@@ -21,6 +21,7 @@ import { AuthEffects } from './shared/store/auth/auth.effects';
 import { ProductEffects } from './shared/store/products/product.effects';
 import { ProductOperationsComponent } from './products/product-operations/product-operations.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools/src/instrument';
+import { storeButton } from './lit-elements/button';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools/src/instrument';
     EffectsModule.forRoot([AuthEffects, ProductEffects])
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
