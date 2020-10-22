@@ -11,37 +11,25 @@ import * as AuthActions from '../../shared/store/auth/auth.actions';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent  implements OnInit {
-  loginForm: any;
-  email: FormControl;
-  password: FormControl;
+  loginForm: FormGroup;
 
   constructor(
     private store: Store
     ) {
-    this.loginForm = this.createLoginFormGroup();
+
    }
 
   ngOnInit(): void {
-  }
-
-  createLoginFormGroup() {
-    this.email = new FormControl('', [Validators.required]);
-    this.password =  new FormControl('', [Validators.required]);
-      return new FormGroup({
-          email: this.email,
-          password: this.password
-      });
-
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required])
+    });
   }
 
   onSubmit() {
       if(this.loginForm.valid) {
-        let user:User = {
-          email: this.email.value,
-          password: this.password.value,
-        }
-        let {email, password} = user;
-        this.store.dispatch(AuthActions.loginAttempted({email, password}));
+        this.store.dispatch(AuthActions.loginAttempted(this.loginForm.value));
       }  
   }
+
 }

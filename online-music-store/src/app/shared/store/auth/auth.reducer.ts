@@ -16,7 +16,6 @@ export const initialState: AuthState = {
 const loginCompleteReducer = createReducer(
   initialState,
   on(AuthActions.loginSuccess, (state, payload:any) => {
-    // console.log('email ', payload);
       return {
           ...state,
           currentUser: {

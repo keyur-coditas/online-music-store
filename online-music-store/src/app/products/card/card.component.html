@@ -10,6 +10,5 @@
     <div class="text-center str-card-buttons-container">
         <str-form-btn *ngIf="currentUser === product.createdBy" (click)="updateProduct()" buttonText="Update" isCardButton="true"></str-form-btn>
         <str-form-btn *ngIf="currentUser === product.createdBy" (click)="deleteProduct()" buttonText="Delete" isCardButton="true"></str-form-btn>
-        <!-- <button *ngIf="currentUser === product.createdBy" class="str-card-buttons str-btn" type="button" (click)="deleteProduct()">Delete</button> -->
     </div>
 </div>

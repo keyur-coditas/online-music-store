@@ -1,21 +1,22 @@
-<div>
-    <form [formGroup]="loginForm">
+<form [formGroup]="loginForm">
+    <div>
         <div>
-            <div>
-                <input aria-label="email" class="str-input" type="email" formControlName="email" placeholder="Enter your email" />
-                <div>
-                    <span class="str-error-msg-class" *ngIf="email.touched && email.invalid">Email is required</span>
-                </div>
-            </div>
-            <div>
-                <input aria-label="password" class="str-input" type="password" formControlName="password" placeholder="Enter password" />
-                <div>
-                    <span class="str-error-msg-class" *ngIf="password.touched && password.invalid">Password is required</span>
-                </div>
-            </div>
+            <input aria-label="email" class="str-input" type="email" formControlName="email"
+                placeholder="Enter your email" />
+                <p class="str-error-msg-class"
+                    *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid">Email is
+                    required</p>
         </div>
-        <div class="text-center">
-            <str-form-btn (click)="onSubmit()" buttonText="Submit" ></str-form-btn>
+        <div>
+            <input aria-label="password" class="str-input" type="password" formControlName="password"
+                placeholder="Enter password" />
+                <p class="str-error-msg-class"
+                    *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid">Password is
+                    required
+                </p>
         </div>
-    </form>
-</div>
+    </div>
+    <div class="text-center">
+        <str-form-btn (click)="onSubmit()" buttonText="Submit"></str-form-btn>
+    </div>
+</form>

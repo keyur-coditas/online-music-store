@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppService } from '../shared/app.service';
@@ -12,7 +12,7 @@ import { ThemeService } from '../shared/theme.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   constructor(
      private appService: AppService,
@@ -22,8 +22,6 @@ export class HeaderComponent implements OnInit {
      private themeService: ThemeService) {
    }
 
-   ngOnInit(): void {
-  }
   changeTheme() {
     if (this.themeService.isDarkTheme()) {
       this.themeService.setLightTheme();
@@ -31,17 +29,20 @@ export class HeaderComponent implements OnInit {
       this.themeService.setDarkTheme();
     }
   }
+
   addProduct() {
-    let productOp = {
+    const productOp = {
       productOperation:APP_CONSTANTS.PRODUCT_ADD,
       disableFormFields: false
     }
     this.productService.setProductInfo(productOp);
     this.router.navigate(['products/product-add'])
   }
+
   logout() {
     this.store.dispatch(AuthActions.logout());
   }
+
   isAuthenticated() {
     return this.appService.isAuthenticated();
   }
