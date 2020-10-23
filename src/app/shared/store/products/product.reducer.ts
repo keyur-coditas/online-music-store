@@ -1,10 +1,10 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { Product } from './products.model';
+import { StoreProduct } from './products.model';
 import * as ProductActions from '../products/product.actions';
 import { state } from '@angular/animations';
 
 export interface ProductsState {
-    products: Product[]
+    products: StoreProduct[]
 }
 export const initialState: ProductsState = {
     products: []

@@ -1,11 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Product } from '../../shared/Models/product';
+import { ProductOperationInfo } from '../../shared/Models/product';
 import { ProductService } from '../products.service';
 import * as APP_CONSTANTS from '../../shared/app.constants';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as ProductActions from '../../shared/store/products/product.actions';
 import { map } from 'rxjs/operators';
+import { CurrentUser } from '../../shared/models/user';
+import { StoreProduct } from 'src/app/shared/store/products/products.model';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -13,8 +15,8 @@ import { map } from 'rxjs/operators';
 })
 export class CardComponent implements OnInit {
 
-  @Input() product: Product;
-  currentUser: any = ''
+  @Input() product: StoreProduct;
+  currentUser: string = '' 
   disableFormFields
   constructor(private productService:ProductService,
     private router: Router,
@@ -23,14 +25,14 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
      this.store.pipe(
       map((state) => state['auth'].currentUser))
-     .subscribe((data:any) => {
-      this.currentUser = data.email;
+     .subscribe((user:CurrentUser) => {
+      this.currentUser = user.email;
     })
   }
 
   updateProduct(evt) {
     evt.stopPropagation();
-    let productOpInfo = {
+    let productOpInfo: ProductOperationInfo = {
       productOperation: APP_CONSTANTS.PRODUCT_UPDATE,
       disableFormFields: false
     }
@@ -43,9 +45,8 @@ export class CardComponent implements OnInit {
     const product = this.product;
     this.store.dispatch(ProductActions.productDeleteAttempt({product}))
   }
-  viewProduct(evt) {
-
-    let productOpInfo = {
+  viewProduct() {
+    let productOpInfo: ProductOperationInfo = {
       productOperation: APP_CONSTANTS.PRODUCT_VIEW,
       disableFormFields: true
     }

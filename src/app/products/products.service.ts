@@ -2,15 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as URL_CONSTANTS from '../shared/urls';
 import * as APP_CONSTANTS from '../shared/app.constants';
-import { Product } from '../shared/store/products/products.model';
+import { StoreProduct } from '../shared/store/products/products.model';
+import { ProductOperationInfo } from '../shared/Models/product';
 @Injectable({ providedIn: 'root' })
 export class ProductService {
-  selectedProduct: Product;
+  selectedProduct: StoreProduct;
   constructor(private httpService: HttpClient) {}
-  private productOperationInfo: {
-    productOperation: string;
-    disableFormFields: boolean;
-  } = {
+  private productOperationInfo: ProductOperationInfo = {
     productOperation: APP_CONSTANTS.PRODUCT_ADD,
     disableFormFields: false,
   };
@@ -22,34 +20,31 @@ export class ProductService {
   getProductInfo() {
     return this.productOperationInfo;
   }
-  setProductInfo(operation: {
-    productOperation: string;
-    disableFormFields: boolean;
-  }) {
+  setProductInfo(operation: ProductOperationInfo) {
     this.productOperationInfo = operation;
   }
 
-  addProduct(product: Product) {
+  addProduct(product: StoreProduct) {
     return this.httpService.post(
       URL_CONSTANTS.HOST + URL_CONSTANTS.PRODUCTS,
       product
     );
   }
 
-  updateProduct(product: Product) {
+  updateProduct(product: StoreProduct) {
     return this.httpService.put(
       URL_CONSTANTS.HOST + URL_CONSTANTS.PRODUCTS + '/' + product.id,
       product
     );
   }
 
-  deleteProduct(product: Product) {
+  deleteProduct(product: StoreProduct) {
     return this.httpService.delete(
       URL_CONSTANTS.HOST + URL_CONSTANTS.PRODUCTS + '/' + product.id
     );
   }
 
-  setProduct(product: Product) {
+  setProduct(product: StoreProduct) {
     this.selectedProduct = product;
   }
   

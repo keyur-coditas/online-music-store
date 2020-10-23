@@ -6,6 +6,7 @@ import * as AuthActions from '../shared/store/auth/auth.actions';
 import { ProductService } from '../products/products.service';
 import * as APP_CONSTANTS from '../shared/app.constants';
 import { ThemeService } from '../shared/theme.service';
+import { ProductOperationInfo } from '../shared/Models/product';
 
 @Component({
   selector: 'app-header',
@@ -31,7 +32,7 @@ export class HeaderComponent {
   }
 
   addProduct() {
-    const productOp = {
+    const productOp:ProductOperationInfo = {
       productOperation:APP_CONSTANTS.PRODUCT_ADD,
       disableFormFields: false
     }

@@ -1,8 +1,8 @@
-export interface Product {
+export interface StoreProduct {
     name: string;
     description: string;
     imageUrl: string;
-    createdBy: number;
+    createdBy: string;
     price: number;
     id?: number;
 }

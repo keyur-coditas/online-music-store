@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import {Product} from './products.model';
+import {StoreProduct} from './products.model';
 
 export const PRODUCT_FETCH_ATTEMPT = '[Product Page] products fetch Attempted';
 export const PRODUCT_FETCH_SUCCESS = '[Product Page] products fetch Successful';
@@ -19,12 +19,12 @@ export const PRODUCT_DELETE_FAILURE = '[Product Page] product delete Failure ';
 
 export const productAddAttempted = createAction(
   PRODUCT_ADD_ATTEMPT,
-  props<{product: Product}>()
+  props<{product: StoreProduct}>()
 );
 
 export const productAddSuccess = createAction(
   PRODUCT_ADD_SUCCESS,
-  props<{product: Product}>()
+  props<{product: StoreProduct}>()
 );
 
 export const productFetchAttempt = createAction(
@@ -33,12 +33,12 @@ export const productFetchAttempt = createAction(
 
   export const productFetchSuccess = createAction(
     PRODUCT_FETCH_SUCCESS,
-    props<{products: Product[]}>()
+    props<{products: StoreProduct[]}>()
   );  
 
   export const productUpdateAttempt = createAction(
     PRODUCT_UPDATE_ATTEMPT,
-    props<{product: Product}>()
+    props<{product: StoreProduct}>()
   ); 
   
   export const productUpdateSuccess = createAction(
@@ -51,10 +51,10 @@ export const productFetchAttempt = createAction(
 
   export const productDeleteAttempt = createAction(
     PRODUCT_DELETE_ATTEMPT,
-    props<{product: Product}>()
+    props<{product: StoreProduct}>()
   ); 
 
   export const productDeleteSuccess = createAction(
     PRODUCT_DELETE_SUCCESS,
-    props<{product: Product}>()
+    props<{product: StoreProduct}>()
   ); 

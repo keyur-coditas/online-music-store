@@ -6,7 +6,7 @@ import { AppService } from '../shared/app.service';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent {
-  activeTab = 'registration';
+  activeTab: string = 'registration';
   constructor() {}
 
   changeTab(tab:string) {

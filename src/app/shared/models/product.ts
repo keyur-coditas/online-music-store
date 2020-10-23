@@ -5,3 +5,7 @@ export interface Product {
     createdBy: number;
     price: number;
 }
+export interface ProductOperationInfo {
+    productOperation: string;
+    disableFormFields: boolean;
+}

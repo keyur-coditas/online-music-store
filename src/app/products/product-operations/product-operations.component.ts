@@ -3,10 +3,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { ProductService } from '../products.service';
 import * as ProductActions from '../../shared/store/products/product.actions';
-import { Product } from '../../shared/store/products/products.model';
+import { StoreProduct } from '../../shared/store/products/products.model';
 import * as APP_CONSTANTS from '../../shared/app.constants';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { ProductOperationInfo } from 'src/app/shared/Models/product';
+import { CurrentUser } from 'src/app/shared/Models/user';
 @Component({
   selector: 'app-product-operations',
   templateUrl: './product-operations.component.html',
@@ -14,12 +16,12 @@ import { map } from 'rxjs/operators';
 })
 export class ProductOperationsComponent implements OnInit {
   productForm: FormGroup;
-  productOperationInfo: {productOperation:string, disableFormFields: boolean};
+  productOperationInfo: ProductOperationInfo;
   imagePath: string = '';
   path: string = '../../../assets/images/';
-  currentUser: any;
+  currentUser: string = '';
   imageUrlPreview: string;
-  selectedProduct: any;
+  selectedProduct: StoreProduct;
   name: FormControl;
   description: FormControl;
   price: FormControl;
@@ -39,7 +41,7 @@ export class ProductOperationsComponent implements OnInit {
     
     this.store.pipe(
       map((state) => state['auth'].currentUser))
-    .subscribe((data:any) => {
+    .subscribe((data:CurrentUser) => {
       this.currentUser = data.email;
     })
   }
@@ -58,7 +60,7 @@ export class ProductOperationsComponent implements OnInit {
 }
 onSubmit() {
   if(this.productForm.valid) {
-    const product:Product = {
+    const product:StoreProduct = {
       name: this.name.value,
       description: this.description.value,
       price: this.price.value,
