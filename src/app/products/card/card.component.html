@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" (click)="viewProduct($event)">
     <div class="text-center">
         <img [src]="product.imageUrl" class="product-image" alt="Avatar" onerror="this.src='../../../assets/images/noimage.webp';" width="200" width="200" height="200">
     </div>
@@ -8,7 +8,7 @@
         <p class="text-center card-font-small card-details-margin"><b><span>&#8377; </span> {{product.price}}</b></p>
     </div>
     <div class="text-center str-card-buttons-container">
-        <str-form-btn *ngIf="currentUser === product.createdBy" (click)="updateProduct()" buttonText="Update" isCardButton="true"></str-form-btn>
-        <str-form-btn *ngIf="currentUser === product.createdBy" (click)="deleteProduct()" buttonText="Delete" isCardButton="true"></str-form-btn>
+        <str-form-btn *ngIf="currentUser === product.createdBy" (click)="updateProduct($event)" buttonText="Update" isCardButton="true"></str-form-btn>
+        <str-form-btn *ngIf="currentUser === product.createdBy" (click)="deleteProduct($event)" buttonText="Delete" isCardButton="true"></str-form-btn>
     </div>
 </div>

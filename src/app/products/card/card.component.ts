@@ -25,7 +25,8 @@ export class CardComponent implements OnInit {
     })
   }
 
-  updateProduct() {
+  updateProduct(evt) {
+    evt.stopPropagation();
     let productOpInfo = {
       productOperation: APP_CONSTANTS.PRODUCT_UPDATE,
       disableFormFields: false
@@ -34,12 +35,12 @@ export class CardComponent implements OnInit {
     this.productService.setProduct(this.product);
     this.router.navigate(['products/product-update']);
   }
-  deleteProduct() {
-
+  deleteProduct(evt) {
+    evt.stopPropagation();
     const product = this.product;
     this.store.dispatch(ProductActions.productDeleteAttempt({product}))
   }
-  viewProduct() {
+  viewProduct(evt) {
     let productOpInfo = {
       productOperation: APP_CONSTANTS.PRODUCT_VIEW,
       disableFormFields: true
