@@ -19,7 +19,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './shared/store/auth/auth.effects';
 import { ProductEffects } from './shared/store/products/product.effects';
 import { ProductOperationsComponent } from './products/product-operations/product-operations.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 

@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { render } from '@testing-library/angular';
 import { AppComponent } from './app.component';
@@ -5,7 +6,8 @@ import { AppComponent } from './app.component';
 beforeEach(() => {
   TestBed.configureTestingModule({
     imports: [ ],
-    providers: []
+    providers: [],
+    schemas:[CUSTOM_ELEMENTS_SCHEMA]
   });
 });
 

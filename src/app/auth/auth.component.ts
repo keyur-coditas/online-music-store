@@ -5,14 +5,9 @@ import { AppService } from '../shared/app.service';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent  implements OnInit {
+export class AuthComponent {
   activeTab = 'registration';
-  constructor() {
-
-   }
-
-  ngOnInit(): void {
-  }
+  constructor() {}
 
   changeTab(tab:string) {
     this.activeTab = tab;

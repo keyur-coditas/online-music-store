@@ -26,9 +26,7 @@ export class ProductOperationsComponent implements OnInit {
   constructor(
     private productService:ProductService,
     private store: Store,
-    private router: Router) {
-
-   }
+    private router: Router) {}
 
   ngOnInit(): void {
     this.productOperationInfo = this.productService.getProductInfo();
