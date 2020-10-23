@@ -1,4 +1,7 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Store } from '@ngrx/store';
+import { AppMocks } from '../shared/mocks/mocks';
 
 import { ProductsComponent } from './products.component';
 
@@ -8,7 +11,11 @@ xdescribe('ProductsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductsComponent ]
+      declarations: [ ProductsComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [
+        { provide: Store, useValue: AppMocks.getMockStoreService() },
+      ],
     })
     .compileComponents();
   });
@@ -19,7 +26,4 @@ xdescribe('ProductsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
