@@ -11,7 +11,7 @@
     "server": "json-server db.json -m ./node_modules/json-server-auth",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "start-app":"npm run server && npm run start"
+    "start-app": "npm run server && npm run start"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +28,8 @@
     "@ngrx/effects": "^10.0.1",
     "@ngrx/store": "^10.0.1",
     "@ngrx/store-devtools": "^10.0.1",
+    "@ngx-translate/core": "^13.0.0",
+    "@ngx-translate/http-loader": "^6.0.0",
     "@webcomponents/webcomponentsjs": "^2.5.0",
     "document-register-element": "^1.7.2",
     "json-server-auth": "^2.0.2",

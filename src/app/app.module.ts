@@ -10,7 +10,7 @@ import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import * as AuthReducer from './shared/store/auth/auth.reducer';
 import * as ProductsReducer from './shared/store/products/product.reducer';
 import { ProductsComponent } from './products/products.component';
@@ -21,7 +21,12 @@ import { ProductEffects } from './shared/store/products/product.effects';
 import { ProductOperationsComponent } from './products/product-operations/product-operations.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http,'./assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -48,6 +53,14 @@ import { ToastrModule } from 'ngx-toastr';
       timeOut: 10000,
       preventDuplicates: true,
       closeButton: true,
+    }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+    },
+      defaultLanguage: 'en'
     })
   ],
   bootstrap: [AppComponent],
