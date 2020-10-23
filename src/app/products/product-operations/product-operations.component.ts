@@ -6,6 +6,7 @@ import * as ProductActions from '../../shared/store/products/product.actions';
 import { Product } from '../../shared/store/products/products.model';
 import * as APP_CONSTANTS from '../../shared/app.constants';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-product-operations',
   templateUrl: './product-operations.component.html',
@@ -35,8 +36,11 @@ export class ProductOperationsComponent implements OnInit {
     if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_UPDATE || this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_VIEW) {
      this.initializeFormData();
     }
-    this.store.subscribe((data:any) => {
-      this.currentUser = data.auth.currentUser.email
+    
+    this.store.pipe(
+      map((state) => state['auth'].currentUser))
+    .subscribe((data:any) => {
+      this.currentUser = data.email;
     })
   }
 

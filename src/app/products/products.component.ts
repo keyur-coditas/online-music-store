@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
+import { map } from 'rxjs/operators';
 import { Product } from '../shared/Models/product';
+import { AppState } from '../shared/store/app.state';
 import * as ProductActions from '../shared/store/products/product.actions';
 @Component({
   selector: 'app-products',
@@ -12,15 +14,21 @@ export class ProductsComponent implements OnInit {
   products: Product[];
   currentUser: any;
   constructor(
-    private store: Store<any>) { }
+    private store: Store<AppState>) { }
   
   ngOnInit(): void {
-    this.currentUser = this.store.subscribe((data:any) => {
-      this.currentUser = data.auth.currentUser;
-    });
     this.store.dispatch(ProductActions.productFetchAttempt());
-    this.store.subscribe((data) => {
-      this.products = data.products.products;
+
+    this.store.pipe(
+      map((state) => state['auth'].currentUser))
+     .subscribe((data:any) => {
+      this.currentUser = data;
+    });
+    
+    this.store.pipe(
+      map((state) => state['products'].products)
+    ).subscribe((data:any) => {
+      this.products = data;
     });
   }
 

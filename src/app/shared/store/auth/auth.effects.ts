@@ -25,7 +25,8 @@ export class AuthEffects {
             let accessToken = data.accessToken;
             return {
               type: AuthActions.LOGIN_SUCCESS,
-              payload: { email, accessToken },
+              email,
+              accessToken
             };
           }),
           catchError((error) => of({ type: AuthActions.LOGIN_FAILURE }))
@@ -39,7 +40,7 @@ export class AuthEffects {
       return this.actions.pipe(
         ofType(AuthActions.LOGIN_SUCCESS),
         tap((action: any) => {
-          sessionStorage.setItem('accessToken', action.payload.accessToken);
+          sessionStorage.setItem('accessToken', action.accessToken);
           this.router.navigate(['products']);
         })
       );

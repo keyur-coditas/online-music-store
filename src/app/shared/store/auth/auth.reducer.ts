@@ -19,14 +19,15 @@ const loginCompleteReducer = createReducer(
       return {
           ...state,
           currentUser: {
-            email: payload.payload.email,
-            accessToken: payload.payload.accessToken,
+            email: payload.email,
+            accessToken: payload.accessToken,
             isLoggedIn: true
           }
       }
   }),
 
   on(AuthActions.logout, (state) => {
+    
     return {
         ...state,
         currentUser: {

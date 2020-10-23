@@ -5,6 +5,7 @@ import * as APP_CONSTANTS from '../../shared/app.constants';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as ProductActions from '../../shared/store/products/product.actions';
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -20,8 +21,10 @@ export class CardComponent implements OnInit {
     private store: Store) { }
 
   ngOnInit(): void {
-     this.store.subscribe((data:any) => {
-      this.currentUser = data.auth.currentUser.email;
+     this.store.pipe(
+      map((state) => state['auth'].currentUser))
+     .subscribe((data:any) => {
+      this.currentUser = data.email;
     })
   }
 
@@ -41,6 +44,7 @@ export class CardComponent implements OnInit {
     this.store.dispatch(ProductActions.productDeleteAttempt({product}))
   }
   viewProduct(evt) {
+
     let productOpInfo = {
       productOperation: APP_CONSTANTS.PRODUCT_VIEW,
       disableFormFields: true

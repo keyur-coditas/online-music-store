@@ -21,18 +21,18 @@ const productsReducer = createReducer(
 on(ProductActions.productFetchSuccess, (state, payload:any) => {
   return {
       ...state,
-      products: payload.payload.data
+      products: payload.data
   }
 }),
 on(ProductActions.productUpdateSuccess, (state, payload:any) => {
   return {
       ...state,
-      products: [...state.products, payload.payload.data]
+      products: [...state.products, payload.data]
   }
 }),
 on(ProductActions.productDeleteSuccess, (state, payload:any) => {
   const stateCopy = {...state};
-  const deleteId = payload.payload.action.product.id;
+  const deleteId = payload.action.product.id;
   const updatedProducts = state.products.filter((prod) =>  deleteId !== prod.id);
   return {
       ...state,

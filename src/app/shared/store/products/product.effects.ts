@@ -49,7 +49,7 @@ export class ProductEffects {
                  mergeMap((action:any) => this.productsService.getAllProducts()
                      .pipe(
                          map((data:any) => {
-                           return { type: ProductActions.PRODUCT_FETCH_SUCCESS, payload: {data} }
+                           return { type: ProductActions.PRODUCT_FETCH_SUCCESS, data }
                          }),
                          catchError((error) => ( of({type: ProductActions.PRODUCT_ADD_FAILURE})) )
                      )
@@ -63,7 +63,7 @@ export class ProductEffects {
                  mergeMap((action:any) => this.productsService.updateProduct(action.product)
                      .pipe(
                          map((data:any) => {
-                           return { type: ProductActions.PRODUCT_UPDATE_SUCCESS, payload: {data} }
+                           return { type: ProductActions.PRODUCT_UPDATE_SUCCESS, data }
                          }),
                          catchError((error) => ( of({type: ProductActions.PRODUCT_UPDATE_FAILURE})) )
                      )
@@ -100,7 +100,7 @@ export class ProductEffects {
                  mergeMap((action:any) => this.productsService.deleteProduct(action.product)
                      .pipe(
                          map((data:any) => {  
-                           return { type: ProductActions.PRODUCT_DELETE_SUCCESS, payload: {action} }
+                           return { type: ProductActions.PRODUCT_DELETE_SUCCESS, action }
                          }),
                          catchError((error) => ( of({type: ProductActions.PRODUCT_DELETE_FAILURE})) )
                      )

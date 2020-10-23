@@ -8,9 +8,5 @@ export interface AppState {
   productsState: ProductsReducer.ProductsState;
 }
 
-export const reducers = {
-  auth: AuthReducer.reducer,
-  products: ProductsReducer.reducer
-};
 
 
