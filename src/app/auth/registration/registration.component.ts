@@ -1,8 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AppService } from '../../shared/app.service';
-import { User } from '../../shared/Models/user';
-import { AuthenticationService } from '../auth.service';
+
 import * as AuthActions from '../../shared/store/auth/auth.actions';
 import { Store } from '@ngrx/store';
 
@@ -18,37 +16,25 @@ export class RegistrationComponent  implements OnInit {
   confirmPassword: FormControl;
   passwordMismatch: boolean = false;
   constructor(
-     private authenticationService:AuthenticationService,
      private store: Store
      ) {
-    this.registrationForm = this.createRegistrationFormGroup();
    }
 
   ngOnInit(): void {
-  }
-
-  createRegistrationFormGroup() {
-    this.email = new FormControl('', [Validators.required]);
-    this.password =  new FormControl('', [Validators.required]);
-    this.confirmPassword = new FormControl('', [Validators.required]);
-      return new FormGroup({
-          email:  this.email,
-          password: this.password,
-          confirmPassword: this.confirmPassword
-      });
+    this.registrationForm = new FormGroup({
+      email:  new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+      confirmPassword: new FormControl('', [Validators.required])
+  });
   }
 
   onSubmit() {
     this.passwordMismatch = false;
     if(this.registrationForm.valid) {
-      let email = this.email.value;
-      let password = this.password.value;
-      let cnfmpassword = this.confirmPassword.value;
+      const email = this.registrationForm.controls['email'].value;
+      const password = this.registrationForm.controls['password'].value;
+      const cnfmpassword = this.registrationForm.controls['confirmPassword'].value;
     if(password === cnfmpassword) {
-      let user:User = {
-        email: this.email.value,
-        password: this.password.value,
-      }
       this.store.dispatch(AuthActions.signup({email, password}));
     } else {
       this.passwordMismatch = true;
