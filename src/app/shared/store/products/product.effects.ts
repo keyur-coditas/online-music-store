@@ -3,9 +3,8 @@ import { of } from 'rxjs';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import { Router } from '@angular/router';
 import { catchError, mergeMap, map, tap } from 'rxjs/operators';
-import { AuthenticationService } from 'src/app/auth/auth.service';
 import * as ProductActions from './product.actions';
-import { ProductService } from 'src/app/products/products.service';
+import { ProductService } from '../../../products/products.service';
 import { ToastrService } from 'ngx-toastr';
 @Injectable()
 export class ProductEffects {

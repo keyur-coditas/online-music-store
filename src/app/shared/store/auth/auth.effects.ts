@@ -3,7 +3,7 @@ import { EMPTY, Observable, of } from 'rxjs';
 import { Actions, createEffect, Effect, ofType } from '@ngrx/effects';
 import { Router } from '@angular/router';
 import { catchError, mergeMap, map, tap } from 'rxjs/operators';
-import { AuthenticationService } from 'src/app/auth/auth.service';
+import { AuthenticationService } from '../../../auth/auth.service';
 import * as AuthActions from './auth.actions';
 import { ToastrService } from 'ngx-toastr';
 @Injectable()
