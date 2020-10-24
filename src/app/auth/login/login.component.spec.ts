@@ -4,7 +4,7 @@ import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppMocks } from 'src/app/shared/mocks/mocks';
+import { AppMocks } from '../../shared/mocks/mocks';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
