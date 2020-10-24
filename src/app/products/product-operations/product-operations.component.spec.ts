@@ -44,7 +44,7 @@ xdescribe('ProductOperationsComponent', () => {
     store = TestBed.inject(Store);
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
   });
 });

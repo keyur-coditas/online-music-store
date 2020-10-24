@@ -26,11 +26,11 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('onSubmit', () => {
+  test('onSubmit', () => {
    const mockFormGroup = AppMocks.getMockFormGroup();
    const dispatchSpy = spyOn(component['store'], 'dispatch');
     component.loginForm = mockFormGroup;

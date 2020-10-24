@@ -34,11 +34,11 @@ describe('HeaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('changeTheme', () => {
+  test('changeTheme', () => {
     const isDarkThemeSpy = spyOn(component['themeService'], 'isDarkTheme');
     const setDarkThemeSpy = spyOn(component['themeService'], 'setDarkTheme');
     const setLightThemeSpy = spyOn(component['themeService'], 'setLightTheme');
@@ -52,19 +52,19 @@ describe('HeaderComponent', () => {
     expect(setLightThemeSpy).toHaveBeenCalled();
   });
 
-  it('logout', () => {
+  test('logout', () => {
     const logoutSpy = spyOn(component['store'], 'dispatch');
     component.logout();
     expect(logoutSpy).toHaveBeenCalled();
   });
 
-  it('isAuthenticated', () => {
+  test('isAuthenticated', () => {
     const setDarkThemeSpy = spyOn(component['appService'], 'isAuthenticated');
     component.isAuthenticated();
     expect(setDarkThemeSpy).toHaveBeenCalled();
   });
 
-  it('addProduct', () => {
+  test('addProduct', () => {
     const setProductInfoSpy = spyOn(component['productService'], 'setProductInfo');
     const navigateSpy = spyOn(component['router'], 'navigate');
     component.addProduct();

@@ -20,11 +20,11 @@ describe('AuthComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('changeActiveTab()', () => {
+  test('changeActiveTab()', () => {
     const tab = 'login';
     component.changeTab(tab);
   });

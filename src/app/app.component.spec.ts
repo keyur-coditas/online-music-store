@@ -12,7 +12,7 @@ beforeEach(() => {
 });
 
 describe('AppComponent', () => {
-  it('should render the component', async () => {
+  test('should render the component', async () => {
      render(AppComponent);
   });
 });
