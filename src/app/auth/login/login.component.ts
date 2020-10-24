@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { AppService } from '../../shared/app.service';
-import { User } from '../../shared/Models/user';
 import * as AuthActions from '../../shared/store/auth/auth.actions';
 
 @Component({

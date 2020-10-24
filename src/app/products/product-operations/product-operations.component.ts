@@ -7,8 +7,8 @@ import { StoreProduct } from '../../shared/store/products/products.model';
 import * as APP_CONSTANTS from '../../shared/app.constants';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { ProductOperationInfo } from 'src/app/shared/Models/product';
-import { CurrentUser } from 'src/app/shared/Models/user';
+import { ProductOperationInfo } from '../../shared/models/product';
+import { CurrentUser } from '../../shared/models/user';
 @Component({
   selector: 'app-product-operations',
   templateUrl: './product-operations.component.html',

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import * as URL_CONSTANTS from '../shared/urls';
 import * as APP_CONSTANTS from '../shared/app.constants';
 import { StoreProduct } from '../shared/store/products/products.model';
-import { ProductOperationInfo } from '../shared/Models/product';
+import { ProductOperationInfo } from '../shared/models/product';
 @Injectable({ providedIn: 'root' })
 export class ProductService {
   selectedProduct: StoreProduct;

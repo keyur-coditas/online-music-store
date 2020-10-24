@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
-import { Product } from '../shared/Models/product';
+import { Product } from '../shared/models/product';
 import { AppState } from '../shared/store/app.state';
 import * as ProductActions from '../shared/store/products/product.actions';
 @Component({

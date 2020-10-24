@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { provideMockStore } from '@ngrx/store/testing';
 import { AppMocks } from '../../shared/mocks/mocks';
 import { ProductService } from '../products.service';
 import { ProductOperationsComponent } from './product-operations.component';
@@ -10,7 +11,19 @@ import { ProductOperationsComponent } from './product-operations.component';
 xdescribe('ProductOperationsComponent', () => {
   let component: ProductOperationsComponent;
   let fixture: ComponentFixture<ProductOperationsComponent>;
-
+  let store: any;
+  const initialState = {
+    auth: {
+      currentUser: {
+        email: '',
+        accessToken: ''
+      }
+    },
+      products: {
+        products: [{}]
+      },
+    dispatch: jest.fn(() => {})
+  }
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ProductOperationsComponent ],
@@ -18,20 +31,17 @@ xdescribe('ProductOperationsComponent', () => {
       providers: [
         { provide: ProductService, useValue: AppMocks.getMockProductService() },
         { provide: Router, useValue: AppMocks.getMockRouterService() },
-        { provide: Store, useValue: AppMocks.getMockStoreService() }],
+         provideMockStore({initialState})
+      ],
       imports: [ ReactiveFormsModule, FormsModule]
-    })
-    .compileComponents();
-    
+    }).compileComponents();  
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ProductOperationsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    spyOn(component['store'], 'pipe').and.callFake(() => {
-      console.log('dispatching from the spy!');
-    });
+    store = TestBed.inject(Store);
   });
 
   it('should create', () => {

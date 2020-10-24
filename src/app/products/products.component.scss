@@ -4,3 +4,13 @@
     padding: 2rem;
     grid-template-columns: 20vw 20vw 20vw 20vw;
 }
+@media screen and (min-width: 650px) and (max-width: 930px) {
+    :host {
+        grid-template-columns: 30vw 30vw 30vw;
+    }
+}
+@media screen and (max-width: 650px) {
+    :host {
+        grid-template-columns: 80vw;
+    }
+}

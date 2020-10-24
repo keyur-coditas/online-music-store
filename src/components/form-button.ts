@@ -14,7 +14,6 @@ export class storeFormButton extends LitElement {
     return css`
     .str-btn {
       padding: 8px;
-      outline: none;
       border: 1px solid #c8c8c8;
       box-shadow: .5px .5px #c8c8c8;
       margin: 1rem;

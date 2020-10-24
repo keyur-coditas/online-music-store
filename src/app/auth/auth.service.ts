@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../shared/Models/user';
+import { User } from '../shared/models/user';
 import * as URL_CONSTANTS from '../shared/urls';
 
 @Injectable({providedIn: 'root'})
