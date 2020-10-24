@@ -5,7 +5,7 @@ import { AppMocks } from '../shared/mocks/mocks';
 import { StoreProduct } from '../shared/store/products/products.model';
 import { ThemeService } from './theme.service';
 import { Theme, light, dark } from './styles/themes/theme';
-describe('ProductsService', () => {
+describe('ThemeService', () => {
   let component: ThemeService;
   let fixture: ComponentFixture<ThemeService>;
 
