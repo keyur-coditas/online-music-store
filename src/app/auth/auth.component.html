@@ -1,11 +1,11 @@
-<div class="container">
+<div class="auth-container">
     <div class="tab-container">
         <ul class="tabs-wrapper">
             <li class="tab" [class.active]="activeTab === 'login'" (click)="changeTab('login')">Login</li>
             <li class="tab" [class.active]="activeTab === 'registration'"  (click)="changeTab('registration')">Register</li>
         </ul>
     </div>
-    <div class="tab-content" [ngSwitch]="activeTab">
+    <div class="text-center" [ngSwitch]="activeTab">
         <div *ngSwitchCase="'login'">
             <app-login></app-login>
         </div>

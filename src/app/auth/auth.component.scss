@@ -1,5 +1,5 @@
 @import '../shared/styles/variables.scss';
-.container{
+.auth-container{
     width: 50%;
     margin: 3rem auto 0rem auto;
     border: 1px solid $border-color;
@@ -29,3 +29,4 @@
         background-color: var(--tab-active-background);
         color: var(--tab-active-color);
 }
+@import '../shared/styles/media-queries.scss';

@@ -41,11 +41,5 @@
     margin-bottom:0px;
 }
 
-@media screen and (max-width: 720px) {
-   .str-input{
-    width: 90%;
-   }
-   .str-textarea {
-       width: 90%;
-   }
-  }
+
+  @import './media-queries.scss';  

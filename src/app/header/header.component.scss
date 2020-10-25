@@ -4,6 +4,7 @@
     justify-content: space-between;
     padding:15px;
     background-color: var(--header-background-color);
+    flex-wrap: wrap;
 }
 .header-logout {
     display:flex;
