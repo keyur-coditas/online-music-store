@@ -53,7 +53,7 @@ export class AppMocks {
         return {
             get: jest.fn(() => {}),
             put: jest.fn(() => {}),
-            post: jest.fn(() => {}),
+            post: jest.fn((val) => {}),
             delete: jest.fn(() => {})
            }
     }
