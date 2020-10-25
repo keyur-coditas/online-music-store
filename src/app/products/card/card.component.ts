@@ -5,7 +5,7 @@ import * as APP_CONSTANTS from '../../shared/app.constants';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as ProductActions from '../../shared/store/products/product.actions';
-import { catchError, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { CurrentUser } from '../../shared/models/user';
 import { StoreProduct } from '../../shared/store/products/products.model';
 import { AppState } from '../../shared/store/app.state';
