@@ -8,7 +8,7 @@ import { AppMocks } from '../../shared/mocks/mocks';
 import { ProductService } from '../products.service';
 import { ProductOperationsComponent } from './product-operations.component';
 
-xdescribe('ProductOperationsComponent', () => {
+describe('ProductOperationsComponent', () => {
   let component: ProductOperationsComponent;
   let fixture: ComponentFixture<ProductOperationsComponent>;
   let store: any;
@@ -21,8 +21,7 @@ xdescribe('ProductOperationsComponent', () => {
     },
       products: {
         products: [{}]
-      },
-    dispatch: jest.fn(() => {})
+      }
   }
   beforeEach(async () => {
     await TestBed.configureTestingModule({
