@@ -58,6 +58,15 @@ export class AppMocks {
             delete: jest.fn(() => {})
            }
     }
+
+    public static getMockTranslateService = () => {
+        return {
+            addLangs: jest.fn((params) => {}),
+            setDefaultLang: jest.fn(() => {}),
+            use: jest.fn((val) => {}),
+            getBrowserLang: jest.fn(() => {return 'en'})
+           }
+    }
 }
 
 

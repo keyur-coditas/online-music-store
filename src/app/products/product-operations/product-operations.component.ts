@@ -32,9 +32,13 @@ export class ProductOperationsComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit(): void {
+    console.log('init');
     this.productOperationInfo = this.productService.getProductInfo();
+    console.log('info');
     this.productForm = this.createProductFormGroup();
+    console.log('form');
     this.selectedProduct = this.productService.getProduct();
+    console.log('prod');
     if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_UPDATE || this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_VIEW) {
      this.initializeFormData();
     }

@@ -1,3 +1,7 @@
 {
-    "hello":  "Bonjour"
+    "header": {
+        "theme-button": "Changer de thème",
+        "logout-button": "Se déconnecter",
+        "add-product-button": "Ajouter un produit"
+    }
 }

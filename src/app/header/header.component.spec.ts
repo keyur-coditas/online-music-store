@@ -8,11 +8,13 @@ import { ThemeService } from '../shared/theme.service';
 import { HeaderComponent } from './header.component';
 import * as APP_CONSTANTS from '../shared/app.constants'
 import { AppMocks } from '../shared/mocks/mocks';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async () => {
+    
     await TestBed.configureTestingModule({
       declarations: [ HeaderComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -21,8 +23,10 @@ describe('HeaderComponent', () => {
         { provide: ProductService, useValue: AppMocks.getMockProductService() },
         { provide: Router, useValue: AppMocks.getMockRouterService() },
         { provide: Store, useValue: AppMocks.getMockStoreService() },
-        { provide: AppService, useValue: AppMocks.getMockAppService() }
-      ]
+        { provide: AppService, useValue: AppMocks.getMockAppService() },
+        TranslateService
+      ],
+      imports: [TranslateModule.forRoot()]
     })
     .compileComponents();
   });

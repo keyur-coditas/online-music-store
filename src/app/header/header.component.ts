@@ -7,6 +7,7 @@ import { ProductService } from '../products/products.service';
 import * as APP_CONSTANTS from '../shared/app.constants';
 import { ThemeService } from '../shared/theme.service';
 import { ProductOperationInfo } from '../shared/models/product';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +21,13 @@ export class HeaderComponent {
      private store: Store,
      private router:Router,
      private productService: ProductService,
-     private themeService: ThemeService) {
+     private themeService: ThemeService,
+     private translateService:TranslateService) {
+      this.translateService.addLangs(['en', 'fr']);
+      this.translateService.setDefaultLang('en');
+  
+      const browserLang = this.translateService.getBrowserLang();
+      this.translateService.use(browserLang.match(/en|fr/) ? browserLang : 'en');
    }
 
   changeTheme() {
