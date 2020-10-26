@@ -17,7 +17,8 @@ export class AppMocks {
             getAllProducts: jest.fn(() => false),
             getProductInfo: jest.fn(() => {}),
             setProductInfo: jest.fn(() => {}),
-            addProduct: jest.fn(() => {})
+            addProduct: jest.fn(() => {}),
+            setProduct: jest.fn((val) => {})
          }
      }
 

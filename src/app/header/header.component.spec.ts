@@ -11,7 +11,6 @@ import { AppMocks } from '../shared/mocks/mocks';
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
-  let appService: AppService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
