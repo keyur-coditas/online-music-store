@@ -10,6 +10,10 @@ export class storeFormButton extends LitElement {
   @property()
   isCardButton = false;
 
+  @property()
+  ariaLabel = 'Click button';
+
+
   static get styles() {
     return css`
     .str-btn {
@@ -44,9 +48,9 @@ export class storeFormButton extends LitElement {
 
   render(){
     if(this.isCardButton) {
-      return html`<button aria-label="Submit" class="str-card-buttons str-btn">${this.buttonText}</button>`;
+      return html`<button class="str-card-buttons str-btn" aria-label="${this.ariaLabel}">${this.buttonText}</button>`;
     } else {
-      return html`<button aria-label="Submit" class="str-submit-btn str-btn">${this.buttonText}</button>`;
+      return html`<button class="str-submit-btn str-btn" aria-label="${this.ariaLabel}">${this.buttonText}</button>`;
     }
   }
 }

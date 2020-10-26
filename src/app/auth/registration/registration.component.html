@@ -1,7 +1,7 @@
 <form [formGroup]="registrationForm">
     <div>
       <input
-        aria-label="email"
+        aria-label="Enter email"
         class="str-input"
         type="email"
         formControlName="email"
@@ -12,7 +12,7 @@
     </div>
     <div>
       <input
-        aria-label="password"
+        aria-label="Select a password"
         class="str-input"
         type="password"
         formControlName="password"
@@ -25,7 +25,7 @@
     </div>
     <div>
       <input
-        aria-label="confirm-pssword"
+        aria-label="confirm password"
         class="str-input"
         type="password"
         formControlName="confirmPassword"
@@ -41,6 +41,6 @@
         >Passwords don't match</p
       >
   <div class="text-center">
-    <str-form-btn (click)="onSubmit()" buttonText="Submit"></str-form-btn>
+    <str-form-btn (click)="onSubmit()" buttonText="Submit" ariaLabel="{{'Signup'}}"></str-form-btn>
   </div>
 </form>

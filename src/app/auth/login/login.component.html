@@ -1,14 +1,14 @@
 <form [formGroup]="loginForm">
     <div>
         <div>
-            <input aria-label="email" class="str-input" type="email" formControlName="email"
+            <input aria-label="Enter email" class="str-input" type="email" formControlName="email"
                 placeholder="Enter your email" />
                 <p class="str-error-msg-class"
                     *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid">Email is
                     required</p>
         </div>
         <div>
-            <input aria-label="password" class="str-input" type="password" formControlName="password"
+            <input aria-label="Enter password" class="str-input" type="password" formControlName="password"
                 placeholder="Enter password" />
                 <p class="str-error-msg-class"
                     *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid">Password is
@@ -17,6 +17,6 @@
         </div>
     </div>
     <div class="text-center">
-        <str-form-btn (click)="onSubmit()" buttonText="Submit"></str-form-btn>
+        <str-form-btn (click)="onSubmit()" buttonText="Submit" ariaLabel="{{'Login'}}"></str-form-btn>
     </div>
 </form>
