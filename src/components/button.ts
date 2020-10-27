@@ -7,9 +7,6 @@ export class storeButton extends LitElement {
   @property()
   buttonText = 'click here';
 
-  @property()
-  ariaLabel = 'Click button';
-
   static get styles() {
     return css`
     .str-btn {
@@ -32,6 +29,6 @@ export class storeButton extends LitElement {
 
 
   render(){
-    return html`<button type="button" class="str-btn" aria-label=${this.ariaLabel}>${this.buttonText}</button>`;
+    return html`<button type="button" class="str-btn">${this.buttonText}</button>`;
   }
 }

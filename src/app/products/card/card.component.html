@@ -8,7 +8,7 @@
         <p class="text-center card-font-small card-details-margin"><b><span>&#8377; </span> {{product.price}}</b></p>
     </div>
     <div class="text-center str-card-buttons-container">
-        <str-form-btn *ngIf="currentUser === product.createdBy" (click)="updateProduct($event)" buttonText="{{'products.card.update-button'| translate}}" isCardButton="true"></str-form-btn>
-        <str-form-btn *ngIf="currentUser === product.createdBy" (click)="deleteProduct($event)" buttonText="{{'products.card.delete-button'| translate}}" isCardButton="true"></str-form-btn>
+        <str-form-btn *ngIf="currentUser === product.createdBy" (click)="updateProduct($event)" buttonText="{{'products.card.update-button'| translate}}" isCardButton="true" aria-label="Update Product"></str-form-btn>
+        <str-form-btn *ngIf="currentUser === product.createdBy" (click)="deleteProduct($event)" buttonText="{{'products.card.delete-button'| translate}}" isCardButton="true" aria-label="Delete Product"></str-form-btn>
     </div>
 </div>
