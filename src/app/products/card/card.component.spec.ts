@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { provideMockStore } from '@ngrx/store/testing';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AppMocks } from '../../shared/mocks/mocks';
 import { ProductService } from '../products.service';
 import { CardComponent } from './card.component';
@@ -30,8 +31,10 @@ describe('CardComponent', () => {
       providers: [
         { provide: ProductService, useValue: AppMocks.getMockProductService() },
         { provide: Router, useValue: AppMocks.getMockRouterService() },
-        provideMockStore({initialState}) 
-      ]
+        provideMockStore({initialState}),
+        TranslateService 
+      ],
+      imports: [TranslateModule.forRoot()]
     }).compileComponents();
   });
 

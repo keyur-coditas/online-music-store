@@ -7,9 +7,10 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http,'./assets/i18n/', '.json');
+  return new TranslateHttpLoader(http,'../../assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -23,6 +24,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+    }
+  }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

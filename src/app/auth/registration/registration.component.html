@@ -8,7 +8,7 @@
         placeholder="Enter your email"
       />
         <p class="str-error-msg-class" *ngIf="registrationForm.controls['email'].touched && registrationForm.controls['email'].invalid"
-          >Email is required</p>
+          >{{'auth.email-validation' | translate}}</p>
     </div>
     <div>
       <input
@@ -21,7 +21,7 @@
         <p
           class="str-error-msg-class"
           *ngIf="registrationForm.controls['password'].touched && registrationForm.controls['password'].invalid"
-          >Password is required</p>
+          >{{'auth.password-validation' | translate}}</p>
     </div>
     <div>
       <input
@@ -34,13 +34,13 @@
         <p
           class="str-error-msg-class"
           *ngIf="registrationForm.controls['confirmPassword'].touched && registrationForm.controls['confirmPassword'].invalid"
-          >Please confirm password
+          >{{'auth.confirm-password-validation' | translate}}
     </p>
     </div>
       <p class="str-error-msg-class" *ngIf="passwordMismatch"
-        >Passwords don't match</p
+        >{{'auth.password-mismatch-validation' | translate}}</p
       >
   <div class="text-center">
-    <str-form-btn (click)="onSubmit()" buttonText="Submit" ariaLabel="{{'Signup'}}"></str-form-btn>
+    <str-form-btn (click)="onSubmit()" buttonText="{{'auth.submit-button' | translate}}" ariaLabel="{{'Signup'}}"></str-form-btn>
   </div>
 </form>

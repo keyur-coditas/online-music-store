@@ -2,6 +2,27 @@
     "header": {
         "theme-button": "Switch theme",
         "logout-button": "Logout",
-        "add-product-button": "Add Product"
+        "add-product-button": "Add Product",
+        "change-language": "Change language"
+    },
+    "auth": {
+        "login-tab": "Login",
+        "register-tab": "Register",
+        "submit-button": "Submit",
+        "email-validation": "Email is required",
+        "password-validation": "Password is required",
+        "confirm-password-validation": "Please confirm password",
+        "password-mismatch-validation": "Passwords don't match"
+    },
+    "products": {
+        "card": {
+            "update-button": "Update",
+            "delete-button": "Delete"
+        },
+        "product-operations": {
+            "add-button": "Add Product",
+            "update-button": "Update Product",
+            "cancel-button": "Cancel"
+        } 
     }
 }

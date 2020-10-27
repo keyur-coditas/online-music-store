@@ -7,9 +7,10 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
 import { ProductOperationsComponent } from './product-operations/product-operations.component';
 import { CardComponent } from './card/card.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http,'./assets/i18n/', '.json');
+  return new TranslateHttpLoader(http,'../../assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -23,6 +24,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+    }
+  })
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

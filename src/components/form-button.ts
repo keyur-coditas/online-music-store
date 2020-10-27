@@ -37,7 +37,7 @@ export class storeFormButton extends LitElement {
     color: var(--form-btn-color);
 }
 .str-card-buttons {
-  width:4rem;
+  width:6rem;
   background-color: var(--form-btn-background);
   color: var(--form-btn-color);
   margin: 10px;

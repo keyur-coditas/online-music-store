@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { ProductOperationInfo } from '../../shared/models/product';
 import { CurrentUser } from '../../shared/models/user';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-product-operations',
   templateUrl: './product-operations.component.html',
@@ -26,6 +27,7 @@ export class ProductOperationsComponent implements OnInit {
   description: FormControl;
   price: FormControl;
   imageUrl: FormControl;
+  buttonText: string;
   constructor(
     private productService:ProductService,
     private store: Store,
@@ -44,6 +46,8 @@ export class ProductOperationsComponent implements OnInit {
     .subscribe((data:CurrentUser) => {
       this.currentUser = data.email;
     })
+
+    this.setButtonText();
   }
 
   createProductFormGroup() {
@@ -92,5 +96,12 @@ initializeFormData() {
 }
   cancel() {
     this.router.navigate(['products']);
+  }
+  setButtonText() {
+    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {
+      this.buttonText = 'add-button';
+    } else {
+      this.buttonText = 'update-button';
+    }
   }
 }

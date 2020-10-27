@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { MockStore } from '@ngrx/store/testing';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AppMocks } from '../../shared/mocks/mocks';
 
 import { RegistrationComponent } from './registration.component';
@@ -16,9 +17,10 @@ describe('RegistrationComponent', () => {
       declarations: [ RegistrationComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        { provide: Store, useValue: AppMocks.getMockStoreService() }
+        { provide: Store, useValue: AppMocks.getMockStoreService() },
+        TranslateService
       ],
-      imports: [ ReactiveFormsModule, FormsModule]
+      imports: [ ReactiveFormsModule, FormsModule, TranslateModule.forRoot()]
     }).compileComponents();
   });
 

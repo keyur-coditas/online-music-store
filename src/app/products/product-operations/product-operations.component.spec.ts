@@ -4,10 +4,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { provideMockStore } from '@ngrx/store/testing';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AppMocks } from '../../shared/mocks/mocks';
 import { ProductService } from '../products.service';
 import { ProductOperationsComponent } from './product-operations.component';
-
+import * as APP_CONSTANTS from '../../shared/app.constants';
 describe('ProductOperationsComponent', () => {
   let component: ProductOperationsComponent;
   let fixture: ComponentFixture<ProductOperationsComponent>;
@@ -30,9 +31,10 @@ describe('ProductOperationsComponent', () => {
       providers: [
         { provide: ProductService, useValue: AppMocks.getMockProductService() },
         { provide: Router, useValue: AppMocks.getMockRouterService() },
-         provideMockStore({initialState})
+         provideMockStore({initialState}),
+         TranslateService
       ],
-      imports: [ ReactiveFormsModule, FormsModule]
+      imports: [ ReactiveFormsModule, FormsModule, TranslateModule.forRoot()]
     }).compileComponents();  
   });
 
@@ -45,5 +47,28 @@ describe('ProductOperationsComponent', () => {
 
   test('should create', () => {
     expect(component).toBeTruthy();
+  });
+  test('createFormGroup', () => {
+    component.createProductFormGroup();
+  });
+  test('cancel', () => {
+    const navigateSpy = spyOn(component['router'], 'navigate');
+    component.cancel();
+    expect(navigateSpy).toHaveBeenCalled();
+  });
+  test('setButtonText', () => {
+    component.productOperationInfo = {
+      productOperation: APP_CONSTANTS.PRODUCT_ADD,
+      disableFormFields: false
+    }
+    component.setButtonText();
+    component.productOperationInfo = {
+      productOperation: APP_CONSTANTS.PRODUCT_UPDATE,
+      disableFormFields: false
+    }
+    component.setButtonText();
+  });
+  test('createFormGroup', () => {
+    component.createProductFormGroup();
   });
 });

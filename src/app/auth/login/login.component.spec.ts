@@ -4,6 +4,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppMocks } from '../../shared/mocks/mocks';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -14,8 +15,9 @@ describe('LoginComponent', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         { provide: Store, useValue: AppMocks.getMockStoreService() },
+        TranslateService
       ],
-      imports: [ ReactiveFormsModule, FormsModule]
+      imports: [ ReactiveFormsModule, FormsModule, TranslateModule.forRoot()]
     }).compileComponents();;
   })
 

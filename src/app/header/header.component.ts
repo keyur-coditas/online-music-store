@@ -54,4 +54,13 @@ export class HeaderComponent {
   isAuthenticated() {
     return this.appService.isAuthenticated();
   }
+
+  changeLanguage() {
+    const currenLang = this.translateService.currentLang;
+    if(currenLang === 'en') {
+      this.translateService.use('fr');
+    } else {
+      this.translateService.use('en');
+    }
+  }
 }

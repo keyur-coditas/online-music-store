@@ -4,19 +4,17 @@
             <input aria-label="Enter email" class="str-input" type="email" formControlName="email"
                 placeholder="Enter your email" />
                 <p class="str-error-msg-class"
-                    *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid">Email is
-                    required</p>
+                    *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid">{{'auth.email-validation' | translate}}</p>
         </div>
         <div>
             <input aria-label="Enter password" class="str-input" type="password" formControlName="password"
                 placeholder="Enter password" />
                 <p class="str-error-msg-class"
-                    *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid">Password is
-                    required
+                    *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid">{{'auth.password-validation' | translate}}
                 </p>
         </div>
     </div>
     <div class="text-center">
-        <str-form-btn (click)="onSubmit()" buttonText="Submit" ariaLabel="{{'Login'}}"></str-form-btn>
+        <str-form-btn (click)="onSubmit()" buttonText="{{'auth.submit-button' | translate}}" ariaLabel="{{'Login'}}"></str-form-btn>
     </div>
 </form>
