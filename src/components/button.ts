@@ -32,6 +32,6 @@ export class storeButton extends LitElement {
 
 
   render(){
-    return html`<button type="button" class="str-btn" aria-label="${this.ariaLabel}">${this.buttonText}</button>`;
+    return html`<button type="button" class="str-btn" aria-label=${this.ariaLabel}>${this.buttonText}</button>`;
   }
 }

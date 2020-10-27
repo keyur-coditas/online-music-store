@@ -9,25 +9,25 @@
     width: 80%;
   }
   .card-container {
-    grid-template-columns: 80vw;
+    grid-template-columns: 80%;
   }
 }
 
 @media screen and (min-width: 501px) and (max-width: 600px) {
     .card-container {
-        grid-template-columns: 60vw;
+        grid-template-columns: 90%;
     }
 }
 
 @media screen and (min-width: 601px) and (max-width: 720px) {
     .card-container {
-        grid-template-columns: 40vw 40vw;
+        grid-template-columns: 40% 40%;
     }
 }
 
 @media screen and (min-width: 721px) and (max-width: 999px) {
   .card-container {
-    grid-template-columns: 30vw 30vw 30vw;
+    grid-template-columns: 30% 30% 30%;
 }
 }
 

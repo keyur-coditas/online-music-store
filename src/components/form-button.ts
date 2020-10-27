@@ -48,9 +48,9 @@ export class storeFormButton extends LitElement {
 
   render(){
     if(this.isCardButton) {
-      return html`<button class="str-card-buttons str-btn" aria-label="${this.ariaLabel}">${this.buttonText}</button>`;
+      return html`<button class="str-card-buttons str-btn" aria-label=${this.ariaLabel}>${this.buttonText}</button>`;
     } else {
-      return html`<button class="str-submit-btn str-btn" aria-label="${this.ariaLabel}">${this.buttonText}</button>`;
+      return html`<button class="str-submit-btn str-btn" aria-label=${this.ariaLabel}>${this.buttonText}</button>`;
     }
   }
 }

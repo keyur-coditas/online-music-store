@@ -2,78 +2,79 @@
   "users": [
     {
       "email": "keyur@coditas.com",
-      "password": "$2a$10$bAnk8C9OHi6xUMttFOgycuJLGWWsocMbkIkbGLNSG3v.BQq.9LD2.",
+      "password": "$2a$10$zT1HNlrr060I065c7xIdjOtqVLyTWNY73d/ky2Xx5Zzw0SNAVRZ8G",
       "id": 1
     },
     {
-      "email": "xyz@gmail.com",
-      "password": "$2a$10$JJJhQylcLUt.eaiYX6fL/uYKpEW5B7lTDg1.gdJ6Kr2qQUpZrA85q",
+      "email": "keyur@gmail.com",
+      "password": "$2a$10$6S7M/w0WozBYP3/CQPAzJeJfaZXddvsujhhCqbu93./h4CxexqfTi",
       "id": 2
-    },
-    {
-      "email": "keyur2@coditas.com",
-      "password": "$2a$10$r50rKcmnhpgMM11QkhbMYOCkDnO2/ZvQsmKTeDtHmwyzeYJtkwLry",
-      "id": 3
-    },
-    {
-      "email": "keyur3@coditas.com",
-      "password": "$2a$10$3Gtbz3YnhvkDP0uo3jyzAuStH56ZCaEXdWqasd8A6eEyqmzN.o0PG",
-      "id": 4
-    },
-    {
-      "email": "keyur3@gmail.com",
-      "password": "$2a$10$R1tPaFO29SSMFi1BI9V0r.yzf6lCJLcpiC.8GrZveelkYKGV8fUkW",
-      "id": 5
     }
   ],
   "products": [
     {
-      "name": "Yamaha, Acoustic Guitar FX310 /Natural",
-      "description": "Unbeatable value has made the dreadnought-style F310 a best seller. The perfect choice for discerning beginners, and also available as an electro-acoustic.",
-      "price": 14990,
-      "imageUrl": "../../../assets/images/yamaha_acoustic.webp",
-      "createdBy": "keyur2@coditas.com",
+      "name": "Cort, Acoustic Guitar, Dreadnought AD880 -Black",
+      "description": "The AD880 features a spruce top for a resonate tone that actually improves with age.",
+      "price": 12044,
+      "imageUrl": "../../../assets/images/chateau_acoustic_guitar.webp",
+      "createdBy": "keyur@coditas.com",
       "id": 1
     },
     {
-      "name": " Yamaha, Acoustic Guitar F310 /Tobacco Brown",
-      "description": "Unbeatable value has made the dreadnought-style F310 a best seller. The perfect choice for discerning beginners, and also available as an electro-acoustic.",
-      "price": 9490,
-      "imageUrl": "../../../assets/images/yamaha_classical_guitar_c40.webp",
-      "createdBy": "keyur2@coditas.com",
+      "name": " Epiphone, Acoustic Guitar, PRO-1 -Natural",
+      "description": "he PRO-1 is a terrific first step into the world of guitar featuring all of the PRO Collection's breakthrough features",
+      "price": 10838,
+      "imageUrl": "../../../assets/images/yamaha_acoustic.webp",
+      "createdBy": "keyur@coditas.com",
       "id": 2
     },
     {
-      "name": " Chateau, Acoustic Guitar, 41\", W305 -Black123",
-      "description": "Unbeatable value has made the dreadnought-style F310 a best seller. The perfect choice for discerning beginners, and also available as an electro-acoustic.",
-      "price": 9250,
-      "imageUrl": "../../../assets/images/chateau_acoustic_guitar.webp",
-      "createdBy": "keyur2@coditas.com",
+      "name": "Boston, Grand Piano, GP-156 /Ebonized High",
+      "description": "A piano that is beautiful on the outside\nas it is on the inside.",
+      "price": 90000,
+      "imageUrl": "../../../assets/images/piano.webp",
+      "createdBy": "keyur@coditas.com",
       "id": 3
     },
     {
-      "name": "Pearl, Drum Set, 5 Pcs, Roadshow, Junior,",
-      "description": "Two Durable Covered Finishes 6-ply Poplar Shells Sturdy Hardware Package Dual-Point Cast Tuning Lugs 1 Ply Coated Snare Drum Head Coated Snare Drum Head",
-      "price": 29750,
-      "imageUrl": "",
-      "createdBy": "keyur2@coditas.com",
+      "name": " B Steiner, Grand Piano, SIG-48D /Ebony High",
+      "description": "This is a larger baby-grand piano with fuller sound due to its bigger size and longer strings.\n",
+      "price": 50000,
+      "imageUrl": "../../../assets/images/grand_piano.webp",
+      "createdBy": "keyur@coditas.com",
       "id": 4
     },
     {
-      "name": "Chancellor, Drum Set, JBP0803, 5 Pcs, with Black11",
-      "description": "This 5-piece Chancellor Drum set is an awesome bargain. Strongly recommended for all drummers and aspiring bands.",
-      "price": 24150,
-      "imageUrl": "../../../assets/images/evans_bass_drumhead2.webp",
-      "createdBy": "keyur2@coditas.com",
+      "name": "Evans, Bass Drumhead, EMAD 22\"(55.88 cm)",
+      "description": "An ideal balance of punch, power, and low-end...the EMAD is a 10mil 1-ply head that employs an externally mounted adjustable damping system with two interchangeable damping rings that allow the player to adjust attack and focus",
+      "price": 3056,
+      "imageUrl": "../../../assets/images/evans_bass_drumhead.webp",
+      "createdBy": "keyur@gmail.com",
       "id": 5
     },
     {
-      "name": "B Steiner, Grand Piano, SIG-48D /Ebony High 2",
-      "description": "This is a larger baby-grand piano with fuller sound due to its bigger size and longer strings.\n",
-      "price": 1000000,
-      "imageUrl": "../../../assets/images/grand_piano.webp",
-      "createdBy": "keyur@coditas.com",
+      "name": "Evans, Bass Drumhead, EMAD 22\"(55.88 cm)",
+      "description": "With accentuated low-end response, the EMAD Resonant is constructed using a 7.5mil black film with a 6.5mil fixed internal control ring.",
+      "price": 3976,
+      "imageUrl": "../../../assets/images/evans_bass_drumhead2.webp",
+      "createdBy": "keyur@gmail.com",
+      "id": 6
+    },
+    {
+      "name": "Laney, Acoustic Guitar Amp, 80W A1+",
+      "description": "The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.",
+      "price": 26460,
+      "imageUrl": "../../../assets/images/acoustic_amp.webp",
+      "createdBy": "keyur@gmail.com",
       "id": 7
+    },
+    {
+      "name": "Laney, Speaker Cabinet, Ironheart Cab 412",
+      "description": "Designed to be used stand-alone or as part of a full stack setup each cabinet is loaded with 4 HH Custom designed 12\" Custom drivers.",
+      "price": 32690,
+      "imageUrl": "../../../assets/images/Laney_amp.webp",
+      "createdBy": "keyur@gmail.com",
+      "id": 8
     }
   ]
 }
