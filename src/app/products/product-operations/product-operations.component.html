@@ -29,8 +29,8 @@
             </div>
         </div>
         <div class="text-center">
-            <button [aria-label]="productOperationInfo.productOperation" class="str-submit-btn str-btn" *ngIf="productOperationInfo.productOperation !== 'View'">{{ 'products.product-operations.' + buttonText | translate}}</button>
-            <button aria-label="Back to products list" class="str-submit-btn str-btn" (click)="cancel()" >{{'products.product-operations.cancel-button' | translate}}</button>
+            <button [attr.aria-label]="productOperationInfo.productOperation" class="str-submit-btn str-btn" *ngIf="productOperationInfo.productOperation !== 'View'">{{ 'products.product-operations.' + buttonText | translate}}</button>
+            <button attr.aria-label="Back to products list" class="str-submit-btn str-btn" (click)="cancel()" >{{'products.product-operations.cancel-button' | translate}}</button>
         </div>
     </form>
 </div>

@@ -1,8 +1,8 @@
 <div class="auth-container">
     <div class="tab-container">
         <ul class="tabs-wrapper">
-            <li class="tab" [class.active]="activeTab === 'login'" (click)="changeTab('login')">{{'auth.login-tab' | translate}}</li>
-            <li class="tab" [class.active]="activeTab === 'registration'"  (click)="changeTab('registration')">{{'auth.register-tab' | translate}}</li>
+            <li class="tab" [class.active]="activeTab === 'login'" (focus)="changeTab('login')" tabindex="0">{{'auth.login-tab' | translate}}</li>
+            <li class="tab" [class.active]="activeTab === 'registration'"  (focus)="changeTab('registration')" tabindex="0" >{{'auth.register-tab' | translate}}</li>
         </ul>
     </div>
     <div class="text-center" [ngSwitch]="activeTab">

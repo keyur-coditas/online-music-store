@@ -1,5 +1,5 @@
 <header class="header">
-        <img src="../../assets/images/logo.webp" alt="App Logo">
+        <img src="../../assets/images/logo.webp" alt="App Logo" tabindex="0" aria-label="App logo">
     <div class="header-logout">
             <str-btn (click)="changeLanguage()" aria-label="Change language" buttonText="{{'header.change-language' | translate}}"></str-btn>
             <str-btn *ngIf="isAuthenticated()" aria-label="Add Product" buttonText="{{'header.add-product-button' | translate}}" (click)="addProduct()"></str-btn>
