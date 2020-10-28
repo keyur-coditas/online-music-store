@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppMocks } from '../../shared/mocks/mocks';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -15,6 +16,7 @@ describe('LoginComponent', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         { provide: Store, useValue: AppMocks.getMockStoreService() },
+        { provide: Router, useValue: AppMocks.getMockRouterService() },
         TranslateService
       ],
       imports: [ ReactiveFormsModule, FormsModule, TranslateModule.forRoot()]
@@ -39,5 +41,13 @@ describe('LoginComponent', () => {
     expect(dispatchSpy).toHaveBeenCalled();
   });
 
+  test('navigate', () => {
+    const evt = {
+      preventDefault: () => {}
+    }
+    const navigateSpy = spyOn(component['router'], 'navigate');
+    component.navigate(evt);
+    expect(navigateSpy).toHaveBeenCalled();
+  });
 
 });

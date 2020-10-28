@@ -12,7 +12,8 @@
         "email-validation": "Le courriel est requis",
         "password-validation": "Mot de passe requis",
         "confirm-password-validation": "Veuillez confirmer le mot de passe",
-        "password-mismatch-validation": "Les mots de passe ne correspondent pas"
+        "password-mismatch-validation": "Les mots de passe ne correspondent pas",
+        "signup-link": "Cliquez ici pour vous inscrire"
     },
     "products": {
         "card": {

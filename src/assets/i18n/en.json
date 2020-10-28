@@ -12,7 +12,8 @@
         "email-validation": "Email is required",
         "password-validation": "Password is required",
         "confirm-password-validation": "Please confirm password",
-        "password-mismatch-validation": "Passwords don't match"
+        "password-mismatch-validation": "Passwords don't match",
+        "signup-link": "Click here to register"
     },
     "products": {
         "card": {

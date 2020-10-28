@@ -27,8 +27,4 @@ describe('AuthComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  test('changeActiveTab()', () => {
-    const tab = 'login';
-    component.changeTab(tab);
-  });
 });

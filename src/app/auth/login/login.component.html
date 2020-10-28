@@ -1,3 +1,4 @@
+<div class="tab">Login</div>
 <form [formGroup]="loginForm">
     <div>
         <div>
@@ -16,5 +17,6 @@
     </div>
     <div class="text-center">
         <str-form-btn (click)="onSubmit()" buttonText="{{'auth.submit-button' | translate}}" aria-label="Log in"></str-form-btn>
+        <a class="signup-link" (click)="navigate($event)" href="#" aria-label="Click to signup">{{'auth.signup-link' | translate}}</a>
     </div>
 </form>

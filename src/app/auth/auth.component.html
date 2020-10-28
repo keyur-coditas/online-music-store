@@ -1,16 +1,5 @@
 <div class="auth-container">
-    <div class="tab-container">
-        <ul class="tabs-wrapper">
-            <li class="tab" [class.active]="activeTab === 'login'" (focus)="changeTab('login')" tabindex="0">{{'auth.login-tab' | translate}}</li>
-            <li class="tab" [class.active]="activeTab === 'registration'"  (focus)="changeTab('registration')" tabindex="0" >{{'auth.register-tab' | translate}}</li>
-        </ul>
-    </div>
-    <div class="text-center" [ngSwitch]="activeTab">
-        <div *ngSwitchCase="'login'">
-            <app-login></app-login>
-        </div>
-        <div *ngSwitchCase="'registration'">
-            <app-registration></app-registration>
-        </div>
-    </div>
+  <div class="text-center">
+    <router-outlet></router-outlet>
+  </div>
 </div>

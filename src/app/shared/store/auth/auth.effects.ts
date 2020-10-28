@@ -99,6 +99,7 @@ export class AuthEffects {
         ofType(AuthActions.SIGNUP_SUCCESS),
         tap((action) => {
           this.toastrService.success('Registered!');
+          this.router.navigate(['auth/login'])
         })
       );
     },

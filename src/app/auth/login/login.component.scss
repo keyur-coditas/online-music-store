@@ -5,3 +5,16 @@
     background-color: var(--form-btn-background);
     color: var(--form-btn-color);
 }
+.signup-link {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 1rem;
+}
+.tab{
+    list-style: none;
+    text-align: center;
+    font-weight: bold;
+    padding:1rem;
+    background-color: var(--tab-active-background);
+    color: var(--tab-active-color);
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {  Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as AuthActions from '../../shared/store/auth/auth.actions';
 
@@ -12,7 +13,8 @@ export class LoginComponent  implements OnInit {
   loginForm: FormGroup;
 
   constructor(
-    private store: Store
+    private store: Store,
+    private router: Router
     ) {}
 
   ngOnInit(): void {
@@ -27,5 +29,8 @@ export class LoginComponent  implements OnInit {
         this.store.dispatch(AuthActions.loginAttempted(this.loginForm.value));
       }  
   }
-
+  navigate(event) {
+    event.preventDefault();
+    this.router.navigate(['auth/register']);
+  }
 }
