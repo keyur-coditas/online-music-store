@@ -8,6 +8,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
+    border:none;
+    width:100%;
   }
   
   .card:hover {

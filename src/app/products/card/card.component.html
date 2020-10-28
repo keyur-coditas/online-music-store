@@ -1,4 +1,5 @@
-<div class="card" (click)="viewProduct()" aria-label="View product details" tabindex="0">
+<button class="card" (click)="viewProduct()" aria-label="View product details" >
+    <!-- tabindex="0" role="button" (keydown)="viewProduct()" -->
     <div class="text-center">
         <img [src]="product.imageUrl" class="product-image" alt="Avatar" onerror="this.src='../../../assets/images/noimage.webp';" width="200" width="200" height="200">
     </div>
@@ -11,4 +12,4 @@
         <str-form-btn *ngIf="currentUser === product.createdBy" (click)="updateProduct($event)" buttonText="{{'products.card.update-button'| translate}}" isCardButton="true" aria-label="Update Product"></str-form-btn>
         <str-form-btn *ngIf="currentUser === product.createdBy" (click)="deleteProduct($event)" buttonText="{{'products.card.delete-button'| translate}}" isCardButton="true" aria-label="Delete Product"></str-form-btn>
     </div>
-</div>
+</button>
