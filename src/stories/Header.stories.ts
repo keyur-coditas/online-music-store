@@ -12,23 +12,9 @@ import { AppService } from 'src/app/shared/app.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import '../components';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { StorybookMocks } from './mocks';
 
-const storeMock = {
-  dispatch: () => {},
-  pipe: () => {},
-};
-const routerMock = {
-  navigate: () => {},
-};
-const themeMock = {
-  isDarkTheme: () => {},
-  setDarkTheme: () => {},
-  setLightTheme: () => {},
-  setActiveTheme: () => {},
-};
-const appServiceMock = {
-  isAuthenticated: () => {},
-};
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -55,8 +41,8 @@ export default {
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
       providers: [
-        { provide: Store, useValue: storeMock },
-        { provide: Router, useValue: routerMock }
+        { provide: Store, useValue: StorybookMocks.getstoreMock() },
+        { provide: Router, useValue: StorybookMocks.getrouterMock() }
       ],
     }),
   ],
