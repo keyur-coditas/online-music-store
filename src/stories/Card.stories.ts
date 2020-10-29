@@ -7,12 +7,11 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Store, StoreModule } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { ThemeService } from 'src/app/shared/theme.service';
-import { AppService } from 'src/app/shared/app.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import '../components';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { StorybookMocks } from './mocks';
+import CardComponent from './card.component';
 
 
 
@@ -21,11 +20,11 @@ function HttpLoaderFactory(http: HttpClient) {
 }
 
 export default {
-  title: 'Header Component',
-  component: HeaderComponent,
+  title: 'Card Component',
+  component: CardComponent,
   decorators: [
     moduleMetadata({
-      declarations: [HeaderComponent],
+      declarations: [CardComponent],
       imports: [
         CommonModule,
         TranslateModule.forRoot({
@@ -48,21 +47,37 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
-  component: HeaderComponent,
+const Template: Story<CardComponent> = (args: CardComponent) => ({
+  component: CardComponent,
   props: args,
 });
 
-export const LoggedIn = () => ({
-  component: HeaderComponent,
+export const owner = () => ({
+  component: CardComponent,
   props: {
-    isAuthenticated: () => true,
+    product: {
+            name: "Laney, Acoustic Guitar Amp, 80W A1+",
+            description: "The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.",
+            price: 26460,
+            imageUrl: "../../../assets/images/acoustic_amp.webp",
+            createdBy: "keyur@gmail.com",
+            id: 7
+    },
+    currentUser: 'keyur@gmail.com'
   },
 });
 
-export const LoggedOut = () => ({
-  component: HeaderComponent,
-  props: {
-    isAuthenticated: () => false,
-  },
-});
+export const nonOwner = () => ({
+    component: CardComponent,
+    props: {
+      product: {
+              name: "Laney, Acoustic Guitar Amp, 80W A1+",
+              description: "The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.",
+              price: 26460,
+              imageUrl: "../../../assets/images/acoustic_amp.webp",
+              createdBy: "keyur@gmail.com",
+              id: 7
+      },
+      currentUser: 'xyz@gmail.com'
+    },
+  });
