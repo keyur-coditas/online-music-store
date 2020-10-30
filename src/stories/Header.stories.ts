@@ -7,8 +7,6 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Store, StoreModule } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { ThemeService } from 'src/app/shared/theme.service';
-import { AppService } from 'src/app/shared/app.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import '../components';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
