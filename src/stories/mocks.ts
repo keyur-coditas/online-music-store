@@ -52,7 +52,7 @@ export class StorybookMocks {
     const fb = new FormBuilder();
     return fb.group(UpdateModel);
   };
-  public static getMockFormGroup = () => {
+  public static getMockProductFormGroup = () => {
     const myModel = {
       valid: true,
       name: new FormControl('', [Validators.required]),
@@ -69,6 +69,40 @@ export class StorybookMocks {
       cancel: () => {console.log('cancel called')},
       onSubmit: () => {console.log('onSubmit called')},
       onImagePicked: (event) => {console.log('onImagePicked called')}
+    }
+  }
+
+  public static getMockLoginFormGroup = () => {
+    const myModel = {
+      valid: true,
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+    };
+    const fb = new FormBuilder();
+    return fb.group(myModel);
+  };
+
+  public static mockLoginActions = () => {
+    return {
+      navigate: (event) => {event.preventDefault(); console.log('navigate called')},
+      onSubmit: () => {console.log('onSubmit called')},
+    }
+  }
+
+  public static getMockRegistrationFormGroup = () => {
+    const myModel = {
+      valid: true,
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+      confirmPassword: new FormControl('', [Validators.required]),
+    };
+    const fb = new FormBuilder();
+    return fb.group(myModel);
+  };
+
+  public static mockRegistrationActions = () => {
+    return {
+      onSubmit: () => {console.log('onSubmit called')},
     }
   }
 }

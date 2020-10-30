@@ -56,7 +56,7 @@ const Template: Story<ProductOperationsComponent> = (args: ProductOperationsComp
 export const addProduct = () => ({
   component: ProductOperationsComponent,
   props: {
-    productForm:  StorybookMocks.getMockFormGroup(),
+    productForm:  StorybookMocks.getMockProductFormGroup(),
     name : {touched: false, invalid: false},
     price : {touched: false, invalid: false},
     imageUrlPreview: '',
