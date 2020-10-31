@@ -1155,10 +1155,10 @@
         },
         {
             "name": "StorybookMocks",
-            "id": "class-StorybookMocks-17c6741b51117022fd9833c7bf72b04a",
+            "id": "class-StorybookMocks-ef965bdb39337c960257e45b8a7f3e71",
             "file": "src/stories/mocks.ts",
             "type": "class",
-            "sourceCode": "import { FormBuilder, FormControl, Validators } from '@angular/forms';\r\nimport * as APP_CONSTANTS from '../app/shared/app.constants';\r\nexport class StorybookMocks {\r\n  public static getstoreMock = () => {\r\n    return {\r\n      dispatch: () => {},\r\n      pipe: () => {},\r\n    };\r\n  };\r\n\r\n  public static getrouterMock = () => {\r\n    return {\r\n      navigate: () => {},\r\n    };\r\n  };\r\n\r\n  public static getProductServiceMock = () => {\r\n    return {\r\n      getAllProducts: jest.fn(() => false),\r\n      getProductInfo: jest.fn(() => {\r\n        return {\r\n          productOperation: APP_CONSTANTS.PRODUCT_ADD,\r\n          disableFormFields: false,\r\n        };\r\n      }),\r\n      setProductInfo: jest.fn(() => {}),\r\n      addProduct: jest.fn(() => {}),\r\n      setProduct: jest.fn((val) => {}),\r\n      getProduct: jest.fn((val) => {\r\n        return {\r\n          name: '',\r\n          description: '',\r\n          imageUrl: '',\r\n          createdBy: '',\r\n          price: 10,\r\n          id: 1,\r\n        };\r\n      }),\r\n    };\r\n  };\r\n  public static updateProuctFormGroup = () => {\r\n    const UpdateModel = {\r\n      name: new FormControl('Laney, Acoustic Guitar Amp, 80W A1+', [\r\n        Validators.required,\r\n      ]),\r\n      price: new FormControl(26460, [Validators.required]),\r\n      description: new FormControl(\r\n        'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.'\r\n      ),\r\n      imageUrl: new FormControl(),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(UpdateModel);\r\n  };\r\n  public static getMockProductFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      name: new FormControl('', [Validators.required]),\r\n      description: new FormControl(''),\r\n      price: new FormControl('', [Validators.required]),\r\n      imageUrl: new FormControl(),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockProductActions = () => {\r\n    return {\r\n      cancel: () => {console.log('cancel called')},\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n      onImagePicked: (event) => {console.log('onImagePicked called')}\r\n    }\r\n  }\r\n\r\n  public static getMockLoginFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      email: new FormControl('', [Validators.required]),\r\n      password: new FormControl('', [Validators.required]),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockLoginActions = () => {\r\n    return {\r\n      navigate: (event) => {event.preventDefault(); console.log('navigate called')},\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n    }\r\n  }\r\n\r\n  public static getMockRegistrationFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      email: new FormControl('', [Validators.required]),\r\n      password: new FormControl('', [Validators.required]),\r\n      confirmpassword: new FormControl('', [Validators.required]),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockRegistrationActions = () => {\r\n    return {\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n    }\r\n  }\r\n}\r\n",
+            "sourceCode": "import { FormBuilder, FormControl, Validators } from '@angular/forms';\r\nimport * as APP_CONSTANTS from '../app/shared/app.constants';\r\nexport class StorybookMocks {\r\n  public static getstoreMock = () => {\r\n    return {\r\n      dispatch: () => {},\r\n      pipe: () => {},\r\n    };\r\n  };\r\n\r\n  public static getrouterMock = () => {\r\n    return {\r\n      navigate: () => {},\r\n    };\r\n  };\r\n\r\n  public static getProductServiceMock = () => {\r\n    return {\r\n      getAllProducts: jest.fn(() => false),\r\n      getProductInfo: jest.fn(() => {\r\n        return {\r\n          productOperation: APP_CONSTANTS.PRODUCT_ADD,\r\n          disableFormFields: false,\r\n        };\r\n      }),\r\n      setProductInfo: jest.fn(() => {}),\r\n      addProduct: jest.fn(() => {}),\r\n      setProduct: jest.fn((val) => {}),\r\n      getProduct: jest.fn((val) => {\r\n        return {\r\n          name: '',\r\n          description: '',\r\n          imageUrl: '',\r\n          createdBy: '',\r\n          price: 10,\r\n          id: 1,\r\n        };\r\n      }),\r\n    };\r\n  };\r\n  public static updateProuctFormGroup = () => {\r\n    const UpdateModel = {\r\n      name: new FormControl('Laney, Acoustic Guitar Amp, 80W A1+', [\r\n        Validators.required,\r\n      ]),\r\n      price: new FormControl(26460, [Validators.required]),\r\n      description: new FormControl(\r\n        'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.'\r\n      ),\r\n      imageUrl: new FormControl(),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(UpdateModel);\r\n  };\r\n  public static getMockProductFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      name: new FormControl('', [Validators.required]),\r\n      description: new FormControl(''),\r\n      price: new FormControl('', [Validators.required]),\r\n      imageUrl: new FormControl(),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockProductActions = () => {\r\n    return {\r\n      cancel: () => {console.log('cancel called')},\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n      onImagePicked: (event) => {console.log('onImagePicked called')}\r\n    }\r\n  }\r\n\r\n  public static getMockLoginFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      email: new FormControl('', [Validators.required]),\r\n      password: new FormControl('', [Validators.required]),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockLoginActions = () => {\r\n    return {\r\n      navigate: (event) => {event.preventDefault(); console.log('navigate called')},\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n    }\r\n  }\r\n\r\n  public static getMockRegistrationFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      email: new FormControl('', [Validators.required]),\r\n      password: new FormControl('', [Validators.required]),\r\n      confirmPassword: new FormControl('', [Validators.required]),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockRegistrationActions = () => {\r\n    return {\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n    }\r\n  }\r\n\r\n  public static mockCardActions = () => {\r\n    return {\r\n      updateProduct: (event) => {event.stopPropagation(); console.log('updateProduct called')},\r\n      deleteProduct: (event) => { event.stopPropagation(); console.log('deleteProduct called')},\r\n      viewProduct: () => { console.log('viewProduct called')},\r\n    }\r\n  }\r\n\r\n  public static mockHeaderActions = () => {\r\n    return {\r\n      addProduct: () => { console.log('addProduct called')},\r\n      logout: () => {console.log('logout called')},\r\n      changeLanguage: () => { console.log('changeLanguage called')},\r\n      changeTheme: () => { console.log('changeTheme called')}\r\n    }\r\n  }\r\n}\r\n",
             "properties": [
                 {
                     "name": "getMockLoginFormGroup",
@@ -1222,6 +1222,28 @@
                     "optional": false,
                     "description": "",
                     "line": 4,
+                    "modifierKind": [
+                        115
+                    ]
+                },
+                {
+                    "name": "mockCardActions",
+                    "defaultValue": "() => {...}",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 109,
+                    "modifierKind": [
+                        115
+                    ]
+                },
+                {
+                    "name": "mockHeaderActions",
+                    "defaultValue": "() => {...}",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 117,
                     "modifierKind": [
                         115
                     ]
@@ -1365,8 +1387,8 @@
         },
         {
             "name": "CardComponent",
-            "id": "component-CardComponent-9ca7fb996418afe6972dd7fc05f0780e",
-            "file": "src/stories/card.component.ts",
+            "id": "component-CardComponent-00475dabe6f5588c4eb763b3e9ef2418",
+            "file": "src/stories/card/card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -1374,11 +1396,11 @@
             "providers": [],
             "selector": "storybook-card",
             "styleUrls": [
-                "../app/products/card/card.component.scss"
+                "../../app/products/card/card.component.scss"
             ],
             "styles": [],
             "templateUrl": [
-                "../app/products/card/card.component.html"
+                "../../app/products/card/card.component.html"
             ],
             "viewProviders": [],
             "inputsClass": [],
@@ -1390,12 +1412,12 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'storybook-card',\r\n  templateUrl: '../app/products/card/card.component.html' ,\r\n  styleUrls: ['../app/products/card/card.component.scss'],\r\n})\r\nexport default class CardComponent {\r\n \r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'storybook-card',\r\n  templateUrl: '../../app/products/card/card.component.html' ,\r\n  styleUrls: ['../../app/products/card/card.component.scss'],\r\n})\r\nexport default class CardComponent {\r\n \r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
                     "data": "@import '../../shared/styles/variables.scss';\r\n.card {\r\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\r\n    transition: 0.3s;\r\n    border-radius: 5px;\r\n    background-color: $white;\r\n    height:100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    border:none;\r\n    width:100%;\r\n  }\r\n  \r\n  .card:hover {\r\n    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\r\n  }\r\n  \r\n  .product-image {\r\n    border-radius: 5px 5px 0 0;\r\n  }\r\n  \r\n  .container {\r\n    padding: 2px 16px;\r\n  }\r\n  .card-font-small {\r\n      font-size: 0.8rem;\r\n  }\r\n  .card-font-medium {\r\n      font-size: 0.9rem;\r\n  }\r\n  .card-header-margin {\r\n    margin: 0.8rem;\r\n}\r\n.card-details-margin {\r\n    margin: 0.5rem;\r\n}\r\n.str-card-buttons {\r\n  width:6rem;\r\n  background-color: var(--form-btn-background);\r\n  color: var(--form-btn-color);\r\n  margin: 10px;\r\n}\r\n",
-                    "styleUrl": "../app/products/card/card.component.scss"
+                    "styleUrl": "../../app/products/card/card.component.scss"
                 }
             ],
             "stylesData": "",
@@ -1565,45 +1587,7 @@
         },
         {
             "name": "FooterComponent",
-            "id": "component-FooterComponent-8b024a0faa03613442100ddd8683077e",
-            "file": "src/stories/footer.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "storybook-footer",
-            "styleUrls": [
-                "../app/footer/footer.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "../app/footer/footer.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'storybook-footer',\r\n  templateUrl: '../app/footer/footer.component.html' ,\r\n  styleUrls: ['../app/footer/footer.component.scss'],\r\n})\r\nexport default class FooterComponent {\r\n \r\n}\r\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "@import '../shared/styles/variables.scss'; \r\n\r\n\r\n.str-footer {\r\n    padding:15px;\r\n    font-size: 10px;\r\n    background-color: var(--footer-background-color);\r\n    color: var(--footer-color);\r\n}",
-                    "styleUrl": "../app/footer/footer.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "templateData": "<div class=\"str-footer\">\r\n   assignment online music store\r\n</div>\r\n"
-        },
-        {
-            "name": "FooterComponent",
-            "id": "component-FooterComponent-ff49f20195434c07f84d5e8406aefb53-1",
+            "id": "component-FooterComponent-ff49f20195434c07f84d5e8406aefb53",
             "file": "src/app/footer/footer.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1643,27 +1627,24 @@
                 "args": [],
                 "line": 8
             },
-            "isDuplicate": true,
-            "duplicateId": 1,
-            "duplicateName": "FooterComponent-1",
             "templateData": "<div class=\"str-footer\">\r\n   assignment online music store\r\n</div>\r\n"
         },
         {
-            "name": "HeaderComponent",
-            "id": "component-HeaderComponent-d0500c80f17f8bce8b9d9e64a986b858",
-            "file": "src/stories/header.component.ts",
+            "name": "FooterComponent",
+            "id": "component-FooterComponent-5f5e9f0daaeaa89c7829cb0e8615b421-1",
+            "file": "src/stories/footer/footer.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "storybook-header",
+            "selector": "storybook-footer",
             "styleUrls": [
-                "../app/header/header.component.scss"
+                "../../app/footer/footer.component.scss"
             ],
             "styles": [],
             "templateUrl": [
-                "../app/header/header.component.html"
+                "../../app/footer/footer.component.html"
             ],
             "viewProviders": [],
             "inputsClass": [],
@@ -1675,20 +1656,23 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'storybook-header',\r\n  templateUrl: '../app/header/header.component.html' ,\r\n  styleUrls: ['../app/header/header.component.scss'],\r\n})\r\nexport default class HeaderComponent {\r\n \r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'storybook-footer',\r\n  templateUrl: '../../app/footer/footer.component.html' ,\r\n  styleUrls: ['../../app/footer/footer.component.scss'],\r\n})\r\nexport default class FooterComponent {\r\n \r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import '../shared/styles/variables.scss';\r\n@import '../shared/styles/utils.scss';\r\n.header{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding:15px;\r\n    background-color: var(--header-background-color);\r\n    flex-wrap: wrap;\r\n}\r\n.header-logout {\r\n    display:flex;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n}\r\n.str-btn-colors {\r\n    background-color: var(--btn-background);\r\n    color: var(--btn-color);\r\n}\r\n",
-                    "styleUrl": "../app/header/header.component.scss"
+                    "data": "@import '../shared/styles/variables.scss'; \r\n\r\n\r\n.str-footer {\r\n    padding:15px;\r\n    font-size: 10px;\r\n    background-color: var(--footer-background-color);\r\n    color: var(--footer-color);\r\n}",
+                    "styleUrl": "../../app/footer/footer.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<header class=\"header\">\r\n        <img src=\"../../assets/images/logo.webp\" alt=\"App Logo\" tabindex=\"0\" aria-label=\"App logo\">\r\n    <div class=\"header-logout\">\r\n            <str-btn (click)=\"changeLanguage()\" aria-label=\"Change language\" buttonText=\"{{'header.change-language' | translate}}\"></str-btn>\r\n            <str-btn *ngIf=\"isAuthenticated()\" aria-label=\"Add Product\" buttonText=\"{{'header.add-product-button' | translate}}\" (click)=\"addProduct()\"></str-btn>\r\n            <str-btn buttonText=\"{{'header.theme-button' | translate}}\" (click)=\"changeTheme()\" aria-label=\"Change theme\"></str-btn>\r\n            <str-btn *ngIf=\"isAuthenticated()\" buttonText=\"{{'header.logout-button' | translate}}\" (click)=\"logout()\" aria-label=\"Log out\"></str-btn>\r\n    </div>\r\n</header>\r\n"
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "FooterComponent-1",
+            "templateData": "<div class=\"str-footer\">\r\n   assignment online music store\r\n</div>\r\n"
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-27df87bc937d60c1332df6a390bcfabe-1",
+            "id": "component-HeaderComponent-27df87bc937d60c1332df6a390bcfabe",
             "file": "src/app/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1838,27 +1822,24 @@
                     }
                 ]
             },
-            "isDuplicate": true,
-            "duplicateId": 1,
-            "duplicateName": "HeaderComponent-1",
             "templateData": "<header class=\"header\">\r\n        <img src=\"../../assets/images/logo.webp\" alt=\"App Logo\" tabindex=\"0\" aria-label=\"App logo\">\r\n    <div class=\"header-logout\">\r\n            <str-btn (click)=\"changeLanguage()\" aria-label=\"Change language\" buttonText=\"{{'header.change-language' | translate}}\"></str-btn>\r\n            <str-btn *ngIf=\"isAuthenticated()\" aria-label=\"Add Product\" buttonText=\"{{'header.add-product-button' | translate}}\" (click)=\"addProduct()\"></str-btn>\r\n            <str-btn buttonText=\"{{'header.theme-button' | translate}}\" (click)=\"changeTheme()\" aria-label=\"Change theme\"></str-btn>\r\n            <str-btn *ngIf=\"isAuthenticated()\" buttonText=\"{{'header.logout-button' | translate}}\" (click)=\"logout()\" aria-label=\"Log out\"></str-btn>\r\n    </div>\r\n</header>\r\n"
         },
         {
-            "name": "LoginComponent",
-            "id": "component-LoginComponent-ce81864f02d5cdd517b10e52037fd5fd",
-            "file": "src/stories/login.component.ts",
+            "name": "HeaderComponent",
+            "id": "component-HeaderComponent-fdd165c21669b5804088737aac81e386-1",
+            "file": "src/stories/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "storybook-login",
+            "selector": "storybook-header",
             "styleUrls": [
-                "../app/auth/login/login.component.scss"
+                "../../app/header/header.component.scss"
             ],
             "styles": [],
             "templateUrl": [
-                "../app/auth/login/login.component.html"
+                "../../app/header/header.component.html"
             ],
             "viewProviders": [],
             "inputsClass": [],
@@ -1870,12 +1851,53 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'storybook-login',\r\n  templateUrl: '../app/auth/login/login.component.html' ,\r\n  styleUrls: ['../app/auth/login/login.component.scss'],\r\n})\r\nexport default class LoginComponent {\r\n \r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'storybook-header',\r\n  templateUrl: '../../app/header/header.component.html' ,\r\n  styleUrls: ['../../app/header/header.component.scss'],\r\n})\r\nexport default class HeaderComponent {\r\n \r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import '../shared/styles/variables.scss';\r\n@import '../shared/styles/utils.scss';\r\n.header{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding:15px;\r\n    background-color: var(--header-background-color);\r\n    flex-wrap: wrap;\r\n}\r\n.header-logout {\r\n    display:flex;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n}\r\n.str-btn-colors {\r\n    background-color: var(--btn-background);\r\n    color: var(--btn-color);\r\n}\r\n",
+                    "styleUrl": "../../app/header/header.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "HeaderComponent-1",
+            "templateData": "<header class=\"header\">\r\n        <img src=\"../../assets/images/logo.webp\" alt=\"App Logo\" tabindex=\"0\" aria-label=\"App logo\">\r\n    <div class=\"header-logout\">\r\n            <str-btn (click)=\"changeLanguage()\" aria-label=\"Change language\" buttonText=\"{{'header.change-language' | translate}}\"></str-btn>\r\n            <str-btn *ngIf=\"isAuthenticated()\" aria-label=\"Add Product\" buttonText=\"{{'header.add-product-button' | translate}}\" (click)=\"addProduct()\"></str-btn>\r\n            <str-btn buttonText=\"{{'header.theme-button' | translate}}\" (click)=\"changeTheme()\" aria-label=\"Change theme\"></str-btn>\r\n            <str-btn *ngIf=\"isAuthenticated()\" buttonText=\"{{'header.logout-button' | translate}}\" (click)=\"logout()\" aria-label=\"Log out\"></str-btn>\r\n    </div>\r\n</header>\r\n"
+        },
+        {
+            "name": "LoginComponent",
+            "id": "component-LoginComponent-068ac6c881c1b9d0ba8a188dd7e6f150",
+            "file": "src/stories/login/login.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-login",
+            "styleUrls": [
+                "../../app/auth/login/login.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "../../app/auth/login/login.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'storybook-login',\r\n  templateUrl: '../../app/auth/login/login.component.html' ,\r\n  styleUrls: ['../../app/auth/login/login.component.scss'],\r\n})\r\nexport default class LoginComponent {\r\n \r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
                     "data": "@import '../../shared/styles/variables.scss';\r\n\r\n.str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.signup-link {\r\n    font-size: 12px;\r\n    display: block;\r\n    margin-bottom: 1rem;\r\n}\r\n.tab{\r\n    list-style: none;\r\n    text-align: center;\r\n    font-weight: bold;\r\n    padding:1rem;\r\n    background-color: var(--tab-active-background);\r\n    color: var(--tab-active-color);\r\n}",
-                    "styleUrl": "../app/auth/login/login.component.scss"
+                    "styleUrl": "../../app/auth/login/login.component.scss"
                 }
             ],
             "stylesData": "",
@@ -2005,8 +2027,8 @@
         },
         {
             "name": "ProductOperationsComponent",
-            "id": "component-ProductOperationsComponent-b6970793d34fae32ba5755090c35d453",
-            "file": "src/stories/product-operations.component.ts",
+            "id": "component-ProductOperationsComponent-7c8c93a1c03374515e0823f879a3bcb7",
+            "file": "src/stories/products/product-operations.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -2014,11 +2036,11 @@
             "providers": [],
             "selector": "storybook-product-operations",
             "styleUrls": [
-                "../app/products/product-operations/product-operations.component.scss"
+                "../../app/products/product-operations/product-operations.component.scss"
             ],
             "styles": [],
             "templateUrl": [
-                "../app/products/product-operations/product-operations.component.html"
+                "../../app/products/product-operations/product-operations.component.html"
             ],
             "viewProviders": [],
             "inputsClass": [],
@@ -2030,12 +2052,12 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n@Component({\r\n  selector: 'storybook-product-operations',\r\n  templateUrl: '../app/products/product-operations/product-operations.component.html' ,\r\n  styleUrls: ['../app/products/product-operations/product-operations.component.scss']\r\n})\r\nexport default class ProductOperationsComponent {}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\n@Component({\r\n  selector: 'storybook-product-operations',\r\n  templateUrl: '../../app/products/product-operations/product-operations.component.html' ,\r\n  styleUrls: ['../../app/products/product-operations/product-operations.component.scss']\r\n})\r\nexport default class ProductOperationsComponent {}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
                     "data": "@import '../../shared/styles/variables.scss';\r\n\r\n.container {\r\n    width: 50%;\r\n    margin: 3rem auto 0rem auto;\r\n    border-radius: 5px;\r\n}\r\n\r\n.str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.image-label {\r\n    font-size: 12px;\r\n    margin: 10px;\r\n    display: block;\r\n    color: $dark-gray\r\n}\r\n.str-product-error {\r\n    width: 70%;\r\n}\r\n",
-                    "styleUrl": "../app/products/product-operations/product-operations.component.scss"
+                    "styleUrl": "../../app/products/product-operations/product-operations.component.scss"
                 }
             ],
             "stylesData": "",
@@ -2373,8 +2395,8 @@
         },
         {
             "name": "RegistrationComponent",
-            "id": "component-RegistrationComponent-f6a976adad94f85c11a88d2a5f4fbe61",
-            "file": "src/stories/registration.component.ts",
+            "id": "component-RegistrationComponent-1c58a3603089f27d4dd6659cd2eb42ed",
+            "file": "src/stories/registration/registration.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -2382,11 +2404,11 @@
             "providers": [],
             "selector": "storybook-register",
             "styleUrls": [
-                "../app/auth/registration/registration.component.scss"
+                "../../app/auth/registration/registration.component.scss"
             ],
             "styles": [],
             "templateUrl": [
-                "../app/auth/registration/registration.component.html"
+                "../../app/auth/registration/registration.component.html"
             ],
             "viewProviders": [],
             "inputsClass": [],
@@ -2398,12 +2420,12 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'storybook-register',\r\n  templateUrl: '../app/auth/registration/registration.component.html' ,\r\n  styleUrls: ['../app/auth/registration/registration.component.scss'],\r\n})\r\nexport default class RegistrationComponent {\r\n \r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'storybook-register',\r\n  templateUrl: '../../app/auth/registration/registration.component.html' ,\r\n  styleUrls: ['../../app/auth/registration/registration.component.scss'],\r\n})\r\nexport default class RegistrationComponent {\r\n \r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
                     "data": "@import '../../shared/styles/variables.scss';\r\n\r\n.str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.tab{\r\n    list-style: none;\r\n    text-align: center;\r\n    font-weight: bold;\r\n    padding:1rem;\r\n    background-color: var(--tab-active-background);\r\n    color: var(--tab-active-color);\r\n}",
-                    "styleUrl": "../app/auth/registration/registration.component.scss"
+                    "styleUrl": "../../app/auth/registration/registration.component.scss"
                 }
             ],
             "stylesData": "",
@@ -2411,7 +2433,7 @@
         },
         {
             "name": "RegistrationComponent",
-            "id": "component-RegistrationComponent-2823b4202f289ef965382a4dbb24c85a-1",
+            "id": "component-RegistrationComponent-fecfdee7cd8629dfdb4cdd8073bf81df-1",
             "file": "src/app/auth/registration/registration.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2431,12 +2453,33 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "confirmPassword",
+                    "type": "FormControl",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "email",
+                    "type": "FormControl",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "password",
+                    "type": "FormControl",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                },
+                {
                     "name": "passwordMismatch",
                     "defaultValue": "false",
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 17
                 },
                 {
                     "name": "registrationForm",
@@ -2453,7 +2496,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 20
+                    "line": 23
                 },
                 {
                     "name": "onSubmit",
@@ -2461,7 +2504,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 28
+                    "line": 31
                 }
             ],
             "hostBindings": [],
@@ -2469,7 +2512,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\r\n\r\nimport * as AuthActions from '../../shared/store/auth/auth.actions';\r\nimport { Store } from '@ngrx/store';\r\n\r\n@Component({\r\n  selector: 'app-registration',\r\n  templateUrl: './registration.component.html',\r\n  styleUrls: ['./registration.component.scss']\r\n})\r\nexport class RegistrationComponent  implements OnInit {\r\n  registrationForm: FormGroup;\r\n  passwordMismatch: boolean = false;\r\n  constructor(\r\n     private store: Store\r\n     ) {\r\n   }\r\n\r\n  ngOnInit(): void {\r\n    this.registrationForm = new FormGroup({\r\n      email:  new FormControl('', [Validators.required]),\r\n      password: new FormControl('', [Validators.required]),\r\n      confirmPassword: new FormControl('', [Validators.required])\r\n  });\r\n  }\r\n\r\n  onSubmit() {\r\n    this.passwordMismatch = false;\r\n    if(this.registrationForm.valid) {\r\n      const email = this.registrationForm.controls['email'].value;\r\n      const password = this.registrationForm.controls['password'].value;\r\n      const cnfmpassword = this.registrationForm.controls['confirmPassword'].value;\r\n    if(password === cnfmpassword) {\r\n      this.store.dispatch(AuthActions.signup({email, password}));\r\n    } else {\r\n      this.passwordMismatch = true;\r\n    }\r\n    }\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\r\n\r\nimport * as AuthActions from '../../shared/store/auth/auth.actions';\r\nimport { Store } from '@ngrx/store';\r\n\r\n@Component({\r\n  selector: 'app-registration',\r\n  templateUrl: './registration.component.html',\r\n  styleUrls: ['./registration.component.scss']\r\n})\r\nexport class RegistrationComponent  implements OnInit {\r\n  registrationForm: FormGroup;\r\n  email: FormControl;\r\n  password: FormControl;\r\n  confirmPassword: FormControl;\r\n  passwordMismatch: boolean = false;\r\n  constructor(\r\n     private store: Store\r\n     ) {\r\n   }\r\n\r\n  ngOnInit(): void {\r\n    this.registrationForm = new FormGroup({\r\n      email:  new FormControl('', [Validators.required]),\r\n      password: new FormControl('', [Validators.required]),\r\n      confirmPassword: new FormControl('', [Validators.required])\r\n  });\r\n  }\r\n\r\n  onSubmit() {\r\n    this.passwordMismatch = false;\r\n    if(this.registrationForm.valid) {\r\n      const email = this.registrationForm.controls['email'].value;\r\n      const password = this.registrationForm.controls['password'].value;\r\n      const cnfmpassword = this.registrationForm.controls['confirmPassword'].value;\r\n    if(password === cnfmpassword) {\r\n      this.store.dispatch(AuthActions.signup({email, password}));\r\n    } else {\r\n      this.passwordMismatch = true;\r\n    }\r\n    }\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2487,7 +2530,7 @@
                         "type": "Store"
                     }
                 ],
-                "line": 14,
+                "line": 17,
                 "jsdoctags": [
                     {
                         "name": "store",
@@ -2520,6 +2563,12 @@
                     "elements": [
                         {
                             "name": "AppComponent"
+                        },
+                        {
+                            "name": "FooterComponent"
+                        },
+                        {
+                            "name": "HeaderComponent"
                         }
                     ]
                 },
@@ -2590,12 +2639,6 @@
                     "elements": [
                         {
                             "name": "AuthComponent"
-                        },
-                        {
-                            "name": "LoginComponent"
-                        },
-                        {
-                            "name": "RegistrationComponent"
                         }
                     ]
                 },
@@ -2661,12 +2704,6 @@
                     "type": "declarations",
                     "elements": [
                         {
-                            "name": "CardComponent"
-                        },
-                        {
-                            "name": "ProductOperationsComponent"
-                        },
-                        {
                             "name": "ProductsComponent"
                         }
                     ]
@@ -2729,7 +2766,7 @@
                 "name": "addProduct",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/ProductOperations.stories.ts",
+                "file": "src/stories/products/ProductOperations.stories.ts",
                 "type": "",
                 "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm:  StorybookMocks.getMockProductFormGroup(),\r\n    name : {touched: false, invalid: false},\r\n    price : {touched: false, invalid: false},\r\n    imageUrlPreview: '',\r\n    productOperationInfo: {\r\n      productOperation: 'Add',\r\n      disableFormFields: false,\r\n    },\r\n    buttonText: 'add-button',\r\n    cancel: StorybookMocks.mockProductActions().cancel,\r\n    onSubmit: StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked : StorybookMocks.mockProductActions().onImagePicked\r\n  }, \r\n})"
             },
@@ -2753,15 +2790,15 @@
                 "name": "defaultState",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Footer.stories.ts",
+                "file": "src/stories/footer/Footer.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\r\n  component: FooterComponent,\r\n  props: {\r\n    isAuthenticated: () => true,\r\n  },\r\n})"
+                "defaultValue": "() => ({\r\n  component: FooterComponent,\r\n  props: {}\r\n})"
             },
             {
                 "name": "defaultState",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Login.stories.ts",
+                "file": "src/stories/login/Login.stories.ts",
                 "type": "",
                 "defaultValue": "() => ({\r\n  component: LoginComponent,\r\n  props: {\r\n    loginForm: StorybookMocks.getMockLoginFormGroup(),\r\n    navigate: StorybookMocks.mockLoginActions().navigate,\r\n    onSubmit: StorybookMocks.mockLoginActions().onSubmit,\r\n  },\r\n})"
             },
@@ -2769,7 +2806,7 @@
                 "name": "defaultState",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Registration.stories.ts",
+                "file": "src/stories/registration/Registration.stories.ts",
                 "type": "",
                 "defaultValue": "() => ({\r\n  component: RegistrationComponent,\r\n  props: {\r\n    registrationForm: StorybookMocks.getMockRegistrationFormGroup(),\r\n    onSubmit: StorybookMocks.mockRegistrationActions().onSubmit,\r\n  },\r\n})"
             },
@@ -2833,17 +2870,17 @@
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
+                "file": "src/stories/header/Header.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\r\n  component: HeaderComponent,\r\n  props: {\r\n    isAuthenticated: () => true,\r\n  },\r\n})"
+                "defaultValue": "() => ({\r\n  component: HeaderComponent,\r\n  props: {\r\n    isAuthenticated: () => true,\r\n    addProduct: StorybookMocks.mockHeaderActions().addProduct,\r\n    logout:  StorybookMocks.mockHeaderActions().logout,\r\n    changeLanguage: StorybookMocks.mockHeaderActions().changeLanguage,\r\n    changeTheme:  StorybookMocks.mockHeaderActions().changeTheme\r\n  },\r\n})"
             },
             {
                 "name": "LoggedOut",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
+                "file": "src/stories/header/Header.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\r\n  component: HeaderComponent,\r\n  props: {\r\n    isAuthenticated: () => false,\r\n  },\r\n})"
+                "defaultValue": "() => ({\r\n  component: HeaderComponent,\r\n  props: {\r\n    isAuthenticated: () => false,\r\n    changeLanguage:  StorybookMocks.mockHeaderActions().changeLanguage,\r\n    changeTheme:  StorybookMocks.mockHeaderActions().changeTheme\r\n  },\r\n})"
             },
             {
                 "name": "LOGIN",
@@ -2937,17 +2974,17 @@
                 "name": "nonOwner",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Card.stories.ts",
+                "file": "src/stories/card/Card.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\r\n    component: CardComponent,\r\n    props: {\r\n      product: {\r\n              name: \"Laney, Acoustic Guitar Amp, 80W A1+\",\r\n              description: \"The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.\",\r\n              price: 26460,\r\n              imageUrl: \"../../../assets/images/acoustic_amp.webp\",\r\n              createdBy: \"keyur@gmail.com\",\r\n              id: 7\r\n      },\r\n      currentUser: 'xyz@gmail.com'\r\n    },\r\n  })"
+                "defaultValue": "() => ({\r\n    component: CardComponent,\r\n    props: {\r\n      product: {\r\n              name: \"Laney, Acoustic Guitar Amp, 80W A1+\",\r\n              description: \"The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.\",\r\n              price: 26460,\r\n              imageUrl: \"../../../assets/images/acoustic_amp.webp\",\r\n              createdBy: \"keyur@gmail.com\",\r\n              id: 7\r\n      },\r\n      currentUser: 'xyz@gmail.com',\r\n      viewProduct: StorybookMocks.mockCardActions().viewProduct\r\n    },\r\n  })"
             },
             {
                 "name": "owner",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Card.stories.ts",
+                "file": "src/stories/card/Card.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\r\n  component: CardComponent,\r\n  props: {\r\n    product: {\r\n            name: \"Laney, Acoustic Guitar Amp, 80W A1+\",\r\n            description: \"The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.\",\r\n            price: 26460,\r\n            imageUrl: \"../../../assets/images/acoustic_amp.webp\",\r\n            createdBy: \"keyur@gmail.com\",\r\n            id: 7\r\n    },\r\n    currentUser: 'keyur@gmail.com'\r\n  },\r\n})"
+                "defaultValue": "() => ({\r\n  component: CardComponent,\r\n  props: {\r\n    product: {\r\n            name: \"Laney, Acoustic Guitar Amp, 80W A1+\",\r\n            description: \"The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.\",\r\n            price: 26460,\r\n            imageUrl: \"../../../assets/images/acoustic_amp.webp\",\r\n            createdBy: \"keyur@gmail.com\",\r\n            id: 7\r\n    },\r\n    currentUser: 'keyur@gmail.com',\r\n    updateProduct: StorybookMocks.mockCardActions().updateProduct,\r\n    deleteProduct: StorybookMocks.mockCardActions().deleteProduct,\r\n    viewProduct: StorybookMocks.mockCardActions().viewProduct\r\n  },\r\n})"
             },
             {
                 "name": "PRODUCT_ADD",
@@ -3217,7 +3254,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Card.stories.ts",
+                "file": "src/stories/card/Card.stories.ts",
                 "type": "Story<CardComponent>",
                 "defaultValue": "(args: CardComponent) => ({\r\n  component: CardComponent,\r\n  props: args,\r\n})"
             },
@@ -3225,7 +3262,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Footer.stories.ts",
+                "file": "src/stories/footer/Footer.stories.ts",
                 "type": "Story<FooterComponent>",
                 "defaultValue": "(args: FooterComponent) => ({\r\n  component: FooterComponent,\r\n  props: args,\r\n})"
             },
@@ -3233,7 +3270,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
+                "file": "src/stories/header/Header.stories.ts",
                 "type": "Story<HeaderComponent>",
                 "defaultValue": "(args: HeaderComponent) => ({\r\n  component: HeaderComponent,\r\n  props: args,\r\n})"
             },
@@ -3241,7 +3278,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Login.stories.ts",
+                "file": "src/stories/login/Login.stories.ts",
                 "type": "Story<LoginComponent>",
                 "defaultValue": "(args: LoginComponent) => ({\r\n  component: LoginComponent,\r\n  props: args,\r\n})"
             },
@@ -3249,7 +3286,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/ProductOperations.stories.ts",
+                "file": "src/stories/products/ProductOperations.stories.ts",
                 "type": "Story<ProductOperationsComponent>",
                 "defaultValue": "(args: ProductOperationsComponent) => ({\r\n  component: ProductOperationsComponent,\r\n  props: args,\r\n})"
             },
@@ -3257,7 +3294,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Registration.stories.ts",
+                "file": "src/stories/registration/Registration.stories.ts",
                 "type": "Story<RegistrationComponent>",
                 "defaultValue": "(args: RegistrationComponent) => ({\r\n  component: RegistrationComponent,\r\n  props: args,\r\n})"
             },
@@ -3265,7 +3302,7 @@
                 "name": "updateProduct",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/ProductOperations.stories.ts",
+                "file": "src/stories/products/ProductOperations.stories.ts",
                 "type": "",
                 "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm: StorybookMocks.updateProuctFormGroup(),\r\n    name:{touched: false, invalid: false},\r\n    price:{touched: false, invalid: false},\r\n    imageUrlPreview: '../../../assets/images/acoustic_amp.webp',\r\n    productOperationInfo: {\r\n      productOperation: 'Update',\r\n      disableFormFields: false,\r\n    },\r\n    buttonText: 'update-button',\r\n    cancel:  StorybookMocks.mockProductActions().cancel,\r\n    onSubmit:  StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked\r\n  }, \r\n})"
             },
@@ -3273,7 +3310,7 @@
                 "name": "viewProduct",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/ProductOperations.stories.ts",
+                "file": "src/stories/products/ProductOperations.stories.ts",
                 "type": "",
                 "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm: StorybookMocks.updateProuctFormGroup(),\r\n    name:{touched: false, invalid: false},\r\n    price:{touched: false, invalid: false},\r\n    imageUrlPreview: '../../../assets/images/acoustic_amp.webp',\r\n    productOperationInfo: {\r\n      productOperation: 'View',\r\n      disableFormFields: true,\r\n    },\r\n    buttonText: 'update-button',\r\n    cancel:  StorybookMocks.mockProductActions().cancel,\r\n    onSubmit:  StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked\r\n  }, \r\n})"
             }
@@ -3282,126 +3319,6 @@
             {
                 "name": "HttpLoaderFactory",
                 "file": "src/app/app.module.ts",
-                "ctype": "miscellaneous",
-                "subtype": "function",
-                "description": "",
-                "args": [
-                    {
-                        "name": "http"
-                    }
-                ],
-                "jsdoctags": [
-                    {
-                        "name": "http",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            {
-                "name": "HttpLoaderFactory",
-                "file": "src/stories/Card.stories.ts",
-                "ctype": "miscellaneous",
-                "subtype": "function",
-                "description": "",
-                "args": [
-                    {
-                        "name": "http"
-                    }
-                ],
-                "jsdoctags": [
-                    {
-                        "name": "http",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            {
-                "name": "HttpLoaderFactory",
-                "file": "src/stories/Footer.stories.ts",
-                "ctype": "miscellaneous",
-                "subtype": "function",
-                "description": "",
-                "args": [
-                    {
-                        "name": "http"
-                    }
-                ],
-                "jsdoctags": [
-                    {
-                        "name": "http",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            {
-                "name": "HttpLoaderFactory",
-                "file": "src/stories/Header.stories.ts",
-                "ctype": "miscellaneous",
-                "subtype": "function",
-                "description": "",
-                "args": [
-                    {
-                        "name": "http"
-                    }
-                ],
-                "jsdoctags": [
-                    {
-                        "name": "http",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            {
-                "name": "HttpLoaderFactory",
-                "file": "src/stories/Login.stories.ts",
-                "ctype": "miscellaneous",
-                "subtype": "function",
-                "description": "",
-                "args": [
-                    {
-                        "name": "http"
-                    }
-                ],
-                "jsdoctags": [
-                    {
-                        "name": "http",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            {
-                "name": "HttpLoaderFactory",
-                "file": "src/stories/ProductOperations.stories.ts",
-                "ctype": "miscellaneous",
-                "subtype": "function",
-                "description": "",
-                "args": [
-                    {
-                        "name": "http"
-                    }
-                ],
-                "jsdoctags": [
-                    {
-                        "name": "http",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            {
-                "name": "HttpLoaderFactory",
-                "file": "src/stories/Registration.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -3442,6 +3359,126 @@
             {
                 "name": "HttpLoaderFactory",
                 "file": "src/app/products/products.module.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "http"
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "HttpLoaderFactory",
+                "file": "src/stories/card/Card.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "http"
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "HttpLoaderFactory",
+                "file": "src/stories/footer/Footer.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "http"
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "HttpLoaderFactory",
+                "file": "src/stories/header/Header.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "http"
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "HttpLoaderFactory",
+                "file": "src/stories/login/Login.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "http"
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "HttpLoaderFactory",
+                "file": "src/stories/products/ProductOperations.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "http"
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "HttpLoaderFactory",
+                "file": "src/stories/registration/Registration.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -3521,12 +3558,12 @@
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
-            "src/stories/ProductOperations.stories.ts": [
+            "src/stories/products/ProductOperations.stories.ts": [
                 {
                     "name": "addProduct",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/ProductOperations.stories.ts",
+                    "file": "src/stories/products/ProductOperations.stories.ts",
                     "type": "",
                     "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm:  StorybookMocks.getMockProductFormGroup(),\r\n    name : {touched: false, invalid: false},\r\n    price : {touched: false, invalid: false},\r\n    imageUrlPreview: '',\r\n    productOperationInfo: {\r\n      productOperation: 'Add',\r\n      disableFormFields: false,\r\n    },\r\n    buttonText: 'add-button',\r\n    cancel: StorybookMocks.mockProductActions().cancel,\r\n    onSubmit: StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked : StorybookMocks.mockProductActions().onImagePicked\r\n  }, \r\n})"
                 },
@@ -3534,7 +3571,7 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/ProductOperations.stories.ts",
+                    "file": "src/stories/products/ProductOperations.stories.ts",
                     "type": "Story<ProductOperationsComponent>",
                     "defaultValue": "(args: ProductOperationsComponent) => ({\r\n  component: ProductOperationsComponent,\r\n  props: args,\r\n})"
                 },
@@ -3542,7 +3579,7 @@
                     "name": "updateProduct",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/ProductOperations.stories.ts",
+                    "file": "src/stories/products/ProductOperations.stories.ts",
                     "type": "",
                     "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm: StorybookMocks.updateProuctFormGroup(),\r\n    name:{touched: false, invalid: false},\r\n    price:{touched: false, invalid: false},\r\n    imageUrlPreview: '../../../assets/images/acoustic_amp.webp',\r\n    productOperationInfo: {\r\n      productOperation: 'Update',\r\n      disableFormFields: false,\r\n    },\r\n    buttonText: 'update-button',\r\n    cancel:  StorybookMocks.mockProductActions().cancel,\r\n    onSubmit:  StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked\r\n  }, \r\n})"
                 },
@@ -3550,7 +3587,7 @@
                     "name": "viewProduct",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/ProductOperations.stories.ts",
+                    "file": "src/stories/products/ProductOperations.stories.ts",
                     "type": "",
                     "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm: StorybookMocks.updateProuctFormGroup(),\r\n    name:{touched: false, invalid: false},\r\n    price:{touched: false, invalid: false},\r\n    imageUrlPreview: '../../../assets/images/acoustic_amp.webp',\r\n    productOperationInfo: {\r\n      productOperation: 'View',\r\n      disableFormFields: true,\r\n    },\r\n    buttonText: 'update-button',\r\n    cancel:  StorybookMocks.mockProductActions().cancel,\r\n    onSubmit:  StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked\r\n  }, \r\n})"
                 }
@@ -3615,30 +3652,30 @@
                     "defaultValue": "'View'"
                 }
             ],
-            "src/stories/Footer.stories.ts": [
+            "src/stories/footer/Footer.stories.ts": [
                 {
                     "name": "defaultState",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Footer.stories.ts",
+                    "file": "src/stories/footer/Footer.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\r\n  component: FooterComponent,\r\n  props: {\r\n    isAuthenticated: () => true,\r\n  },\r\n})"
+                    "defaultValue": "() => ({\r\n  component: FooterComponent,\r\n  props: {}\r\n})"
                 },
                 {
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Footer.stories.ts",
+                    "file": "src/stories/footer/Footer.stories.ts",
                     "type": "Story<FooterComponent>",
                     "defaultValue": "(args: FooterComponent) => ({\r\n  component: FooterComponent,\r\n  props: args,\r\n})"
                 }
             ],
-            "src/stories/Login.stories.ts": [
+            "src/stories/login/Login.stories.ts": [
                 {
                     "name": "defaultState",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Login.stories.ts",
+                    "file": "src/stories/login/Login.stories.ts",
                     "type": "",
                     "defaultValue": "() => ({\r\n  component: LoginComponent,\r\n  props: {\r\n    loginForm: StorybookMocks.getMockLoginFormGroup(),\r\n    navigate: StorybookMocks.mockLoginActions().navigate,\r\n    onSubmit: StorybookMocks.mockLoginActions().onSubmit,\r\n  },\r\n})"
                 },
@@ -3646,17 +3683,17 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Login.stories.ts",
+                    "file": "src/stories/login/Login.stories.ts",
                     "type": "Story<LoginComponent>",
                     "defaultValue": "(args: LoginComponent) => ({\r\n  component: LoginComponent,\r\n  props: args,\r\n})"
                 }
             ],
-            "src/stories/Registration.stories.ts": [
+            "src/stories/registration/Registration.stories.ts": [
                 {
                     "name": "defaultState",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Registration.stories.ts",
+                    "file": "src/stories/registration/Registration.stories.ts",
                     "type": "",
                     "defaultValue": "() => ({\r\n  component: RegistrationComponent,\r\n  props: {\r\n    registrationForm: StorybookMocks.getMockRegistrationFormGroup(),\r\n    onSubmit: StorybookMocks.mockRegistrationActions().onSubmit,\r\n  },\r\n})"
                 },
@@ -3664,7 +3701,7 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Registration.stories.ts",
+                    "file": "src/stories/registration/Registration.stories.ts",
                     "type": "Story<RegistrationComponent>",
                     "defaultValue": "(args: RegistrationComponent) => ({\r\n  component: RegistrationComponent,\r\n  props: args,\r\n})"
                 }
@@ -3759,28 +3796,28 @@
                     "defaultValue": "createReducer(\r\n  initialState,\r\n  on(ProductActions.productAddSuccess, (state, payload:any) => {\r\n    return {\r\n        ...state,\r\n        products: [...state.products, payload ]\r\n    }\r\n}),\r\non(ProductActions.productFetchSuccess, (state, payload:any) => {\r\n  return {\r\n      ...state,\r\n      products: payload.data\r\n  }\r\n}),\r\non(ProductActions.productUpdateSuccess, (state, payload:any) => {\r\n  return {\r\n      ...state,\r\n      products: [...state.products, payload.data]\r\n  }\r\n}),\r\non(ProductActions.productDeleteSuccess, (state, payload:any) => {\r\n  const stateCopy = {...state};\r\n  const deleteId = payload.action.product.id;\r\n  const updatedProducts = state.products.filter((prod) =>  deleteId !== prod.id);\r\n  return {\r\n      ...state,\r\n      products: [...updatedProducts]\r\n  }\r\n}),\r\n)"
                 }
             ],
-            "src/stories/Header.stories.ts": [
+            "src/stories/header/Header.stories.ts": [
                 {
                     "name": "LoggedIn",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
+                    "file": "src/stories/header/Header.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\r\n  component: HeaderComponent,\r\n  props: {\r\n    isAuthenticated: () => true,\r\n  },\r\n})"
+                    "defaultValue": "() => ({\r\n  component: HeaderComponent,\r\n  props: {\r\n    isAuthenticated: () => true,\r\n    addProduct: StorybookMocks.mockHeaderActions().addProduct,\r\n    logout:  StorybookMocks.mockHeaderActions().logout,\r\n    changeLanguage: StorybookMocks.mockHeaderActions().changeLanguage,\r\n    changeTheme:  StorybookMocks.mockHeaderActions().changeTheme\r\n  },\r\n})"
                 },
                 {
                     "name": "LoggedOut",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
+                    "file": "src/stories/header/Header.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\r\n  component: HeaderComponent,\r\n  props: {\r\n    isAuthenticated: () => false,\r\n  },\r\n})"
+                    "defaultValue": "() => ({\r\n  component: HeaderComponent,\r\n  props: {\r\n    isAuthenticated: () => false,\r\n    changeLanguage:  StorybookMocks.mockHeaderActions().changeLanguage,\r\n    changeTheme:  StorybookMocks.mockHeaderActions().changeTheme\r\n  },\r\n})"
                 },
                 {
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
+                    "file": "src/stories/header/Header.stories.ts",
                     "type": "Story<HeaderComponent>",
                     "defaultValue": "(args: HeaderComponent) => ({\r\n  component: HeaderComponent,\r\n  props: args,\r\n})"
                 }
@@ -3909,28 +3946,28 @@
                     "defaultValue": "() => {\r\n    let storage = {};\r\n    return {\r\n      getItem: key => (key in storage ? storage[key] : null),\r\n      setItem: (key, value) => (storage[key] = value || ''),\r\n      removeItem: key => delete storage[key],\r\n      clear: () => (storage = {}),\r\n    };\r\n  }"
                 }
             ],
-            "src/stories/Card.stories.ts": [
+            "src/stories/card/Card.stories.ts": [
                 {
                     "name": "nonOwner",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Card.stories.ts",
+                    "file": "src/stories/card/Card.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\r\n    component: CardComponent,\r\n    props: {\r\n      product: {\r\n              name: \"Laney, Acoustic Guitar Amp, 80W A1+\",\r\n              description: \"The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.\",\r\n              price: 26460,\r\n              imageUrl: \"../../../assets/images/acoustic_amp.webp\",\r\n              createdBy: \"keyur@gmail.com\",\r\n              id: 7\r\n      },\r\n      currentUser: 'xyz@gmail.com'\r\n    },\r\n  })"
+                    "defaultValue": "() => ({\r\n    component: CardComponent,\r\n    props: {\r\n      product: {\r\n              name: \"Laney, Acoustic Guitar Amp, 80W A1+\",\r\n              description: \"The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.\",\r\n              price: 26460,\r\n              imageUrl: \"../../../assets/images/acoustic_amp.webp\",\r\n              createdBy: \"keyur@gmail.com\",\r\n              id: 7\r\n      },\r\n      currentUser: 'xyz@gmail.com',\r\n      viewProduct: StorybookMocks.mockCardActions().viewProduct\r\n    },\r\n  })"
                 },
                 {
                     "name": "owner",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Card.stories.ts",
+                    "file": "src/stories/card/Card.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\r\n  component: CardComponent,\r\n  props: {\r\n    product: {\r\n            name: \"Laney, Acoustic Guitar Amp, 80W A1+\",\r\n            description: \"The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.\",\r\n            price: 26460,\r\n            imageUrl: \"../../../assets/images/acoustic_amp.webp\",\r\n            createdBy: \"keyur@gmail.com\",\r\n            id: 7\r\n    },\r\n    currentUser: 'keyur@gmail.com'\r\n  },\r\n})"
+                    "defaultValue": "() => ({\r\n  component: CardComponent,\r\n  props: {\r\n    product: {\r\n            name: \"Laney, Acoustic Guitar Amp, 80W A1+\",\r\n            description: \"The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.\",\r\n            price: 26460,\r\n            imageUrl: \"../../../assets/images/acoustic_amp.webp\",\r\n            createdBy: \"keyur@gmail.com\",\r\n            id: 7\r\n    },\r\n    currentUser: 'keyur@gmail.com',\r\n    updateProduct: StorybookMocks.mockCardActions().updateProduct,\r\n    deleteProduct: StorybookMocks.mockCardActions().deleteProduct,\r\n    viewProduct: StorybookMocks.mockCardActions().viewProduct\r\n  },\r\n})"
                 },
                 {
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Card.stories.ts",
+                    "file": "src/stories/card/Card.stories.ts",
                     "type": "Story<CardComponent>",
                     "defaultValue": "(args: CardComponent) => ({\r\n  component: CardComponent,\r\n  props: args,\r\n})"
                 }
@@ -4129,138 +4166,6 @@
                     ]
                 }
             ],
-            "src/stories/Card.stories.ts": [
-                {
-                    "name": "HttpLoaderFactory",
-                    "file": "src/stories/Card.stories.ts",
-                    "ctype": "miscellaneous",
-                    "subtype": "function",
-                    "description": "",
-                    "args": [
-                        {
-                            "name": "http"
-                        }
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "http",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "src/stories/Footer.stories.ts": [
-                {
-                    "name": "HttpLoaderFactory",
-                    "file": "src/stories/Footer.stories.ts",
-                    "ctype": "miscellaneous",
-                    "subtype": "function",
-                    "description": "",
-                    "args": [
-                        {
-                            "name": "http"
-                        }
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "http",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "src/stories/Header.stories.ts": [
-                {
-                    "name": "HttpLoaderFactory",
-                    "file": "src/stories/Header.stories.ts",
-                    "ctype": "miscellaneous",
-                    "subtype": "function",
-                    "description": "",
-                    "args": [
-                        {
-                            "name": "http"
-                        }
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "http",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "src/stories/Login.stories.ts": [
-                {
-                    "name": "HttpLoaderFactory",
-                    "file": "src/stories/Login.stories.ts",
-                    "ctype": "miscellaneous",
-                    "subtype": "function",
-                    "description": "",
-                    "args": [
-                        {
-                            "name": "http"
-                        }
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "http",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "src/stories/ProductOperations.stories.ts": [
-                {
-                    "name": "HttpLoaderFactory",
-                    "file": "src/stories/ProductOperations.stories.ts",
-                    "ctype": "miscellaneous",
-                    "subtype": "function",
-                    "description": "",
-                    "args": [
-                        {
-                            "name": "http"
-                        }
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "http",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "src/stories/Registration.stories.ts": [
-                {
-                    "name": "HttpLoaderFactory",
-                    "file": "src/stories/Registration.stories.ts",
-                    "ctype": "miscellaneous",
-                    "subtype": "function",
-                    "description": "",
-                    "args": [
-                        {
-                            "name": "http"
-                        }
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "http",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
             "src/app/auth/auth.module.ts": [
                 {
                     "name": "HttpLoaderFactory",
@@ -4287,6 +4192,138 @@
                 {
                     "name": "HttpLoaderFactory",
                     "file": "src/app/products/products.module.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "http"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "http",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "src/stories/card/Card.stories.ts": [
+                {
+                    "name": "HttpLoaderFactory",
+                    "file": "src/stories/card/Card.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "http"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "http",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "src/stories/footer/Footer.stories.ts": [
+                {
+                    "name": "HttpLoaderFactory",
+                    "file": "src/stories/footer/Footer.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "http"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "http",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "src/stories/header/Header.stories.ts": [
+                {
+                    "name": "HttpLoaderFactory",
+                    "file": "src/stories/header/Header.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "http"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "http",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "src/stories/login/Login.stories.ts": [
+                {
+                    "name": "HttpLoaderFactory",
+                    "file": "src/stories/login/Login.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "http"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "http",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "src/stories/products/ProductOperations.stories.ts": [
+                {
+                    "name": "HttpLoaderFactory",
+                    "file": "src/stories/products/ProductOperations.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "http"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "http",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "src/stories/registration/Registration.stories.ts": [
+                {
+                    "name": "HttpLoaderFactory",
+                    "file": "src/stories/registration/Registration.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -4457,7 +4494,7 @@
                 "linktype": "component",
                 "name": "RegistrationComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -5234,7 +5271,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/Card.stories.ts",
+                "filePath": "src/stories/card/Card.stories.ts",
                 "type": "function",
                 "linksubtype": "function",
                 "name": "HttpLoaderFactory",
@@ -5243,7 +5280,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/Card.stories.ts",
+                "filePath": "src/stories/card/Card.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -5253,7 +5290,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/Card.stories.ts",
+                "filePath": "src/stories/card/Card.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -5263,7 +5300,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/Card.stories.ts",
+                "filePath": "src/stories/card/Card.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -5273,7 +5310,16 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/Footer.stories.ts",
+                "filePath": "src/stories/card/card.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CardComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/footer/Footer.stories.ts",
                 "type": "function",
                 "linksubtype": "function",
                 "name": "HttpLoaderFactory",
@@ -5282,7 +5328,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/Footer.stories.ts",
+                "filePath": "src/stories/footer/Footer.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -5292,7 +5338,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/Footer.stories.ts",
+                "filePath": "src/stories/footer/Footer.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -5302,7 +5348,16 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/Header.stories.ts",
+                "filePath": "src/stories/footer/footer.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FooterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/header/Header.stories.ts",
                 "type": "function",
                 "linksubtype": "function",
                 "name": "HttpLoaderFactory",
@@ -5311,7 +5366,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/Header.stories.ts",
+                "filePath": "src/stories/header/Header.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -5321,7 +5376,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/Header.stories.ts",
+                "filePath": "src/stories/header/Header.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -5331,7 +5386,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/Header.stories.ts",
+                "filePath": "src/stories/header/Header.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -5341,132 +5396,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/Login.stories.ts",
-                "type": "function",
-                "linksubtype": "function",
-                "name": "HttpLoaderFactory",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Login.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "defaultState",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Login.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/ProductOperations.stories.ts",
-                "type": "function",
-                "linksubtype": "function",
-                "name": "HttpLoaderFactory",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/ProductOperations.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "addProduct",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/ProductOperations.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/ProductOperations.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "updateProduct",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/ProductOperations.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "viewProduct",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Registration.stories.ts",
-                "type": "function",
-                "linksubtype": "function",
-                "name": "HttpLoaderFactory",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Registration.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "defaultState",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Registration.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/card.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "CardComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/footer.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "FooterComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/header.component.ts",
+                "filePath": "src/stories/header/header.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "HeaderComponent",
@@ -5475,7 +5405,36 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/login.component.ts",
+                "filePath": "src/stories/login/Login.stories.ts",
+                "type": "function",
+                "linksubtype": "function",
+                "name": "HttpLoaderFactory",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/login/Login.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "defaultState",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/login/Login.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/login/login.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "LoginComponent",
@@ -5489,11 +5448,60 @@
                 "linktype": "classe",
                 "name": "StorybookMocks",
                 "coveragePercent": 0,
-                "coverageCount": "0/11",
+                "coverageCount": "0/13",
                 "status": "low"
             },
             {
-                "filePath": "src/stories/product-operations.component.ts",
+                "filePath": "src/stories/products/ProductOperations.stories.ts",
+                "type": "function",
+                "linksubtype": "function",
+                "name": "HttpLoaderFactory",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/products/ProductOperations.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "addProduct",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/products/ProductOperations.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/products/ProductOperations.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "updateProduct",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/products/ProductOperations.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "viewProduct",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/products/product-operations.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "ProductOperationsComponent",
@@ -5502,7 +5510,36 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/registration.component.ts",
+                "filePath": "src/stories/registration/Registration.stories.ts",
+                "type": "function",
+                "linksubtype": "function",
+                "name": "HttpLoaderFactory",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/registration/Registration.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "defaultState",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/registration/Registration.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/registration/registration.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "RegistrationComponent",

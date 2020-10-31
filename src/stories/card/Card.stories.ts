@@ -7,9 +7,9 @@ import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Store, StoreModule } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import '../components';
+import '../../components';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { StorybookMocks } from './mocks';
+import { StorybookMocks } from '../mocks';
 import CardComponent from './card.component';
 
 
@@ -62,7 +62,10 @@ export const owner = () => ({
             createdBy: "keyur@gmail.com",
             id: 7
     },
-    currentUser: 'keyur@gmail.com'
+    currentUser: 'keyur@gmail.com',
+    updateProduct: StorybookMocks.mockCardActions().updateProduct,
+    deleteProduct: StorybookMocks.mockCardActions().deleteProduct,
+    viewProduct: StorybookMocks.mockCardActions().viewProduct
   },
 });
 
@@ -77,6 +80,7 @@ export const nonOwner = () => ({
               createdBy: "keyur@gmail.com",
               id: 7
       },
-      currentUser: 'xyz@gmail.com'
+      currentUser: 'xyz@gmail.com',
+      viewProduct: StorybookMocks.mockCardActions().viewProduct
     },
   });

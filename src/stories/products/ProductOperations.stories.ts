@@ -7,9 +7,9 @@ import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Store, StoreModule } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import '../components';
+import '../../components';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { StorybookMocks } from './mocks';
+import { StorybookMocks } from '../mocks';
 import ProductOperationsComponent from './product-operations.component';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 

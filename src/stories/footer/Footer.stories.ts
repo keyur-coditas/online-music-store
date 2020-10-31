@@ -7,11 +7,10 @@ import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Store, StoreModule } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import '../components';
+import '../../components';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { StorybookMocks } from './mocks';
-import LoginComponent from './login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StorybookMocks } from '../mocks';
+import FooterComponent from './footer.component';
 
 
 
@@ -20,11 +19,11 @@ function HttpLoaderFactory(http: HttpClient) {
 }
 
 export default {
-  title: 'Login Component',
-  component: LoginComponent,
+  title: 'Footer Component',
+  component: FooterComponent,
   decorators: [
     moduleMetadata({
-      declarations: [LoginComponent],
+      declarations: [FooterComponent],
       imports: [
         CommonModule,
         TranslateModule.forRoot({
@@ -37,8 +36,6 @@ export default {
         }),
         StoreModule,
         HttpClientModule,
-        FormsModule,
-        ReactiveFormsModule
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
       providers: [
@@ -49,17 +46,13 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<LoginComponent> = (args: LoginComponent) => ({
-  component: LoginComponent,
+const Template: Story<FooterComponent> = (args: FooterComponent) => ({
+  component: FooterComponent,
   props: args,
 });
 
 export const defaultState = () => ({
-  component: LoginComponent,
-  props: {
-    loginForm: StorybookMocks.getMockLoginFormGroup(),
-    navigate: StorybookMocks.mockLoginActions().navigate,
-    onSubmit: StorybookMocks.mockLoginActions().onSubmit,
-  },
+  component: FooterComponent,
+  props: {}
 });
 

@@ -105,4 +105,21 @@ export class StorybookMocks {
       onSubmit: () => {console.log('onSubmit called')},
     }
   }
+
+  public static mockCardActions = () => {
+    return {
+      updateProduct: (event) => {event.stopPropagation(); console.log('updateProduct called')},
+      deleteProduct: (event) => { event.stopPropagation(); console.log('deleteProduct called')},
+      viewProduct: () => { console.log('viewProduct called')},
+    }
+  }
+
+  public static mockHeaderActions = () => {
+    return {
+      addProduct: () => { console.log('addProduct called')},
+      logout: () => {console.log('logout called')},
+      changeLanguage: () => { console.log('changeLanguage called')},
+      changeTheme: () => { console.log('changeTheme called')}
+    }
+  }
 }

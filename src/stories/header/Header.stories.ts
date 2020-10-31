@@ -7,10 +7,10 @@ import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Store, StoreModule } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import '../components';
+import '../../components';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { StorybookMocks } from './mocks';
-import FooterComponent from './footer.component';
+import { StorybookMocks } from '../mocks';
+import HeaderComponent from './header.component';
 
 
 
@@ -19,11 +19,11 @@ function HttpLoaderFactory(http: HttpClient) {
 }
 
 export default {
-  title: 'Footer Component',
-  component: FooterComponent,
+  title: 'Header Component',
+  component: HeaderComponent,
   decorators: [
     moduleMetadata({
-      declarations: [FooterComponent],
+      declarations: [HeaderComponent],
       imports: [
         CommonModule,
         TranslateModule.forRoot({
@@ -46,15 +46,27 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<FooterComponent> = (args: FooterComponent) => ({
-  component: FooterComponent,
+const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
+  component: HeaderComponent,
   props: args,
 });
 
-export const defaultState = () => ({
-  component: FooterComponent,
+export const LoggedIn = () => ({
+  component: HeaderComponent,
   props: {
     isAuthenticated: () => true,
+    addProduct: StorybookMocks.mockHeaderActions().addProduct,
+    logout:  StorybookMocks.mockHeaderActions().logout,
+    changeLanguage: StorybookMocks.mockHeaderActions().changeLanguage,
+    changeTheme:  StorybookMocks.mockHeaderActions().changeTheme
   },
 });
 
+export const LoggedOut = () => ({
+  component: HeaderComponent,
+  props: {
+    isAuthenticated: () => false,
+    changeLanguage:  StorybookMocks.mockHeaderActions().changeLanguage,
+    changeTheme:  StorybookMocks.mockHeaderActions().changeTheme
+  },
+});
