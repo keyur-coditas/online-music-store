@@ -12,10 +12,12 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegistrationComponent,
+        pathMatch: 'full'
       },
       {
         path: 'login',
         component: LoginComponent,
+        pathMatch: 'full'
       },
       {
         path: '',
