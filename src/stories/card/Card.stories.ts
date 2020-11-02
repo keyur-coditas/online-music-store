@@ -46,11 +46,6 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<CardComponent> = (args: CardComponent) => ({
-  component: CardComponent,
-  props: args,
-});
-
 export const owner = () => ({
   component: CardComponent,
   props: {

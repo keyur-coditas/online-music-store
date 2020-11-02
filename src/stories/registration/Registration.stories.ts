@@ -48,11 +48,6 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<RegistrationComponent> = (args: RegistrationComponent) => ({
-  component: RegistrationComponent,
-  props: args,
-});
-
 export const defaultState = () => ({
   component: RegistrationComponent,
   props: {

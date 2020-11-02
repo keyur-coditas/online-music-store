@@ -21,6 +21,15 @@ function HttpLoaderFactory(http: HttpClient) {
 export default {
   title: 'Header Component',
   component: HeaderComponent,
+  argTypes: {
+    // creates a specific argType based on the iconMap object
+    isAuthenticated: {
+      control: {
+        type: 'boolean',
+        options: {isAuthenticated: true}
+      },
+    },
+  },
   decorators: [
     moduleMetadata({
       declarations: [HeaderComponent],
@@ -46,11 +55,6 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
-  component: HeaderComponent,
-  props: args,
-});
-
 export const LoggedIn = () => ({
   component: HeaderComponent,
   props: {
@@ -60,6 +64,9 @@ export const LoggedIn = () => ({
     changeLanguage: StorybookMocks.mockHeaderActions().changeLanguage,
     changeTheme:  StorybookMocks.mockHeaderActions().changeTheme
   },
+  args: {
+    
+  }
 });
 
 export const LoggedOut = () => ({

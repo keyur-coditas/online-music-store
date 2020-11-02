@@ -49,11 +49,6 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<LoginComponent> = (args: LoginComponent) => ({
-  component: LoginComponent,
-  props: args,
-});
-
 export const defaultState = () => ({
   component: LoginComponent,
   props: {

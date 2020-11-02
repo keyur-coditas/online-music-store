@@ -46,11 +46,6 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<FooterComponent> = (args: FooterComponent) => ({
-  component: FooterComponent,
-  props: args,
-});
-
 export const defaultState = () => ({
   component: FooterComponent,
   props: {}
