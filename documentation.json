@@ -1627,7 +1627,7 @@
                 "args": [],
                 "line": 8
             },
-            "templateData": "<div class=\"str-footer\">\r\n   assignment online music store\r\n</div>\r\n"
+            "templateData": "<div class=\"str-footer\">\r\n   {{'footer.footer-text'|translate}}\r\n</div>\r\n"
         },
         {
             "name": "FooterComponent",
@@ -1668,7 +1668,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "FooterComponent-1",
-            "templateData": "<div class=\"str-footer\">\r\n   assignment online music store\r\n</div>\r\n"
+            "templateData": "<div class=\"str-footer\">\r\n   {{'footer.footer-text'|translate}}\r\n</div>\r\n"
         },
         {
             "name": "HeaderComponent",
@@ -1901,7 +1901,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"tab\">Login</div>\r\n<form [formGroup]=\"loginForm\" class=\"text-center\">\r\n    <div>\r\n        <div>\r\n            <input aria-label=\"Enter email\" class=\"str-input\" type=\"email\" formControlName=\"email\"\r\n                placeholder=\"Enter your email\" />\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"loginForm.controls['email'].touched && loginForm.controls['email'].invalid\">{{'auth.email-validation' | translate}}</p>\r\n        </div>\r\n        <div>\r\n            <input aria-label=\"Enter password\" class=\"str-input\" type=\"password\" formControlName=\"password\"\r\n                placeholder=\"Enter password\" />\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"loginForm.controls['password'].touched && loginForm.controls['password'].invalid\">{{'auth.password-validation' | translate}}\r\n                </p>\r\n        </div>\r\n    </div>\r\n    <div class=\"text-center\">\r\n        <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Log in\"></str-form-btn>\r\n        <a class=\"signup-link\" (click)=\"navigate($event)\" href=\"#\" aria-label=\"Click to signup\">{{'auth.signup-link' | translate}}</a>\r\n    </div>\r\n</form>"
+            "templateData": "<div class=\"tab\">{{'auth.login-tab' | translate}}</div>\r\n<form [formGroup]=\"loginForm\" class=\"text-center\">\r\n    <div>\r\n        <div>\r\n            <input aria-label=\"Enter email\" class=\"str-input\" type=\"email\" formControlName=\"email\"\r\n                placeholder=\"{{'auth.email-placeholder'|translate}}\" />\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"loginForm.controls['email'].touched && loginForm.controls['email'].invalid\">{{'auth.email-validation' | translate}}</p>\r\n        </div>\r\n        <div>\r\n            <input aria-label=\"Enter password\" class=\"str-input\" type=\"password\" formControlName=\"password\"\r\n                placeholder=\"{{'auth.password-placeholder'|translate}}\" />\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"loginForm.controls['password'].touched && loginForm.controls['password'].invalid\">{{'auth.password-validation' | translate}}\r\n                </p>\r\n        </div>\r\n    </div>\r\n    <div class=\"text-center\">\r\n        <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Log in\"></str-form-btn>\r\n        <a class=\"signup-link\" (click)=\"navigate($event)\" href=\"#\" aria-label=\"Click to signup\">{{'auth.signup-link' | translate}}</a>\r\n    </div>\r\n</form>"
         },
         {
             "name": "LoginComponent",
@@ -2023,7 +2023,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "LoginComponent-1",
-            "templateData": "<div class=\"tab\">Login</div>\r\n<form [formGroup]=\"loginForm\" class=\"text-center\">\r\n    <div>\r\n        <div>\r\n            <input aria-label=\"Enter email\" class=\"str-input\" type=\"email\" formControlName=\"email\"\r\n                placeholder=\"Enter your email\" />\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"loginForm.controls['email'].touched && loginForm.controls['email'].invalid\">{{'auth.email-validation' | translate}}</p>\r\n        </div>\r\n        <div>\r\n            <input aria-label=\"Enter password\" class=\"str-input\" type=\"password\" formControlName=\"password\"\r\n                placeholder=\"Enter password\" />\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"loginForm.controls['password'].touched && loginForm.controls['password'].invalid\">{{'auth.password-validation' | translate}}\r\n                </p>\r\n        </div>\r\n    </div>\r\n    <div class=\"text-center\">\r\n        <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Log in\"></str-form-btn>\r\n        <a class=\"signup-link\" (click)=\"navigate($event)\" href=\"#\" aria-label=\"Click to signup\">{{'auth.signup-link' | translate}}</a>\r\n    </div>\r\n</form>"
+            "templateData": "<div class=\"tab\">{{'auth.login-tab' | translate}}</div>\r\n<form [formGroup]=\"loginForm\" class=\"text-center\">\r\n    <div>\r\n        <div>\r\n            <input aria-label=\"Enter email\" class=\"str-input\" type=\"email\" formControlName=\"email\"\r\n                placeholder=\"{{'auth.email-placeholder'|translate}}\" />\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"loginForm.controls['email'].touched && loginForm.controls['email'].invalid\">{{'auth.email-validation' | translate}}</p>\r\n        </div>\r\n        <div>\r\n            <input aria-label=\"Enter password\" class=\"str-input\" type=\"password\" formControlName=\"password\"\r\n                placeholder=\"{{'auth.password-placeholder'|translate}}\" />\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"loginForm.controls['password'].touched && loginForm.controls['password'].invalid\">{{'auth.password-validation' | translate}}\r\n                </p>\r\n        </div>\r\n    </div>\r\n    <div class=\"text-center\">\r\n        <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Log in\"></str-form-btn>\r\n        <a class=\"signup-link\" (click)=\"navigate($event)\" href=\"#\" aria-label=\"Click to signup\">{{'auth.signup-link' | translate}}</a>\r\n    </div>\r\n</form>"
         },
         {
             "name": "ProductOperationsComponent",
@@ -2056,12 +2056,12 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import '../../shared/styles/variables.scss';\r\n\r\n.container {\r\n    width: 50%;\r\n    margin: 3rem auto 0rem auto;\r\n    border-radius: 5px;\r\n}\r\n\r\n.str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.image-label {\r\n    font-size: 12px;\r\n    margin: 10px;\r\n    display: block;\r\n    color: $dark-gray\r\n}\r\n.str-product-error {\r\n    width: 70%;\r\n}\r\n",
+                    "data": "@import '../../shared/styles/variables.scss';\r\n\r\n.container {\r\n    width: 50%;\r\n    margin: 3rem auto 0rem auto;\r\n    border-radius: 5px;\r\n}\r\n\r\n.str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.image-label {\r\n    font-size: 12px;\r\n    margin: 10px;\r\n    display: block;\r\n    color: $dark-gray\r\n}\r\n\r\n",
                     "styleUrl": "../../app/products/product-operations/product-operations.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\" (ngSubmit)=\"onSubmit()\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <input aria-label=\"name\" class=\"str-input\" type=\"text\" formControlName=\"name\" placeholder=\"Enter product name\" [readonly]= \"productOperationInfo.disableFormFields\" />\r\n                <div class=\"str-product-error\">\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"name.touched && name.invalid\">Product name is required</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <input aria-label=\"price\" class=\"str-input\" type=\"number\" formControlName=\"price\" placeholder=\"Enter price\" [readonly]= \"productOperationInfo.disableFormFields\"  />\r\n                <div class=\"str-product-error\">\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"price.touched && price.invalid\">Product price is required</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <textarea aria-label=\"description\" class=\"str-textarea\" name=\"description\" id=\"\" cols=\"30\" formControlName=\"description\" rows=\"10\"\r\n                 placeholder=\"Add a brief description of the product\" [readonly]= \"productOperationInfo.disableFormFields\">\r\n                </textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                <label for=\"\" class=\"image-label\" >Choose a product image</label>\r\n                <input aria-label=\"product-image\" type=\"file\" #filePicker formControlName=\"imageUrl\" path=\"../../../assets/images/\" \r\n                 (change)=\"onImagePicked($event)\" [readonly]= \"productOperationInfo.disableFormFields\">\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <button [attr.aria-label]=\"productOperationInfo.productOperation\" class=\"str-submit-btn str-btn\" *ngIf=\"productOperationInfo.productOperation !== 'View'\">{{ 'products.product-operations.' + buttonText | translate}}</button>\r\n            <button type=\"button\" attr.aria-label=\"Back to products list\" class=\"str-submit-btn str-btn\" (click)=\"cancel()\" >{{'products.product-operations.cancel-button' | translate}}</button>\r\n        </div>\r\n    </form>\r\n</div>"
+            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\" (ngSubmit)=\"onSubmit()\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <input aria-label=\"name\" class=\"str-input\" type=\"text\" formControlName=\"name\" placeholder=\"{{'products.product-operations.enter-product-placeholder'|translate}}\" [readonly]= \"productOperationInfo.disableFormFields\" />\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"name.touched && name.invalid\">{{'products.product-operations.product-name-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <input aria-label=\"price\" class=\"str-input\" type=\"number\" formControlName=\"price\" placeholder=\"{{'products.product-operations.enter-price-placeholder'|translate}}\" [readonly]= \"productOperationInfo.disableFormFields\"  />\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"price.touched && price.invalid\">{{'products.product-operations.product-price-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <textarea aria-label=\"description\" class=\"str-textarea\" name=\"description\" id=\"\" cols=\"30\" formControlName=\"description\" rows=\"10\"\r\n                 placeholder=\"{{'products.product-operations.product-description-placeholder'|translate}}\" [readonly]= \"productOperationInfo.disableFormFields\">\r\n                </textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                <label for=\"\" class=\"image-label\" >Choose a product image</label>\r\n                <input aria-label=\"product-image\" type=\"file\" #filePicker formControlName=\"imageUrl\" path=\"../../../assets/images/\" \r\n                 (change)=\"onImagePicked($event)\" [readonly]= \"productOperationInfo.disableFormFields\">\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <button [attr.aria-label]=\"productOperationInfo.productOperation\" class=\"str-submit-btn str-btn\" *ngIf=\"productOperationInfo.productOperation !== 'View'\">{{ 'products.product-operations.' + buttonText | translate}}</button>\r\n            <button type=\"button\" attr.aria-label=\"Back to products list\" class=\"str-submit-btn str-btn\" (click)=\"cancel()\" >{{'products.product-operations.cancel-button' | translate}}</button>\r\n        </div>\r\n    </form>\r\n</div>"
         },
         {
             "name": "ProductOperationsComponent",
@@ -2253,7 +2253,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import '../../shared/styles/variables.scss';\r\n\r\n.container {\r\n    width: 50%;\r\n    margin: 3rem auto 0rem auto;\r\n    border-radius: 5px;\r\n}\r\n\r\n.str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.image-label {\r\n    font-size: 12px;\r\n    margin: 10px;\r\n    display: block;\r\n    color: $dark-gray\r\n}\r\n.str-product-error {\r\n    width: 70%;\r\n}\r\n",
+                    "data": "@import '../../shared/styles/variables.scss';\r\n\r\n.container {\r\n    width: 50%;\r\n    margin: 3rem auto 0rem auto;\r\n    border-radius: 5px;\r\n}\r\n\r\n.str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.image-label {\r\n    font-size: 12px;\r\n    margin: 10px;\r\n    display: block;\r\n    color: $dark-gray\r\n}\r\n\r\n",
                     "styleUrl": "./product-operations.component.scss"
                 }
             ],
@@ -2306,7 +2306,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "ProductOperationsComponent-1",
-            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\" (ngSubmit)=\"onSubmit()\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <input aria-label=\"name\" class=\"str-input\" type=\"text\" formControlName=\"name\" placeholder=\"Enter product name\" [readonly]= \"productOperationInfo.disableFormFields\" />\r\n                <div class=\"str-product-error\">\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"name.touched && name.invalid\">Product name is required</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <input aria-label=\"price\" class=\"str-input\" type=\"number\" formControlName=\"price\" placeholder=\"Enter price\" [readonly]= \"productOperationInfo.disableFormFields\"  />\r\n                <div class=\"str-product-error\">\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"price.touched && price.invalid\">Product price is required</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <textarea aria-label=\"description\" class=\"str-textarea\" name=\"description\" id=\"\" cols=\"30\" formControlName=\"description\" rows=\"10\"\r\n                 placeholder=\"Add a brief description of the product\" [readonly]= \"productOperationInfo.disableFormFields\">\r\n                </textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                <label for=\"\" class=\"image-label\" >Choose a product image</label>\r\n                <input aria-label=\"product-image\" type=\"file\" #filePicker formControlName=\"imageUrl\" path=\"../../../assets/images/\" \r\n                 (change)=\"onImagePicked($event)\" [readonly]= \"productOperationInfo.disableFormFields\">\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <button [attr.aria-label]=\"productOperationInfo.productOperation\" class=\"str-submit-btn str-btn\" *ngIf=\"productOperationInfo.productOperation !== 'View'\">{{ 'products.product-operations.' + buttonText | translate}}</button>\r\n            <button type=\"button\" attr.aria-label=\"Back to products list\" class=\"str-submit-btn str-btn\" (click)=\"cancel()\" >{{'products.product-operations.cancel-button' | translate}}</button>\r\n        </div>\r\n    </form>\r\n</div>"
+            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\" (ngSubmit)=\"onSubmit()\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <input aria-label=\"name\" class=\"str-input\" type=\"text\" formControlName=\"name\" placeholder=\"{{'products.product-operations.enter-product-placeholder'|translate}}\" [readonly]= \"productOperationInfo.disableFormFields\" />\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"name.touched && name.invalid\">{{'products.product-operations.product-name-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <input aria-label=\"price\" class=\"str-input\" type=\"number\" formControlName=\"price\" placeholder=\"{{'products.product-operations.enter-price-placeholder'|translate}}\" [readonly]= \"productOperationInfo.disableFormFields\"  />\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"price.touched && price.invalid\">{{'products.product-operations.product-price-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <textarea aria-label=\"description\" class=\"str-textarea\" name=\"description\" id=\"\" cols=\"30\" formControlName=\"description\" rows=\"10\"\r\n                 placeholder=\"{{'products.product-operations.product-description-placeholder'|translate}}\" [readonly]= \"productOperationInfo.disableFormFields\">\r\n                </textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                <label for=\"\" class=\"image-label\" >Choose a product image</label>\r\n                <input aria-label=\"product-image\" type=\"file\" #filePicker formControlName=\"imageUrl\" path=\"../../../assets/images/\" \r\n                 (change)=\"onImagePicked($event)\" [readonly]= \"productOperationInfo.disableFormFields\">\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <button [attr.aria-label]=\"productOperationInfo.productOperation\" class=\"str-submit-btn str-btn\" *ngIf=\"productOperationInfo.productOperation !== 'View'\">{{ 'products.product-operations.' + buttonText | translate}}</button>\r\n            <button type=\"button\" attr.aria-label=\"Back to products list\" class=\"str-submit-btn str-btn\" (click)=\"cancel()\" >{{'products.product-operations.cancel-button' | translate}}</button>\r\n        </div>\r\n    </form>\r\n</div>"
         },
         {
             "name": "ProductsComponent",
@@ -2429,7 +2429,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"tab\">Register</div>\r\n<form [formGroup]=\"registrationForm\" class=\"text-center\">\r\n    <div>\r\n      <input\r\n        aria-label=\"Enter email\"\r\n        class=\"str-input\"\r\n        type=\"email\"\r\n        formControlName=\"email\"\r\n        placeholder=\"Enter your email\"\r\n      />\r\n        <p class=\"str-error-msg-class\" *ngIf=\"registrationForm.controls['email'].touched && registrationForm.controls['email'].invalid\"\r\n          >{{'auth.email-validation' | translate}}</p>\r\n    </div>\r\n    <div>\r\n      <input\r\n        aria-label=\"Select a password\"\r\n        class=\"str-input\"\r\n        type=\"password\"\r\n        formControlName=\"password\"\r\n        placeholder=\"Select a password\"\r\n      />\r\n        <p\r\n          class=\"str-error-msg-class\"\r\n          *ngIf=\"registrationForm.controls['password'].touched && registrationForm.controls['password'].invalid\"\r\n          >{{'auth.password-validation' | translate}}</p>\r\n    </div>\r\n    <div>\r\n      <input\r\n        aria-label=\"confirm password\"\r\n        class=\"str-input\"\r\n        type=\"password\"\r\n        formControlName=\"confirmPassword\"\r\n        placeholder=\"Retype the password\"\r\n      />\r\n        <p\r\n          class=\"str-error-msg-class\"\r\n          *ngIf=\"registrationForm.controls['confirmPassword'].touched && registrationForm.controls['confirmPassword'].invalid\"\r\n          >{{'auth.confirm-password-validation' | translate}}\r\n    </p>\r\n    </div>\r\n      <p class=\"str-error-msg-class\" *ngIf=\"passwordMismatch\"\r\n        >{{'auth.password-mismatch-validation' | translate}}</p\r\n      >\r\n  <div class=\"text-center\">\r\n    <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Sign up\"></str-form-btn>\r\n  </div>\r\n</form>\r\n"
+            "templateData": "<div class=\"tab\">{{'auth.register-tab' | translate}}</div>\r\n<form [formGroup]=\"registrationForm\" class=\"text-center\">\r\n    <div>\r\n      <input\r\n        aria-label=\"Enter email\"\r\n        class=\"str-input\"\r\n        type=\"email\"\r\n        formControlName=\"email\"\r\n        placeholder=\"{{'auth.email-placeholder'|translate}}\"\r\n      />\r\n        <p class=\"str-error-msg-class\" *ngIf=\"registrationForm.controls['email'].touched && registrationForm.controls['email'].invalid\"\r\n          >{{'auth.email-validation' | translate}}</p>\r\n    </div>\r\n    <div>\r\n      <input\r\n        aria-label=\"Select a password\"\r\n        class=\"str-input\"\r\n        type=\"password\"\r\n        formControlName=\"password\"\r\n        placeholder=\"{{'auth.select-password-placeholder' | translate}}\"\r\n      />\r\n        <p\r\n          class=\"str-error-msg-class\"\r\n          *ngIf=\"registrationForm.controls['password'].touched && registrationForm.controls['password'].invalid\"\r\n          >{{'auth.password-validation' | translate}}</p>\r\n    </div>\r\n    <div>\r\n      <input\r\n        aria-label=\"confirm password\"\r\n        class=\"str-input\"\r\n        type=\"password\"\r\n        formControlName=\"confirmPassword\"\r\n        placeholder=\"{{'auth.retype-password-placeholder'|translate}}\"\r\n      />\r\n        <p\r\n          class=\"str-error-msg-class\"\r\n          *ngIf=\"registrationForm.controls['confirmPassword'].touched && registrationForm.controls['confirmPassword'].invalid\"\r\n          >{{'auth.confirm-password-validation' | translate}}\r\n    </p>\r\n    </div>\r\n      <p class=\"str-error-msg-class\" *ngIf=\"passwordMismatch\"\r\n        >{{'auth.password-mismatch-validation' | translate}}</p\r\n      >\r\n  <div class=\"text-center\">\r\n    <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Sign up\"></str-form-btn>\r\n  </div>\r\n</form>\r\n"
         },
         {
             "name": "RegistrationComponent",
@@ -2547,7 +2547,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "RegistrationComponent-1",
-            "templateData": "<div class=\"tab\">Register</div>\r\n<form [formGroup]=\"registrationForm\" class=\"text-center\">\r\n    <div>\r\n      <input\r\n        aria-label=\"Enter email\"\r\n        class=\"str-input\"\r\n        type=\"email\"\r\n        formControlName=\"email\"\r\n        placeholder=\"Enter your email\"\r\n      />\r\n        <p class=\"str-error-msg-class\" *ngIf=\"registrationForm.controls['email'].touched && registrationForm.controls['email'].invalid\"\r\n          >{{'auth.email-validation' | translate}}</p>\r\n    </div>\r\n    <div>\r\n      <input\r\n        aria-label=\"Select a password\"\r\n        class=\"str-input\"\r\n        type=\"password\"\r\n        formControlName=\"password\"\r\n        placeholder=\"Select a password\"\r\n      />\r\n        <p\r\n          class=\"str-error-msg-class\"\r\n          *ngIf=\"registrationForm.controls['password'].touched && registrationForm.controls['password'].invalid\"\r\n          >{{'auth.password-validation' | translate}}</p>\r\n    </div>\r\n    <div>\r\n      <input\r\n        aria-label=\"confirm password\"\r\n        class=\"str-input\"\r\n        type=\"password\"\r\n        formControlName=\"confirmPassword\"\r\n        placeholder=\"Retype the password\"\r\n      />\r\n        <p\r\n          class=\"str-error-msg-class\"\r\n          *ngIf=\"registrationForm.controls['confirmPassword'].touched && registrationForm.controls['confirmPassword'].invalid\"\r\n          >{{'auth.confirm-password-validation' | translate}}\r\n    </p>\r\n    </div>\r\n      <p class=\"str-error-msg-class\" *ngIf=\"passwordMismatch\"\r\n        >{{'auth.password-mismatch-validation' | translate}}</p\r\n      >\r\n  <div class=\"text-center\">\r\n    <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Sign up\"></str-form-btn>\r\n  </div>\r\n</form>\r\n"
+            "templateData": "<div class=\"tab\">{{'auth.register-tab' | translate}}</div>\r\n<form [formGroup]=\"registrationForm\" class=\"text-center\">\r\n    <div>\r\n      <input\r\n        aria-label=\"Enter email\"\r\n        class=\"str-input\"\r\n        type=\"email\"\r\n        formControlName=\"email\"\r\n        placeholder=\"{{'auth.email-placeholder'|translate}}\"\r\n      />\r\n        <p class=\"str-error-msg-class\" *ngIf=\"registrationForm.controls['email'].touched && registrationForm.controls['email'].invalid\"\r\n          >{{'auth.email-validation' | translate}}</p>\r\n    </div>\r\n    <div>\r\n      <input\r\n        aria-label=\"Select a password\"\r\n        class=\"str-input\"\r\n        type=\"password\"\r\n        formControlName=\"password\"\r\n        placeholder=\"{{'auth.select-password-placeholder' | translate}}\"\r\n      />\r\n        <p\r\n          class=\"str-error-msg-class\"\r\n          *ngIf=\"registrationForm.controls['password'].touched && registrationForm.controls['password'].invalid\"\r\n          >{{'auth.password-validation' | translate}}</p>\r\n    </div>\r\n    <div>\r\n      <input\r\n        aria-label=\"confirm password\"\r\n        class=\"str-input\"\r\n        type=\"password\"\r\n        formControlName=\"confirmPassword\"\r\n        placeholder=\"{{'auth.retype-password-placeholder'|translate}}\"\r\n      />\r\n        <p\r\n          class=\"str-error-msg-class\"\r\n          *ngIf=\"registrationForm.controls['confirmPassword'].touched && registrationForm.controls['confirmPassword'].invalid\"\r\n          >{{'auth.confirm-password-validation' | translate}}\r\n    </p>\r\n    </div>\r\n      <p class=\"str-error-msg-class\" *ngIf=\"passwordMismatch\"\r\n        >{{'auth.password-mismatch-validation' | translate}}</p\r\n      >\r\n  <div class=\"text-center\">\r\n    <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Sign up\"></str-form-btn>\r\n  </div>\r\n</form>\r\n"
         }
     ],
     "modules": [
@@ -3330,7 +3330,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/footer/Footer.stories.ts",
+                "file": "src/stories/card/Card.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -3350,7 +3350,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/card/Card.stories.ts",
+                "file": "src/stories/footer/Footer.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -3390,7 +3390,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/login/Login.stories.ts",
+                "file": "src/stories/products/ProductOperations.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -3410,7 +3410,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/products/ProductOperations.stories.ts",
+                "file": "src/stories/login/Login.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -4114,10 +4114,10 @@
                     ]
                 }
             ],
-            "src/stories/footer/Footer.stories.ts": [
+            "src/stories/card/Card.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/footer/Footer.stories.ts",
+                    "file": "src/stories/card/Card.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -4136,10 +4136,10 @@
                     ]
                 }
             ],
-            "src/stories/card/Card.stories.ts": [
+            "src/stories/footer/Footer.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/card/Card.stories.ts",
+                    "file": "src/stories/footer/Footer.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -4180,10 +4180,10 @@
                     ]
                 }
             ],
-            "src/stories/login/Login.stories.ts": [
+            "src/stories/products/ProductOperations.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/login/Login.stories.ts",
+                    "file": "src/stories/products/ProductOperations.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -4202,10 +4202,10 @@
                     ]
                 }
             ],
-            "src/stories/products/ProductOperations.stories.ts": [
+            "src/stories/login/Login.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/products/ProductOperations.stories.ts",
+                    "file": "src/stories/login/Login.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",

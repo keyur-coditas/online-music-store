@@ -3,20 +3,20 @@
     <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
         <div class="text-center">
             <div>
-                <input aria-label="name" class="str-input" type="text" formControlName="name" placeholder="Enter product name" [readonly]= "productOperationInfo.disableFormFields" />
-                <div class="str-product-error">
-                    <span class="str-error-msg-class" *ngIf="name.touched && name.invalid">Product name is required</span>
+                <input aria-label="name" class="str-input" type="text" formControlName="name" placeholder="{{'products.product-operations.enter-product-placeholder'|translate}}" [readonly]= "productOperationInfo.disableFormFields" />
+                <div>
+                    <span class="str-error-msg-class" *ngIf="name.touched && name.invalid">{{'products.product-operations.product-name-validation'|translate}}</span>
                 </div>
             </div>
             <div>
-                <input aria-label="price" class="str-input" type="number" formControlName="price" placeholder="Enter price" [readonly]= "productOperationInfo.disableFormFields"  />
-                <div class="str-product-error">
-                    <span class="str-error-msg-class" *ngIf="price.touched && price.invalid">Product price is required</span>
+                <input aria-label="price" class="str-input" type="number" formControlName="price" placeholder="{{'products.product-operations.enter-price-placeholder'|translate}}" [readonly]= "productOperationInfo.disableFormFields"  />
+                <div>
+                    <span class="str-error-msg-class" *ngIf="price.touched && price.invalid">{{'products.product-operations.product-price-validation'|translate}}</span>
                 </div>
             </div>
             <div>
                 <textarea aria-label="description" class="str-textarea" name="description" id="" cols="30" formControlName="description" rows="10"
-                 placeholder="Add a brief description of the product" [readonly]= "productOperationInfo.disableFormFields">
+                 placeholder="{{'products.product-operations.product-description-placeholder'|translate}}" [readonly]= "productOperationInfo.disableFormFields">
                 </textarea>
             </div>
             <div *ngIf="imageUrlPreview">

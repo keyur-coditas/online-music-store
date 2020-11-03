@@ -1,4 +1,4 @@
-<div class="tab">Register</div>
+<div class="tab">{{'auth.register-tab' | translate}}</div>
 <form [formGroup]="registrationForm" class="text-center">
     <div>
       <input
@@ -6,7 +6,7 @@
         class="str-input"
         type="email"
         formControlName="email"
-        placeholder="Enter your email"
+        placeholder="{{'auth.email-placeholder'|translate}}"
       />
         <p class="str-error-msg-class" *ngIf="registrationForm.controls['email'].touched && registrationForm.controls['email'].invalid"
           >{{'auth.email-validation' | translate}}</p>
@@ -17,7 +17,7 @@
         class="str-input"
         type="password"
         formControlName="password"
-        placeholder="Select a password"
+        placeholder="{{'auth.select-password-placeholder' | translate}}"
       />
         <p
           class="str-error-msg-class"
@@ -30,7 +30,7 @@
         class="str-input"
         type="password"
         formControlName="confirmPassword"
-        placeholder="Retype the password"
+        placeholder="{{'auth.retype-password-placeholder'|translate}}"
       />
         <p
           class="str-error-msg-class"

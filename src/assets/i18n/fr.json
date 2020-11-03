@@ -13,7 +13,11 @@
         "password-validation": "Mot de passe requis",
         "confirm-password-validation": "Veuillez confirmer le mot de passe",
         "password-mismatch-validation": "Les mots de passe ne correspondent pas",
-        "signup-link": "Cliquez ici pour vous inscrire"
+        "signup-link": "Cliquez ici pour vous inscrire",
+        "email-placeholder": "Entrer votre Email",
+        "password-placeholder": "Entrer le mot de passe",
+        "select-password-placeholder": "Sélectionnez un mot de passe",
+        "retype-password-placeholder": "Retapez le mot de passe"
     },
     "products": {
         "card": {
@@ -23,7 +27,15 @@
         "product-operations": {
             "add-button": "Ajouter un produit",
             "update-button": "Mettre à jour le produit",
-            "cancel-button": "Annuler"
+            "cancel-button": "Annuler",
+            "enter-product-placeholder": "Entrez le nom du produit",
+            "enter-price-placeholder": "Entrez le prix",
+            "product-description-placeholder": "Ajouter une brève description du produit",
+            "product-name-validation": "Le nom du produit est obligatoire",
+            "product-price-validation": "Le prix du produit est requis"
+        },
+        "footer": {
+            "footer-text": "affectation magasin de musique en ligne"
         }
     }
 }
