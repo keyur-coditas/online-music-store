@@ -73,6 +73,8 @@ export const LoggedOut = () => ({
   component: HeaderComponent,
   props: {
     isAuthenticated: () => false,
+    addProduct: StorybookMocks.mockHeaderActions().addProduct,
+    logout:  StorybookMocks.mockHeaderActions().logout,
     changeLanguage:  StorybookMocks.mockHeaderActions().changeLanguage,
     changeTheme:  StorybookMocks.mockHeaderActions().changeTheme
   },

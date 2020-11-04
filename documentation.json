@@ -2976,7 +2976,7 @@
                 "subtype": "variable",
                 "file": "src/stories/card/Card.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\r\n    component: CardComponent,\r\n    props: {\r\n      product: {\r\n              name: \"Laney, Acoustic Guitar Amp, 80W A1+\",\r\n              description: \"The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.\",\r\n              price: 26460,\r\n              imageUrl: \"../../../assets/images/acoustic_amp.webp\",\r\n              createdBy: \"keyur@gmail.com\",\r\n              id: 7\r\n      },\r\n      currentUser: 'xyz@gmail.com',\r\n      viewProduct: StorybookMocks.mockCardActions().viewProduct\r\n    },\r\n  })"
+                "defaultValue": "() => ({\r\n  component: CardComponent,\r\n  props: {\r\n    product: object('product', { ...productData }),\r\n    currentUser: 'xyz@gmail.com',\r\n    viewProduct: StorybookMocks.mockCardActions().viewProduct,\r\n  },\r\n})"
             },
             {
                 "name": "owner",
@@ -2984,7 +2984,7 @@
                 "subtype": "variable",
                 "file": "src/stories/card/Card.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\r\n  component: CardComponent,\r\n  props: {\r\n    product: {\r\n            name: \"Laney, Acoustic Guitar Amp, 80W A1+\",\r\n            description: \"The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.\",\r\n            price: 26460,\r\n            imageUrl: \"../../../assets/images/acoustic_amp.webp\",\r\n            createdBy: \"keyur@gmail.com\",\r\n            id: 7\r\n    },\r\n    currentUser: 'keyur@gmail.com',\r\n    updateProduct: StorybookMocks.mockCardActions().updateProduct,\r\n    deleteProduct: StorybookMocks.mockCardActions().deleteProduct,\r\n    viewProduct: StorybookMocks.mockCardActions().viewProduct\r\n  },\r\n})"
+                "defaultValue": "() => ({\r\n  component: CardComponent,\r\n  props: {\r\n    product: object('product', { ...productData }),\r\n    currentUser: 'keyur@gmail.com',\r\n    updateProduct: StorybookMocks.mockCardActions().updateProduct,\r\n    deleteProduct: StorybookMocks.mockCardActions().deleteProduct,\r\n    viewProduct: StorybookMocks.mockCardActions().viewProduct,\r\n  },\r\n})"
             },
             {
                 "name": "PRODUCT_ADD",
@@ -3121,6 +3121,14 @@
                 "file": "src/app/shared/store/products/product.actions.ts",
                 "type": "",
                 "defaultValue": "createAction(\r\n  PRODUCT_ADD_SUCCESS,\r\n  props<{product: StoreProduct}>()\r\n)"
+            },
+            {
+                "name": "productData",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/card/Card.stories.ts",
+                "type": "object",
+                "defaultValue": "{\r\n  name: 'Laney, Acoustic Guitar Amp, 80W A1+',\r\n  description:\r\n    'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.',\r\n  price: 26460,\r\n  imageUrl: '../../../assets/images/acoustic_amp.webp',\r\n  createdBy: 'keyur@gmail.com',\r\n  id: 7,\r\n}"
             },
             {
                 "name": "productDeleteAttempt",
@@ -3390,7 +3398,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/products/ProductOperations.stories.ts",
+                "file": "src/stories/login/Login.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -3410,7 +3418,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/login/Login.stories.ts",
+                "file": "src/stories/products/ProductOperations.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -3865,7 +3873,7 @@
                     "subtype": "variable",
                     "file": "src/stories/card/Card.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\r\n    component: CardComponent,\r\n    props: {\r\n      product: {\r\n              name: \"Laney, Acoustic Guitar Amp, 80W A1+\",\r\n              description: \"The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.\",\r\n              price: 26460,\r\n              imageUrl: \"../../../assets/images/acoustic_amp.webp\",\r\n              createdBy: \"keyur@gmail.com\",\r\n              id: 7\r\n      },\r\n      currentUser: 'xyz@gmail.com',\r\n      viewProduct: StorybookMocks.mockCardActions().viewProduct\r\n    },\r\n  })"
+                    "defaultValue": "() => ({\r\n  component: CardComponent,\r\n  props: {\r\n    product: object('product', { ...productData }),\r\n    currentUser: 'xyz@gmail.com',\r\n    viewProduct: StorybookMocks.mockCardActions().viewProduct,\r\n  },\r\n})"
                 },
                 {
                     "name": "owner",
@@ -3873,7 +3881,15 @@
                     "subtype": "variable",
                     "file": "src/stories/card/Card.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\r\n  component: CardComponent,\r\n  props: {\r\n    product: {\r\n            name: \"Laney, Acoustic Guitar Amp, 80W A1+\",\r\n            description: \"The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.\",\r\n            price: 26460,\r\n            imageUrl: \"../../../assets/images/acoustic_amp.webp\",\r\n            createdBy: \"keyur@gmail.com\",\r\n            id: 7\r\n    },\r\n    currentUser: 'keyur@gmail.com',\r\n    updateProduct: StorybookMocks.mockCardActions().updateProduct,\r\n    deleteProduct: StorybookMocks.mockCardActions().deleteProduct,\r\n    viewProduct: StorybookMocks.mockCardActions().viewProduct\r\n  },\r\n})"
+                    "defaultValue": "() => ({\r\n  component: CardComponent,\r\n  props: {\r\n    product: object('product', { ...productData }),\r\n    currentUser: 'keyur@gmail.com',\r\n    updateProduct: StorybookMocks.mockCardActions().updateProduct,\r\n    deleteProduct: StorybookMocks.mockCardActions().deleteProduct,\r\n    viewProduct: StorybookMocks.mockCardActions().viewProduct,\r\n  },\r\n})"
+                },
+                {
+                    "name": "productData",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/card/Card.stories.ts",
+                    "type": "object",
+                    "defaultValue": "{\r\n  name: 'Laney, Acoustic Guitar Amp, 80W A1+',\r\n  description:\r\n    'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.',\r\n  price: 26460,\r\n  imageUrl: '../../../assets/images/acoustic_amp.webp',\r\n  createdBy: 'keyur@gmail.com',\r\n  id: 7,\r\n}"
                 }
             ],
             "src/app/shared/store/products/product.actions.ts": [
@@ -4180,10 +4196,10 @@
                     ]
                 }
             ],
-            "src/stories/products/ProductOperations.stories.ts": [
+            "src/stories/login/Login.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/products/ProductOperations.stories.ts",
+                    "file": "src/stories/login/Login.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -4202,10 +4218,10 @@
                     ]
                 }
             ],
-            "src/stories/login/Login.stories.ts": [
+            "src/stories/products/ProductOperations.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/login/Login.stories.ts",
+                    "file": "src/stories/products/ProductOperations.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -5199,6 +5215,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "owner",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/card/Card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "productData",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
