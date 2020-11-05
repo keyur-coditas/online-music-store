@@ -1,4 +1,5 @@
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { of } from 'rxjs';
 import * as APP_CONSTANTS from '../app/shared/app.constants';
 export class StorybookMocks {
   public static getstoreMock = () => {
@@ -122,4 +123,17 @@ export class StorybookMocks {
       changeTheme: () => { console.log('changeTheme called')}
     }
   }
+  public static getCardStoreMock = () => {
+    return of({
+      auth: {
+        currentUser: {
+          accessToken: '123',
+          email: 'xyz@gmail.com',
+          isLoggedIn: false
+        }
+      },
+      dispatch: () => {},
+      pipe: () => {},
+    })
+  };
 }

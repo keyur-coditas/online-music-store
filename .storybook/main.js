@@ -5,7 +5,8 @@ module.exports = {
     "../src/stories/header/Header.stories.ts",
     "../src/stories/login/Login.stories.ts",
     "../src/stories/registration/Registration.stories.ts",
-    "../src/stories/products/ProductOperations.stories.ts"
+    "../src/stories/products/ProductOperations.stories.ts",
+    "../src/stories/products/products/Product.stories.ts"
   ],
   "addons": [
     "@storybook/addon-links",

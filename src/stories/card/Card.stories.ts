@@ -38,7 +38,7 @@ export default {
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
       providers: [
-        { provide: Store, useValue: StorybookMocks.getstoreMock() },
+        { provide: Store, useValue: StorybookMocks.getCardStoreMock() },
         { provide: Router, useValue: StorybookMocks.getrouterMock() },
       ],
     }),
