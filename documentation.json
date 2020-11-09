@@ -1052,10 +1052,10 @@
         },
         {
             "name": "storeCard",
-            "id": "class-storeCard-0ebb4afffdd1251c84e5e07ef4a9e723",
+            "id": "class-storeCard-820b9ae803f167374e5a7fb868ce96ae",
             "file": "src/components/card.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-card')\r\nexport class storeCard extends LitElement {\r\n\r\n    @property()\r\n    productName: string;\r\n\r\n    @property()\r\n    productDescription: string;\r\n\r\n    @property()\r\n    imageUrl: string;\r\n\r\n    @property()\r\n    productPrice: number;\r\n\r\n    @property()\r\n    createdBy: string;\r\n\r\n    @property()\r\n    currentUser: string;\r\n\r\n    @property()\r\n    productId: number;\r\n\r\n    static get styles() {\r\n        return css`\r\n        .card {\r\n            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\r\n            transition: 0.3s;\r\n            border-radius: 5px;\r\n            background-color: #fff;\r\n            height:100%;\r\n            display: flex;\r\n            flex-direction: column;\r\n            justify-content: space-around;\r\n            align-items: center;\r\n            border:none;\r\n            width:100%;\r\n          }\r\n          \r\n          .card:hover {\r\n            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\r\n          }\r\n          \r\n          .product-image {\r\n            border-radius: 5px 5px 0 0;\r\n          }\r\n          \r\n          .container {\r\n            padding: 2px 16px;\r\n          }\r\n          .card-font-small {\r\n              font-size: 0.8rem;\r\n          }\r\n          .card-font-medium {\r\n              font-size: 0.9rem;\r\n          }\r\n          .card-header-margin {\r\n            margin: 0.8rem;\r\n        }\r\n        .card-details-margin {\r\n            margin: 0.5rem;\r\n        }\r\n        .str-card-buttons {\r\n          width:6rem;\r\n          background-color: var(--form-btn-background);\r\n          color: var(--form-btn-color);\r\n          margin: 10px;\r\n        }\r\n        .text-center{\r\n            text-align: center;\r\n        }\r\n    `;\r\n    }\r\n\r\n    viewProduct() {\r\n        const click = new CustomEvent('viewProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                },\r\n            }\r\n        });\r\n        this.dispatchEvent(click);\r\n    }\r\n\r\n    updateProduct(event) {\r\n        event.stopPropagation();\r\n        const update = new CustomEvent('updateProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                }\r\n            }\r\n        });\r\n        this.dispatchEvent(update);\r\n    }\r\n\r\n    deleteProduct(event) {\r\n        event.stopPropagation();\r\n        const deleteProduct = new CustomEvent('deleteProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                }\r\n            },\r\n        });\r\n        this.dispatchEvent(deleteProduct);\r\n    }\r\n\r\n\r\n    render() {\r\n        let ownerButtons:TemplateResult = html``;\r\n        if (this.currentUser === this.createdBy) {\r\n            ownerButtons = html`<div class=\"text-center str-card-buttons-container\" >\r\n            <str-form-btn @click=\"${this.updateProduct}\" buttonText=\"Update\" isCardButton=\"true\" aria-label=\"Update Product\"></str-form-btn>\r\n            <str-form-btn @click=\"${this.deleteProduct}\" buttonText=\"Delete\" isCardButton=\"true\" aria-label=\"Delete Product\"></str-form-btn>    \r\n            </div>`\r\n        }\r\n\r\n        return html`\r\n    \r\n    <button type=\"button\" class=\"card\" @click=\"${this.viewProduct}\" aria-label=\"View product details\" >\r\n    <div class=\"text-center\">\r\n        <img src=\"${this.imageUrl}\" class=\"product-image\" alt=\"Avatar\" width=\"200\" width=\"200\" height=\"200\">\r\n    </div>\r\n    <div class=\"container card-details\">\r\n        <h4 class=\"text-center card-font-medium card-header-margin\"><b>${this.productName}</b></h4>\r\n        <p class=\"text-center card-font-small card-details-margin\">${this.productDescription}</p>\r\n        <p class=\"text-center card-font-small card-details-margin\"><b><span>&#8377; </span>${this.productPrice}</b></p>\r\n    </div>\r\n        ${ownerButtons}\r\n    </button>\r\n                `;\r\n    }\r\n}\r\n",
+            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-card')\r\nexport class storeCard extends LitElement {\r\n\r\n    @property()\r\n    productName: string;\r\n\r\n    @property()\r\n    productDescription: string;\r\n\r\n    @property()\r\n    imageUrl: string;\r\n\r\n    @property()\r\n    productPrice: number;\r\n\r\n    @property()\r\n    createdBy: string;\r\n\r\n    @property()\r\n    currentUser: string;\r\n\r\n    @property()\r\n    productId: number;\r\n\r\n    @property()\r\n    updatebuttonText: string;\r\n\r\n    @property()\r\n    deletebuttonText: string;\r\n\r\n    static get styles() {\r\n        return css`\r\n        .card {\r\n            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\r\n            transition: 0.3s;\r\n            border-radius: 5px;\r\n            background-color: #fff;\r\n            height:100%;\r\n            display: flex;\r\n            flex-direction: column;\r\n            justify-content: space-around;\r\n            align-items: center;\r\n            border:none;\r\n            width:100%;\r\n          }\r\n          \r\n          .card:hover {\r\n            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\r\n          }\r\n          \r\n          .product-image {\r\n            border-radius: 5px 5px 0 0;\r\n          }\r\n          \r\n          .container {\r\n            padding: 2px 16px;\r\n          }\r\n          .card-font-small {\r\n              font-size: 0.8rem;\r\n          }\r\n          .card-font-medium {\r\n              font-size: 0.9rem;\r\n          }\r\n          .card-header-margin {\r\n            margin: 0.8rem;\r\n        }\r\n        .card-details-margin {\r\n            margin: 0.5rem;\r\n        }\r\n        .str-card-buttons {\r\n          width:6rem;\r\n          background-color: var(--form-btn-background);\r\n          color: var(--form-btn-color);\r\n          margin: 10px;\r\n        }\r\n        .text-center{\r\n            text-align: center;\r\n        }\r\n    `;\r\n    }\r\n\r\n    viewProduct() {\r\n        const click = new CustomEvent('viewProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                },\r\n            }\r\n        });\r\n        this.dispatchEvent(click);\r\n    }\r\n\r\n    updateProduct(event) {\r\n        event.stopPropagation();\r\n        const update = new CustomEvent('updateProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                }\r\n            }\r\n        });\r\n        this.dispatchEvent(update);\r\n    }\r\n\r\n    deleteProduct(event) {\r\n        event.stopPropagation();\r\n        const deleteProduct = new CustomEvent('deleteProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                }\r\n            },\r\n        });\r\n        this.dispatchEvent(deleteProduct);\r\n    }\r\n\r\n\r\n    render() {\r\n        let ownerButtons: TemplateResult = html``;\r\n        if (this.currentUser === this.createdBy) {\r\n            ownerButtons = html`<div class=\"text-center str-card-buttons-container\" >\r\n            <str-form-btn @click=\"${this.updateProduct}\" buttonText=\"${this.updatebuttonText}\" isCardButton=\"true\" aria-label=\"Update Product\"></str-form-btn>\r\n            <str-form-btn @click=\"${this.deleteProduct}\" buttonText=\"${this.deletebuttonText}\" isCardButton=\"true\" aria-label=\"Delete Product\"></str-form-btn>    \r\n            </div>`\r\n        }\r\n\r\n        return html`\r\n    \r\n    <button type=\"button\" class=\"card\" @click=\"${this.viewProduct}\" aria-label=\"View product details\" >\r\n    <div class=\"text-center\">\r\n        <img src=\"${this.imageUrl}\" class=\"product-image\" alt=\"Avatar\" width=\"200\" width=\"200\" height=\"200\">\r\n    </div>\r\n    <div class=\"container card-details\">\r\n        <h4 class=\"text-center card-font-medium card-header-margin\"><b>${this.productName}</b></h4>\r\n        <p class=\"text-center card-font-small card-details-margin\">${this.productDescription}</p>\r\n        <p class=\"text-center card-font-small card-details-margin\"><b><span>&#8377; </span>${this.productPrice}</b></p>\r\n    </div>\r\n        ${ownerButtons}\r\n    </button>\r\n                `;\r\n    }\r\n}\r\n",
             "properties": [
                 {
                     "name": "createdBy",
@@ -1076,6 +1076,19 @@
                     "optional": false,
                     "description": "",
                     "line": 23,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "deletebuttonText",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 32,
                     "decorators": [
                         {
                             "name": "property",
@@ -1147,6 +1160,19 @@
                             "stringifiedArguments": ""
                         }
                     ]
+                },
+                {
+                    "name": "updatebuttonText",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 29,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
                 }
             ],
             "methods": [
@@ -1161,7 +1187,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 112,
+                    "line": 118,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -1178,7 +1204,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 130
+                    "line": 136
                 },
                 {
                     "name": "updateProduct",
@@ -1191,7 +1217,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 95,
+                    "line": 101,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -1208,7 +1234,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 79
+                    "line": 85
                 }
             ],
             "indexSignatures": [],
@@ -1220,7 +1246,7 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 28
+                        "line": 34
                     }
                 }
             }
@@ -1281,6 +1307,99 @@
                         "type": "",
                         "returnType": "",
                         "line": 14
+                    }
+                }
+            }
+        },
+        {
+            "name": "storeInputElement",
+            "id": "class-storeInputElement-c234bec2e73ce253ba4588505f0a269a",
+            "file": "src/components/text-input-element.ts",
+            "type": "class",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-input')\r\nexport class storeInputElement extends LitElement {\r\n\r\n     @property()\r\n     ariaLabel: string;\r\n\r\n     @property()\r\n     inputType: string;\r\n\r\n     @property()\r\n     inputPlaceholder: string;\r\n  \r\n  static get styles() {\r\n    return css`\r\n    .str-input {\r\n        width: 20rem;\r\n        height: 2rem;\r\n        border: 1px solid #bdbdbd;\r\n        border-radius: 5px;\r\n        margin: 15px auto 0px 0px;\r\n        padding-left: 10px;\r\n    }\r\n    `;\r\n  }\r\n\r\n\r\n  inputHandler(event) {\r\n      const inputValueChanged = new CustomEvent('inputValueChanged', {\r\n        detail: {\r\n            value: event.composedPath()[0].value\r\n        },\r\n    });\r\n    this.dispatchEvent(inputValueChanged)\r\n  }\r\n\r\n  render(){\r\n    return html`<input aria-label=\"${this.ariaLabel}\" class=\"str-input\" type=\"${this.inputType}\"\r\n    placeholder=\"${this.inputPlaceholder}\" @input=${this.inputHandler}/>`;\r\n  }\r\n}",
+            "properties": [
+                {
+                    "name": "ariaLabel",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "inputPlaceholder",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "inputType",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "inputHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "render",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 39
+                }
+            ],
+            "indexSignatures": [],
+            "extends": "LitElement",
+            "accessors": {
+                "styles": {
+                    "name": "styles",
+                    "getSignature": {
+                        "name": "styles",
+                        "type": "",
+                        "returnType": "",
+                        "line": 16
                     }
                 }
             }
@@ -2101,11 +2220,11 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"tab\">{{'auth.login-tab' | translate}}</div>\r\n<form [formGroup]=\"loginForm\" class=\"text-center\">\r\n    <div>\r\n        <div>\r\n            <input aria-label=\"Enter email\" class=\"str-input\" type=\"email\" formControlName=\"email\"\r\n                placeholder=\"{{'auth.email-placeholder'|translate}}\" />\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"loginForm.controls['email'].touched && loginForm.controls['email'].invalid\">{{'auth.email-validation' | translate}}</p>\r\n        </div>\r\n        <div>\r\n            <input aria-label=\"Enter password\" class=\"str-input\" type=\"password\" formControlName=\"password\"\r\n                placeholder=\"{{'auth.password-placeholder'|translate}}\" />\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"loginForm.controls['password'].touched && loginForm.controls['password'].invalid\">{{'auth.password-validation' | translate}}\r\n                </p>\r\n        </div>\r\n    </div>\r\n    <div class=\"text-center\">\r\n        <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Log in\"></str-form-btn>\r\n        <a class=\"signup-link\" (click)=\"navigate($event)\" href=\"#\" aria-label=\"Click to signup\">{{'auth.signup-link' | translate}}</a>\r\n    </div>\r\n</form>"
+            "templateData": "<div class=\"tab\">{{'auth.login-tab' | translate}}</div>\r\n<form [formGroup]=\"loginForm\" class=\"text-center\">\r\n    <div>\r\n        <div>\r\n            <str-input \r\n                ariaLabel=\"Enter email\" \r\n                inputType=\"email\" \r\n                inputPlaceholder=\"{{'auth.email-placeholder'|translate}}\"\r\n                (inputValueChanged)=\"emailValueChanged($event)\"\r\n            ></str-input>\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"emailInvalid\">{{'auth.email-validation' | translate}}</p>\r\n        </div>\r\n        <div>\r\n                <str-input \r\n                    ariaLabel=\"Enter password\" \r\n                    inputType=\"password\" \r\n                    inputPlaceholder=\"{{'auth.password-placeholder'|translate}}\"\r\n                    (inputValueChanged)=\"passwordValueChanged($event)\"\r\n                ></str-input>\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"passwordInvalid\">{{'auth.password-validation' | translate}}\r\n                </p>\r\n        </div>\r\n    </div>\r\n    <div class=\"text-center\">\r\n        <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Log in\"></str-form-btn>\r\n        <a class=\"signup-link\" (click)=\"navigate($event)\" href=\"#\" aria-label=\"Click to signup\">{{'auth.signup-link' | translate}}</a>\r\n    </div>\r\n</form>"
         },
         {
             "name": "LoginComponent",
-            "id": "component-LoginComponent-25cd3a8d4302941217be5360b9801635-1",
+            "id": "component-LoginComponent-121e9354153f05bfdb31b12df71a7e72-1",
             "file": "src/app/auth/login/login.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2125,14 +2244,50 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "emailInvalid",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
                     "name": "loginForm",
                     "type": "FormGroup",
                     "optional": false,
                     "description": "",
                     "line": 13
+                },
+                {
+                    "name": "passwordInvalid",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
                 }
             ],
             "methodsClass": [
+                {
+                    "name": "emailValueChanged",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 41,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
                 {
                     "name": "navigate",
                     "args": [
@@ -2144,7 +2299,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 32,
+                    "line": 36,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -2161,7 +2316,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 20
+                    "line": 22
                 },
                 {
                     "name": "onSubmit",
@@ -2169,7 +2324,37 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 27
+                    "line": 29
+                },
+                {
+                    "name": "passwordValueChanged",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "showError",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 49
                 }
             ],
             "hostBindings": [],
@@ -2177,7 +2362,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\r\nimport {  Router } from '@angular/router';\r\nimport { Store } from '@ngrx/store';\r\nimport * as AuthActions from '../../shared/store/auth/auth.actions';\r\n\r\n@Component({\r\n  selector: 'app-login',\r\n  templateUrl: './login.component.html',\r\n  styleUrls: ['./login.component.scss']\r\n})\r\nexport class LoginComponent  implements OnInit {\r\n  loginForm: FormGroup;\r\n\r\n  constructor(\r\n    private store: Store,\r\n    private router: Router\r\n    ) {}\r\n\r\n  ngOnInit(): void {\r\n    this.loginForm = new FormGroup({\r\n      email: new FormControl('', [Validators.required, Validators.email]),\r\n      password: new FormControl('', [Validators.required])\r\n    });\r\n  }\r\n\r\n  onSubmit() {\r\n      if(this.loginForm.valid) {\r\n        this.store.dispatch(AuthActions.loginAttempted(this.loginForm.value));\r\n      }  \r\n  }\r\n  navigate(event) {\r\n    event.preventDefault();\r\n    this.router.navigate(['auth/register']);\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\r\nimport {  Router } from '@angular/router';\r\nimport { Store } from '@ngrx/store';\r\nimport * as AuthActions from '../../shared/store/auth/auth.actions';\r\n\r\n@Component({\r\n  selector: 'app-login',\r\n  templateUrl: './login.component.html',\r\n  styleUrls: ['./login.component.scss']\r\n})\r\nexport class LoginComponent  implements OnInit {\r\n  loginForm: FormGroup;\r\n  emailInvalid: boolean;\r\n  passwordInvalid: boolean;\r\n\r\n  constructor(\r\n    private store: Store,\r\n    private router: Router\r\n    ) {}\r\n\r\n  ngOnInit(): void {\r\n    this.loginForm = new FormGroup({\r\n      email: new FormControl('', [Validators.required, Validators.email]),\r\n      password: new FormControl('', [Validators.required])\r\n    });\r\n  }\r\n\r\n  onSubmit() {\r\n      if(this.loginForm.valid) {\r\n        this.store.dispatch(AuthActions.loginAttempted(this.loginForm.value));\r\n      } else {\r\n        this.showError();\r\n      }\r\n  }\r\n  navigate(event) {\r\n    event.preventDefault();\r\n    this.router.navigate(['auth/register']);\r\n  }\r\n\r\n  emailValueChanged(event) {\r\n    this.loginForm.controls['email'].setValue(event.detail.value);\r\n    this.emailInvalid = !this.loginForm.controls['email'].valid;\r\n  }\r\n  passwordValueChanged(event) {\r\n    this.loginForm.controls['password'].setValue(event.detail.value);\r\n    this.passwordInvalid = !this.loginForm.controls['password'].valid;\r\n  }\r\n  showError() {\r\n    if(!this.loginForm.controls['email'].valid) {\r\n      this.emailInvalid = true;\r\n    } \r\n    if(!this.loginForm.controls['password'].valid) {\r\n      this.passwordInvalid = true;\r\n    }\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2199,7 +2384,7 @@
                         "type": "Router"
                     }
                 ],
-                "line": 13,
+                "line": 15,
                 "jsdoctags": [
                     {
                         "name": "store",
@@ -2223,7 +2408,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "LoginComponent-1",
-            "templateData": "<div class=\"tab\">{{'auth.login-tab' | translate}}</div>\r\n<form [formGroup]=\"loginForm\" class=\"text-center\">\r\n    <div>\r\n        <div>\r\n            <input aria-label=\"Enter email\" class=\"str-input\" type=\"email\" formControlName=\"email\"\r\n                placeholder=\"{{'auth.email-placeholder'|translate}}\" />\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"loginForm.controls['email'].touched && loginForm.controls['email'].invalid\">{{'auth.email-validation' | translate}}</p>\r\n        </div>\r\n        <div>\r\n            <input aria-label=\"Enter password\" class=\"str-input\" type=\"password\" formControlName=\"password\"\r\n                placeholder=\"{{'auth.password-placeholder'|translate}}\" />\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"loginForm.controls['password'].touched && loginForm.controls['password'].invalid\">{{'auth.password-validation' | translate}}\r\n                </p>\r\n        </div>\r\n    </div>\r\n    <div class=\"text-center\">\r\n        <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Log in\"></str-form-btn>\r\n        <a class=\"signup-link\" (click)=\"navigate($event)\" href=\"#\" aria-label=\"Click to signup\">{{'auth.signup-link' | translate}}</a>\r\n    </div>\r\n</form>"
+            "templateData": "<div class=\"tab\">{{'auth.login-tab' | translate}}</div>\r\n<form [formGroup]=\"loginForm\" class=\"text-center\">\r\n    <div>\r\n        <div>\r\n            <str-input \r\n                ariaLabel=\"Enter email\" \r\n                inputType=\"email\" \r\n                inputPlaceholder=\"{{'auth.email-placeholder'|translate}}\"\r\n                (inputValueChanged)=\"emailValueChanged($event)\"\r\n            ></str-input>\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"emailInvalid\">{{'auth.email-validation' | translate}}</p>\r\n        </div>\r\n        <div>\r\n                <str-input \r\n                    ariaLabel=\"Enter password\" \r\n                    inputType=\"password\" \r\n                    inputPlaceholder=\"{{'auth.password-placeholder'|translate}}\"\r\n                    (inputValueChanged)=\"passwordValueChanged($event)\"\r\n                ></str-input>\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"passwordInvalid\">{{'auth.password-validation' | translate}}\r\n                </p>\r\n        </div>\r\n    </div>\r\n    <div class=\"text-center\">\r\n        <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Log in\"></str-form-btn>\r\n        <a class=\"signup-link\" (click)=\"navigate($event)\" href=\"#\" aria-label=\"Click to signup\">{{'auth.signup-link' | translate}}</a>\r\n    </div>\r\n</form>"
         },
         {
             "name": "ProductOperationsComponent",
@@ -2510,7 +2695,7 @@
         },
         {
             "name": "ProductsComponent",
-            "id": "component-ProductsComponent-b28a1e0a481025a4613c70b97a965548",
+            "id": "component-ProductsComponent-6143129f597839b09bffdd19f709f3ec",
             "file": "src/app/products/products.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2625,7 +2810,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';\r\nimport { Actions, ofType } from '@ngrx/effects';\r\nimport { Store } from '@ngrx/store';\r\nimport { map } from 'rxjs/operators';\r\nimport { Product, ProductOperationInfo } from '../shared/models/product';\r\nimport { CurrentUser } from '../shared/models/user';\r\nimport { AppState } from '../shared/store/app.state';\r\nimport * as ProductActions from '../shared/store/products/product.actions';\r\nimport * as APP_CONSTANTS from '../shared/app.constants';\r\nimport { ProductService } from './products.service';\r\nimport { Router } from '@angular/router';\r\nimport { StoreProduct } from '../shared/store/products/products.model';\r\n\r\n@Component({\r\n  selector: 'app-products',\r\n  templateUrl: './products.component.html',\r\n  styleUrls: ['./products.component.scss']\r\n})\r\nexport class ProductsComponent implements OnInit {\r\n  products: StoreProduct[];\r\n  currentUser: any;\r\n  constructor(\r\n    private store: Store<AppState>,\r\n    private productService:ProductService,\r\n    private router: Router) { }\r\n  \r\n\r\n  ngOnInit(): void {\r\n    this.store.dispatch(ProductActions.productFetchAttempt());\r\n\r\n    this.store.pipe(\r\n      map((state) => state['auth'].currentUser))\r\n     .subscribe((data:CurrentUser) => {\r\n      this.currentUser = data.email;\r\n    });\r\n    \r\n    this.store.pipe(\r\n      map((state) => state['products'].products)\r\n    ).subscribe((data:StoreProduct[]) => {\r\n      this.products = data;\r\n    });\r\n\r\n    \r\n  }\r\n\r\n  viewProduct(event: CustomEvent) {\r\n    let productOpInfo: ProductOperationInfo = {\r\n      productOperation: APP_CONSTANTS.PRODUCT_VIEW,\r\n      disableFormFields: true\r\n    }\r\n    this.productService.setProductInfo(productOpInfo);\r\n    this.productService.setProduct(event.detail.product);\r\n    this.router.navigate(['products/product-update']);\r\n  }\r\n\r\n  updateProduct(event: CustomEvent) {\r\n    event.stopPropagation();\r\n    let productOpInfo: ProductOperationInfo = {\r\n      productOperation: APP_CONSTANTS.PRODUCT_UPDATE,\r\n      disableFormFields: false\r\n    }\r\n    this.productService.setProductInfo(productOpInfo);\r\n    this.productService.setProduct(event.detail.product);\r\n    this.router.navigate(['products/product-update']);\r\n  }\r\n\r\n  deleteProduct(event: CustomEvent) {\r\n    console.log('event ', event);\r\n    event.stopPropagation();\r\n    const product = event.detail.product;\r\n    this.store.dispatch(ProductActions.productDeleteAttempt({product}));\r\n  }\r\n  \r\n}\r\n",
+            "sourceCode": "import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';\r\nimport { Actions, ofType } from '@ngrx/effects';\r\nimport { Store } from '@ngrx/store';\r\nimport { map } from 'rxjs/operators';\r\nimport { Product, ProductOperationInfo } from '../shared/models/product';\r\nimport { CurrentUser } from '../shared/models/user';\r\nimport { AppState } from '../shared/store/app.state';\r\nimport * as ProductActions from '../shared/store/products/product.actions';\r\nimport * as APP_CONSTANTS from '../shared/app.constants';\r\nimport { ProductService } from './products.service';\r\nimport { Router } from '@angular/router';\r\nimport { StoreProduct } from '../shared/store/products/products.model';\r\n\r\n@Component({\r\n  selector: 'app-products',\r\n  templateUrl: './products.component.html',\r\n  styleUrls: ['./products.component.scss']\r\n})\r\nexport class ProductsComponent implements OnInit {\r\n  products: StoreProduct[];\r\n  currentUser: any;\r\n  constructor(\r\n    private store: Store<AppState>,\r\n    private productService:ProductService,\r\n    private router: Router) { }\r\n  \r\n\r\n  ngOnInit(): void {\r\n    this.store.dispatch(ProductActions.productFetchAttempt());\r\n\r\n    this.store.pipe(\r\n      map((state) => state['auth'].currentUser))\r\n     .subscribe((data:CurrentUser) => {\r\n      this.currentUser = data.email;\r\n    });\r\n    \r\n    this.store.pipe(\r\n      map((state) => state['products'].products)\r\n    ).subscribe((data:StoreProduct[]) => {\r\n      this.products = data;\r\n    });\r\n\r\n    \r\n  }\r\n\r\n  viewProduct(event: CustomEvent) {\r\n    let productOpInfo: ProductOperationInfo = {\r\n      productOperation: APP_CONSTANTS.PRODUCT_VIEW,\r\n      disableFormFields: true\r\n    }\r\n    this.productService.setProductInfo(productOpInfo);\r\n    this.productService.setProduct(event.detail.product);\r\n    this.router.navigate(['products/product-update']);\r\n  }\r\n\r\n  updateProduct(event: CustomEvent) {\r\n    event.stopPropagation();\r\n    let productOpInfo: ProductOperationInfo = {\r\n      productOperation: APP_CONSTANTS.PRODUCT_UPDATE,\r\n      disableFormFields: false\r\n    }\r\n    this.productService.setProductInfo(productOpInfo);\r\n    this.productService.setProduct(event.detail.product);\r\n    this.router.navigate(['products/product-update']);\r\n  }\r\n\r\n  deleteProduct(event: CustomEvent) {\r\n    event.stopPropagation();\r\n    const product = event.detail.product;\r\n    this.store.dispatch(ProductActions.productDeleteAttempt({product}));\r\n  }\r\n  \r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2679,7 +2864,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"card-container\">\r\n  <ng-container *ngFor=\"let product of products; \">\r\n    <str-card productName=\"{{product.name}}\" productDescription=\"{{product.description}}\"\r\n      imageUrl=\"{{product.imageUrl}}\" productPrice=\"{{product.price}}\" createdBy=\"{{product.createdBy}}\"\r\n      currentUser=\"{{currentUser}}\" productId=\"{{product.id}}\"\r\n      (viewProduct)=\"viewProduct($event)\"\r\n      (updateProduct)=\"updateProduct($event)\"\r\n      (deleteProduct)=\"deleteProduct($event)\"></str-card>\r\n  </ng-container>\r\n</div>"
+            "templateData": "<div class=\"card-container\">\r\n  <ng-container *ngFor=\"let product of products;\">\r\n    <str-card productName=\"{{product.name}}\" productDescription=\"{{product.description}}\"\r\n      imageUrl=\"{{product.imageUrl}}\"\r\n      productPrice=\"{{product.price}}\"\r\n      createdBy=\"{{product.createdBy}}\"\r\n      currentUser=\"{{currentUser}}\"\r\n      productId=\"{{product.id}}\"\r\n      updatebuttonText=\"{{'products.card.update-button'| translate}}\"\r\n      deletebuttonText=\"{{'products.card.delete-button'| translate}}\"\r\n      (viewProduct)=\"viewProduct($event)\"\r\n      (updateProduct)=\"updateProduct($event)\"\r\n      (deleteProduct)=\"deleteProduct($event)\">\r\n    </str-card>\r\n  </ng-container>\r\n</div>"
         },
         {
             "name": "ProductsComponent",
@@ -2720,7 +2905,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "ProductsComponent-1",
-            "templateData": "<div class=\"card-container\">\r\n  <ng-container *ngFor=\"let product of products; \">\r\n    <str-card productName=\"{{product.name}}\" productDescription=\"{{product.description}}\"\r\n      imageUrl=\"{{product.imageUrl}}\" productPrice=\"{{product.price}}\" createdBy=\"{{product.createdBy}}\"\r\n      currentUser=\"{{currentUser}}\" productId=\"{{product.id}}\"\r\n      (viewProduct)=\"viewProduct($event)\"\r\n      (updateProduct)=\"updateProduct($event)\"\r\n      (deleteProduct)=\"deleteProduct($event)\"></str-card>\r\n  </ng-container>\r\n</div>"
+            "templateData": "<div class=\"card-container\">\r\n  <ng-container *ngFor=\"let product of products;\">\r\n    <str-card productName=\"{{product.name}}\" productDescription=\"{{product.description}}\"\r\n      imageUrl=\"{{product.imageUrl}}\"\r\n      productPrice=\"{{product.price}}\"\r\n      createdBy=\"{{product.createdBy}}\"\r\n      currentUser=\"{{currentUser}}\"\r\n      productId=\"{{product.id}}\"\r\n      updatebuttonText=\"{{'products.card.update-button'| translate}}\"\r\n      deletebuttonText=\"{{'products.card.delete-button'| translate}}\"\r\n      (viewProduct)=\"viewProduct($event)\"\r\n      (updateProduct)=\"updateProduct($event)\"\r\n      (deleteProduct)=\"deleteProduct($event)\">\r\n    </str-card>\r\n  </ng-container>\r\n</div>"
         },
         {
             "name": "RegistrationComponent",
@@ -2762,7 +2947,7 @@
         },
         {
             "name": "RegistrationComponent",
-            "id": "component-RegistrationComponent-fecfdee7cd8629dfdb4cdd8073bf81df-1",
+            "id": "component-RegistrationComponent-8019d0f85e9eef0febb12483a990dada-1",
             "file": "src/app/auth/registration/registration.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2841,7 +3026,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\r\n\r\nimport * as AuthActions from '../../shared/store/auth/auth.actions';\r\nimport { Store } from '@ngrx/store';\r\n\r\n@Component({\r\n  selector: 'app-registration',\r\n  templateUrl: './registration.component.html',\r\n  styleUrls: ['./registration.component.scss']\r\n})\r\nexport class RegistrationComponent  implements OnInit {\r\n  registrationForm: FormGroup;\r\n  email: FormControl;\r\n  password: FormControl;\r\n  confirmPassword: FormControl;\r\n  passwordMismatch: boolean = false;\r\n  constructor(\r\n     private store: Store\r\n     ) {\r\n   }\r\n\r\n  ngOnInit(): void {\r\n    this.registrationForm = new FormGroup({\r\n      email:  new FormControl('', [Validators.required]),\r\n      password: new FormControl('', [Validators.required]),\r\n      confirmPassword: new FormControl('', [Validators.required])\r\n  });\r\n  }\r\n\r\n  onSubmit() {\r\n    this.passwordMismatch = false;\r\n    if(this.registrationForm.valid) {\r\n      const email = this.registrationForm.controls['email'].value;\r\n      const password = this.registrationForm.controls['password'].value;\r\n      const cnfmpassword = this.registrationForm.controls['confirmPassword'].value;\r\n    if(password === cnfmpassword) {\r\n      this.store.dispatch(AuthActions.signup({email, password}));\r\n    } else {\r\n      this.passwordMismatch = true;\r\n    }\r\n    }\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\r\n\r\nimport * as AuthActions from '../../shared/store/auth/auth.actions';\r\nimport { Store } from '@ngrx/store';\r\n\r\n@Component({\r\n  selector: 'app-registration',\r\n  templateUrl: './registration.component.html',\r\n  styleUrls: ['./registration.component.scss']\r\n})\r\nexport class RegistrationComponent  implements OnInit {\r\n  registrationForm: FormGroup;\r\n  email: FormControl;\r\n  password: FormControl;\r\n  confirmPassword: FormControl;\r\n  passwordMismatch: boolean = false;\r\n  constructor(\r\n     private store: Store\r\n     ) {\r\n   }\r\n\r\n  ngOnInit(): void {\r\n    this.registrationForm = new FormGroup({\r\n      email:  new FormControl('', [Validators.required, Validators.email]),\r\n      password: new FormControl('', [Validators.required]),\r\n      confirmPassword: new FormControl('', [Validators.required])\r\n  });\r\n  }\r\n\r\n  onSubmit() {\r\n    this.passwordMismatch = false;\r\n    if(this.registrationForm.valid) {\r\n      const email = this.registrationForm.controls['email'].value;\r\n      const password = this.registrationForm.controls['password'].value;\r\n      const cnfmpassword = this.registrationForm.controls['confirmPassword'].value;\r\n    if(password === cnfmpassword) {\r\n      this.store.dispatch(AuthActions.signup({email, password}));\r\n    } else {\r\n      this.passwordMismatch = true;\r\n    }\r\n    }\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3183,17 +3368,17 @@
                 "name": "initialState",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/store/auth/auth.reducer.ts",
-                "type": "AuthState",
-                "defaultValue": "{\r\n  currentUser: {\r\n    accessToken: '',\r\n    email: '',\r\n    isLoggedIn: false\r\n  }\r\n}"
+                "file": "src/app/shared/store/products/product.reducer.ts",
+                "type": "ProductsState",
+                "defaultValue": "{\r\n    products: []\r\n}"
             },
             {
                 "name": "initialState",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/store/products/product.reducer.ts",
-                "type": "ProductsState",
-                "defaultValue": "{\r\n    products: []\r\n}"
+                "file": "src/app/shared/store/auth/auth.reducer.ts",
+                "type": "AuthState",
+                "defaultValue": "{\r\n  currentUser: {\r\n    accessToken: '',\r\n    email: '',\r\n    isLoggedIn: false\r\n  }\r\n}"
             },
             {
                 "name": "light",
@@ -3481,7 +3666,7 @@
                 "subtype": "variable",
                 "file": "src/stories/products/products/Product.stories.ts",
                 "type": "StoreProduct[]",
-                "defaultValue": "[\r\n  {\r\n    name: 'test',\r\n  description: 'test',\r\n  imageUrl: '',\r\n  createdBy: 'xyz@gmail.com',\r\n  price: 1000,\r\n  }\r\n]"
+                "defaultValue": "[\r\n  {\r\n    name: 'test',\r\n  description: 'test',\r\n  imageUrl: '../../../assets/images/chateau_acoustic_guitar.webp',\r\n  createdBy: 'xyz@gmail.com',\r\n  price: 1000,\r\n  }\r\n]"
             },
             {
                 "name": "productDeleteAttempt",
@@ -3691,26 +3876,6 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/footer/Footer.stories.ts",
-                "ctype": "miscellaneous",
-                "subtype": "function",
-                "description": "",
-                "args": [
-                    {
-                        "name": "http"
-                    }
-                ],
-                "jsdoctags": [
-                    {
-                        "name": "http",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            {
-                "name": "HttpLoaderFactory",
                 "file": "src/stories/card/Card.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
@@ -3731,7 +3896,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/login/Login.stories.ts",
+                "file": "src/stories/footer/Footer.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -3771,7 +3936,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/registration/Registration.stories.ts",
+                "file": "src/stories/login/Login.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -3811,6 +3976,26 @@
             },
             {
                 "name": "HttpLoaderFactory",
+                "file": "src/stories/registration/Registration.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "http"
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "HttpLoaderFactory",
                 "file": "src/stories/products/products/Product.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
@@ -3831,7 +4016,7 @@
             },
             {
                 "name": "reducer",
-                "file": "src/app/shared/store/auth/auth.reducer.ts",
+                "file": "src/app/shared/store/products/product.reducer.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -3860,7 +4045,7 @@
             },
             {
                 "name": "reducer",
-                "file": "src/app/shared/store/products/product.reducer.ts",
+                "file": "src/app/shared/store/auth/auth.reducer.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -4030,7 +4215,7 @@
                     "subtype": "variable",
                     "file": "src/stories/products/products/Product.stories.ts",
                     "type": "StoreProduct[]",
-                    "defaultValue": "[\r\n  {\r\n    name: 'test',\r\n  description: 'test',\r\n  imageUrl: '',\r\n  createdBy: 'xyz@gmail.com',\r\n  price: 1000,\r\n  }\r\n]"
+                    "defaultValue": "[\r\n  {\r\n    name: 'test',\r\n  description: 'test',\r\n  imageUrl: '../../../assets/images/chateau_acoustic_guitar.webp',\r\n  createdBy: 'xyz@gmail.com',\r\n  price: 1000,\r\n  }\r\n]"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -4087,24 +4272,6 @@
                     "defaultValue": "'register'"
                 }
             ],
-            "src/app/shared/store/auth/auth.reducer.ts": [
-                {
-                    "name": "initialState",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/shared/store/auth/auth.reducer.ts",
-                    "type": "AuthState",
-                    "defaultValue": "{\r\n  currentUser: {\r\n    accessToken: '',\r\n    email: '',\r\n    isLoggedIn: false\r\n  }\r\n}"
-                },
-                {
-                    "name": "loginCompleteReducer",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/shared/store/auth/auth.reducer.ts",
-                    "type": "",
-                    "defaultValue": "createReducer(\r\n  initialState,\r\n  on(AuthActions.loginSuccess, (state, payload:any) => {\r\n      return {\r\n          ...state,\r\n          currentUser: {\r\n            email: payload.email,\r\n            accessToken: payload.accessToken,\r\n            isLoggedIn: true\r\n          }\r\n      }\r\n  }),\r\n\r\n  on(AuthActions.logout, (state) => {\r\n    \r\n    return {\r\n        ...state,\r\n        currentUser: {\r\n          email: '',\r\n          accessToken: '',\r\n          isLoggedIn: false\r\n        }\r\n    }\r\n})\r\n)"
-                }
-            ],
             "src/app/shared/store/products/product.reducer.ts": [
                 {
                     "name": "initialState",
@@ -4121,6 +4288,24 @@
                     "file": "src/app/shared/store/products/product.reducer.ts",
                     "type": "",
                     "defaultValue": "createReducer(\r\n  initialState,\r\n  on(ProductActions.productAddSuccess, (state, payload:any) => {\r\n    return {\r\n        ...state,\r\n        products: [...state.products, payload ]\r\n    }\r\n}),\r\non(ProductActions.productFetchSuccess, (state, payload:any) => {\r\n  return {\r\n      ...state,\r\n      products: payload.data\r\n  }\r\n}),\r\non(ProductActions.productUpdateSuccess, (state, payload:any) => {\r\n  return {\r\n      ...state,\r\n      products: [...state.products, payload.data]\r\n  }\r\n}),\r\non(ProductActions.productDeleteSuccess, (state, payload:any) => {\r\n  const stateCopy = {...state};\r\n  const deleteId = payload.action.product.id;\r\n  const updatedProducts = state.products.filter((prod) =>  deleteId !== prod.id);\r\n  return {\r\n      ...state,\r\n      products: [...updatedProducts]\r\n  }\r\n}),\r\n)"
+                }
+            ],
+            "src/app/shared/store/auth/auth.reducer.ts": [
+                {
+                    "name": "initialState",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/store/auth/auth.reducer.ts",
+                    "type": "AuthState",
+                    "defaultValue": "{\r\n  currentUser: {\r\n    accessToken: '',\r\n    email: '',\r\n    isLoggedIn: false\r\n  }\r\n}"
+                },
+                {
+                    "name": "loginCompleteReducer",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/store/auth/auth.reducer.ts",
+                    "type": "",
+                    "defaultValue": "createReducer(\r\n  initialState,\r\n  on(AuthActions.loginSuccess, (state, payload:any) => {\r\n      return {\r\n          ...state,\r\n          currentUser: {\r\n            email: payload.email,\r\n            accessToken: payload.accessToken,\r\n            isLoggedIn: true\r\n          }\r\n      }\r\n  }),\r\n\r\n  on(AuthActions.logout, (state) => {\r\n    \r\n    return {\r\n        ...state,\r\n        currentUser: {\r\n          email: '',\r\n          accessToken: '',\r\n          isLoggedIn: false\r\n        }\r\n    }\r\n})\r\n)"
                 }
             ],
             "src/stories/header/Header.stories.ts": [
@@ -4529,28 +4714,6 @@
                     ]
                 }
             ],
-            "src/stories/footer/Footer.stories.ts": [
-                {
-                    "name": "HttpLoaderFactory",
-                    "file": "src/stories/footer/Footer.stories.ts",
-                    "ctype": "miscellaneous",
-                    "subtype": "function",
-                    "description": "",
-                    "args": [
-                        {
-                            "name": "http"
-                        }
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "http",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
             "src/stories/card/Card.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
@@ -4573,10 +4736,10 @@
                     ]
                 }
             ],
-            "src/stories/login/Login.stories.ts": [
+            "src/stories/footer/Footer.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/login/Login.stories.ts",
+                    "file": "src/stories/footer/Footer.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -4617,10 +4780,10 @@
                     ]
                 }
             ],
-            "src/stories/registration/Registration.stories.ts": [
+            "src/stories/login/Login.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/registration/Registration.stories.ts",
+                    "file": "src/stories/login/Login.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -4661,6 +4824,28 @@
                     ]
                 }
             ],
+            "src/stories/registration/Registration.stories.ts": [
+                {
+                    "name": "HttpLoaderFactory",
+                    "file": "src/stories/registration/Registration.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "http"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "http",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "src/stories/products/products/Product.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
@@ -4683,10 +4868,10 @@
                     ]
                 }
             ],
-            "src/app/shared/store/auth/auth.reducer.ts": [
+            "src/app/shared/store/products/product.reducer.ts": [
                 {
                     "name": "reducer",
-                    "file": "src/app/shared/store/auth/auth.reducer.ts",
+                    "file": "src/app/shared/store/products/product.reducer.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -4714,10 +4899,10 @@
                     ]
                 }
             ],
-            "src/app/shared/store/products/product.reducer.ts": [
+            "src/app/shared/store/auth/auth.reducer.ts": [
                 {
                     "name": "reducer",
-                    "file": "src/app/shared/store/products/product.reducer.ts",
+                    "file": "src/app/shared/store/auth/auth.reducer.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -4826,7 +5011,7 @@
                 "linktype": "component",
                 "name": "LoginComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
@@ -5578,7 +5763,7 @@
                 "linktype": "classe",
                 "name": "storeCard",
                 "coveragePercent": 0,
-                "coverageCount": "0/12",
+                "coverageCount": "0/14",
                 "status": "low"
             },
             {
@@ -5588,6 +5773,15 @@
                 "name": "storeFormButton",
                 "coveragePercent": 0,
                 "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/text-input-element.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "storeInputElement",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {

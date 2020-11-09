@@ -11,6 +11,8 @@ import * as AuthActions from '../../shared/store/auth/auth.actions';
 })
 export class LoginComponent  implements OnInit {
   loginForm: FormGroup;
+  emailInvalid: boolean;
+  passwordInvalid: boolean;
 
   constructor(
     private store: Store,
@@ -27,10 +29,30 @@ export class LoginComponent  implements OnInit {
   onSubmit() {
       if(this.loginForm.valid) {
         this.store.dispatch(AuthActions.loginAttempted(this.loginForm.value));
-      }  
+      } else {
+        this.showError();
+      }
   }
   navigate(event) {
     event.preventDefault();
     this.router.navigate(['auth/register']);
   }
+
+  emailValueChanged(event) {
+    this.loginForm.controls['email'].setValue(event.detail.value);
+    this.emailInvalid = !this.loginForm.controls['email'].valid;
+  }
+  passwordValueChanged(event) {
+    this.loginForm.controls['password'].setValue(event.detail.value);
+    this.passwordInvalid = !this.loginForm.controls['password'].valid;
+  }
+  showError() {
+    if(!this.loginForm.controls['email'].valid) {
+      this.emailInvalid = true;
+    } 
+    if(!this.loginForm.controls['password'].valid) {
+      this.passwordInvalid = true;
+    }
+  }
+
 }

@@ -87,6 +87,8 @@ export class StorybookMocks {
     return {
       navigate: (event) => {event.preventDefault(); console.log('navigate called')},
       onSubmit: () => {console.log('onSubmit called')},
+      emailValueChanged: () => {console.log('emailValueChanged called')},
+      passwordValueChanged: () => {console.log('passwordValueChanged called')},
     }
   }
 

@@ -55,6 +55,8 @@ export const defaultState = () => ({
     loginForm: StorybookMocks.getMockLoginFormGroup(),
     navigate: StorybookMocks.mockLoginActions().navigate,
     onSubmit: StorybookMocks.mockLoginActions().onSubmit,
+    emailValueChanged: StorybookMocks.mockLoginActions().emailValueChanged,
+    passwordValueChanged: StorybookMocks.mockLoginActions().passwordValueChanged
   },
 });
 

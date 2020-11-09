@@ -2,16 +2,24 @@
 <form [formGroup]="loginForm" class="text-center">
     <div>
         <div>
-            <input aria-label="Enter email" class="str-input" type="email" formControlName="email"
-                placeholder="{{'auth.email-placeholder'|translate}}" />
+            <str-input 
+                ariaLabel="Enter email" 
+                inputType="email" 
+                inputPlaceholder="{{'auth.email-placeholder'|translate}}"
+                (inputValueChanged)="emailValueChanged($event)"
+            ></str-input>
                 <p class="str-error-msg-class"
-                    *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid">{{'auth.email-validation' | translate}}</p>
+                    *ngIf="emailInvalid">{{'auth.email-validation' | translate}}</p>
         </div>
         <div>
-            <input aria-label="Enter password" class="str-input" type="password" formControlName="password"
-                placeholder="{{'auth.password-placeholder'|translate}}" />
+                <str-input 
+                    ariaLabel="Enter password" 
+                    inputType="password" 
+                    inputPlaceholder="{{'auth.password-placeholder'|translate}}"
+                    (inputValueChanged)="passwordValueChanged($event)"
+                ></str-input>
                 <p class="str-error-msg-class"
-                    *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid">{{'auth.password-validation' | translate}}
+                    *ngIf="passwordInvalid">{{'auth.password-validation' | translate}}
                 </p>
         </div>
     </div>

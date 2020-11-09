@@ -50,4 +50,26 @@ describe('LoginComponent', () => {
     expect(navigateSpy).toHaveBeenCalled();
   });
 
+  test('emailValueChanged', () => {
+    const inputValueChanged = new CustomEvent('inputValueChanged', {
+      detail: {
+          value: 'test'
+      },
+  });
+    component.emailValueChanged(inputValueChanged);
+  });
+
+  test('passwordValueChanged', () => {
+    const inputValueChanged = new CustomEvent('inputValueChanged', {
+      detail: {
+          value: 'test'
+      },
+  });
+    component.passwordValueChanged(inputValueChanged);
+  });
+
+  test('showError', () => {
+    component.showError();
+  });
+
 });
