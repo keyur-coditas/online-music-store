@@ -25,6 +25,12 @@ export class storeCard extends LitElement {
     @property()
     productId: number;
 
+    @property()
+    updatebuttonText: string;
+
+    @property()
+    deletebuttonText: string;
+
     static get styles() {
         return css`
         .card {
@@ -128,11 +134,11 @@ export class storeCard extends LitElement {
 
 
     render() {
-        let ownerButtons:TemplateResult = html``;
+        let ownerButtons: TemplateResult = html``;
         if (this.currentUser === this.createdBy) {
             ownerButtons = html`<div class="text-center str-card-buttons-container" >
-            <str-form-btn @click="${this.updateProduct}" buttonText="Update" isCardButton="true" aria-label="Update Product"></str-form-btn>
-            <str-form-btn @click="${this.deleteProduct}" buttonText="Delete" isCardButton="true" aria-label="Delete Product"></str-form-btn>    
+            <str-form-btn @click="${this.updateProduct}" buttonText="${this.updatebuttonText}" isCardButton="true" aria-label="Update Product"></str-form-btn>
+            <str-form-btn @click="${this.deleteProduct}" buttonText="${this.deletebuttonText}" isCardButton="true" aria-label="Delete Product"></str-form-btn>    
             </div>`
         }
 

@@ -1,10 +1,16 @@
 <div class="card-container">
   <ng-container *ngFor="let product of products;">
     <str-card productName="{{product.name}}" productDescription="{{product.description}}"
-      imageUrl="{{product.imageUrl}}" productPrice="{{product.price}}" createdBy="{{product.createdBy}}"
-      currentUser="{{currentUser}}" productId="{{product.id}}"
+      imageUrl="{{product.imageUrl}}"
+      productPrice="{{product.price}}"
+      createdBy="{{product.createdBy}}"
+      currentUser="{{currentUser}}"
+      productId="{{product.id}}"
+      updatebuttonText="{{'products.card.update-button'| translate}}"
+      deletebuttonText="{{'products.card.delete-button'| translate}}"
       (viewProduct)="viewProduct($event)"
       (updateProduct)="updateProduct($event)"
-      (deleteProduct)="deleteProduct($event)"></str-card>
+      (deleteProduct)="deleteProduct($event)">
+    </str-card>
   </ng-container>
 </div>
