@@ -1,5 +1,10 @@
 <div class="card-container">
-  <ng-container *ngFor="let product of products">
-    <app-card [product]="product"></app-card>
+  <ng-container *ngFor="let product of products;">
+    <str-card productName="{{product.name}}" productDescription="{{product.description}}"
+      imageUrl="{{product.imageUrl}}" productPrice="{{product.price}}" createdBy="{{product.createdBy}}"
+      currentUser="{{currentUser}}" productId="{{product.id}}"
+      (viewProduct)="viewProduct($event)"
+      (updateProduct)="updateProduct($event)"
+      (deleteProduct)="deleteProduct($event)"></str-card>
   </ng-container>
 </div>

@@ -74,14 +74,14 @@
         },
         {
             "name": "Product",
-            "id": "interface-Product-314d694f8767c753eed96efcf89d0fd1",
+            "id": "interface-Product-4aa38643e91a418c473935136dc795cc",
             "file": "src/app/shared/models/product.ts",
             "type": "interface",
-            "sourceCode": "export interface Product {\r\n    name: string;\r\n    description: string;\r\n    imageUrl: string;\r\n    createdBy: number;\r\n    price: number;\r\n}\r\nexport interface ProductOperationInfo {\r\n    productOperation: string;\r\n    disableFormFields: boolean;\r\n}",
+            "sourceCode": "export interface Product {\r\n    name: string;\r\n    description: string;\r\n    imageUrl: string;\r\n    createdBy: string;\r\n    price: number;\r\n}\r\nexport interface ProductOperationInfo {\r\n    productOperation: string;\r\n    disableFormFields: boolean;\r\n}",
             "properties": [
                 {
                     "name": "createdBy",
-                    "type": "number",
+                    "type": "string",
                     "optional": false,
                     "description": "",
                     "line": 5
@@ -121,10 +121,10 @@
         },
         {
             "name": "ProductOperationInfo",
-            "id": "interface-ProductOperationInfo-314d694f8767c753eed96efcf89d0fd1",
+            "id": "interface-ProductOperationInfo-4aa38643e91a418c473935136dc795cc",
             "file": "src/app/shared/models/product.ts",
             "type": "interface",
-            "sourceCode": "export interface Product {\r\n    name: string;\r\n    description: string;\r\n    imageUrl: string;\r\n    createdBy: number;\r\n    price: number;\r\n}\r\nexport interface ProductOperationInfo {\r\n    productOperation: string;\r\n    disableFormFields: boolean;\r\n}",
+            "sourceCode": "export interface Product {\r\n    name: string;\r\n    description: string;\r\n    imageUrl: string;\r\n    createdBy: string;\r\n    price: number;\r\n}\r\nexport interface ProductOperationInfo {\r\n    productOperation: string;\r\n    disableFormFields: boolean;\r\n}",
             "properties": [
                 {
                     "name": "disableFormFields",
@@ -470,7 +470,7 @@
         },
         {
             "name": "ProductEffects",
-            "id": "injectable-ProductEffects-8a1d69dc04faed400ce743efd2cc889e",
+            "id": "injectable-ProductEffects-73edee22b224ef41bf9b4d3dae82e67e",
             "file": "src/app/shared/store/products/product.effects.ts",
             "properties": [
                 {
@@ -479,7 +479,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 20
+                    "line": 22
                 },
                 {
                     "name": "productAddSuccess",
@@ -487,7 +487,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 34
+                    "line": 36
                 },
                 {
                     "name": "productsDeleteAttempt",
@@ -495,7 +495,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 96
+                    "line": 98
                 },
                 {
                     "name": "productsDeleteFailure",
@@ -503,15 +503,15 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 120
+                    "line": 122
                 },
                 {
                     "name": "productsDeleteSuccess",
-                    "defaultValue": "createEffect(() => {\r\n            return this.actions.pipe(\r\n                ofType(ProductActions.PRODUCT_DELETE_SUCCESS),\r\n                     map((data:any) => {\r\n                        return { type: ProductActions.PRODUCT_DELETE_SUCCESS, payload: {data} }\r\n                        }),\r\n                     catchError((error) => ( of({type: ProductActions.PRODUCT_DELETE_FAILURE})) )\r\n            )\r\n         }, {dispatch: false})",
+                    "defaultValue": "createEffect(() => {\r\n            return this.actions.pipe(\r\n                ofType(ProductActions.PRODUCT_DELETE_SUCCESS),\r\n                     map((data:any) => {\r\n                        this.store.dispatch(ProductActions.productFetchAttempt());\r\n                        }),\r\n                     catchError((error) => ( of({type: ProductActions.PRODUCT_DELETE_FAILURE})) )\r\n            )\r\n         }, {dispatch: false})",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 110
+                    "line": 112
                 },
                 {
                     "name": "productsFetchAttempt",
@@ -519,7 +519,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 45
+                    "line": 47
                 },
                 {
                     "name": "productsUpdateAttempt",
@@ -527,7 +527,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 59
+                    "line": 61
                 },
                 {
                     "name": "productsUpdateFailure",
@@ -535,7 +535,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 84
+                    "line": 86
                 },
                 {
                     "name": "productsUpdateSuccess",
@@ -543,12 +543,12 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 73
+                    "line": 75
                 }
             ],
             "methods": [],
             "description": "",
-            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { of } from 'rxjs';\r\nimport {Actions, createEffect, ofType} from '@ngrx/effects';\r\nimport { Router } from '@angular/router';\r\nimport { catchError, mergeMap, map, tap } from 'rxjs/operators';\r\nimport * as ProductActions from './product.actions';\r\nimport { ProductService } from '../../../products/products.service';\r\nimport { ToastrService } from 'ngx-toastr';\r\n@Injectable()\r\nexport class ProductEffects {\r\n\r\n    constructor(\r\n        private actions: Actions,\r\n        private router: Router,\r\n        private productsService: ProductService,\r\n        private toastrService: ToastrService\r\n        ) {\r\n        }\r\n  \r\n        productAddAttempt = createEffect(() => {\r\n            return this.actions.pipe(\r\n                 ofType(ProductActions.PRODUCT_ADD_ATTEMPT),\r\n                 mergeMap((action:any) => this.productsService.addProduct(action.product)\r\n                     .pipe(\r\n                         map((data:any) => {\r\n                           return { type: ProductActions.PRODUCT_ADD_SUCCESS, payload: {data} }\r\n                         }),\r\n                         catchError((error) => ( of({type: ProductActions.PRODUCT_ADD_FAILURE})) )\r\n                     )\r\n                )\r\n             )\r\n         })\r\n\r\n         productAddSuccess = createEffect(() => {\r\n            return this.actions.pipe(\r\n                ofType(ProductActions.productAddSuccess),\r\n                tap((action:any) => {\r\n                   this.toastrService.success('Added!');\r\n                   this.router.navigate(['products']);\r\n                }\r\n               )\r\n            )\r\n         }, {dispatch: false})\r\n\r\n         productsFetchAttempt = createEffect(() => {\r\n            return this.actions.pipe(\r\n                 ofType(ProductActions.PRODUCT_FETCH_ATTEMPT),\r\n                 mergeMap((action:any) => this.productsService.getAllProducts()\r\n                     .pipe(\r\n                         map((data:any) => {\r\n                           return { type: ProductActions.PRODUCT_FETCH_SUCCESS, data }\r\n                         }),\r\n                         catchError((error) => ( of({type: ProductActions.PRODUCT_ADD_FAILURE})) )\r\n                     )\r\n                )\r\n             )\r\n         })\r\n\r\n         productsUpdateAttempt = createEffect(() => {\r\n            return this.actions.pipe(\r\n                 ofType(ProductActions.PRODUCT_UPDATE_ATTEMPT),\r\n                 mergeMap((action:any) => this.productsService.updateProduct(action.product)\r\n                     .pipe(\r\n                         map((data:any) => {\r\n                           return { type: ProductActions.PRODUCT_UPDATE_SUCCESS, data }\r\n                         }),\r\n                         catchError((error) => ( of({type: ProductActions.PRODUCT_UPDATE_FAILURE})) )\r\n                     )\r\n                )\r\n             )\r\n         })\r\n\r\n         productsUpdateSuccess = createEffect(() => {\r\n            return this.actions.pipe(\r\n                ofType(ProductActions.PRODUCT_UPDATE_SUCCESS),\r\n                tap((action:any) => {\r\n                  this.toastrService.success('Updated!');\r\n                   this.router.navigate(['products']);\r\n                }\r\n               )\r\n            )\r\n         }, {dispatch: false})\r\n\r\n         productsUpdateFailure = createEffect(() => {\r\n            return this.actions.pipe(\r\n                ofType(ProductActions.PRODUCT_UPDATE_FAILURE),\r\n                tap((action:any) => {\r\n                  this.toastrService.error('Couldnot update product');\r\n                   this.router.navigate(['products']);\r\n                }\r\n               )\r\n            )\r\n         }, {dispatch: false})\r\n\r\n\r\n         productsDeleteAttempt = createEffect(() => {\r\n            return this.actions.pipe(\r\n                 ofType(ProductActions.PRODUCT_DELETE_ATTEMPT),\r\n                 mergeMap((action:any) => this.productsService.deleteProduct(action.product)\r\n                     .pipe(\r\n                         map((data:any) => {  \r\n                           return { type: ProductActions.PRODUCT_DELETE_SUCCESS, action }\r\n                         }),\r\n                         catchError((error) => ( of({type: ProductActions.PRODUCT_DELETE_FAILURE})) )\r\n                     )\r\n                )\r\n             )\r\n         })\r\n\r\n         productsDeleteSuccess = createEffect(() => {\r\n            return this.actions.pipe(\r\n                ofType(ProductActions.PRODUCT_DELETE_SUCCESS),\r\n                     map((data:any) => {\r\n                        return { type: ProductActions.PRODUCT_DELETE_SUCCESS, payload: {data} }\r\n                        }),\r\n                     catchError((error) => ( of({type: ProductActions.PRODUCT_DELETE_FAILURE})) )\r\n            )\r\n         }, {dispatch: false})\r\n\r\n         productsDeleteFailure = createEffect(() => {\r\n            return this.actions.pipe(\r\n                ofType(ProductActions.PRODUCT_DELETE_FAILURE),\r\n                tap((action:any) => {\r\n                   this.toastrService.error('Couldnot delete ptoduct');\r\n                }\r\n               )\r\n            )\r\n         }, {dispatch: false})\r\n}",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { of } from 'rxjs';\r\nimport {Actions, createEffect, ofType} from '@ngrx/effects';\r\nimport { Router } from '@angular/router';\r\nimport { catchError, mergeMap, map, tap } from 'rxjs/operators';\r\nimport * as ProductActions from './product.actions';\r\nimport { ProductService } from '../../../products/products.service';\r\nimport { ToastrService } from 'ngx-toastr';\r\nimport { Store } from '@ngrx/store';\r\n@Injectable()\r\nexport class ProductEffects {\r\n\r\n    constructor(\r\n        private actions: Actions,\r\n        private router: Router,\r\n        private productsService: ProductService,\r\n        private toastrService: ToastrService,\r\n        private store: Store\r\n        ) {\r\n        }\r\n  \r\n        productAddAttempt = createEffect(() => {\r\n            return this.actions.pipe(\r\n                 ofType(ProductActions.PRODUCT_ADD_ATTEMPT),\r\n                 mergeMap((action:any) => this.productsService.addProduct(action.product)\r\n                     .pipe(\r\n                         map((data:any) => {\r\n                           return { type: ProductActions.PRODUCT_ADD_SUCCESS, payload: {data} }\r\n                         }),\r\n                         catchError((error) => ( of({type: ProductActions.PRODUCT_ADD_FAILURE})) )\r\n                     )\r\n                )\r\n             )\r\n         })\r\n\r\n         productAddSuccess = createEffect(() => {\r\n            return this.actions.pipe(\r\n                ofType(ProductActions.productAddSuccess),\r\n                tap((action:any) => {\r\n                   this.toastrService.success('Added!');\r\n                   this.router.navigate(['products']);\r\n                }\r\n               )\r\n            )\r\n         }, {dispatch: false})\r\n\r\n         productsFetchAttempt = createEffect(() => {\r\n            return this.actions.pipe(\r\n                 ofType(ProductActions.PRODUCT_FETCH_ATTEMPT),\r\n                 mergeMap((action:any) => this.productsService.getAllProducts()\r\n                     .pipe(\r\n                         map((data:any) => {\r\n                           return { type: ProductActions.PRODUCT_FETCH_SUCCESS, data }\r\n                         }),\r\n                         catchError((error) => ( of({type: ProductActions.PRODUCT_ADD_FAILURE})) )\r\n                     )\r\n                )\r\n             )\r\n         })\r\n\r\n         productsUpdateAttempt = createEffect(() => {\r\n            return this.actions.pipe(\r\n                 ofType(ProductActions.PRODUCT_UPDATE_ATTEMPT),\r\n                 mergeMap((action:any) => this.productsService.updateProduct(action.product)\r\n                     .pipe(\r\n                         map((data:any) => {\r\n                           return { type: ProductActions.PRODUCT_UPDATE_SUCCESS, data }\r\n                         }),\r\n                         catchError((error) => ( of({type: ProductActions.PRODUCT_UPDATE_FAILURE})) )\r\n                     )\r\n                )\r\n             )\r\n         })\r\n\r\n         productsUpdateSuccess = createEffect(() => {\r\n            return this.actions.pipe(\r\n                ofType(ProductActions.PRODUCT_UPDATE_SUCCESS),\r\n                tap((action:any) => {\r\n                  this.toastrService.success('Updated!');\r\n                   this.router.navigate(['products']);\r\n                }\r\n               )\r\n            )\r\n         }, {dispatch: false})\r\n\r\n         productsUpdateFailure = createEffect(() => {\r\n            return this.actions.pipe(\r\n                ofType(ProductActions.PRODUCT_UPDATE_FAILURE),\r\n                tap((action:any) => {\r\n                  this.toastrService.error('Couldnot update product');\r\n                   this.router.navigate(['products']);\r\n                }\r\n               )\r\n            )\r\n         }, {dispatch: false})\r\n\r\n\r\n         productsDeleteAttempt = createEffect(() => {\r\n            return this.actions.pipe(\r\n                 ofType(ProductActions.PRODUCT_DELETE_ATTEMPT),\r\n                 mergeMap((action:any) => this.productsService.deleteProduct(action.product)\r\n                     .pipe(\r\n                         map((data:any) => {  \r\n                           return { type: ProductActions.PRODUCT_DELETE_SUCCESS, action }\r\n                         }),\r\n                         catchError((error) => ( of({type: ProductActions.PRODUCT_DELETE_FAILURE})) )\r\n                     )\r\n                )\r\n             )\r\n         })\r\n\r\n         productsDeleteSuccess = createEffect(() => {\r\n            return this.actions.pipe(\r\n                ofType(ProductActions.PRODUCT_DELETE_SUCCESS),\r\n                     map((data:any) => {\r\n                        this.store.dispatch(ProductActions.productFetchAttempt());\r\n                        }),\r\n                     catchError((error) => ( of({type: ProductActions.PRODUCT_DELETE_FAILURE})) )\r\n            )\r\n         }, {dispatch: false})\r\n\r\n         productsDeleteFailure = createEffect(() => {\r\n            return this.actions.pipe(\r\n                ofType(ProductActions.PRODUCT_DELETE_FAILURE),\r\n                tap((action:any) => {\r\n                   this.toastrService.error('Couldnot delete ptoduct');\r\n                }\r\n               )\r\n            )\r\n         }, {dispatch: false})\r\n}",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -568,9 +568,13 @@
                     {
                         "name": "toastrService",
                         "type": "ToastrService"
+                    },
+                    {
+                        "name": "store",
+                        "type": "Store"
                     }
                 ],
-                "line": 10,
+                "line": 11,
                 "jsdoctags": [
                     {
                         "name": "actions",
@@ -596,6 +600,13 @@
                     {
                         "name": "toastrService",
                         "type": "ToastrService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "store",
+                        "type": "Store",
                         "tagName": {
                             "text": "param"
                         }
@@ -1040,6 +1051,181 @@
             }
         },
         {
+            "name": "storeCard",
+            "id": "class-storeCard-0ebb4afffdd1251c84e5e07ef4a9e723",
+            "file": "src/components/card.ts",
+            "type": "class",
+            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-card')\r\nexport class storeCard extends LitElement {\r\n\r\n    @property()\r\n    productName: string;\r\n\r\n    @property()\r\n    productDescription: string;\r\n\r\n    @property()\r\n    imageUrl: string;\r\n\r\n    @property()\r\n    productPrice: number;\r\n\r\n    @property()\r\n    createdBy: string;\r\n\r\n    @property()\r\n    currentUser: string;\r\n\r\n    @property()\r\n    productId: number;\r\n\r\n    static get styles() {\r\n        return css`\r\n        .card {\r\n            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\r\n            transition: 0.3s;\r\n            border-radius: 5px;\r\n            background-color: #fff;\r\n            height:100%;\r\n            display: flex;\r\n            flex-direction: column;\r\n            justify-content: space-around;\r\n            align-items: center;\r\n            border:none;\r\n            width:100%;\r\n          }\r\n          \r\n          .card:hover {\r\n            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\r\n          }\r\n          \r\n          .product-image {\r\n            border-radius: 5px 5px 0 0;\r\n          }\r\n          \r\n          .container {\r\n            padding: 2px 16px;\r\n          }\r\n          .card-font-small {\r\n              font-size: 0.8rem;\r\n          }\r\n          .card-font-medium {\r\n              font-size: 0.9rem;\r\n          }\r\n          .card-header-margin {\r\n            margin: 0.8rem;\r\n        }\r\n        .card-details-margin {\r\n            margin: 0.5rem;\r\n        }\r\n        .str-card-buttons {\r\n          width:6rem;\r\n          background-color: var(--form-btn-background);\r\n          color: var(--form-btn-color);\r\n          margin: 10px;\r\n        }\r\n        .text-center{\r\n            text-align: center;\r\n        }\r\n    `;\r\n    }\r\n\r\n    viewProduct() {\r\n        const click = new CustomEvent('viewProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                },\r\n            }\r\n        });\r\n        this.dispatchEvent(click);\r\n    }\r\n\r\n    updateProduct(event) {\r\n        event.stopPropagation();\r\n        const update = new CustomEvent('updateProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                }\r\n            }\r\n        });\r\n        this.dispatchEvent(update);\r\n    }\r\n\r\n    deleteProduct(event) {\r\n        event.stopPropagation();\r\n        const deleteProduct = new CustomEvent('deleteProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                }\r\n            },\r\n        });\r\n        this.dispatchEvent(deleteProduct);\r\n    }\r\n\r\n\r\n    render() {\r\n        let ownerButtons:TemplateResult = html``;\r\n        if (this.currentUser === this.createdBy) {\r\n            ownerButtons = html`<div class=\"text-center str-card-buttons-container\" >\r\n            <str-form-btn @click=\"${this.updateProduct}\" buttonText=\"Update\" isCardButton=\"true\" aria-label=\"Update Product\"></str-form-btn>\r\n            <str-form-btn @click=\"${this.deleteProduct}\" buttonText=\"Delete\" isCardButton=\"true\" aria-label=\"Delete Product\"></str-form-btn>    \r\n            </div>`\r\n        }\r\n\r\n        return html`\r\n    \r\n    <button type=\"button\" class=\"card\" @click=\"${this.viewProduct}\" aria-label=\"View product details\" >\r\n    <div class=\"text-center\">\r\n        <img src=\"${this.imageUrl}\" class=\"product-image\" alt=\"Avatar\" width=\"200\" width=\"200\" height=\"200\">\r\n    </div>\r\n    <div class=\"container card-details\">\r\n        <h4 class=\"text-center card-font-medium card-header-margin\"><b>${this.productName}</b></h4>\r\n        <p class=\"text-center card-font-small card-details-margin\">${this.productDescription}</p>\r\n        <p class=\"text-center card-font-small card-details-margin\"><b><span>&#8377; </span>${this.productPrice}</b></p>\r\n    </div>\r\n        ${ownerButtons}\r\n    </button>\r\n                `;\r\n    }\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "createdBy",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "currentUser",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 23,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "imageUrl",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "productDescription",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "productId",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 26,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "productName",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "productPrice",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "deleteProduct",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 112,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "render",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 130
+                },
+                {
+                    "name": "updateProduct",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 95,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "viewProduct",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 79
+                }
+            ],
+            "indexSignatures": [],
+            "extends": "LitElement",
+            "accessors": {
+                "styles": {
+                    "name": "styles",
+                    "getSignature": {
+                        "name": "styles",
+                        "type": "",
+                        "returnType": "",
+                        "line": 28
+                    }
+                }
+            }
+        },
+        {
             "name": "storeFormButton",
             "id": "class-storeFormButton-006f059c017fb7b2c6fe2f2fad4966f4",
             "file": "src/components/form-button.ts",
@@ -1439,7 +1625,7 @@
         },
         {
             "name": "CardComponent",
-            "id": "component-CardComponent-576b1b6f9a82a31f05683e49f28e29a3-1",
+            "id": "component-CardComponent-8848cc5fd9a5b07fea070f1a7d8bc5e7-1",
             "file": "src/app/products/card/card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1485,7 +1671,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 44,
                     "jsdoctags": [
                         {
                             "name": "evt",
@@ -1515,7 +1701,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 35,
+                    "line": 34,
                     "jsdoctags": [
                         {
                             "name": "evt",
@@ -1532,7 +1718,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 51
+                    "line": 49
                 }
             ],
             "hostBindings": [],
@@ -1540,7 +1726,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\nimport { ProductOperationInfo } from '../../shared/models/product';\r\nimport { ProductService } from '../products.service';\r\nimport * as APP_CONSTANTS from '../../shared/app.constants';\r\nimport { Router } from '@angular/router';\r\nimport { Store } from '@ngrx/store';\r\nimport * as ProductActions from '../../shared/store/products/product.actions';\r\nimport { map } from 'rxjs/operators';\r\nimport { CurrentUser } from '../../shared/models/user';\r\nimport { StoreProduct } from '../../shared/store/products/products.model';\r\nimport { AppState } from '../../shared/store/app.state';\r\n@Component({\r\n  selector: 'app-card',\r\n  templateUrl: './card.component.html',\r\n  styleUrls: ['./card.component.scss']\r\n})\r\nexport class CardComponent implements OnInit {\r\n\r\n  @Input() product: StoreProduct;\r\n  currentUser: string = '';\r\n  constructor(\r\n    private productService:ProductService,\r\n    private router: Router,\r\n    private store: Store<AppState>) { }\r\n\r\n  ngOnInit(): void {\r\n    console.log('init ', this.store);\r\n     this.store.pipe(\r\n      map((state) => state['auth'].currentUser))\r\n     .subscribe((user:CurrentUser) => {\r\n      this.currentUser = user.email;\r\n    })\r\n  }\r\n\r\n  updateProduct(evt) {\r\n    evt.stopPropagation();\r\n    let productOpInfo: ProductOperationInfo = {\r\n      productOperation: APP_CONSTANTS.PRODUCT_UPDATE,\r\n      disableFormFields: false\r\n    }\r\n    this.productService.setProductInfo(productOpInfo);\r\n    this.productService.setProduct(this.product);\r\n    this.router.navigate(['products/product-update']);\r\n  }\r\n  deleteProduct(evt) {\r\n    evt.stopPropagation();\r\n    const product = this.product;\r\n    console.log('val ', this.store);\r\n    this.store.dispatch(ProductActions.productDeleteAttempt({product}))\r\n  }\r\n  viewProduct() {\r\n    let productOpInfo: ProductOperationInfo = {\r\n      productOperation: APP_CONSTANTS.PRODUCT_VIEW,\r\n      disableFormFields: true\r\n    }\r\n    this.productService.setProductInfo(productOpInfo);\r\n    this.productService.setProduct(this.product);\r\n    this.router.navigate(['products/product-update']);\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\nimport { ProductOperationInfo } from '../../shared/models/product';\r\nimport { ProductService } from '../products.service';\r\nimport * as APP_CONSTANTS from '../../shared/app.constants';\r\nimport { Router } from '@angular/router';\r\nimport { Store } from '@ngrx/store';\r\nimport * as ProductActions from '../../shared/store/products/product.actions';\r\nimport { map } from 'rxjs/operators';\r\nimport { CurrentUser } from '../../shared/models/user';\r\nimport { StoreProduct } from '../../shared/store/products/products.model';\r\nimport { AppState } from '../../shared/store/app.state';\r\n@Component({\r\n  selector: 'app-card',\r\n  templateUrl: './card.component.html',\r\n  styleUrls: ['./card.component.scss']\r\n})\r\nexport class CardComponent implements OnInit {\r\n\r\n  @Input() product: StoreProduct;\r\n  currentUser: string = '';\r\n  constructor(\r\n    private productService:ProductService,\r\n    private router: Router,\r\n    private store: Store<AppState>) { }\r\n\r\n  ngOnInit(): void {\r\n     this.store.pipe(\r\n      map((state) => state['auth'].currentUser))\r\n     .subscribe((user:CurrentUser) => {\r\n      this.currentUser = user.email;\r\n    })\r\n  }\r\n\r\n  updateProduct(evt) {\r\n    evt.stopPropagation();\r\n    let productOpInfo: ProductOperationInfo = {\r\n      productOperation: APP_CONSTANTS.PRODUCT_UPDATE,\r\n      disableFormFields: false\r\n    }\r\n    this.productService.setProductInfo(productOpInfo);\r\n    this.productService.setProduct(this.product);\r\n    this.router.navigate(['products/product-update']);\r\n  }\r\n  deleteProduct(evt) {\r\n    evt.stopPropagation();\r\n    const product = this.product;\r\n    this.store.dispatch(ProductActions.productDeleteAttempt({product}))\r\n  }\r\n  viewProduct() {\r\n    let productOpInfo: ProductOperationInfo = {\r\n      productOperation: APP_CONSTANTS.PRODUCT_VIEW,\r\n      disableFormFields: true\r\n    }\r\n    this.productService.setProductInfo(productOpInfo);\r\n    this.productService.setProduct(this.product);\r\n    this.router.navigate(['products/product-update']);\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2324,7 +2510,7 @@
         },
         {
             "name": "ProductsComponent",
-            "id": "component-ProductsComponent-1d8cab9ffd2a97f204e182576e373a37",
+            "id": "component-ProductsComponent-b28a1e0a481025a4613c70b97a965548",
             "file": "src/app/products/products.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2348,24 +2534,90 @@
                     "type": "any",
                     "optional": false,
                     "description": "",
-                    "line": 15
+                    "line": 21
                 },
                 {
                     "name": "products",
-                    "type": "Product[]",
+                    "type": "StoreProduct[]",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 20
                 }
             ],
             "methodsClass": [
+                {
+                    "name": "deleteProduct",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "CustomEvent"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 67,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "CustomEvent",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
                 {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 19
+                    "line": 28
+                },
+                {
+                    "name": "updateProduct",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "CustomEvent"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 56,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "CustomEvent",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "viewProduct",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "CustomEvent"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 46,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "CustomEvent",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "hostBindings": [],
@@ -2373,7 +2625,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { Actions, ofType } from '@ngrx/effects';\r\nimport { Store } from '@ngrx/store';\r\nimport { map } from 'rxjs/operators';\r\nimport { Product } from '../shared/models/product';\r\nimport { AppState } from '../shared/store/app.state';\r\nimport * as ProductActions from '../shared/store/products/product.actions';\r\n@Component({\r\n  selector: 'app-products',\r\n  templateUrl: './products.component.html',\r\n  styleUrls: ['./products.component.scss']\r\n})\r\nexport class ProductsComponent implements OnInit {\r\n  products: Product[];\r\n  currentUser: any;\r\n  constructor(\r\n    private store: Store<AppState>) { }\r\n  \r\n  ngOnInit(): void {\r\n    this.store.dispatch(ProductActions.productFetchAttempt());\r\n\r\n    this.store.pipe(\r\n      map((state) => state['auth'].currentUser))\r\n     .subscribe((data:any) => {\r\n      this.currentUser = data;\r\n    });\r\n    \r\n    this.store.pipe(\r\n      map((state) => state['products'].products)\r\n    ).subscribe((data:any) => {\r\n      this.products = data;\r\n    });\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';\r\nimport { Actions, ofType } from '@ngrx/effects';\r\nimport { Store } from '@ngrx/store';\r\nimport { map } from 'rxjs/operators';\r\nimport { Product, ProductOperationInfo } from '../shared/models/product';\r\nimport { CurrentUser } from '../shared/models/user';\r\nimport { AppState } from '../shared/store/app.state';\r\nimport * as ProductActions from '../shared/store/products/product.actions';\r\nimport * as APP_CONSTANTS from '../shared/app.constants';\r\nimport { ProductService } from './products.service';\r\nimport { Router } from '@angular/router';\r\nimport { StoreProduct } from '../shared/store/products/products.model';\r\n\r\n@Component({\r\n  selector: 'app-products',\r\n  templateUrl: './products.component.html',\r\n  styleUrls: ['./products.component.scss']\r\n})\r\nexport class ProductsComponent implements OnInit {\r\n  products: StoreProduct[];\r\n  currentUser: any;\r\n  constructor(\r\n    private store: Store<AppState>,\r\n    private productService:ProductService,\r\n    private router: Router) { }\r\n  \r\n\r\n  ngOnInit(): void {\r\n    this.store.dispatch(ProductActions.productFetchAttempt());\r\n\r\n    this.store.pipe(\r\n      map((state) => state['auth'].currentUser))\r\n     .subscribe((data:CurrentUser) => {\r\n      this.currentUser = data.email;\r\n    });\r\n    \r\n    this.store.pipe(\r\n      map((state) => state['products'].products)\r\n    ).subscribe((data:StoreProduct[]) => {\r\n      this.products = data;\r\n    });\r\n\r\n    \r\n  }\r\n\r\n  viewProduct(event: CustomEvent) {\r\n    let productOpInfo: ProductOperationInfo = {\r\n      productOperation: APP_CONSTANTS.PRODUCT_VIEW,\r\n      disableFormFields: true\r\n    }\r\n    this.productService.setProductInfo(productOpInfo);\r\n    this.productService.setProduct(event.detail.product);\r\n    this.router.navigate(['products/product-update']);\r\n  }\r\n\r\n  updateProduct(event: CustomEvent) {\r\n    event.stopPropagation();\r\n    let productOpInfo: ProductOperationInfo = {\r\n      productOperation: APP_CONSTANTS.PRODUCT_UPDATE,\r\n      disableFormFields: false\r\n    }\r\n    this.productService.setProductInfo(productOpInfo);\r\n    this.productService.setProduct(event.detail.product);\r\n    this.router.navigate(['products/product-update']);\r\n  }\r\n\r\n  deleteProduct(event: CustomEvent) {\r\n    console.log('event ', event);\r\n    event.stopPropagation();\r\n    const product = event.detail.product;\r\n    this.store.dispatch(ProductActions.productDeleteAttempt({product}));\r\n  }\r\n  \r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2389,13 +2641,35 @@
                     {
                         "name": "store",
                         "type": "Store<AppState>"
+                    },
+                    {
+                        "name": "productService",
+                        "type": "ProductService"
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router"
                     }
                 ],
-                "line": 15,
+                "line": 21,
                 "jsdoctags": [
                     {
                         "name": "store",
                         "type": "Store<AppState>",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "productService",
+                        "type": "ProductService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router",
                         "tagName": {
                             "text": "param"
                         }
@@ -2405,7 +2679,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"card-container\">\r\n  <ng-container *ngFor=\"let product of products\">\r\n    <app-card [product]=\"product\"></app-card>\r\n  </ng-container>\r\n</div>\r\n"
+            "templateData": "<div class=\"card-container\">\r\n  <ng-container *ngFor=\"let product of products; \">\r\n    <str-card productName=\"{{product.name}}\" productDescription=\"{{product.description}}\"\r\n      imageUrl=\"{{product.imageUrl}}\" productPrice=\"{{product.price}}\" createdBy=\"{{product.createdBy}}\"\r\n      currentUser=\"{{currentUser}}\" productId=\"{{product.id}}\"\r\n      (viewProduct)=\"viewProduct($event)\"\r\n      (updateProduct)=\"updateProduct($event)\"\r\n      (deleteProduct)=\"deleteProduct($event)\"></str-card>\r\n  </ng-container>\r\n</div>"
         },
         {
             "name": "ProductsComponent",
@@ -2446,7 +2720,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "ProductsComponent-1",
-            "templateData": "<div class=\"card-container\">\r\n  <ng-container *ngFor=\"let product of products\">\r\n    <app-card [product]=\"product\"></app-card>\r\n  </ng-container>\r\n</div>\r\n"
+            "templateData": "<div class=\"card-container\">\r\n  <ng-container *ngFor=\"let product of products; \">\r\n    <str-card productName=\"{{product.name}}\" productDescription=\"{{product.description}}\"\r\n      imageUrl=\"{{product.imageUrl}}\" productPrice=\"{{product.price}}\" createdBy=\"{{product.createdBy}}\"\r\n      currentUser=\"{{currentUser}}\" productId=\"{{product.id}}\"\r\n      (viewProduct)=\"viewProduct($event)\"\r\n      (updateProduct)=\"updateProduct($event)\"\r\n      (deleteProduct)=\"deleteProduct($event)\"></str-card>\r\n  </ng-container>\r\n</div>"
         },
         {
             "name": "RegistrationComponent",
@@ -3417,26 +3691,6 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/card/Card.stories.ts",
-                "ctype": "miscellaneous",
-                "subtype": "function",
-                "description": "",
-                "args": [
-                    {
-                        "name": "http"
-                    }
-                ],
-                "jsdoctags": [
-                    {
-                        "name": "http",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            {
-                "name": "HttpLoaderFactory",
                 "file": "src/stories/footer/Footer.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
@@ -3457,7 +3711,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/header/Header.stories.ts",
+                "file": "src/stories/card/Card.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -3497,7 +3751,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/products/ProductOperations.stories.ts",
+                "file": "src/stories/header/Header.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -3518,6 +3772,26 @@
             {
                 "name": "HttpLoaderFactory",
                 "file": "src/stories/registration/Registration.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "http"
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "HttpLoaderFactory",
+                "file": "src/stories/products/ProductOperations.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -4255,28 +4529,6 @@
                     ]
                 }
             ],
-            "src/stories/card/Card.stories.ts": [
-                {
-                    "name": "HttpLoaderFactory",
-                    "file": "src/stories/card/Card.stories.ts",
-                    "ctype": "miscellaneous",
-                    "subtype": "function",
-                    "description": "",
-                    "args": [
-                        {
-                            "name": "http"
-                        }
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "http",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
             "src/stories/footer/Footer.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
@@ -4299,10 +4551,10 @@
                     ]
                 }
             ],
-            "src/stories/header/Header.stories.ts": [
+            "src/stories/card/Card.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/header/Header.stories.ts",
+                    "file": "src/stories/card/Card.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -4343,10 +4595,10 @@
                     ]
                 }
             ],
-            "src/stories/products/ProductOperations.stories.ts": [
+            "src/stories/header/Header.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/products/ProductOperations.stories.ts",
+                    "file": "src/stories/header/Header.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -4369,6 +4621,28 @@
                 {
                     "name": "HttpLoaderFactory",
                     "file": "src/stories/registration/Registration.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "http"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "http",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "src/stories/products/ProductOperations.stories.ts": [
+                {
+                    "name": "HttpLoaderFactory",
+                    "file": "src/stories/products/ProductOperations.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -4606,7 +4880,7 @@
                 "linktype": "component",
                 "name": "ProductsComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -5296,6 +5570,15 @@
                 "name": "storeButton",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/card.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "storeCard",
+                "coveragePercent": 0,
+                "coverageCount": "0/12",
                 "status": "low"
             },
             {

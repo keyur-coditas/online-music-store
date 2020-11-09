@@ -36,6 +36,7 @@
     "@ngxs/devtools-plugin": "^3.7.0",
     "@ngxs/logger-plugin": "^3.7.0",
     "@ngxs/store": "^3.7.0",
+    "@polymer/lit-element": "^0.7.1",
     "@webcomponents/webcomponentsjs": "^2.5.0",
     "document-register-element": "^1.7.2",
     "json-server-auth": "^2.0.2",

@@ -66,7 +66,7 @@ const productData:StoreProduct[] = [
   {
     name: 'test',
   description: 'test',
-  imageUrl: '',
+  imageUrl: '../../../assets/images/chateau_acoustic_guitar.webp',
   createdBy: 'xyz@gmail.com',
   price: 1000,
   }

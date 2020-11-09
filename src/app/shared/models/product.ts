@@ -2,7 +2,7 @@ export interface Product {
     name: string;
     description: string;
     imageUrl: string;
-    createdBy: number;
+    createdBy: string;
     price: number;
 }
 export interface ProductOperationInfo {

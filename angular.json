@@ -109,5 +109,8 @@
       }
     }
   },
-  "defaultProject": "online-music-store"
+  "defaultProject": "online-music-store",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,4 +1,4 @@
 import * as storeFormButton from './form-button';
 import * as storeButton from './button';
-
-export {storeButton, storeFormButton}
+import * as storeCard from './card';
+export {storeButton, storeFormButton, storeCard}

@@ -6,6 +6,7 @@ import { catchError, mergeMap, map, tap } from 'rxjs/operators';
 import * as ProductActions from './product.actions';
 import { ProductService } from '../../../products/products.service';
 import { ToastrService } from 'ngx-toastr';
+import { Store } from '@ngrx/store';
 @Injectable()
 export class ProductEffects {
 
@@ -13,7 +14,8 @@ export class ProductEffects {
         private actions: Actions,
         private router: Router,
         private productsService: ProductService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
+        private store: Store
         ) {
         }
   
@@ -111,7 +113,7 @@ export class ProductEffects {
             return this.actions.pipe(
                 ofType(ProductActions.PRODUCT_DELETE_SUCCESS),
                      map((data:any) => {
-                        return { type: ProductActions.PRODUCT_DELETE_SUCCESS, payload: {data} }
+                        this.store.dispatch(ProductActions.productFetchAttempt());
                         }),
                      catchError((error) => ( of({type: ProductActions.PRODUCT_DELETE_FAILURE})) )
             )
