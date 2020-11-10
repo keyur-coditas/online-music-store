@@ -9,6 +9,16 @@
       "email": "keyur@gmail.com",
       "password": "$2a$10$6S7M/w0WozBYP3/CQPAzJeJfaZXddvsujhhCqbu93./h4CxexqfTi",
       "id": 2
+    },
+    {
+      "email": "kh@gh.com",
+      "password": "$2a$10$xPI3S9qlMGqGxkAdcMziOeujWp8QwmDo8wua11lgVmv1z58y7BTfO",
+      "id": 3
+    },
+    {
+      "email": "test@gmail.com",
+      "password": "$2a$10$P8r4JV1NXUbOrjXbvFrbwee1lCwaqL0zItswZclCR94bimqEKqziq",
+      "id": 4
     }
   ],
   "products": [
@@ -67,6 +77,14 @@
       "imageUrl": "../../../assets/images/acoustic_amp.webp",
       "createdBy": "keyur@gmail.com",
       "id": 7
+    },
+    {
+      "name": "1 edit",
+      "description": "3 edit",
+      "price": "111111",
+      "imageUrl": "../../../assets/images/grand_piano.webp",
+      "createdBy": "keyur@gmail.com",
+      "id": 8
     }
   ]
 }

@@ -42,12 +42,16 @@ export class storeFormButton extends LitElement {
     `;
   }
 
+  inputHandler() {
+    const inputValueChanged = new Event('click', {});
+  this.dispatchEvent(inputValueChanged);
+  }
 
   render(){
     if(this.isCardButton) {
       return html`<button class="str-card-buttons str-btn">${this.buttonText}</button>`;
     } else {
-      return html`<button class="str-submit-btn str-btn">${this.buttonText}</button>`;
+      return html`<button class="str-submit-btn str-btn" @click=${this.inputHandler}>${this.buttonText}</button>`;
     }
   }
 }

@@ -11,9 +11,9 @@
                 inputValue="{{name.value}}"
                 (inputValueChanged)="nameValueChanged($event)"            
             ></str-input>
-                <!-- <div>
-                    <span class="str-error-msg-class" *ngIf="name.touched && name.invalid">{{'products.product-operations.product-name-validation'|translate}}</span>
-                </div> -->
+                <div>
+                    <span class="str-error-msg-class" *ngIf="nameInvalid">{{'products.product-operations.product-name-validation'|translate}}</span>
+                </div>
             </div>
             <div>
                 <div>
@@ -26,9 +26,9 @@
                     (inputValueChanged)="priceValueChanged($event)"
                 ></str-input>
                 </div>
-                <!-- <div>
-                    <span class="str-error-msg-class" *ngIf="price.touched && price.invalid">{{'products.product-operations.product-price-validation'|translate}}</span>
-                </div> -->
+                <div>
+                    <span class="str-error-msg-class" *ngIf="priceInvalid">{{'products.product-operations.product-price-validation'|translate}}</span>
+                </div>
             </div>
             <div>
                 <str-textarea 
@@ -56,13 +56,13 @@
         </div>
         <div class="text-center">
             <str-form-btn 
-                ariaLabel="{{productOperationInfo.productOperation}}" 
+                [attr.aria-label]="productOperationInfo.productOperation" 
                 *ngIf="productOperationInfo.productOperation !== 'View'"
                 buttonText="{{ 'products.product-operations.' + buttonText | translate}}" 
                 (click)="onSubmit()">
             </str-form-btn>
             <str-form-btn  
-              ariaLabel="Back to products list"
+              aria-label="Back to products list"
               buttonText="{{'products.product-operations.cancel-button' | translate}}"
              (click)="cancel()" >
             </str-form-btn>

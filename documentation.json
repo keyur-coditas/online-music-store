@@ -1253,10 +1253,10 @@
         },
         {
             "name": "storeFormButton",
-            "id": "class-storeFormButton-006f059c017fb7b2c6fe2f2fad4966f4",
+            "id": "class-storeFormButton-afca76d91b8415c887383f0bda493573",
             "file": "src/components/form-button.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-form-btn')\r\nexport class storeFormButton extends LitElement {\r\n\r\n  @property()\r\n  buttonText = 'click here';\r\n\r\n  @property()\r\n  isCardButton = false;\r\n\r\n\r\n  static get styles() {\r\n    return css`\r\n    .str-btn {\r\n      padding: 8px;\r\n      border: 1px solid #c8c8c8;\r\n      box-shadow: .5px .5px #c8c8c8;\r\n      margin: 1rem;\r\n      background-color: var(--btn-background);\r\n    color: var(--btn-color);\r\n  }\r\n  .str-btn.active { \r\n    transform: scale(0.98); \r\n    /* Scaling button to 0.98 to its original size */ \r\n    -webkit-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    -moz-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n} \r\n  .str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.str-card-buttons {\r\n  width:6rem;\r\n  background-color: var(--form-btn-background);\r\n  color: var(--form-btn-color);\r\n  margin: 10px;\r\n}\r\n    `;\r\n  }\r\n\r\n\r\n  render(){\r\n    if(this.isCardButton) {\r\n      return html`<button class=\"str-card-buttons str-btn\">${this.buttonText}</button>`;\r\n    } else {\r\n      return html`<button class=\"str-submit-btn str-btn\">${this.buttonText}</button>`;\r\n    }\r\n  }\r\n}",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-form-btn')\r\nexport class storeFormButton extends LitElement {\r\n\r\n  @property()\r\n  buttonText = 'click here';\r\n\r\n  @property()\r\n  isCardButton = false;\r\n\r\n\r\n  static get styles() {\r\n    return css`\r\n    .str-btn {\r\n      padding: 8px;\r\n      border: 1px solid #c8c8c8;\r\n      box-shadow: .5px .5px #c8c8c8;\r\n      margin: 1rem;\r\n      background-color: var(--btn-background);\r\n    color: var(--btn-color);\r\n  }\r\n  .str-btn.active { \r\n    transform: scale(0.98); \r\n    /* Scaling button to 0.98 to its original size */ \r\n    -webkit-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    -moz-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n} \r\n  .str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.str-card-buttons {\r\n  width:6rem;\r\n  background-color: var(--form-btn-background);\r\n  color: var(--form-btn-color);\r\n  margin: 10px;\r\n}\r\n    `;\r\n  }\r\n\r\n  inputHandler() {\r\n    const inputValueChanged = new Event('click', {});\r\n  this.dispatchEvent(inputValueChanged);\r\n  }\r\n\r\n  render(){\r\n    if(this.isCardButton) {\r\n      return html`<button class=\"str-card-buttons str-btn\">${this.buttonText}</button>`;\r\n    } else {\r\n      return html`<button class=\"str-submit-btn str-btn\" @click=${this.inputHandler}>${this.buttonText}</button>`;\r\n    }\r\n  }\r\n}",
             "properties": [
                 {
                     "name": "buttonText",
@@ -1289,12 +1289,20 @@
             ],
             "methods": [
                 {
+                    "name": "inputHandler",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45
+                },
+                {
                     "name": "render",
                     "args": [],
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 46
+                    "line": 50
                 }
             ],
             "indexSignatures": [],
@@ -2716,11 +2724,11 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <str-input \r\n                ariaLabel=\"name\" \r\n                inputType=\"text\" \r\n                inputPlaceholder=\"{{'products.product-operations.enter-product-placeholder'|translate}}\"\r\n                isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{name.value}}\"\r\n                (inputValueChanged)=\"nameValueChanged($event)\"            \r\n            ></str-input>\r\n                <!-- <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"name.touched && name.invalid\">{{'products.product-operations.product-name-validation'|translate}}</span>\r\n                </div> -->\r\n            </div>\r\n            <div>\r\n                <div>\r\n                    <str-input \r\n                    ariaLabel=\"price\" \r\n                    inputType=\"number\" \r\n                    inputPlaceholder=\"{{'products.product-operations.enter-price-placeholder'|translate}}\"\r\n                    isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                    inputValue=\"{{price.value}}\"\r\n                    (inputValueChanged)=\"priceValueChanged($event)\"\r\n                ></str-input>\r\n                </div>\r\n                <!-- <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"price.touched && price.invalid\">{{'products.product-operations.product-price-validation'|translate}}</span>\r\n                </div> -->\r\n            </div>\r\n            <div>\r\n                <str-textarea \r\n                ariaLabel=\"description\"\r\n                columns=\"30\" \r\n                rows=\"10\"\r\n                inputPlaceholder=\"{{'products.product-operations.product-description-placeholder'|translate}}\" \r\n                isReadonly= \"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{description.value}}\"\r\n                (inputValueChanged)=\"descriptionValueChanged($event)\">\r\n                </str-textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                 <str-image-input \r\n                  ariaLabel=\"product-image\"\r\n                  isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                  inputValue=\"imageUrl\"\r\n                  labelValue=\"Choose a product image\"\r\n                  (inputValueChanged)=\"onImagePicked($event)\">\r\n                </str-image-input>\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <str-form-btn \r\n                ariaLabel=\"{{productOperationInfo.productOperation}}\" \r\n                *ngIf=\"productOperationInfo.productOperation !== 'View'\"\r\n                buttonText=\"{{ 'products.product-operations.' + buttonText | translate}}\" \r\n                (click)=\"onSubmit()\">\r\n            </str-form-btn>\r\n            <str-form-btn  \r\n              ariaLabel=\"Back to products list\"\r\n              buttonText=\"{{'products.product-operations.cancel-button' | translate}}\"\r\n             (click)=\"cancel()\" >\r\n            </str-form-btn>\r\n        </div>\r\n    </form>\r\n</div>"
+            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <str-input \r\n                ariaLabel=\"name\" \r\n                inputType=\"text\" \r\n                inputPlaceholder=\"{{'products.product-operations.enter-product-placeholder'|translate}}\"\r\n                isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{name.value}}\"\r\n                (inputValueChanged)=\"nameValueChanged($event)\"            \r\n            ></str-input>\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"nameInvalid\">{{'products.product-operations.product-name-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <div>\r\n                    <str-input \r\n                    ariaLabel=\"price\" \r\n                    inputType=\"number\" \r\n                    inputPlaceholder=\"{{'products.product-operations.enter-price-placeholder'|translate}}\"\r\n                    isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                    inputValue=\"{{price.value}}\"\r\n                    (inputValueChanged)=\"priceValueChanged($event)\"\r\n                ></str-input>\r\n                </div>\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"priceInvalid\">{{'products.product-operations.product-price-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <str-textarea \r\n                ariaLabel=\"description\"\r\n                columns=\"30\" \r\n                rows=\"10\"\r\n                inputPlaceholder=\"{{'products.product-operations.product-description-placeholder'|translate}}\" \r\n                isReadonly= \"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{description.value}}\"\r\n                (inputValueChanged)=\"descriptionValueChanged($event)\">\r\n                </str-textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                 <str-image-input \r\n                  ariaLabel=\"product-image\"\r\n                  isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                  inputValue=\"imageUrl\"\r\n                  labelValue=\"Choose a product image\"\r\n                  (inputValueChanged)=\"onImagePicked($event)\">\r\n                </str-image-input>\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <str-form-btn \r\n                [attr.aria-label]=\"productOperationInfo.productOperation\" \r\n                *ngIf=\"productOperationInfo.productOperation !== 'View'\"\r\n                buttonText=\"{{ 'products.product-operations.' + buttonText | translate}}\" \r\n                (click)=\"onSubmit()\">\r\n            </str-form-btn>\r\n            <str-form-btn  \r\n              aria-label=\"Back to products list\"\r\n              buttonText=\"{{'products.product-operations.cancel-button' | translate}}\"\r\n             (click)=\"cancel()\" >\r\n            </str-form-btn>\r\n        </div>\r\n    </form>\r\n</div>"
         },
         {
             "name": "ProductOperationsComponent",
-            "id": "component-ProductOperationsComponent-f2bfe1ef304dfa0686dc87be05e3a494-1",
+            "id": "component-ProductOperationsComponent-ea59310913867edcc80b2421d059b4be-1",
             "file": "src/app/products/product-operations/product-operations.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2791,6 +2799,13 @@
                     "line": 26
                 },
                 {
+                    "name": "nameInvalid",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 31
+                },
+                {
                     "name": "path",
                     "defaultValue": "'../../../assets/images/'",
                     "type": "string",
@@ -2804,6 +2819,13 @@
                     "optional": false,
                     "description": "",
                     "line": 28
+                },
+                {
+                    "name": "priceInvalid",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 32
                 },
                 {
                     "name": "productForm",
@@ -2834,7 +2856,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 97
+                    "line": 99
                 },
                 {
                     "name": "createProductFormGroup",
@@ -2842,7 +2864,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 53
+                    "line": 55
                 },
                 {
                     "name": "descriptionValueChanged",
@@ -2855,7 +2877,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 115,
+                    "line": 117,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -2872,7 +2894,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 90
+                    "line": 92
                 },
                 {
                     "name": "nameValueChanged",
@@ -2885,7 +2907,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 107,
+                    "line": 109,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -2902,7 +2924,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 36
+                    "line": 38
                 },
                 {
                     "name": "onImagePicked",
@@ -2915,7 +2937,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 83,
+                    "line": 85,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -2932,7 +2954,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 65
+                    "line": 67
                 },
                 {
                     "name": "priceValueChanged",
@@ -2945,7 +2967,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 111,
+                    "line": 113,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -2962,7 +2984,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 100
+                    "line": 102
                 }
             ],
             "hostBindings": [],
@@ -2970,7 +2992,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\r\nimport { Store } from '@ngrx/store';\r\nimport { ProductService } from '../products.service';\r\nimport * as ProductActions from '../../shared/store/products/product.actions';\r\nimport { StoreProduct } from '../../shared/store/products/products.model';\r\nimport * as APP_CONSTANTS from '../../shared/app.constants';\r\nimport { Router } from '@angular/router';\r\nimport { map } from 'rxjs/operators';\r\nimport { ProductOperationInfo } from '../../shared/models/product';\r\nimport { CurrentUser } from '../../shared/models/user';\r\nimport { TranslateService } from '@ngx-translate/core';\r\n@Component({\r\n  selector: 'app-product-operations',\r\n  templateUrl: './product-operations.component.html',\r\n  styleUrls: ['./product-operations.component.scss']\r\n})\r\nexport class ProductOperationsComponent implements OnInit {\r\n  productForm: FormGroup;\r\n  productOperationInfo: ProductOperationInfo;\r\n  imagePath: string = '';\r\n  path: string = '../../../assets/images/';\r\n  currentUser: string = '';\r\n  imageUrlPreview: string;\r\n  selectedProduct: StoreProduct;\r\n  name: FormControl;\r\n  description: FormControl;\r\n  price: FormControl;\r\n  imageUrl: FormControl;\r\n  buttonText: string;\r\n  constructor(\r\n    private productService:ProductService,\r\n    private store: Store,\r\n    private router: Router) {}\r\n\r\n  ngOnInit(): void {\r\n    this.productOperationInfo = this.productService.getProductInfo();\r\n    this.productForm = this.createProductFormGroup();\r\n    this.selectedProduct = this.productService.getProduct();\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_UPDATE || this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_VIEW) {\r\n     this.initializeFormData();\r\n    }\r\n    \r\n    this.store.pipe(\r\n      map((state) => state['auth'].currentUser))\r\n    .subscribe((data:CurrentUser) => {\r\n      this.currentUser = data.email;\r\n    })\r\n\r\n    this.setButtonText();\r\n  }\r\n\r\n  createProductFormGroup() {\r\n    this.name = new FormControl('', [Validators.required]);\r\n    this.description = new FormControl('');\r\n    this.price = new FormControl('',[Validators.required]);\r\n    this.imageUrl = new FormControl();\r\n    return new FormGroup({\r\n        name: this.name,\r\n        description: this.description,\r\n        price: this.price,\r\n        imageUrl: this.imageUrl\r\n    });\r\n}\r\nonSubmit() {\r\n  if(this.productForm.valid) {\r\n    const product:StoreProduct = {\r\n      name: this.name.value,\r\n      description: this.description.value,\r\n      price: this.price.value,\r\n      imageUrl: this.imageUrlPreview,\r\n      createdBy: this.currentUser\r\n    }\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {\r\n  \r\n      this.store.dispatch(ProductActions.productAddAttempted({product}));\r\n    } else {\r\n      product.id = this.selectedProduct.id;\r\n      this.store.dispatch(ProductActions.productUpdateAttempt({product}))\r\n    }\r\n  }\r\n}\r\nonImagePicked(event) {\r\n const file = event.detail.value;\r\nif(file) {\r\n  this.imagePath = this.path+file.name;\r\n  this.imageUrlPreview = this.imagePath;\r\n}\r\n}\r\ninitializeFormData() {\r\n  const {name, description, price, imageUrl} = this.selectedProduct;\r\n  this.name.setValue(name);\r\n  this.imageUrlPreview = imageUrl;\r\n  this.price.setValue(price);\r\n  this.description.setValue(description);\r\n}\r\n  cancel() {\r\n    this.router.navigate(['products']);\r\n  }\r\n  setButtonText() {\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {\r\n      this.buttonText = 'add-button';\r\n    } else {\r\n      this.buttonText = 'update-button';\r\n    }\r\n  }\r\n  nameValueChanged(event) {\r\n    this.name.setValue(event.detail.value);\r\n    // this.emailInvalid = !this.loginForm.controls['email'].valid;\r\n  }\r\n  priceValueChanged(event) {\r\n    this.price.setValue(event.detail.value);\r\n    // this.emailInvalid = !this.loginForm.controls['email'].valid;\r\n  }\r\n  descriptionValueChanged(event) {\r\n    this.description.setValue(event.detail.value);\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\r\nimport { Store } from '@ngrx/store';\r\nimport { ProductService } from '../products.service';\r\nimport * as ProductActions from '../../shared/store/products/product.actions';\r\nimport { StoreProduct } from '../../shared/store/products/products.model';\r\nimport * as APP_CONSTANTS from '../../shared/app.constants';\r\nimport { Router } from '@angular/router';\r\nimport { map } from 'rxjs/operators';\r\nimport { ProductOperationInfo } from '../../shared/models/product';\r\nimport { CurrentUser } from '../../shared/models/user';\r\nimport { TranslateService } from '@ngx-translate/core';\r\n@Component({\r\n  selector: 'app-product-operations',\r\n  templateUrl: './product-operations.component.html',\r\n  styleUrls: ['./product-operations.component.scss']\r\n})\r\nexport class ProductOperationsComponent implements OnInit {\r\n  productForm: FormGroup;\r\n  productOperationInfo: ProductOperationInfo;\r\n  imagePath: string = '';\r\n  path: string = '../../../assets/images/';\r\n  currentUser: string = '';\r\n  imageUrlPreview: string;\r\n  selectedProduct: StoreProduct;\r\n  name: FormControl;\r\n  description: FormControl;\r\n  price: FormControl;\r\n  imageUrl: FormControl;\r\n  buttonText: string;\r\n  nameInvalid: boolean;\r\n  priceInvalid: boolean;\r\n  constructor(\r\n    private productService:ProductService,\r\n    private store: Store,\r\n    private router: Router) {}\r\n\r\n  ngOnInit(): void {\r\n    this.productOperationInfo = this.productService.getProductInfo();\r\n    this.productForm = this.createProductFormGroup();\r\n    this.selectedProduct = this.productService.getProduct();\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_UPDATE || this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_VIEW) {\r\n     this.initializeFormData();\r\n    }\r\n    \r\n    this.store.pipe(\r\n      map((state) => state['auth'].currentUser))\r\n    .subscribe((data:CurrentUser) => {\r\n      this.currentUser = data.email;\r\n    })\r\n\r\n    this.setButtonText();\r\n  }\r\n\r\n  createProductFormGroup() {\r\n    this.name = new FormControl('', [Validators.required]);\r\n    this.description = new FormControl('');\r\n    this.price = new FormControl('',[Validators.required]);\r\n    this.imageUrl = new FormControl();\r\n    return new FormGroup({\r\n        name: this.name,\r\n        description: this.description,\r\n        price: this.price,\r\n        imageUrl: this.imageUrl\r\n    });\r\n}\r\nonSubmit() {\r\n  if(this.productForm.valid) {\r\n    const product:StoreProduct = {\r\n      name: this.name.value,\r\n      description: this.description.value,\r\n      price: this.price.value,\r\n      imageUrl: this.imageUrlPreview,\r\n      createdBy: this.currentUser\r\n    }\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {\r\n  \r\n      this.store.dispatch(ProductActions.productAddAttempted({product}));\r\n    } else {\r\n      product.id = this.selectedProduct.id;\r\n      this.store.dispatch(ProductActions.productUpdateAttempt({product}))\r\n    }\r\n  }\r\n}\r\nonImagePicked(event) {\r\n const file = event.detail.value;\r\nif(file) {\r\n  this.imagePath = this.path+file.name;\r\n  this.imageUrlPreview = this.imagePath;\r\n}\r\n}\r\ninitializeFormData() {\r\n  const {name, description, price, imageUrl} = this.selectedProduct;\r\n  this.name.setValue(name);\r\n  this.imageUrlPreview = imageUrl;\r\n  this.price.setValue(price);\r\n  this.description.setValue(description);\r\n}\r\n  cancel() {\r\n    this.router.navigate(['products']);\r\n  }\r\n  setButtonText() {\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {\r\n      this.buttonText = 'add-button';\r\n    } else {\r\n      this.buttonText = 'update-button';\r\n    }\r\n  }\r\n  nameValueChanged(event) {\r\n    this.name.setValue(event.detail.value);\r\n    this.nameInvalid = !this.productForm.controls['name'].valid;\r\n  }\r\n  priceValueChanged(event) {\r\n    this.price.setValue(event.detail.value);\r\n    this.priceInvalid = !this.productForm.controls['price'].valid;\r\n  }\r\n  descriptionValueChanged(event) {\r\n    this.description.setValue(event.detail.value);\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2996,7 +3018,7 @@
                         "type": "Router"
                     }
                 ],
-                "line": 30,
+                "line": 32,
                 "jsdoctags": [
                     {
                         "name": "productService",
@@ -3027,7 +3049,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "ProductOperationsComponent-1",
-            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <str-input \r\n                ariaLabel=\"name\" \r\n                inputType=\"text\" \r\n                inputPlaceholder=\"{{'products.product-operations.enter-product-placeholder'|translate}}\"\r\n                isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{name.value}}\"\r\n                (inputValueChanged)=\"nameValueChanged($event)\"            \r\n            ></str-input>\r\n                <!-- <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"name.touched && name.invalid\">{{'products.product-operations.product-name-validation'|translate}}</span>\r\n                </div> -->\r\n            </div>\r\n            <div>\r\n                <div>\r\n                    <str-input \r\n                    ariaLabel=\"price\" \r\n                    inputType=\"number\" \r\n                    inputPlaceholder=\"{{'products.product-operations.enter-price-placeholder'|translate}}\"\r\n                    isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                    inputValue=\"{{price.value}}\"\r\n                    (inputValueChanged)=\"priceValueChanged($event)\"\r\n                ></str-input>\r\n                </div>\r\n                <!-- <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"price.touched && price.invalid\">{{'products.product-operations.product-price-validation'|translate}}</span>\r\n                </div> -->\r\n            </div>\r\n            <div>\r\n                <str-textarea \r\n                ariaLabel=\"description\"\r\n                columns=\"30\" \r\n                rows=\"10\"\r\n                inputPlaceholder=\"{{'products.product-operations.product-description-placeholder'|translate}}\" \r\n                isReadonly= \"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{description.value}}\"\r\n                (inputValueChanged)=\"descriptionValueChanged($event)\">\r\n                </str-textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                 <str-image-input \r\n                  ariaLabel=\"product-image\"\r\n                  isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                  inputValue=\"imageUrl\"\r\n                  labelValue=\"Choose a product image\"\r\n                  (inputValueChanged)=\"onImagePicked($event)\">\r\n                </str-image-input>\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <str-form-btn \r\n                ariaLabel=\"{{productOperationInfo.productOperation}}\" \r\n                *ngIf=\"productOperationInfo.productOperation !== 'View'\"\r\n                buttonText=\"{{ 'products.product-operations.' + buttonText | translate}}\" \r\n                (click)=\"onSubmit()\">\r\n            </str-form-btn>\r\n            <str-form-btn  \r\n              ariaLabel=\"Back to products list\"\r\n              buttonText=\"{{'products.product-operations.cancel-button' | translate}}\"\r\n             (click)=\"cancel()\" >\r\n            </str-form-btn>\r\n        </div>\r\n    </form>\r\n</div>"
+            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <str-input \r\n                ariaLabel=\"name\" \r\n                inputType=\"text\" \r\n                inputPlaceholder=\"{{'products.product-operations.enter-product-placeholder'|translate}}\"\r\n                isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{name.value}}\"\r\n                (inputValueChanged)=\"nameValueChanged($event)\"            \r\n            ></str-input>\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"nameInvalid\">{{'products.product-operations.product-name-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <div>\r\n                    <str-input \r\n                    ariaLabel=\"price\" \r\n                    inputType=\"number\" \r\n                    inputPlaceholder=\"{{'products.product-operations.enter-price-placeholder'|translate}}\"\r\n                    isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                    inputValue=\"{{price.value}}\"\r\n                    (inputValueChanged)=\"priceValueChanged($event)\"\r\n                ></str-input>\r\n                </div>\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"priceInvalid\">{{'products.product-operations.product-price-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <str-textarea \r\n                ariaLabel=\"description\"\r\n                columns=\"30\" \r\n                rows=\"10\"\r\n                inputPlaceholder=\"{{'products.product-operations.product-description-placeholder'|translate}}\" \r\n                isReadonly= \"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{description.value}}\"\r\n                (inputValueChanged)=\"descriptionValueChanged($event)\">\r\n                </str-textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                 <str-image-input \r\n                  ariaLabel=\"product-image\"\r\n                  isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                  inputValue=\"imageUrl\"\r\n                  labelValue=\"Choose a product image\"\r\n                  (inputValueChanged)=\"onImagePicked($event)\">\r\n                </str-image-input>\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <str-form-btn \r\n                [attr.aria-label]=\"productOperationInfo.productOperation\" \r\n                *ngIf=\"productOperationInfo.productOperation !== 'View'\"\r\n                buttonText=\"{{ 'products.product-operations.' + buttonText | translate}}\" \r\n                (click)=\"onSubmit()\">\r\n            </str-form-btn>\r\n            <str-form-btn  \r\n              aria-label=\"Back to products list\"\r\n              buttonText=\"{{'products.product-operations.cancel-button' | translate}}\"\r\n             (click)=\"cancel()\" >\r\n            </str-form-btn>\r\n        </div>\r\n    </form>\r\n</div>"
         },
         {
             "name": "ProductsComponent",
@@ -4347,7 +4369,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/header/Header.stories.ts",
+                "file": "src/stories/login/Login.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -4367,7 +4389,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/login/Login.stories.ts",
+                "file": "src/stories/header/Header.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -5189,10 +5211,10 @@
                     ]
                 }
             ],
-            "src/stories/header/Header.stories.ts": [
+            "src/stories/login/Login.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/header/Header.stories.ts",
+                    "file": "src/stories/login/Login.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -5211,10 +5233,10 @@
                     ]
                 }
             ],
-            "src/stories/login/Login.stories.ts": [
+            "src/stories/header/Header.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/login/Login.stories.ts",
+                    "file": "src/stories/header/Header.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -5487,7 +5509,7 @@
                 "linktype": "component",
                 "name": "ProductOperationsComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/24",
+                "coverageCount": "0/26",
                 "status": "low"
             },
             {
@@ -6203,7 +6225,7 @@
                 "linktype": "classe",
                 "name": "storeFormButton",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {

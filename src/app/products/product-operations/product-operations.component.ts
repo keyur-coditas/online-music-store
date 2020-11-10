@@ -28,6 +28,8 @@ export class ProductOperationsComponent implements OnInit {
   price: FormControl;
   imageUrl: FormControl;
   buttonText: string;
+  nameInvalid: boolean;
+  priceInvalid: boolean;
   constructor(
     private productService:ProductService,
     private store: Store,
@@ -106,11 +108,11 @@ initializeFormData() {
   }
   nameValueChanged(event) {
     this.name.setValue(event.detail.value);
-    // this.emailInvalid = !this.loginForm.controls['email'].valid;
+    this.nameInvalid = !this.productForm.controls['name'].valid;
   }
   priceValueChanged(event) {
     this.price.setValue(event.detail.value);
-    // this.emailInvalid = !this.loginForm.controls['email'].valid;
+    this.priceInvalid = !this.productForm.controls['price'].valid;
   }
   descriptionValueChanged(event) {
     this.description.setValue(event.detail.value);
