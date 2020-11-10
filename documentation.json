@@ -1312,11 +1312,11 @@
             }
         },
         {
-            "name": "storeInputElement",
-            "id": "class-storeInputElement-c234bec2e73ce253ba4588505f0a269a",
-            "file": "src/components/text-input-element.ts",
+            "name": "storeImageInputElement",
+            "id": "class-storeImageInputElement-225c47780323c15ed70b31598b9a7693",
+            "file": "src/components/image-input.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-input')\r\nexport class storeInputElement extends LitElement {\r\n\r\n     @property()\r\n     ariaLabel: string;\r\n\r\n     @property()\r\n     inputType: string;\r\n\r\n     @property()\r\n     inputPlaceholder: string;\r\n  \r\n  static get styles() {\r\n    return css`\r\n    .str-input {\r\n        width: 20rem;\r\n        height: 2rem;\r\n        border: 1px solid #bdbdbd;\r\n        border-radius: 5px;\r\n        margin: 15px auto 0px 0px;\r\n        padding-left: 10px;\r\n    }\r\n    `;\r\n  }\r\n\r\n\r\n  inputHandler(event) {\r\n      const inputValueChanged = new CustomEvent('inputValueChanged', {\r\n        detail: {\r\n            value: event.composedPath()[0].value\r\n        },\r\n    });\r\n    this.dispatchEvent(inputValueChanged)\r\n  }\r\n\r\n  render(){\r\n    return html`<input aria-label=\"${this.ariaLabel}\" class=\"str-input\" type=\"${this.inputType}\"\r\n    placeholder=\"${this.inputPlaceholder}\" @input=${this.inputHandler}/>`;\r\n  }\r\n}",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-image-input')\r\nexport class storeImageInputElement extends LitElement {\r\n\r\n    @property()\r\n    ariaLabel: string;\r\n\r\n    @property()\r\n    isReadonly: string;\r\n\r\n    @property()\r\n    inputValue: string = null;\r\n\r\n    @property()\r\n    labelValue: string = \"Choose an image\";\r\n\r\n    static get styles() {\r\n        return css`\r\n        .image-label {\r\n            font-size: 12px;\r\n            margin: 10px;\r\n            display: block;\r\n            color: #666666;\r\n        }\r\n    `;\r\n    }\r\n\r\n    inputHandler(event) {\r\n        const inputValueChanged = new CustomEvent('inputValueChanged', {\r\n            detail: {\r\n                value: event.path[0].files[0]\r\n            },\r\n        });\r\n        this.dispatchEvent(inputValueChanged);\r\n    }\r\n\r\n    render() {\r\n        let readonlyValue;\r\n        if (this.isReadonly === 'true') {\r\n            readonlyValue = true;\r\n        }\r\n        return html`  \r\n        <label for=\"\" class=\"image-label\" >${this.labelValue}</label>\r\n        <input aria-label=\"${this.ariaLabel}\" type=\"file\" path=\"../assets/images/\" ?readonly= \"${readonlyValue}\"\r\n         @change=\"${this.inputHandler}\">\r\n    `;\r\n    }\r\n}",
             "properties": [
                 {
                     "name": "ariaLabel",
@@ -1332,7 +1332,8 @@
                     ]
                 },
                 {
-                    "name": "inputPlaceholder",
+                    "name": "inputValue",
+                    "defaultValue": "null",
                     "type": "string",
                     "optional": false,
                     "description": "",
@@ -1345,11 +1346,25 @@
                     ]
                 },
                 {
-                    "name": "inputType",
+                    "name": "isReadonly",
                     "type": "string",
                     "optional": false,
                     "description": "",
                     "line": 11,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "labelValue",
+                    "defaultValue": "\"Choose an image\"",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
                     "decorators": [
                         {
                             "name": "property",
@@ -1399,7 +1414,127 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 16
+                        "line": 19
+                    }
+                }
+            }
+        },
+        {
+            "name": "storeInputElement",
+            "id": "class-storeInputElement-c602e26847e9e48c917d45ffb83c31b3",
+            "file": "src/components/text-input-element.ts",
+            "type": "class",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-input')\r\nexport class storeInputElement extends LitElement {\r\n\r\n     @property()\r\n     ariaLabel: string;\r\n\r\n     @property()\r\n     inputType: string;\r\n\r\n     @property()\r\n     inputPlaceholder: string;\r\n\r\n     @property()\r\n     isReadonly: string;\r\n\r\n     @property()\r\n     inputValue: string = null;\r\n  \r\n  static get styles() {\r\n    return css`\r\n    .str-input {\r\n        width: 20rem;\r\n        height: 2rem;\r\n        border: 1px solid #bdbdbd;\r\n        border-radius: 5px;\r\n        margin: 15px auto 0px 0px;\r\n        padding-left: 10px;\r\n    }\r\n    `;\r\n  }\r\n\r\n\r\n  inputHandler(event) {\r\n      const inputValueChanged = new CustomEvent('inputValueChanged', {\r\n        detail: {\r\n            value: event.composedPath()[0].value\r\n        },\r\n    });\r\n    this.dispatchEvent(inputValueChanged);\r\n  }\r\n\r\n  render(){\r\n    let readonlyValue;\r\n    if(this.isReadonly === 'true') {\r\n      readonlyValue = true;\r\n    }\r\n    return html`<input aria-label=\"${this.ariaLabel}\" class=\"str-input\" type=\"${this.inputType}\"\r\n    placeholder=\"${this.inputPlaceholder}\" @input=${this.inputHandler} .value=\"${this.inputValue}\"\r\n    ?readonly=\"${readonlyValue}\"/>`;\r\n  }\r\n}",
+            "properties": [
+                {
+                    "name": "ariaLabel",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "inputPlaceholder",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "inputType",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "inputValue",
+                    "defaultValue": "null",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "isReadonly",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "inputHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 36,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "render",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 45
+                }
+            ],
+            "indexSignatures": [],
+            "extends": "LitElement",
+            "accessors": {
+                "styles": {
+                    "name": "styles",
+                    "getSignature": {
+                        "name": "styles",
+                        "type": "",
+                        "returnType": "",
+                        "line": 22
                     }
                 }
             }
@@ -1462,11 +1597,146 @@
             "hostListeners": []
         },
         {
+            "name": "storeTextareaElement",
+            "id": "class-storeTextareaElement-86ae4910fbcdf547f8ea4fa4de27849f",
+            "file": "src/components/textarea-input.ts",
+            "type": "class",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-textarea')\r\nexport class storeTextareaElement extends LitElement {\r\n\r\n    @property()\r\n    ariaLabel: string;\r\n\r\n\r\n    @property()\r\n    inputPlaceholder: string;\r\n\r\n    @property()\r\n    isReadonly: string;\r\n\r\n    @property()\r\n    inputValue: string = null;\r\n\r\n    @property()\r\n    rows: string = \"10\";\r\n\r\n    @property()\r\n    columns: string = \"30\";\r\n\r\n    static get styles() {\r\n        return css`\r\n    .str-textarea {\r\n        width: 20rem;\r\n        border: 1px solid #bdbdbd;\r\n        border-radius: 5px;\r\n        margin: 15px auto 0px 0px;\r\n        padding-left: 10px;\r\n    }\r\n    `;\r\n    }\r\n\r\n\r\n    inputHandler(event) {\r\n        const inputValueChanged = new CustomEvent('inputValueChanged', {\r\n            detail: {\r\n                value: event.composedPath()[0].value\r\n            },\r\n        });\r\n        this.dispatchEvent(inputValueChanged);\r\n    }\r\n\r\n    render() {\r\n        let readonlyValue;\r\n        if (this.isReadonly === 'true') {\r\n            readonlyValue = true;\r\n        }\r\n        return html`  \r\n    <textarea aria-label=\"${this.ariaLabel}\" class=\"str-textarea\" cols=\"${this.columns}\" rows=\"${this.rows}\"\r\n     @input=${this.inputHandler}  placeholder=\"${this.inputPlaceholder}\" ?readonly= \"${readonlyValue}\" .value=\"${this.inputValue}\">\r\n    </textarea>`;\r\n    }\r\n}",
+            "properties": [
+                {
+                    "name": "ariaLabel",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "columns",
+                    "defaultValue": "\"30\"",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 24,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "inputPlaceholder",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "inputValue",
+                    "defaultValue": "null",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "isReadonly",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "rows",
+                    "defaultValue": "\"10\"",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 21,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "inputHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 39,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "render",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 48
+                }
+            ],
+            "indexSignatures": [],
+            "extends": "LitElement",
+            "accessors": {
+                "styles": {
+                    "name": "styles",
+                    "getSignature": {
+                        "name": "styles",
+                        "type": "",
+                        "returnType": "",
+                        "line": 26
+                    }
+                }
+            }
+        },
+        {
             "name": "StorybookMocks",
-            "id": "class-StorybookMocks-0647a9c6ecbdd65ce4b41bf4bff68ce7",
+            "id": "class-StorybookMocks-117760bd24a6ea8123224fac2fe90aba",
             "file": "src/stories/mocks.ts",
             "type": "class",
-            "sourceCode": "import { FormBuilder, FormControl, Validators } from '@angular/forms';\r\nimport { of } from 'rxjs';\r\nimport * as APP_CONSTANTS from '../app/shared/app.constants';\r\nexport class StorybookMocks {\r\n  public static getstoreMock = () => {\r\n    return {\r\n      dispatch: () => {},\r\n      pipe: () => {},\r\n    };\r\n  };\r\n\r\n  public static getrouterMock = () => {\r\n    return {\r\n      navigate: () => {},\r\n    };\r\n  };\r\n\r\n  public static getProductServiceMock = () => {\r\n    return {\r\n      getAllProducts: jest.fn(() => false),\r\n      getProductInfo: jest.fn(() => {\r\n        return {\r\n          productOperation: APP_CONSTANTS.PRODUCT_ADD,\r\n          disableFormFields: false,\r\n        };\r\n      }),\r\n      setProductInfo: jest.fn(() => {}),\r\n      addProduct: jest.fn(() => {}),\r\n      setProduct: jest.fn((val) => {}),\r\n      getProduct: jest.fn((val) => {\r\n        return {\r\n          name: '',\r\n          description: '',\r\n          imageUrl: '',\r\n          createdBy: '',\r\n          price: 10,\r\n          id: 1,\r\n        };\r\n      }),\r\n    };\r\n  };\r\n  public static updateProuctFormGroup = () => {\r\n    const UpdateModel = {\r\n      name: new FormControl('Laney, Acoustic Guitar Amp, 80W A1+', [\r\n        Validators.required,\r\n      ]),\r\n      price: new FormControl(26460, [Validators.required]),\r\n      description: new FormControl(\r\n        'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.'\r\n      ),\r\n      imageUrl: new FormControl(),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(UpdateModel);\r\n  };\r\n  public static getMockProductFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      name: new FormControl('', [Validators.required]),\r\n      description: new FormControl(''),\r\n      price: new FormControl('', [Validators.required]),\r\n      imageUrl: new FormControl(),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockProductActions = () => {\r\n    return {\r\n      cancel: () => {console.log('cancel called')},\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n      onImagePicked: (event) => {console.log('onImagePicked called')}\r\n    }\r\n  }\r\n\r\n  public static getMockLoginFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      email: new FormControl('', [Validators.required]),\r\n      password: new FormControl('', [Validators.required]),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockLoginActions = () => {\r\n    return {\r\n      navigate: (event) => {event.preventDefault(); console.log('navigate called')},\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n      emailValueChanged: () => {console.log('emailValueChanged called')},\r\n      passwordValueChanged: () => {console.log('passwordValueChanged called')},\r\n    }\r\n  }\r\n\r\n  public static getMockRegistrationFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      email: new FormControl('', [Validators.required]),\r\n      password: new FormControl('', [Validators.required]),\r\n      confirmPassword: new FormControl('', [Validators.required]),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockRegistrationActions = () => {\r\n    return {\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n      emailValueChanged: () => {console.log('emailValueChanged called')},\r\n      passwordValueChanged: () => {console.log('passwordValueChanged called')},\r\n      confirmPasswordValueChanged: () => {console.log('confirmPasswordValueChanged called')},\r\n    }\r\n  }\r\n\r\n  public static mockCardActions = () => {\r\n    return {\r\n      updateProduct: (event) => {event.stopPropagation(); console.log('updateProduct called')},\r\n      deleteProduct: (event) => { event.stopPropagation(); console.log('deleteProduct called')},\r\n      viewProduct: () => { console.log('viewProduct called')},\r\n    }\r\n  }\r\n\r\n  public static mockHeaderActions = () => {\r\n    return {\r\n      addProduct: () => { console.log('addProduct called')},\r\n      logout: () => {console.log('logout called')},\r\n      changeLanguage: () => { console.log('changeLanguage called')},\r\n      changeTheme: () => { console.log('changeTheme called')}\r\n    }\r\n  }\r\n  public static getCardStoreMock = () => {\r\n    return of({\r\n      auth: {\r\n        currentUser: {\r\n          accessToken: '123',\r\n          email: 'xyz@gmail.com',\r\n          isLoggedIn: false\r\n        }\r\n      },\r\n      dispatch: () => {},\r\n      pipe: () => {},\r\n    })\r\n  };\r\n}\r\n",
+            "sourceCode": "import { FormBuilder, FormControl, Validators } from '@angular/forms';\r\nimport { of } from 'rxjs';\r\nimport * as APP_CONSTANTS from '../app/shared/app.constants';\r\nexport class StorybookMocks {\r\n  public static getstoreMock = () => {\r\n    return {\r\n      dispatch: () => {},\r\n      pipe: () => {},\r\n    };\r\n  };\r\n\r\n  public static getrouterMock = () => {\r\n    return {\r\n      navigate: () => {},\r\n    };\r\n  };\r\n\r\n  public static getProductServiceMock = () => {\r\n    return {\r\n      getAllProducts: jest.fn(() => false),\r\n      getProductInfo: jest.fn(() => {\r\n        return {\r\n          productOperation: APP_CONSTANTS.PRODUCT_ADD,\r\n          disableFormFields: false,\r\n        };\r\n      }),\r\n      setProductInfo: jest.fn(() => {}),\r\n      addProduct: jest.fn(() => {}),\r\n      setProduct: jest.fn((val) => {}),\r\n      getProduct: jest.fn((val) => {\r\n        return {\r\n          name: '',\r\n          description: '',\r\n          imageUrl: '',\r\n          createdBy: '',\r\n          price: 10,\r\n          id: 1,\r\n        };\r\n      }),\r\n    };\r\n  };\r\n  public static updateProuctFormGroup = () => {\r\n    const UpdateModel = {\r\n      name: new FormControl('Laney, Acoustic Guitar Amp, 80W A1+', [\r\n        Validators.required,\r\n      ]),\r\n      price: new FormControl(26460, [Validators.required]),\r\n      description: new FormControl(\r\n        'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.'\r\n      ),\r\n      imageUrl: new FormControl(),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(UpdateModel);\r\n  };\r\n  public static getMockProductFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      name: new FormControl('', [Validators.required]),\r\n      description: new FormControl(''),\r\n      price: new FormControl('', [Validators.required]),\r\n      imageUrl: new FormControl(),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockProductActions = () => {\r\n    return {\r\n      cancel: () => {console.log('cancel called')},\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n      onImagePicked: (event) => {console.log('onImagePicked called')},\r\n      nameValueChanged: (event) => {console.log('nameValueChanged called')},\r\n      priceValueChanged: (event) => {console.log('priceValueChanged called')},\r\n      descriptionValueChanged: (event) => {console.log('descriptionValueChanged called')}\r\n    }\r\n  }\r\n\r\n  public static getMockLoginFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      email: new FormControl('', [Validators.required]),\r\n      password: new FormControl('', [Validators.required]),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockLoginActions = () => {\r\n    return {\r\n      navigate: (event) => {event.preventDefault(); console.log('navigate called')},\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n      emailValueChanged: () => {console.log('emailValueChanged called')},\r\n      passwordValueChanged: () => {console.log('passwordValueChanged called')},\r\n    }\r\n  }\r\n\r\n  public static getMockRegistrationFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      email: new FormControl('', [Validators.required]),\r\n      password: new FormControl('', [Validators.required]),\r\n      confirmPassword: new FormControl('', [Validators.required]),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockRegistrationActions = () => {\r\n    return {\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n      emailValueChanged: () => {console.log('emailValueChanged called')},\r\n      passwordValueChanged: () => {console.log('passwordValueChanged called')},\r\n      confirmPasswordValueChanged: () => {console.log('confirmPasswordValueChanged called')},\r\n    }\r\n  }\r\n\r\n  public static mockCardActions = () => {\r\n    return {\r\n      updateProduct: (event) => {event.stopPropagation(); console.log('updateProduct called')},\r\n      deleteProduct: (event) => { event.stopPropagation(); console.log('deleteProduct called')},\r\n      viewProduct: () => { console.log('viewProduct called')},\r\n    }\r\n  }\r\n\r\n  public static mockHeaderActions = () => {\r\n    return {\r\n      addProduct: () => { console.log('addProduct called')},\r\n      logout: () => {console.log('logout called')},\r\n      changeLanguage: () => { console.log('changeLanguage called')},\r\n      changeTheme: () => { console.log('changeTheme called')}\r\n    }\r\n  }\r\n  public static getCardStoreMock = () => {\r\n    return of({\r\n      auth: {\r\n        currentUser: {\r\n          accessToken: '123',\r\n          email: 'xyz@gmail.com',\r\n          isLoggedIn: false\r\n        }\r\n      },\r\n      dispatch: () => {},\r\n      pipe: () => {},\r\n    })\r\n  };\r\n}\r\n",
             "properties": [
                 {
                     "name": "getCardStoreMock",
@@ -1474,7 +1744,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 131,
+                    "line": 134,
                     "modifierKind": [
                         115
                     ]
@@ -1485,7 +1755,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 76,
+                    "line": 79,
                     "modifierKind": [
                         115
                     ]
@@ -1507,7 +1777,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 95,
+                    "line": 98,
                     "modifierKind": [
                         115
                     ]
@@ -1551,7 +1821,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 115,
+                    "line": 118,
                     "modifierKind": [
                         115
                     ]
@@ -1562,7 +1832,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 123,
+                    "line": 126,
                     "modifierKind": [
                         115
                     ]
@@ -1573,7 +1843,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 86,
+                    "line": 89,
                     "modifierKind": [
                         115
                     ]
@@ -1595,7 +1865,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 106,
+                    "line": 109,
                     "modifierKind": [
                         115
                     ]
@@ -2446,11 +2716,11 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\" (ngSubmit)=\"onSubmit()\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <input aria-label=\"name\" class=\"str-input\" type=\"text\" formControlName=\"name\" placeholder=\"{{'products.product-operations.enter-product-placeholder'|translate}}\" [readonly]= \"productOperationInfo.disableFormFields\" />\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"name.touched && name.invalid\">{{'products.product-operations.product-name-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <input aria-label=\"price\" class=\"str-input\" type=\"number\" formControlName=\"price\" placeholder=\"{{'products.product-operations.enter-price-placeholder'|translate}}\" [readonly]= \"productOperationInfo.disableFormFields\"  />\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"price.touched && price.invalid\">{{'products.product-operations.product-price-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <textarea aria-label=\"description\" class=\"str-textarea\" name=\"description\" id=\"\" cols=\"30\" formControlName=\"description\" rows=\"10\"\r\n                 placeholder=\"{{'products.product-operations.product-description-placeholder'|translate}}\" [readonly]= \"productOperationInfo.disableFormFields\">\r\n                </textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                <label for=\"\" class=\"image-label\" >Choose a product image</label>\r\n                <input aria-label=\"product-image\" type=\"file\" #filePicker formControlName=\"imageUrl\" path=\"../../../assets/images/\" \r\n                 (change)=\"onImagePicked($event)\" [readonly]= \"productOperationInfo.disableFormFields\">\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <button [attr.aria-label]=\"productOperationInfo.productOperation\" class=\"str-submit-btn str-btn\" *ngIf=\"productOperationInfo.productOperation !== 'View'\">{{ 'products.product-operations.' + buttonText | translate}}</button>\r\n            <button type=\"button\" attr.aria-label=\"Back to products list\" class=\"str-submit-btn str-btn\" (click)=\"cancel()\" >{{'products.product-operations.cancel-button' | translate}}</button>\r\n        </div>\r\n    </form>\r\n</div>"
+            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <str-input \r\n                ariaLabel=\"name\" \r\n                inputType=\"text\" \r\n                inputPlaceholder=\"{{'products.product-operations.enter-product-placeholder'|translate}}\"\r\n                isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{name.value}}\"\r\n                (inputValueChanged)=\"nameValueChanged($event)\"            \r\n            ></str-input>\r\n                <!-- <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"name.touched && name.invalid\">{{'products.product-operations.product-name-validation'|translate}}</span>\r\n                </div> -->\r\n            </div>\r\n            <div>\r\n                <div>\r\n                    <str-input \r\n                    ariaLabel=\"price\" \r\n                    inputType=\"number\" \r\n                    inputPlaceholder=\"{{'products.product-operations.enter-price-placeholder'|translate}}\"\r\n                    isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                    inputValue=\"{{price.value}}\"\r\n                    (inputValueChanged)=\"priceValueChanged($event)\"\r\n                ></str-input>\r\n                </div>\r\n                <!-- <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"price.touched && price.invalid\">{{'products.product-operations.product-price-validation'|translate}}</span>\r\n                </div> -->\r\n            </div>\r\n            <div>\r\n                <str-textarea \r\n                ariaLabel=\"description\"\r\n                columns=\"30\" \r\n                rows=\"10\"\r\n                inputPlaceholder=\"{{'products.product-operations.product-description-placeholder'|translate}}\" \r\n                isReadonly= \"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{description.value}}\"\r\n                (inputValueChanged)=\"descriptionValueChanged($event)\">\r\n                </str-textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                 <str-image-input \r\n                  ariaLabel=\"product-image\"\r\n                  isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                  inputValue=\"imageUrl\"\r\n                  labelValue=\"Choose a product image\"\r\n                  (inputValueChanged)=\"onImagePicked($event)\">\r\n                </str-image-input>\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <str-form-btn \r\n                ariaLabel=\"{{productOperationInfo.productOperation}}\" \r\n                *ngIf=\"productOperationInfo.productOperation !== 'View'\"\r\n                buttonText=\"{{ 'products.product-operations.' + buttonText | translate}}\" \r\n                (click)=\"onSubmit()\">\r\n            </str-form-btn>\r\n            <str-form-btn  \r\n              ariaLabel=\"Back to products list\"\r\n              buttonText=\"{{'products.product-operations.cancel-button' | translate}}\"\r\n             (click)=\"cancel()\" >\r\n            </str-form-btn>\r\n        </div>\r\n    </form>\r\n</div>"
         },
         {
             "name": "ProductOperationsComponent",
-            "id": "component-ProductOperationsComponent-a435bc826312f9f367ed29c02fa49a17-1",
+            "id": "component-ProductOperationsComponent-f2bfe1ef304dfa0686dc87be05e3a494-1",
             "file": "src/app/products/product-operations/product-operations.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2575,12 +2845,56 @@
                     "line": 53
                 },
                 {
+                    "name": "descriptionValueChanged",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 115,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "initializeFormData",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
                     "line": 90
+                },
+                {
+                    "name": "nameValueChanged",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 107,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 },
                 {
                     "name": "ngOnInit",
@@ -2621,6 +2935,28 @@
                     "line": 65
                 },
                 {
+                    "name": "priceValueChanged",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 111,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "setButtonText",
                     "args": [],
                     "optional": false,
@@ -2634,7 +2970,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\r\nimport { Store } from '@ngrx/store';\r\nimport { ProductService } from '../products.service';\r\nimport * as ProductActions from '../../shared/store/products/product.actions';\r\nimport { StoreProduct } from '../../shared/store/products/products.model';\r\nimport * as APP_CONSTANTS from '../../shared/app.constants';\r\nimport { Router } from '@angular/router';\r\nimport { map } from 'rxjs/operators';\r\nimport { ProductOperationInfo } from '../../shared/models/product';\r\nimport { CurrentUser } from '../../shared/models/user';\r\nimport { TranslateService } from '@ngx-translate/core';\r\n@Component({\r\n  selector: 'app-product-operations',\r\n  templateUrl: './product-operations.component.html',\r\n  styleUrls: ['./product-operations.component.scss']\r\n})\r\nexport class ProductOperationsComponent implements OnInit {\r\n  productForm: FormGroup;\r\n  productOperationInfo: ProductOperationInfo;\r\n  imagePath: string = '';\r\n  path: string = '../../../assets/images/';\r\n  currentUser: string = '';\r\n  imageUrlPreview: string;\r\n  selectedProduct: StoreProduct;\r\n  name: FormControl;\r\n  description: FormControl;\r\n  price: FormControl;\r\n  imageUrl: FormControl;\r\n  buttonText: string;\r\n  constructor(\r\n    private productService:ProductService,\r\n    private store: Store,\r\n    private router: Router) {}\r\n\r\n  ngOnInit(): void {\r\n    this.productOperationInfo = this.productService.getProductInfo();\r\n    this.productForm = this.createProductFormGroup();\r\n    this.selectedProduct = this.productService.getProduct();\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_UPDATE || this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_VIEW) {\r\n     this.initializeFormData();\r\n    }\r\n    \r\n    this.store.pipe(\r\n      map((state) => state['auth'].currentUser))\r\n    .subscribe((data:CurrentUser) => {\r\n      this.currentUser = data.email;\r\n    })\r\n\r\n    this.setButtonText();\r\n  }\r\n\r\n  createProductFormGroup() {\r\n    this.name = new FormControl('', [Validators.required]);\r\n    this.description = new FormControl('');\r\n    this.price = new FormControl('',[Validators.required]);\r\n    this.imageUrl = new FormControl();\r\n    return new FormGroup({\r\n        name: this.name,\r\n        description: this.description,\r\n        price: this.price,\r\n        imageUrl: this.imageUrl\r\n    });\r\n}\r\nonSubmit() {\r\n  if(this.productForm.valid) {\r\n    const product:StoreProduct = {\r\n      name: this.name.value,\r\n      description: this.description.value,\r\n      price: this.price.value,\r\n      imageUrl: this.imageUrlPreview,\r\n      createdBy: this.currentUser\r\n    }\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {\r\n  \r\n      this.store.dispatch(ProductActions.productAddAttempted({product}));\r\n    } else {\r\n      product.id = this.selectedProduct.id;\r\n      this.store.dispatch(ProductActions.productUpdateAttempt({product}))\r\n    }\r\n  }\r\n}\r\nonImagePicked(event) {\r\n const file = (event.target as HTMLInputElement).files[0];\r\nif(file) {\r\n  this.imagePath = this.path+file.name;\r\n  this.imageUrlPreview = this.imagePath;\r\n}\r\n}\r\ninitializeFormData() {\r\n  const {name, description, price, imageUrl} = this.selectedProduct;\r\n  this.name.setValue(name);\r\n  this.imageUrlPreview = imageUrl;\r\n  this.price.setValue(price);\r\n  this.description.setValue(description);\r\n}\r\n  cancel() {\r\n    this.router.navigate(['products']);\r\n  }\r\n  setButtonText() {\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {\r\n      this.buttonText = 'add-button';\r\n    } else {\r\n      this.buttonText = 'update-button';\r\n    }\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\r\nimport { Store } from '@ngrx/store';\r\nimport { ProductService } from '../products.service';\r\nimport * as ProductActions from '../../shared/store/products/product.actions';\r\nimport { StoreProduct } from '../../shared/store/products/products.model';\r\nimport * as APP_CONSTANTS from '../../shared/app.constants';\r\nimport { Router } from '@angular/router';\r\nimport { map } from 'rxjs/operators';\r\nimport { ProductOperationInfo } from '../../shared/models/product';\r\nimport { CurrentUser } from '../../shared/models/user';\r\nimport { TranslateService } from '@ngx-translate/core';\r\n@Component({\r\n  selector: 'app-product-operations',\r\n  templateUrl: './product-operations.component.html',\r\n  styleUrls: ['./product-operations.component.scss']\r\n})\r\nexport class ProductOperationsComponent implements OnInit {\r\n  productForm: FormGroup;\r\n  productOperationInfo: ProductOperationInfo;\r\n  imagePath: string = '';\r\n  path: string = '../../../assets/images/';\r\n  currentUser: string = '';\r\n  imageUrlPreview: string;\r\n  selectedProduct: StoreProduct;\r\n  name: FormControl;\r\n  description: FormControl;\r\n  price: FormControl;\r\n  imageUrl: FormControl;\r\n  buttonText: string;\r\n  constructor(\r\n    private productService:ProductService,\r\n    private store: Store,\r\n    private router: Router) {}\r\n\r\n  ngOnInit(): void {\r\n    this.productOperationInfo = this.productService.getProductInfo();\r\n    this.productForm = this.createProductFormGroup();\r\n    this.selectedProduct = this.productService.getProduct();\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_UPDATE || this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_VIEW) {\r\n     this.initializeFormData();\r\n    }\r\n    \r\n    this.store.pipe(\r\n      map((state) => state['auth'].currentUser))\r\n    .subscribe((data:CurrentUser) => {\r\n      this.currentUser = data.email;\r\n    })\r\n\r\n    this.setButtonText();\r\n  }\r\n\r\n  createProductFormGroup() {\r\n    this.name = new FormControl('', [Validators.required]);\r\n    this.description = new FormControl('');\r\n    this.price = new FormControl('',[Validators.required]);\r\n    this.imageUrl = new FormControl();\r\n    return new FormGroup({\r\n        name: this.name,\r\n        description: this.description,\r\n        price: this.price,\r\n        imageUrl: this.imageUrl\r\n    });\r\n}\r\nonSubmit() {\r\n  if(this.productForm.valid) {\r\n    const product:StoreProduct = {\r\n      name: this.name.value,\r\n      description: this.description.value,\r\n      price: this.price.value,\r\n      imageUrl: this.imageUrlPreview,\r\n      createdBy: this.currentUser\r\n    }\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {\r\n  \r\n      this.store.dispatch(ProductActions.productAddAttempted({product}));\r\n    } else {\r\n      product.id = this.selectedProduct.id;\r\n      this.store.dispatch(ProductActions.productUpdateAttempt({product}))\r\n    }\r\n  }\r\n}\r\nonImagePicked(event) {\r\n const file = event.detail.value;\r\nif(file) {\r\n  this.imagePath = this.path+file.name;\r\n  this.imageUrlPreview = this.imagePath;\r\n}\r\n}\r\ninitializeFormData() {\r\n  const {name, description, price, imageUrl} = this.selectedProduct;\r\n  this.name.setValue(name);\r\n  this.imageUrlPreview = imageUrl;\r\n  this.price.setValue(price);\r\n  this.description.setValue(description);\r\n}\r\n  cancel() {\r\n    this.router.navigate(['products']);\r\n  }\r\n  setButtonText() {\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {\r\n      this.buttonText = 'add-button';\r\n    } else {\r\n      this.buttonText = 'update-button';\r\n    }\r\n  }\r\n  nameValueChanged(event) {\r\n    this.name.setValue(event.detail.value);\r\n    // this.emailInvalid = !this.loginForm.controls['email'].valid;\r\n  }\r\n  priceValueChanged(event) {\r\n    this.price.setValue(event.detail.value);\r\n    // this.emailInvalid = !this.loginForm.controls['email'].valid;\r\n  }\r\n  descriptionValueChanged(event) {\r\n    this.description.setValue(event.detail.value);\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2691,7 +3027,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "ProductOperationsComponent-1",
-            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\" (ngSubmit)=\"onSubmit()\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <input aria-label=\"name\" class=\"str-input\" type=\"text\" formControlName=\"name\" placeholder=\"{{'products.product-operations.enter-product-placeholder'|translate}}\" [readonly]= \"productOperationInfo.disableFormFields\" />\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"name.touched && name.invalid\">{{'products.product-operations.product-name-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <input aria-label=\"price\" class=\"str-input\" type=\"number\" formControlName=\"price\" placeholder=\"{{'products.product-operations.enter-price-placeholder'|translate}}\" [readonly]= \"productOperationInfo.disableFormFields\"  />\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"price.touched && price.invalid\">{{'products.product-operations.product-price-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <textarea aria-label=\"description\" class=\"str-textarea\" name=\"description\" id=\"\" cols=\"30\" formControlName=\"description\" rows=\"10\"\r\n                 placeholder=\"{{'products.product-operations.product-description-placeholder'|translate}}\" [readonly]= \"productOperationInfo.disableFormFields\">\r\n                </textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                <label for=\"\" class=\"image-label\" >Choose a product image</label>\r\n                <input aria-label=\"product-image\" type=\"file\" #filePicker formControlName=\"imageUrl\" path=\"../../../assets/images/\" \r\n                 (change)=\"onImagePicked($event)\" [readonly]= \"productOperationInfo.disableFormFields\">\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <button [attr.aria-label]=\"productOperationInfo.productOperation\" class=\"str-submit-btn str-btn\" *ngIf=\"productOperationInfo.productOperation !== 'View'\">{{ 'products.product-operations.' + buttonText | translate}}</button>\r\n            <button type=\"button\" attr.aria-label=\"Back to products list\" class=\"str-submit-btn str-btn\" (click)=\"cancel()\" >{{'products.product-operations.cancel-button' | translate}}</button>\r\n        </div>\r\n    </form>\r\n</div>"
+            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <str-input \r\n                ariaLabel=\"name\" \r\n                inputType=\"text\" \r\n                inputPlaceholder=\"{{'products.product-operations.enter-product-placeholder'|translate}}\"\r\n                isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{name.value}}\"\r\n                (inputValueChanged)=\"nameValueChanged($event)\"            \r\n            ></str-input>\r\n                <!-- <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"name.touched && name.invalid\">{{'products.product-operations.product-name-validation'|translate}}</span>\r\n                </div> -->\r\n            </div>\r\n            <div>\r\n                <div>\r\n                    <str-input \r\n                    ariaLabel=\"price\" \r\n                    inputType=\"number\" \r\n                    inputPlaceholder=\"{{'products.product-operations.enter-price-placeholder'|translate}}\"\r\n                    isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                    inputValue=\"{{price.value}}\"\r\n                    (inputValueChanged)=\"priceValueChanged($event)\"\r\n                ></str-input>\r\n                </div>\r\n                <!-- <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"price.touched && price.invalid\">{{'products.product-operations.product-price-validation'|translate}}</span>\r\n                </div> -->\r\n            </div>\r\n            <div>\r\n                <str-textarea \r\n                ariaLabel=\"description\"\r\n                columns=\"30\" \r\n                rows=\"10\"\r\n                inputPlaceholder=\"{{'products.product-operations.product-description-placeholder'|translate}}\" \r\n                isReadonly= \"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{description.value}}\"\r\n                (inputValueChanged)=\"descriptionValueChanged($event)\">\r\n                </str-textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                 <str-image-input \r\n                  ariaLabel=\"product-image\"\r\n                  isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                  inputValue=\"imageUrl\"\r\n                  labelValue=\"Choose a product image\"\r\n                  (inputValueChanged)=\"onImagePicked($event)\">\r\n                </str-image-input>\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <str-form-btn \r\n                ariaLabel=\"{{productOperationInfo.productOperation}}\" \r\n                *ngIf=\"productOperationInfo.productOperation !== 'View'\"\r\n                buttonText=\"{{ 'products.product-operations.' + buttonText | translate}}\" \r\n                (click)=\"onSubmit()\">\r\n            </str-form-btn>\r\n            <str-form-btn  \r\n              ariaLabel=\"Back to products list\"\r\n              buttonText=\"{{'products.product-operations.cancel-button' | translate}}\"\r\n             (click)=\"cancel()\" >\r\n            </str-form-btn>\r\n        </div>\r\n    </form>\r\n</div>"
         },
         {
             "name": "ProductsComponent",
@@ -3377,7 +3713,7 @@
                 "subtype": "variable",
                 "file": "src/stories/products/ProductOperations.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm:  StorybookMocks.getMockProductFormGroup(),\r\n    name : {touched: false, invalid: false},\r\n    price : {touched: false, invalid: false},\r\n    imageUrlPreview: '',\r\n    productOperationInfo: {\r\n      productOperation: 'Add',\r\n      disableFormFields: false,\r\n    },\r\n    buttonText: 'add-button',\r\n    cancel: StorybookMocks.mockProductActions().cancel,\r\n    onSubmit: StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked : StorybookMocks.mockProductActions().onImagePicked\r\n  }, \r\n})"
+                "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm:  StorybookMocks.getMockProductFormGroup(),\r\n    name : {touched: false, invalid: false},\r\n    price : {touched: false, invalid: false, value: ''},\r\n    description : {touched: false, invalid: false, value: ''},\r\n    imageUrlPreview: '',\r\n    productOperationInfo: {\r\n      productOperation: 'Add',\r\n      disableFormFields: false,\r\n    },\r\n    buttonText: 'add-button',\r\n    cancel: StorybookMocks.mockProductActions().cancel,\r\n    onSubmit: StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked : StorybookMocks.mockProductActions().onImagePicked,\r\n    nameValueChanged: StorybookMocks.mockProductActions().nameValueChanged,\r\n    priceValueChanged: StorybookMocks.mockProductActions().priceValueChanged,\r\n    descriptionValueChanged: StorybookMocks.mockProductActions().descriptionValueChanged,\r\n  }, \r\n})"
             },
             {
                 "name": "dark",
@@ -3417,7 +3753,7 @@
                 "subtype": "variable",
                 "file": "src/stories/registration/Registration.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\r\n  component: RegistrationComponent,\r\n  props: {\r\n    registrationForm: StorybookMocks.getMockRegistrationFormGroup(),\r\n    onSubmit: StorybookMocks.mockRegistrationActions().onSubmit,\r\n    emailValueChanged: () => StorybookMocks.mockRegistrationActions().emailValueChanged,\r\n    passwordValueChanged: () => StorybookMocks.mockRegistrationActions().passwordValueChanged,\r\n    confirmPasswordValueChanged: () => StorybookMocks.mockRegistrationActions().confirmPasswordValueChanged,\r\n  },\r\n})"
+                "defaultValue": "() => ({\r\n  component: RegistrationComponent,\r\n  props: {\r\n    registrationForm: StorybookMocks.getMockRegistrationFormGroup(),\r\n    onSubmit: StorybookMocks.mockRegistrationActions().onSubmit,\r\n    emailValueChanged:  StorybookMocks.mockRegistrationActions().emailValueChanged,\r\n    passwordValueChanged: StorybookMocks.mockRegistrationActions().passwordValueChanged,\r\n    confirmPasswordValueChanged: StorybookMocks.mockRegistrationActions().confirmPasswordValueChanged,\r\n  },\r\n})"
             },
             {
                 "name": "defaultState",
@@ -3897,7 +4233,7 @@
                 "subtype": "variable",
                 "file": "src/stories/products/ProductOperations.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm: StorybookMocks.updateProuctFormGroup(),\r\n    name:{touched: false, invalid: false},\r\n    price:{touched: false, invalid: false},\r\n    imageUrlPreview: '../../../assets/images/acoustic_amp.webp',\r\n    productOperationInfo: {\r\n      productOperation: 'Update',\r\n      disableFormFields: false,\r\n    },\r\n    buttonText: 'update-button',\r\n    cancel:  StorybookMocks.mockProductActions().cancel,\r\n    onSubmit:  StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked\r\n  }, \r\n})"
+                "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm: StorybookMocks.updateProuctFormGroup(),\r\n    name : {touched: false, invalid: false, value:'Laney, Acoustic Guitar Amp, 80W A1+'},\r\n    price : {touched: false, invalid: false, value: 26460},\r\n    description : {touched: false, invalid: false, value: 'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.'},\r\n    imageUrlPreview: '../../../assets/images/acoustic_amp.webp',\r\n    productOperationInfo: {\r\n      productOperation: 'Update',\r\n      disableFormFields: false,\r\n    },\r\n    buttonText: 'update-button',\r\n    cancel:  StorybookMocks.mockProductActions().cancel,\r\n    onSubmit:  StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked,\r\n    nameValueChanged: StorybookMocks.mockProductActions().nameValueChanged,\r\n    priceValueChanged: StorybookMocks.mockProductActions().priceValueChanged,\r\n    descriptionValueChanged: StorybookMocks.mockProductActions().descriptionValueChanged,\r\n  }, \r\n})"
             },
             {
                 "name": "viewProduct",
@@ -3905,7 +4241,7 @@
                 "subtype": "variable",
                 "file": "src/stories/products/ProductOperations.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm: StorybookMocks.updateProuctFormGroup(),\r\n    name:{touched: false, invalid: false},\r\n    price:{touched: false, invalid: false},\r\n    imageUrlPreview: '../../../assets/images/acoustic_amp.webp',\r\n    productOperationInfo: {\r\n      productOperation: 'View',\r\n      disableFormFields: true,\r\n    },\r\n    buttonText: 'update-button',\r\n    cancel:  StorybookMocks.mockProductActions().cancel,\r\n    onSubmit:  StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked\r\n  }, \r\n})"
+                "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm: StorybookMocks.updateProuctFormGroup(),\r\n    name : {touched: false, invalid: false, value:'Laney, Acoustic Guitar Amp, 80W A1+'},\r\n    price : {touched: false, invalid: false, value: 26460},\r\n    description : {touched: false, invalid: false, value: 'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.'},\r\n    imageUrlPreview: '../../../assets/images/acoustic_amp.webp',\r\n    productOperationInfo: {\r\n      productOperation: 'View',\r\n      disableFormFields: true,\r\n    },\r\n    buttonText: 'update-button',\r\n    cancel:  StorybookMocks.mockProductActions().cancel,\r\n    onSubmit:  StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked,\r\n    nameValueChanged: StorybookMocks.mockProductActions().nameValueChanged,\r\n    priceValueChanged: StorybookMocks.mockProductActions().priceValueChanged,\r\n    descriptionValueChanged: StorybookMocks.mockProductActions().descriptionValueChanged,\r\n  }, \r\n})"
             }
         ],
         "functions": [
@@ -4178,7 +4514,7 @@
                     "subtype": "variable",
                     "file": "src/stories/products/ProductOperations.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm:  StorybookMocks.getMockProductFormGroup(),\r\n    name : {touched: false, invalid: false},\r\n    price : {touched: false, invalid: false},\r\n    imageUrlPreview: '',\r\n    productOperationInfo: {\r\n      productOperation: 'Add',\r\n      disableFormFields: false,\r\n    },\r\n    buttonText: 'add-button',\r\n    cancel: StorybookMocks.mockProductActions().cancel,\r\n    onSubmit: StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked : StorybookMocks.mockProductActions().onImagePicked\r\n  }, \r\n})"
+                    "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm:  StorybookMocks.getMockProductFormGroup(),\r\n    name : {touched: false, invalid: false},\r\n    price : {touched: false, invalid: false, value: ''},\r\n    description : {touched: false, invalid: false, value: ''},\r\n    imageUrlPreview: '',\r\n    productOperationInfo: {\r\n      productOperation: 'Add',\r\n      disableFormFields: false,\r\n    },\r\n    buttonText: 'add-button',\r\n    cancel: StorybookMocks.mockProductActions().cancel,\r\n    onSubmit: StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked : StorybookMocks.mockProductActions().onImagePicked,\r\n    nameValueChanged: StorybookMocks.mockProductActions().nameValueChanged,\r\n    priceValueChanged: StorybookMocks.mockProductActions().priceValueChanged,\r\n    descriptionValueChanged: StorybookMocks.mockProductActions().descriptionValueChanged,\r\n  }, \r\n})"
                 },
                 {
                     "name": "updateProduct",
@@ -4186,7 +4522,7 @@
                     "subtype": "variable",
                     "file": "src/stories/products/ProductOperations.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm: StorybookMocks.updateProuctFormGroup(),\r\n    name:{touched: false, invalid: false},\r\n    price:{touched: false, invalid: false},\r\n    imageUrlPreview: '../../../assets/images/acoustic_amp.webp',\r\n    productOperationInfo: {\r\n      productOperation: 'Update',\r\n      disableFormFields: false,\r\n    },\r\n    buttonText: 'update-button',\r\n    cancel:  StorybookMocks.mockProductActions().cancel,\r\n    onSubmit:  StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked\r\n  }, \r\n})"
+                    "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm: StorybookMocks.updateProuctFormGroup(),\r\n    name : {touched: false, invalid: false, value:'Laney, Acoustic Guitar Amp, 80W A1+'},\r\n    price : {touched: false, invalid: false, value: 26460},\r\n    description : {touched: false, invalid: false, value: 'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.'},\r\n    imageUrlPreview: '../../../assets/images/acoustic_amp.webp',\r\n    productOperationInfo: {\r\n      productOperation: 'Update',\r\n      disableFormFields: false,\r\n    },\r\n    buttonText: 'update-button',\r\n    cancel:  StorybookMocks.mockProductActions().cancel,\r\n    onSubmit:  StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked,\r\n    nameValueChanged: StorybookMocks.mockProductActions().nameValueChanged,\r\n    priceValueChanged: StorybookMocks.mockProductActions().priceValueChanged,\r\n    descriptionValueChanged: StorybookMocks.mockProductActions().descriptionValueChanged,\r\n  }, \r\n})"
                 },
                 {
                     "name": "viewProduct",
@@ -4194,7 +4530,7 @@
                     "subtype": "variable",
                     "file": "src/stories/products/ProductOperations.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm: StorybookMocks.updateProuctFormGroup(),\r\n    name:{touched: false, invalid: false},\r\n    price:{touched: false, invalid: false},\r\n    imageUrlPreview: '../../../assets/images/acoustic_amp.webp',\r\n    productOperationInfo: {\r\n      productOperation: 'View',\r\n      disableFormFields: true,\r\n    },\r\n    buttonText: 'update-button',\r\n    cancel:  StorybookMocks.mockProductActions().cancel,\r\n    onSubmit:  StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked\r\n  }, \r\n})"
+                    "defaultValue": "() => ({\r\n  component: ProductOperationsComponent,\r\n  props: {\r\n    productForm: StorybookMocks.updateProuctFormGroup(),\r\n    name : {touched: false, invalid: false, value:'Laney, Acoustic Guitar Amp, 80W A1+'},\r\n    price : {touched: false, invalid: false, value: 26460},\r\n    description : {touched: false, invalid: false, value: 'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.'},\r\n    imageUrlPreview: '../../../assets/images/acoustic_amp.webp',\r\n    productOperationInfo: {\r\n      productOperation: 'View',\r\n      disableFormFields: true,\r\n    },\r\n    buttonText: 'update-button',\r\n    cancel:  StorybookMocks.mockProductActions().cancel,\r\n    onSubmit:  StorybookMocks.mockProductActions().onSubmit,\r\n    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked,\r\n    nameValueChanged: StorybookMocks.mockProductActions().nameValueChanged,\r\n    priceValueChanged: StorybookMocks.mockProductActions().priceValueChanged,\r\n    descriptionValueChanged: StorybookMocks.mockProductActions().descriptionValueChanged,\r\n  }, \r\n})"
                 }
             ],
             "src/app/shared/styles/themes/theme.ts": [
@@ -4284,7 +4620,7 @@
                     "subtype": "variable",
                     "file": "src/stories/registration/Registration.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\r\n  component: RegistrationComponent,\r\n  props: {\r\n    registrationForm: StorybookMocks.getMockRegistrationFormGroup(),\r\n    onSubmit: StorybookMocks.mockRegistrationActions().onSubmit,\r\n    emailValueChanged: () => StorybookMocks.mockRegistrationActions().emailValueChanged,\r\n    passwordValueChanged: () => StorybookMocks.mockRegistrationActions().passwordValueChanged,\r\n    confirmPasswordValueChanged: () => StorybookMocks.mockRegistrationActions().confirmPasswordValueChanged,\r\n  },\r\n})"
+                    "defaultValue": "() => ({\r\n  component: RegistrationComponent,\r\n  props: {\r\n    registrationForm: StorybookMocks.getMockRegistrationFormGroup(),\r\n    onSubmit: StorybookMocks.mockRegistrationActions().onSubmit,\r\n    emailValueChanged:  StorybookMocks.mockRegistrationActions().emailValueChanged,\r\n    passwordValueChanged: StorybookMocks.mockRegistrationActions().passwordValueChanged,\r\n    confirmPasswordValueChanged: StorybookMocks.mockRegistrationActions().confirmPasswordValueChanged,\r\n  },\r\n})"
                 }
             ],
             "src/stories/products/products/Product.stories.ts": [
@@ -5151,7 +5487,7 @@
                 "linktype": "component",
                 "name": "ProductOperationsComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/21",
+                "coverageCount": "0/24",
                 "status": "low"
             },
             {
@@ -5871,12 +6207,30 @@
                 "status": "low"
             },
             {
+                "filePath": "src/components/image-input.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "storeImageInputElement",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
                 "filePath": "src/components/text-input-element.ts",
                 "type": "class",
                 "linktype": "classe",
                 "name": "storeInputElement",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/textarea-input.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "storeTextareaElement",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {

@@ -71,4 +71,28 @@ describe('ProductOperationsComponent', () => {
   test('createFormGroup', () => {
     component.createProductFormGroup();
   });
+  test('nameValueChanged', () => {
+    const inputValueChanged = new CustomEvent('inputValueChanged', {
+      detail: {
+          value: 'test'
+      },
+  });
+    component.nameValueChanged(inputValueChanged);
+  });
+  test('priceValueChanged', () => {
+    const inputValueChanged = new CustomEvent('inputValueChanged', {
+      detail: {
+          value: 'test'
+      },
+  });
+    component.priceValueChanged(inputValueChanged);
+  });
+  test('descriptionValueChanged', () => {
+    const inputValueChanged = new CustomEvent('inputValueChanged', {
+      detail: {
+          value: 'test'
+      },
+  });
+    component.descriptionValueChanged(inputValueChanged);
+  });
 });

@@ -12,6 +12,12 @@ export class storeInputElement extends LitElement {
 
      @property()
      inputPlaceholder: string;
+
+     @property()
+     isReadonly: string;
+
+     @property()
+     inputValue: string = null;
   
   static get styles() {
     return css`
@@ -33,11 +39,16 @@ export class storeInputElement extends LitElement {
             value: event.composedPath()[0].value
         },
     });
-    this.dispatchEvent(inputValueChanged)
+    this.dispatchEvent(inputValueChanged);
   }
 
   render(){
+    let readonlyValue;
+    if(this.isReadonly === 'true') {
+      readonlyValue = true;
+    }
     return html`<input aria-label="${this.ariaLabel}" class="str-input" type="${this.inputType}"
-    placeholder="${this.inputPlaceholder}" @input=${this.inputHandler}/>`;
+    placeholder="${this.inputPlaceholder}" @input=${this.inputHandler} .value="${this.inputValue}"
+    ?readonly="${readonlyValue}"/>`;
   }
 }

@@ -53,7 +53,8 @@ export const addProduct = () => ({
   props: {
     productForm:  StorybookMocks.getMockProductFormGroup(),
     name : {touched: false, invalid: false},
-    price : {touched: false, invalid: false},
+    price : {touched: false, invalid: false, value: ''},
+    description : {touched: false, invalid: false, value: ''},
     imageUrlPreview: '',
     productOperationInfo: {
       productOperation: 'Add',
@@ -62,7 +63,10 @@ export const addProduct = () => ({
     buttonText: 'add-button',
     cancel: StorybookMocks.mockProductActions().cancel,
     onSubmit: StorybookMocks.mockProductActions().onSubmit,
-    onImagePicked : StorybookMocks.mockProductActions().onImagePicked
+    onImagePicked : StorybookMocks.mockProductActions().onImagePicked,
+    nameValueChanged: StorybookMocks.mockProductActions().nameValueChanged,
+    priceValueChanged: StorybookMocks.mockProductActions().priceValueChanged,
+    descriptionValueChanged: StorybookMocks.mockProductActions().descriptionValueChanged,
   }, 
 });
 
@@ -70,8 +74,9 @@ export const updateProduct = () => ({
   component: ProductOperationsComponent,
   props: {
     productForm: StorybookMocks.updateProuctFormGroup(),
-    name:{touched: false, invalid: false},
-    price:{touched: false, invalid: false},
+    name : {touched: false, invalid: false, value:'Laney, Acoustic Guitar Amp, 80W A1+'},
+    price : {touched: false, invalid: false, value: 26460},
+    description : {touched: false, invalid: false, value: 'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.'},
     imageUrlPreview: '../../../assets/images/acoustic_amp.webp',
     productOperationInfo: {
       productOperation: 'Update',
@@ -80,7 +85,10 @@ export const updateProduct = () => ({
     buttonText: 'update-button',
     cancel:  StorybookMocks.mockProductActions().cancel,
     onSubmit:  StorybookMocks.mockProductActions().onSubmit,
-    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked
+    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked,
+    nameValueChanged: StorybookMocks.mockProductActions().nameValueChanged,
+    priceValueChanged: StorybookMocks.mockProductActions().priceValueChanged,
+    descriptionValueChanged: StorybookMocks.mockProductActions().descriptionValueChanged,
   }, 
 });
 
@@ -88,8 +96,9 @@ export const viewProduct = () => ({
   component: ProductOperationsComponent,
   props: {
     productForm: StorybookMocks.updateProuctFormGroup(),
-    name:{touched: false, invalid: false},
-    price:{touched: false, invalid: false},
+    name : {touched: false, invalid: false, value:'Laney, Acoustic Guitar Amp, 80W A1+'},
+    price : {touched: false, invalid: false, value: 26460},
+    description : {touched: false, invalid: false, value: 'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.'},
     imageUrlPreview: '../../../assets/images/acoustic_amp.webp',
     productOperationInfo: {
       productOperation: 'View',
@@ -98,6 +107,9 @@ export const viewProduct = () => ({
     buttonText: 'update-button',
     cancel:  StorybookMocks.mockProductActions().cancel,
     onSubmit:  StorybookMocks.mockProductActions().onSubmit,
-    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked
+    onImagePicked :  StorybookMocks.mockProductActions().onImagePicked,
+    nameValueChanged: StorybookMocks.mockProductActions().nameValueChanged,
+    priceValueChanged: StorybookMocks.mockProductActions().priceValueChanged,
+    descriptionValueChanged: StorybookMocks.mockProductActions().descriptionValueChanged,
   }, 
 });

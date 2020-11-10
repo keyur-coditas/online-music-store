@@ -81,7 +81,7 @@ onSubmit() {
   }
 }
 onImagePicked(event) {
- const file = (event.target as HTMLInputElement).files[0];
+ const file = event.detail.value;
 if(file) {
   this.imagePath = this.path+file.name;
   this.imageUrlPreview = this.imagePath;
@@ -103,5 +103,16 @@ initializeFormData() {
     } else {
       this.buttonText = 'update-button';
     }
+  }
+  nameValueChanged(event) {
+    this.name.setValue(event.detail.value);
+    // this.emailInvalid = !this.loginForm.controls['email'].valid;
+  }
+  priceValueChanged(event) {
+    this.price.setValue(event.detail.value);
+    // this.emailInvalid = !this.loginForm.controls['email'].valid;
+  }
+  descriptionValueChanged(event) {
+    this.description.setValue(event.detail.value);
   }
 }

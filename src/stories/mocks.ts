@@ -69,7 +69,10 @@ export class StorybookMocks {
     return {
       cancel: () => {console.log('cancel called')},
       onSubmit: () => {console.log('onSubmit called')},
-      onImagePicked: (event) => {console.log('onImagePicked called')}
+      onImagePicked: (event) => {console.log('onImagePicked called')},
+      nameValueChanged: (event) => {console.log('nameValueChanged called')},
+      priceValueChanged: (event) => {console.log('priceValueChanged called')},
+      descriptionValueChanged: (event) => {console.log('descriptionValueChanged called')}
     }
   }
 
