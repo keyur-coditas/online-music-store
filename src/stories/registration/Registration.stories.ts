@@ -1,11 +1,10 @@
 import { moduleMetadata } from '@storybook/angular';
 import { CommonModule } from '@angular/common';
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
-import { Story, Meta } from '@storybook/angular/types-6-0';
+import { Meta } from '@storybook/angular/types-6-0';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Store, StoreModule } from '@ngrx/store';
-import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import '../../components';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -53,6 +52,9 @@ export const defaultState = () => ({
   props: {
     registrationForm: StorybookMocks.getMockRegistrationFormGroup(),
     onSubmit: StorybookMocks.mockRegistrationActions().onSubmit,
+    emailValueChanged:  StorybookMocks.mockRegistrationActions().emailValueChanged,
+    passwordValueChanged: StorybookMocks.mockRegistrationActions().passwordValueChanged,
+    confirmPasswordValueChanged: StorybookMocks.mockRegistrationActions().confirmPasswordValueChanged,
   },
 });
 

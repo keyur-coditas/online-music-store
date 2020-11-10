@@ -1,47 +1,39 @@
 <div class="tab">{{'auth.register-tab' | translate}}</div>
 <form [formGroup]="registrationForm" class="text-center">
-    <div>
-      <input
-        aria-label="Enter email"
-        class="str-input"
-        type="email"
-        formControlName="email"
-        placeholder="{{'auth.email-placeholder'|translate}}"
-      />
-        <p class="str-error-msg-class" *ngIf="registrationForm.controls['email'].touched && registrationForm.controls['email'].invalid"
-          >{{'auth.email-validation' | translate}}</p>
-    </div>
-    <div>
-      <input
-        aria-label="Select a password"
-        class="str-input"
-        type="password"
-        formControlName="password"
-        placeholder="{{'auth.select-password-placeholder' | translate}}"
-      />
-        <p
-          class="str-error-msg-class"
-          *ngIf="registrationForm.controls['password'].touched && registrationForm.controls['password'].invalid"
-          >{{'auth.password-validation' | translate}}</p>
-    </div>
-    <div>
-      <input
-        aria-label="confirm password"
-        class="str-input"
-        type="password"
-        formControlName="confirmPassword"
-        placeholder="{{'auth.retype-password-placeholder'|translate}}"
-      />
-        <p
-          class="str-error-msg-class"
-          *ngIf="registrationForm.controls['confirmPassword'].touched && registrationForm.controls['confirmPassword'].invalid"
-          >{{'auth.confirm-password-validation' | translate}}
+  <div>
+    <str-input 
+    ariaLabel="Enter email" 
+    inputType="email" 
+    inputPlaceholder="{{'auth.email-placeholder'|translate}}"
+    (inputValueChanged)="emailValueChanged($event)">
+   </str-input>
+    <p class="str-error-msg-class" *ngIf="emailInvalid">{{'auth.email-validation' | translate}}</p>
+  </div>
+  <div>
+    <str-input 
+    ariaLabel="Enter password" 
+    inputType="password"
+    inputPlaceholder="{{'auth.password-placeholder'|translate}}" 
+    (inputValueChanged)="passwordValueChanged($event)">
+    </str-input>
+    <p class="str-error-msg-class" *ngIf="passwordInvalid">{{'auth.password-validation' | translate}}
     </p>
-    </div>
-      <p class="str-error-msg-class" *ngIf="passwordMismatch"
-        >{{'auth.password-mismatch-validation' | translate}}</p
-      >
+  </div>
+  <div>
+    <str-input 
+    ariaLabel="confirm password" 
+    inputType="password"
+    inputPlaceholder="{{'auth.retype-password-placeholder'|translate}}"
+    (inputValueChanged)="confirmPasswordValueChanged($event)">
+  </str-input>
+    <p class="str-error-msg-class"
+      *ngIf="confirmPasswordInvalid">
+      {{'auth.confirm-password-validation' | translate}}
+    </p>
+  </div>
+  <p class="str-error-msg-class" *ngIf="passwordMismatch">{{'auth.password-mismatch-validation' | translate}}</p>
   <div class="text-center">
-    <str-form-btn (click)="onSubmit()" buttonText="{{'auth.submit-button' | translate}}" aria-label="Sign up"></str-form-btn>
+    <str-form-btn (click)="onSubmit()" buttonText="{{'auth.submit-button' | translate}}" aria-label="Sign up">
+    </str-form-btn>
   </div>
 </form>

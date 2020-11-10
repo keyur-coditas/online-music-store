@@ -1463,10 +1463,10 @@
         },
         {
             "name": "StorybookMocks",
-            "id": "class-StorybookMocks-f8337de977b9587ed2fdeca6a4ec58e8",
+            "id": "class-StorybookMocks-0647a9c6ecbdd65ce4b41bf4bff68ce7",
             "file": "src/stories/mocks.ts",
             "type": "class",
-            "sourceCode": "import { FormBuilder, FormControl, Validators } from '@angular/forms';\r\nimport { of } from 'rxjs';\r\nimport * as APP_CONSTANTS from '../app/shared/app.constants';\r\nexport class StorybookMocks {\r\n  public static getstoreMock = () => {\r\n    return {\r\n      dispatch: () => {},\r\n      pipe: () => {},\r\n    };\r\n  };\r\n\r\n  public static getrouterMock = () => {\r\n    return {\r\n      navigate: () => {},\r\n    };\r\n  };\r\n\r\n  public static getProductServiceMock = () => {\r\n    return {\r\n      getAllProducts: jest.fn(() => false),\r\n      getProductInfo: jest.fn(() => {\r\n        return {\r\n          productOperation: APP_CONSTANTS.PRODUCT_ADD,\r\n          disableFormFields: false,\r\n        };\r\n      }),\r\n      setProductInfo: jest.fn(() => {}),\r\n      addProduct: jest.fn(() => {}),\r\n      setProduct: jest.fn((val) => {}),\r\n      getProduct: jest.fn((val) => {\r\n        return {\r\n          name: '',\r\n          description: '',\r\n          imageUrl: '',\r\n          createdBy: '',\r\n          price: 10,\r\n          id: 1,\r\n        };\r\n      }),\r\n    };\r\n  };\r\n  public static updateProuctFormGroup = () => {\r\n    const UpdateModel = {\r\n      name: new FormControl('Laney, Acoustic Guitar Amp, 80W A1+', [\r\n        Validators.required,\r\n      ]),\r\n      price: new FormControl(26460, [Validators.required]),\r\n      description: new FormControl(\r\n        'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.'\r\n      ),\r\n      imageUrl: new FormControl(),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(UpdateModel);\r\n  };\r\n  public static getMockProductFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      name: new FormControl('', [Validators.required]),\r\n      description: new FormControl(''),\r\n      price: new FormControl('', [Validators.required]),\r\n      imageUrl: new FormControl(),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockProductActions = () => {\r\n    return {\r\n      cancel: () => {console.log('cancel called')},\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n      onImagePicked: (event) => {console.log('onImagePicked called')}\r\n    }\r\n  }\r\n\r\n  public static getMockLoginFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      email: new FormControl('', [Validators.required]),\r\n      password: new FormControl('', [Validators.required]),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockLoginActions = () => {\r\n    return {\r\n      navigate: (event) => {event.preventDefault(); console.log('navigate called')},\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n    }\r\n  }\r\n\r\n  public static getMockRegistrationFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      email: new FormControl('', [Validators.required]),\r\n      password: new FormControl('', [Validators.required]),\r\n      confirmPassword: new FormControl('', [Validators.required]),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockRegistrationActions = () => {\r\n    return {\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n    }\r\n  }\r\n\r\n  public static mockCardActions = () => {\r\n    return {\r\n      updateProduct: (event) => {event.stopPropagation(); console.log('updateProduct called')},\r\n      deleteProduct: (event) => { event.stopPropagation(); console.log('deleteProduct called')},\r\n      viewProduct: () => { console.log('viewProduct called')},\r\n    }\r\n  }\r\n\r\n  public static mockHeaderActions = () => {\r\n    return {\r\n      addProduct: () => { console.log('addProduct called')},\r\n      logout: () => {console.log('logout called')},\r\n      changeLanguage: () => { console.log('changeLanguage called')},\r\n      changeTheme: () => { console.log('changeTheme called')}\r\n    }\r\n  }\r\n  public static getCardStoreMock = () => {\r\n    return of({\r\n      auth: {\r\n        currentUser: {\r\n          accessToken: '123',\r\n          email: 'xyz@gmail.com',\r\n          isLoggedIn: false\r\n        }\r\n      },\r\n      dispatch: () => {},\r\n      pipe: () => {},\r\n    })\r\n  };\r\n}\r\n",
+            "sourceCode": "import { FormBuilder, FormControl, Validators } from '@angular/forms';\r\nimport { of } from 'rxjs';\r\nimport * as APP_CONSTANTS from '../app/shared/app.constants';\r\nexport class StorybookMocks {\r\n  public static getstoreMock = () => {\r\n    return {\r\n      dispatch: () => {},\r\n      pipe: () => {},\r\n    };\r\n  };\r\n\r\n  public static getrouterMock = () => {\r\n    return {\r\n      navigate: () => {},\r\n    };\r\n  };\r\n\r\n  public static getProductServiceMock = () => {\r\n    return {\r\n      getAllProducts: jest.fn(() => false),\r\n      getProductInfo: jest.fn(() => {\r\n        return {\r\n          productOperation: APP_CONSTANTS.PRODUCT_ADD,\r\n          disableFormFields: false,\r\n        };\r\n      }),\r\n      setProductInfo: jest.fn(() => {}),\r\n      addProduct: jest.fn(() => {}),\r\n      setProduct: jest.fn((val) => {}),\r\n      getProduct: jest.fn((val) => {\r\n        return {\r\n          name: '',\r\n          description: '',\r\n          imageUrl: '',\r\n          createdBy: '',\r\n          price: 10,\r\n          id: 1,\r\n        };\r\n      }),\r\n    };\r\n  };\r\n  public static updateProuctFormGroup = () => {\r\n    const UpdateModel = {\r\n      name: new FormControl('Laney, Acoustic Guitar Amp, 80W A1+', [\r\n        Validators.required,\r\n      ]),\r\n      price: new FormControl(26460, [Validators.required]),\r\n      description: new FormControl(\r\n        'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.'\r\n      ),\r\n      imageUrl: new FormControl(),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(UpdateModel);\r\n  };\r\n  public static getMockProductFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      name: new FormControl('', [Validators.required]),\r\n      description: new FormControl(''),\r\n      price: new FormControl('', [Validators.required]),\r\n      imageUrl: new FormControl(),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockProductActions = () => {\r\n    return {\r\n      cancel: () => {console.log('cancel called')},\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n      onImagePicked: (event) => {console.log('onImagePicked called')}\r\n    }\r\n  }\r\n\r\n  public static getMockLoginFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      email: new FormControl('', [Validators.required]),\r\n      password: new FormControl('', [Validators.required]),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockLoginActions = () => {\r\n    return {\r\n      navigate: (event) => {event.preventDefault(); console.log('navigate called')},\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n      emailValueChanged: () => {console.log('emailValueChanged called')},\r\n      passwordValueChanged: () => {console.log('passwordValueChanged called')},\r\n    }\r\n  }\r\n\r\n  public static getMockRegistrationFormGroup = () => {\r\n    const myModel = {\r\n      valid: true,\r\n      email: new FormControl('', [Validators.required]),\r\n      password: new FormControl('', [Validators.required]),\r\n      confirmPassword: new FormControl('', [Validators.required]),\r\n    };\r\n    const fb = new FormBuilder();\r\n    return fb.group(myModel);\r\n  };\r\n\r\n  public static mockRegistrationActions = () => {\r\n    return {\r\n      onSubmit: () => {console.log('onSubmit called')},\r\n      emailValueChanged: () => {console.log('emailValueChanged called')},\r\n      passwordValueChanged: () => {console.log('passwordValueChanged called')},\r\n      confirmPasswordValueChanged: () => {console.log('confirmPasswordValueChanged called')},\r\n    }\r\n  }\r\n\r\n  public static mockCardActions = () => {\r\n    return {\r\n      updateProduct: (event) => {event.stopPropagation(); console.log('updateProduct called')},\r\n      deleteProduct: (event) => { event.stopPropagation(); console.log('deleteProduct called')},\r\n      viewProduct: () => { console.log('viewProduct called')},\r\n    }\r\n  }\r\n\r\n  public static mockHeaderActions = () => {\r\n    return {\r\n      addProduct: () => { console.log('addProduct called')},\r\n      logout: () => {console.log('logout called')},\r\n      changeLanguage: () => { console.log('changeLanguage called')},\r\n      changeTheme: () => { console.log('changeTheme called')}\r\n    }\r\n  }\r\n  public static getCardStoreMock = () => {\r\n    return of({\r\n      auth: {\r\n        currentUser: {\r\n          accessToken: '123',\r\n          email: 'xyz@gmail.com',\r\n          isLoggedIn: false\r\n        }\r\n      },\r\n      dispatch: () => {},\r\n      pipe: () => {},\r\n    })\r\n  };\r\n}\r\n",
             "properties": [
                 {
                     "name": "getCardStoreMock",
@@ -1474,7 +1474,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 126,
+                    "line": 131,
                     "modifierKind": [
                         115
                     ]
@@ -1507,7 +1507,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 93,
+                    "line": 95,
                     "modifierKind": [
                         115
                     ]
@@ -1551,7 +1551,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 110,
+                    "line": 115,
                     "modifierKind": [
                         115
                     ]
@@ -1562,7 +1562,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 118,
+                    "line": 123,
                     "modifierKind": [
                         115
                     ]
@@ -1595,7 +1595,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 104,
+                    "line": 106,
                     "modifierKind": [
                         115
                     ]
@@ -2943,11 +2943,11 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"tab\">{{'auth.register-tab' | translate}}</div>\r\n<form [formGroup]=\"registrationForm\" class=\"text-center\">\r\n    <div>\r\n      <input\r\n        aria-label=\"Enter email\"\r\n        class=\"str-input\"\r\n        type=\"email\"\r\n        formControlName=\"email\"\r\n        placeholder=\"{{'auth.email-placeholder'|translate}}\"\r\n      />\r\n        <p class=\"str-error-msg-class\" *ngIf=\"registrationForm.controls['email'].touched && registrationForm.controls['email'].invalid\"\r\n          >{{'auth.email-validation' | translate}}</p>\r\n    </div>\r\n    <div>\r\n      <input\r\n        aria-label=\"Select a password\"\r\n        class=\"str-input\"\r\n        type=\"password\"\r\n        formControlName=\"password\"\r\n        placeholder=\"{{'auth.select-password-placeholder' | translate}}\"\r\n      />\r\n        <p\r\n          class=\"str-error-msg-class\"\r\n          *ngIf=\"registrationForm.controls['password'].touched && registrationForm.controls['password'].invalid\"\r\n          >{{'auth.password-validation' | translate}}</p>\r\n    </div>\r\n    <div>\r\n      <input\r\n        aria-label=\"confirm password\"\r\n        class=\"str-input\"\r\n        type=\"password\"\r\n        formControlName=\"confirmPassword\"\r\n        placeholder=\"{{'auth.retype-password-placeholder'|translate}}\"\r\n      />\r\n        <p\r\n          class=\"str-error-msg-class\"\r\n          *ngIf=\"registrationForm.controls['confirmPassword'].touched && registrationForm.controls['confirmPassword'].invalid\"\r\n          >{{'auth.confirm-password-validation' | translate}}\r\n    </p>\r\n    </div>\r\n      <p class=\"str-error-msg-class\" *ngIf=\"passwordMismatch\"\r\n        >{{'auth.password-mismatch-validation' | translate}}</p\r\n      >\r\n  <div class=\"text-center\">\r\n    <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Sign up\"></str-form-btn>\r\n  </div>\r\n</form>\r\n"
+            "templateData": "<div class=\"tab\">{{'auth.register-tab' | translate}}</div>\r\n<form [formGroup]=\"registrationForm\" class=\"text-center\">\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"Enter email\" \r\n    inputType=\"email\" \r\n    inputPlaceholder=\"{{'auth.email-placeholder'|translate}}\"\r\n    (inputValueChanged)=\"emailValueChanged($event)\">\r\n   </str-input>\r\n    <p class=\"str-error-msg-class\" *ngIf=\"emailInvalid\">{{'auth.email-validation' | translate}}</p>\r\n  </div>\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"Enter password\" \r\n    inputType=\"password\"\r\n    inputPlaceholder=\"{{'auth.password-placeholder'|translate}}\" \r\n    (inputValueChanged)=\"passwordValueChanged($event)\">\r\n    </str-input>\r\n    <p class=\"str-error-msg-class\" *ngIf=\"passwordInvalid\">{{'auth.password-validation' | translate}}\r\n    </p>\r\n  </div>\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"confirm password\" \r\n    inputType=\"password\"\r\n    inputPlaceholder=\"{{'auth.retype-password-placeholder'|translate}}\"\r\n    (inputValueChanged)=\"confirmPasswordValueChanged($event)\">\r\n  </str-input>\r\n    <p class=\"str-error-msg-class\"\r\n      *ngIf=\"confirmPasswordInvalid\">\r\n      {{'auth.confirm-password-validation' | translate}}\r\n    </p>\r\n  </div>\r\n  <p class=\"str-error-msg-class\" *ngIf=\"passwordMismatch\">{{'auth.password-mismatch-validation' | translate}}</p>\r\n  <div class=\"text-center\">\r\n    <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Sign up\">\r\n    </str-form-btn>\r\n  </div>\r\n</form>"
         },
         {
             "name": "RegistrationComponent",
-            "id": "component-RegistrationComponent-8019d0f85e9eef0febb12483a990dada-1",
+            "id": "component-RegistrationComponent-a1df97d55ffe3897de44cfdafef8572d-1",
             "file": "src/app/auth/registration/registration.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2974,6 +2974,13 @@
                     "line": 16
                 },
                 {
+                    "name": "confirmPasswordInvalid",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                },
+                {
                     "name": "email",
                     "type": "FormControl",
                     "optional": false,
@@ -2981,11 +2988,25 @@
                     "line": 14
                 },
                 {
+                    "name": "emailInvalid",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                },
+                {
                     "name": "password",
                     "type": "FormControl",
                     "optional": false,
                     "description": "",
                     "line": 15
+                },
+                {
+                    "name": "passwordInvalid",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
                 },
                 {
                     "name": "passwordMismatch",
@@ -3005,12 +3026,56 @@
             ],
             "methodsClass": [
                 {
+                    "name": "confirmPasswordValueChanged",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 58,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "emailValueChanged",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 50,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 23
+                    "line": 26
                 },
                 {
                     "name": "onSubmit",
@@ -3018,7 +3083,37 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 31
+                    "line": 34
+                },
+                {
+                    "name": "passwordValueChanged",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 54,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "showError",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 62
                 }
             ],
             "hostBindings": [],
@@ -3026,7 +3121,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\r\n\r\nimport * as AuthActions from '../../shared/store/auth/auth.actions';\r\nimport { Store } from '@ngrx/store';\r\n\r\n@Component({\r\n  selector: 'app-registration',\r\n  templateUrl: './registration.component.html',\r\n  styleUrls: ['./registration.component.scss']\r\n})\r\nexport class RegistrationComponent  implements OnInit {\r\n  registrationForm: FormGroup;\r\n  email: FormControl;\r\n  password: FormControl;\r\n  confirmPassword: FormControl;\r\n  passwordMismatch: boolean = false;\r\n  constructor(\r\n     private store: Store\r\n     ) {\r\n   }\r\n\r\n  ngOnInit(): void {\r\n    this.registrationForm = new FormGroup({\r\n      email:  new FormControl('', [Validators.required, Validators.email]),\r\n      password: new FormControl('', [Validators.required]),\r\n      confirmPassword: new FormControl('', [Validators.required])\r\n  });\r\n  }\r\n\r\n  onSubmit() {\r\n    this.passwordMismatch = false;\r\n    if(this.registrationForm.valid) {\r\n      const email = this.registrationForm.controls['email'].value;\r\n      const password = this.registrationForm.controls['password'].value;\r\n      const cnfmpassword = this.registrationForm.controls['confirmPassword'].value;\r\n    if(password === cnfmpassword) {\r\n      this.store.dispatch(AuthActions.signup({email, password}));\r\n    } else {\r\n      this.passwordMismatch = true;\r\n    }\r\n    }\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\r\n\r\nimport * as AuthActions from '../../shared/store/auth/auth.actions';\r\nimport { Store } from '@ngrx/store';\r\n\r\n@Component({\r\n  selector: 'app-registration',\r\n  templateUrl: './registration.component.html',\r\n  styleUrls: ['./registration.component.scss']\r\n})\r\nexport class RegistrationComponent  implements OnInit {\r\n  registrationForm: FormGroup;\r\n  email: FormControl;\r\n  password: FormControl;\r\n  confirmPassword: FormControl;\r\n  passwordMismatch: boolean = false;\r\n  passwordInvalid: boolean;\r\n  emailInvalid: boolean;\r\n  confirmPasswordInvalid: boolean;\r\n  constructor(\r\n     private store: Store\r\n     ) {\r\n   }\r\n\r\n  ngOnInit(): void {\r\n    this.registrationForm = new FormGroup({\r\n      email:  new FormControl('', [Validators.required, Validators.email]),\r\n      password: new FormControl('', [Validators.required]),\r\n      confirmPassword: new FormControl('', [Validators.required])\r\n  });\r\n  }\r\n\r\n  onSubmit() {\r\n    this.passwordMismatch = false;\r\n    if(this.registrationForm.valid) {\r\n      const email = this.registrationForm.controls['email'].value;\r\n      const password = this.registrationForm.controls['password'].value;\r\n      const cnfmpassword = this.registrationForm.controls['confirmPassword'].value;\r\n    if(password === cnfmpassword) {\r\n      this.store.dispatch(AuthActions.signup({email, password}));\r\n    } else {\r\n      this.passwordMismatch = true;\r\n    }\r\n    } else {\r\n      this.showError()\r\n    }\r\n  }\r\n\r\n  emailValueChanged(event) {\r\n    this.registrationForm.controls['email'].setValue(event.detail.value);\r\n    this.emailInvalid = !this.registrationForm.controls['email'].valid;\r\n  }\r\n  passwordValueChanged(event) {\r\n    this.registrationForm.controls['password'].setValue(event.detail.value);\r\n    this.passwordInvalid = !this.registrationForm.controls['password'].valid;\r\n  }\r\n  confirmPasswordValueChanged(event) {\r\n    this.registrationForm.controls['confirmPassword'].setValue(event.detail.value);\r\n    this.confirmPasswordInvalid = !this.registrationForm.controls['confirmPassword'].valid;\r\n  }\r\n  showError() {\r\n    if(!this.registrationForm.controls['email'].valid) {\r\n      this.emailInvalid = true;\r\n    } \r\n    if(!this.registrationForm.controls['password'].valid) {\r\n      this.passwordInvalid = true;\r\n    }\r\n    if(!this.registrationForm.controls['confirmPassword'].valid) {\r\n      this.passwordInvalid = true;\r\n    }\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3044,7 +3139,7 @@
                         "type": "Store"
                     }
                 ],
-                "line": 17,
+                "line": 20,
                 "jsdoctags": [
                     {
                         "name": "store",
@@ -3061,7 +3156,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "RegistrationComponent-1",
-            "templateData": "<div class=\"tab\">{{'auth.register-tab' | translate}}</div>\r\n<form [formGroup]=\"registrationForm\" class=\"text-center\">\r\n    <div>\r\n      <input\r\n        aria-label=\"Enter email\"\r\n        class=\"str-input\"\r\n        type=\"email\"\r\n        formControlName=\"email\"\r\n        placeholder=\"{{'auth.email-placeholder'|translate}}\"\r\n      />\r\n        <p class=\"str-error-msg-class\" *ngIf=\"registrationForm.controls['email'].touched && registrationForm.controls['email'].invalid\"\r\n          >{{'auth.email-validation' | translate}}</p>\r\n    </div>\r\n    <div>\r\n      <input\r\n        aria-label=\"Select a password\"\r\n        class=\"str-input\"\r\n        type=\"password\"\r\n        formControlName=\"password\"\r\n        placeholder=\"{{'auth.select-password-placeholder' | translate}}\"\r\n      />\r\n        <p\r\n          class=\"str-error-msg-class\"\r\n          *ngIf=\"registrationForm.controls['password'].touched && registrationForm.controls['password'].invalid\"\r\n          >{{'auth.password-validation' | translate}}</p>\r\n    </div>\r\n    <div>\r\n      <input\r\n        aria-label=\"confirm password\"\r\n        class=\"str-input\"\r\n        type=\"password\"\r\n        formControlName=\"confirmPassword\"\r\n        placeholder=\"{{'auth.retype-password-placeholder'|translate}}\"\r\n      />\r\n        <p\r\n          class=\"str-error-msg-class\"\r\n          *ngIf=\"registrationForm.controls['confirmPassword'].touched && registrationForm.controls['confirmPassword'].invalid\"\r\n          >{{'auth.confirm-password-validation' | translate}}\r\n    </p>\r\n    </div>\r\n      <p class=\"str-error-msg-class\" *ngIf=\"passwordMismatch\"\r\n        >{{'auth.password-mismatch-validation' | translate}}</p\r\n      >\r\n  <div class=\"text-center\">\r\n    <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Sign up\"></str-form-btn>\r\n  </div>\r\n</form>\r\n"
+            "templateData": "<div class=\"tab\">{{'auth.register-tab' | translate}}</div>\r\n<form [formGroup]=\"registrationForm\" class=\"text-center\">\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"Enter email\" \r\n    inputType=\"email\" \r\n    inputPlaceholder=\"{{'auth.email-placeholder'|translate}}\"\r\n    (inputValueChanged)=\"emailValueChanged($event)\">\r\n   </str-input>\r\n    <p class=\"str-error-msg-class\" *ngIf=\"emailInvalid\">{{'auth.email-validation' | translate}}</p>\r\n  </div>\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"Enter password\" \r\n    inputType=\"password\"\r\n    inputPlaceholder=\"{{'auth.password-placeholder'|translate}}\" \r\n    (inputValueChanged)=\"passwordValueChanged($event)\">\r\n    </str-input>\r\n    <p class=\"str-error-msg-class\" *ngIf=\"passwordInvalid\">{{'auth.password-validation' | translate}}\r\n    </p>\r\n  </div>\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"confirm password\" \r\n    inputType=\"password\"\r\n    inputPlaceholder=\"{{'auth.retype-password-placeholder'|translate}}\"\r\n    (inputValueChanged)=\"confirmPasswordValueChanged($event)\">\r\n  </str-input>\r\n    <p class=\"str-error-msg-class\"\r\n      *ngIf=\"confirmPasswordInvalid\">\r\n      {{'auth.confirm-password-validation' | translate}}\r\n    </p>\r\n  </div>\r\n  <p class=\"str-error-msg-class\" *ngIf=\"passwordMismatch\">{{'auth.password-mismatch-validation' | translate}}</p>\r\n  <div class=\"text-center\">\r\n    <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Sign up\">\r\n    </str-form-btn>\r\n  </div>\r\n</form>"
         }
     ],
     "modules": [
@@ -3314,7 +3409,7 @@
                 "subtype": "variable",
                 "file": "src/stories/login/Login.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\r\n  component: LoginComponent,\r\n  props: {\r\n    loginForm: StorybookMocks.getMockLoginFormGroup(),\r\n    navigate: StorybookMocks.mockLoginActions().navigate,\r\n    onSubmit: StorybookMocks.mockLoginActions().onSubmit,\r\n  },\r\n})"
+                "defaultValue": "() => ({\r\n  component: LoginComponent,\r\n  props: {\r\n    loginForm: StorybookMocks.getMockLoginFormGroup(),\r\n    navigate: StorybookMocks.mockLoginActions().navigate,\r\n    onSubmit: StorybookMocks.mockLoginActions().onSubmit,\r\n    emailValueChanged: StorybookMocks.mockLoginActions().emailValueChanged,\r\n    passwordValueChanged: StorybookMocks.mockLoginActions().passwordValueChanged\r\n  },\r\n})"
             },
             {
                 "name": "defaultState",
@@ -3322,7 +3417,7 @@
                 "subtype": "variable",
                 "file": "src/stories/registration/Registration.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\r\n  component: RegistrationComponent,\r\n  props: {\r\n    registrationForm: StorybookMocks.getMockRegistrationFormGroup(),\r\n    onSubmit: StorybookMocks.mockRegistrationActions().onSubmit,\r\n  },\r\n})"
+                "defaultValue": "() => ({\r\n  component: RegistrationComponent,\r\n  props: {\r\n    registrationForm: StorybookMocks.getMockRegistrationFormGroup(),\r\n    onSubmit: StorybookMocks.mockRegistrationActions().onSubmit,\r\n    emailValueChanged: () => StorybookMocks.mockRegistrationActions().emailValueChanged,\r\n    passwordValueChanged: () => StorybookMocks.mockRegistrationActions().passwordValueChanged,\r\n    confirmPasswordValueChanged: () => StorybookMocks.mockRegistrationActions().confirmPasswordValueChanged,\r\n  },\r\n})"
             },
             {
                 "name": "defaultState",
@@ -3368,17 +3463,17 @@
                 "name": "initialState",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/store/products/product.reducer.ts",
-                "type": "ProductsState",
-                "defaultValue": "{\r\n    products: []\r\n}"
+                "file": "src/app/shared/store/auth/auth.reducer.ts",
+                "type": "AuthState",
+                "defaultValue": "{\r\n  currentUser: {\r\n    accessToken: '',\r\n    email: '',\r\n    isLoggedIn: false\r\n  }\r\n}"
             },
             {
                 "name": "initialState",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/store/auth/auth.reducer.ts",
-                "type": "AuthState",
-                "defaultValue": "{\r\n  currentUser: {\r\n    accessToken: '',\r\n    email: '',\r\n    isLoggedIn: false\r\n  }\r\n}"
+                "file": "src/app/shared/store/products/product.reducer.ts",
+                "type": "ProductsState",
+                "defaultValue": "{\r\n    products: []\r\n}"
             },
             {
                 "name": "light",
@@ -4016,7 +4111,7 @@
             },
             {
                 "name": "reducer",
-                "file": "src/app/shared/store/products/product.reducer.ts",
+                "file": "src/app/shared/store/auth/auth.reducer.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -4045,7 +4140,7 @@
             },
             {
                 "name": "reducer",
-                "file": "src/app/shared/store/auth/auth.reducer.ts",
+                "file": "src/app/shared/store/products/product.reducer.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -4179,7 +4274,7 @@
                     "subtype": "variable",
                     "file": "src/stories/login/Login.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\r\n  component: LoginComponent,\r\n  props: {\r\n    loginForm: StorybookMocks.getMockLoginFormGroup(),\r\n    navigate: StorybookMocks.mockLoginActions().navigate,\r\n    onSubmit: StorybookMocks.mockLoginActions().onSubmit,\r\n  },\r\n})"
+                    "defaultValue": "() => ({\r\n  component: LoginComponent,\r\n  props: {\r\n    loginForm: StorybookMocks.getMockLoginFormGroup(),\r\n    navigate: StorybookMocks.mockLoginActions().navigate,\r\n    onSubmit: StorybookMocks.mockLoginActions().onSubmit,\r\n    emailValueChanged: StorybookMocks.mockLoginActions().emailValueChanged,\r\n    passwordValueChanged: StorybookMocks.mockLoginActions().passwordValueChanged\r\n  },\r\n})"
                 }
             ],
             "src/stories/registration/Registration.stories.ts": [
@@ -4189,7 +4284,7 @@
                     "subtype": "variable",
                     "file": "src/stories/registration/Registration.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\r\n  component: RegistrationComponent,\r\n  props: {\r\n    registrationForm: StorybookMocks.getMockRegistrationFormGroup(),\r\n    onSubmit: StorybookMocks.mockRegistrationActions().onSubmit,\r\n  },\r\n})"
+                    "defaultValue": "() => ({\r\n  component: RegistrationComponent,\r\n  props: {\r\n    registrationForm: StorybookMocks.getMockRegistrationFormGroup(),\r\n    onSubmit: StorybookMocks.mockRegistrationActions().onSubmit,\r\n    emailValueChanged: () => StorybookMocks.mockRegistrationActions().emailValueChanged,\r\n    passwordValueChanged: () => StorybookMocks.mockRegistrationActions().passwordValueChanged,\r\n    confirmPasswordValueChanged: () => StorybookMocks.mockRegistrationActions().confirmPasswordValueChanged,\r\n  },\r\n})"
                 }
             ],
             "src/stories/products/products/Product.stories.ts": [
@@ -4272,24 +4367,6 @@
                     "defaultValue": "'register'"
                 }
             ],
-            "src/app/shared/store/products/product.reducer.ts": [
-                {
-                    "name": "initialState",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/shared/store/products/product.reducer.ts",
-                    "type": "ProductsState",
-                    "defaultValue": "{\r\n    products: []\r\n}"
-                },
-                {
-                    "name": "productsReducer",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/shared/store/products/product.reducer.ts",
-                    "type": "",
-                    "defaultValue": "createReducer(\r\n  initialState,\r\n  on(ProductActions.productAddSuccess, (state, payload:any) => {\r\n    return {\r\n        ...state,\r\n        products: [...state.products, payload ]\r\n    }\r\n}),\r\non(ProductActions.productFetchSuccess, (state, payload:any) => {\r\n  return {\r\n      ...state,\r\n      products: payload.data\r\n  }\r\n}),\r\non(ProductActions.productUpdateSuccess, (state, payload:any) => {\r\n  return {\r\n      ...state,\r\n      products: [...state.products, payload.data]\r\n  }\r\n}),\r\non(ProductActions.productDeleteSuccess, (state, payload:any) => {\r\n  const stateCopy = {...state};\r\n  const deleteId = payload.action.product.id;\r\n  const updatedProducts = state.products.filter((prod) =>  deleteId !== prod.id);\r\n  return {\r\n      ...state,\r\n      products: [...updatedProducts]\r\n  }\r\n}),\r\n)"
-                }
-            ],
             "src/app/shared/store/auth/auth.reducer.ts": [
                 {
                     "name": "initialState",
@@ -4306,6 +4383,24 @@
                     "file": "src/app/shared/store/auth/auth.reducer.ts",
                     "type": "",
                     "defaultValue": "createReducer(\r\n  initialState,\r\n  on(AuthActions.loginSuccess, (state, payload:any) => {\r\n      return {\r\n          ...state,\r\n          currentUser: {\r\n            email: payload.email,\r\n            accessToken: payload.accessToken,\r\n            isLoggedIn: true\r\n          }\r\n      }\r\n  }),\r\n\r\n  on(AuthActions.logout, (state) => {\r\n    \r\n    return {\r\n        ...state,\r\n        currentUser: {\r\n          email: '',\r\n          accessToken: '',\r\n          isLoggedIn: false\r\n        }\r\n    }\r\n})\r\n)"
+                }
+            ],
+            "src/app/shared/store/products/product.reducer.ts": [
+                {
+                    "name": "initialState",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/store/products/product.reducer.ts",
+                    "type": "ProductsState",
+                    "defaultValue": "{\r\n    products: []\r\n}"
+                },
+                {
+                    "name": "productsReducer",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/store/products/product.reducer.ts",
+                    "type": "",
+                    "defaultValue": "createReducer(\r\n  initialState,\r\n  on(ProductActions.productAddSuccess, (state, payload:any) => {\r\n    return {\r\n        ...state,\r\n        products: [...state.products, payload ]\r\n    }\r\n}),\r\non(ProductActions.productFetchSuccess, (state, payload:any) => {\r\n  return {\r\n      ...state,\r\n      products: payload.data\r\n  }\r\n}),\r\non(ProductActions.productUpdateSuccess, (state, payload:any) => {\r\n  return {\r\n      ...state,\r\n      products: [...state.products, payload.data]\r\n  }\r\n}),\r\non(ProductActions.productDeleteSuccess, (state, payload:any) => {\r\n  const stateCopy = {...state};\r\n  const deleteId = payload.action.product.id;\r\n  const updatedProducts = state.products.filter((prod) =>  deleteId !== prod.id);\r\n  return {\r\n      ...state,\r\n      products: [...updatedProducts]\r\n  }\r\n}),\r\n)"
                 }
             ],
             "src/stories/header/Header.stories.ts": [
@@ -4868,10 +4963,10 @@
                     ]
                 }
             ],
-            "src/app/shared/store/products/product.reducer.ts": [
+            "src/app/shared/store/auth/auth.reducer.ts": [
                 {
                     "name": "reducer",
-                    "file": "src/app/shared/store/products/product.reducer.ts",
+                    "file": "src/app/shared/store/auth/auth.reducer.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -4899,10 +4994,10 @@
                     ]
                 }
             ],
-            "src/app/shared/store/auth/auth.reducer.ts": [
+            "src/app/shared/store/products/product.reducer.ts": [
                 {
                     "name": "reducer",
-                    "file": "src/app/shared/store/auth/auth.reducer.ts",
+                    "file": "src/app/shared/store/products/product.reducer.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -5020,7 +5115,7 @@
                 "linktype": "component",
                 "name": "RegistrationComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/16",
                 "status": "low"
             },
             {

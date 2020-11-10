@@ -106,6 +106,9 @@ export class StorybookMocks {
   public static mockRegistrationActions = () => {
     return {
       onSubmit: () => {console.log('onSubmit called')},
+      emailValueChanged: () => {console.log('emailValueChanged called')},
+      passwordValueChanged: () => {console.log('passwordValueChanged called')},
+      confirmPasswordValueChanged: () => {console.log('confirmPasswordValueChanged called')},
     }
   }
 

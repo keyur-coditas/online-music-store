@@ -60,5 +60,36 @@ describe('RegistrationComponent', () => {
     component.registrationForm = mockFormGroup2;
     component.onSubmit();
    });
+
+  test('emailValueChanged', () => {
+    const inputValueChanged = new CustomEvent('inputValueChanged', {
+      detail: {
+          value: 'test'
+      },
+  });
+    component.emailValueChanged(inputValueChanged);
+  });
+
+  test('passwordValueChanged', () => {
+    const inputValueChanged = new CustomEvent('inputValueChanged', {
+      detail: {
+          value: 'test'
+      },
+  });
+    component.passwordValueChanged(inputValueChanged);
+  });
+
+  test('confirmPasswordValueChanged', () => {
+    const inputValueChanged = new CustomEvent('inputValueChanged', {
+      detail: {
+          value: 'test'
+      },
+  });
+    component.confirmPasswordValueChanged(inputValueChanged);
+  });
+
+  test('showError', () => {
+    component.showError();
+  });
  
 });

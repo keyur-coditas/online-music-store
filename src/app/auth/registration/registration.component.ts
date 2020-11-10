@@ -15,6 +15,9 @@ export class RegistrationComponent  implements OnInit {
   password: FormControl;
   confirmPassword: FormControl;
   passwordMismatch: boolean = false;
+  passwordInvalid: boolean;
+  emailInvalid: boolean;
+  confirmPasswordInvalid: boolean;
   constructor(
      private store: Store
      ) {
@@ -39,6 +42,32 @@ export class RegistrationComponent  implements OnInit {
     } else {
       this.passwordMismatch = true;
     }
+    } else {
+      this.showError()
+    }
+  }
+
+  emailValueChanged(event) {
+    this.registrationForm.controls['email'].setValue(event.detail.value);
+    this.emailInvalid = !this.registrationForm.controls['email'].valid;
+  }
+  passwordValueChanged(event) {
+    this.registrationForm.controls['password'].setValue(event.detail.value);
+    this.passwordInvalid = !this.registrationForm.controls['password'].valid;
+  }
+  confirmPasswordValueChanged(event) {
+    this.registrationForm.controls['confirmPassword'].setValue(event.detail.value);
+    this.confirmPasswordInvalid = !this.registrationForm.controls['confirmPassword'].valid;
+  }
+  showError() {
+    if(!this.registrationForm.controls['email'].valid) {
+      this.emailInvalid = true;
+    } 
+    if(!this.registrationForm.controls['password'].valid) {
+      this.passwordInvalid = true;
+    }
+    if(!this.registrationForm.controls['confirmPassword'].valid) {
+      this.passwordInvalid = true;
     }
   }
 
