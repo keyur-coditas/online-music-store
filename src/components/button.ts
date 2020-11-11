@@ -1,5 +1,6 @@
 import { html, LitElement, css } from 'lit-element';
 import { customElement, property  } from 'lit-element/lib/decorators';
+import {mediaQueries} from './media-queries';
 
 @customElement('str-btn')
 export class storeButton extends LitElement {
@@ -8,7 +9,8 @@ export class storeButton extends LitElement {
   buttonText = 'click here';
 
   static get styles() {
-    return css`
+    return [
+      css`
     .str-btn {
       padding: 8px;
       border: 1px solid #c8c8c8;
@@ -24,7 +26,9 @@ export class storeButton extends LitElement {
     -moz-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);
     box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);
 } 
-    `;
+    `,
+    mediaQueries
+    ];
   }
 
 

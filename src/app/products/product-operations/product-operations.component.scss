@@ -1,20 +1,7 @@
-@import '../../shared/styles/variables.scss';
-
 .container {
     width: 50%;
     margin: 3rem auto 0rem auto;
     border-radius: 5px;
 }
 
-.str-submit-btn {
-    width:8rem;
-    background-color: var(--form-btn-background);
-    color: var(--form-btn-color);
-}
-.image-label {
-    font-size: 12px;
-    margin: 10px;
-    display: block;
-    color: $dark-gray
-}
 

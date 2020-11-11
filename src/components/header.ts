@@ -1,6 +1,7 @@
 
 import { html, LitElement, css, TemplateResult } from 'lit-element';
 import { customElement, property } from 'lit-element/lib/decorators';
+import {mediaQueries} from './media-queries';
 
 @customElement('str-header')
 export class storeHeaderElement extends LitElement {
@@ -25,7 +26,8 @@ export class storeHeaderElement extends LitElement {
     isAuthenticated: string;
 
     static get styles() {
-        return css`
+        return [
+            css`
         .header-logout {
             display:flex;
             align-items: center;
@@ -39,7 +41,9 @@ export class storeHeaderElement extends LitElement {
             background-color: var(--header-background-color);
             flex-wrap: wrap;
         }
-    `;
+    `,
+    mediaQueries
+        ];
     }
 
     changeLanguage() {

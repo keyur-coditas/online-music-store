@@ -1,5 +1,6 @@
 import { html, LitElement, css, TemplateResult } from 'lit-element';
 import { customElement, property } from 'lit-element/lib/decorators';
+import {mediaQueries} from './media-queries';
 
 @customElement('str-card')
 export class storeCard extends LitElement {
@@ -32,7 +33,8 @@ export class storeCard extends LitElement {
     deletebuttonText: string;
 
     static get styles() {
-        return css`
+        return [
+            css`
         .card {
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             transition: 0.3s;
@@ -79,7 +81,9 @@ export class storeCard extends LitElement {
         .text-center{
             text-align: center;
         }
-    `;
+    `,
+    mediaQueries
+        ];
     }
 
     viewProduct() {

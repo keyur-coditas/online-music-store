@@ -1,5 +1,6 @@
 import { html, LitElement, css } from 'lit-element';
 import { customElement, property  } from 'lit-element/lib/decorators';
+import {mediaQueries} from './media-queries';
 
 @customElement('str-form-btn')
 export class storeFormButton extends LitElement {
@@ -12,7 +13,8 @@ export class storeFormButton extends LitElement {
 
 
   static get styles() {
-    return css`
+    return [
+      css`
     .str-btn {
       padding: 8px;
       border: 1px solid #c8c8c8;
@@ -39,7 +41,9 @@ export class storeFormButton extends LitElement {
   color: var(--form-btn-color);
   margin: 10px;
 }
-    `;
+    `,
+    mediaQueries
+    ];
   }
 
   inputHandler() {

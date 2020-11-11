@@ -1006,10 +1006,10 @@
         },
         {
             "name": "storeButton",
-            "id": "class-storeButton-b154016fb6d7fff129ad6277a08814b3",
+            "id": "class-storeButton-1bb6c7cfc98108c369dbc9fd22e88c9a",
             "file": "src/components/button.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-btn')\r\nexport class storeButton extends LitElement {\r\n\r\n  @property()\r\n  buttonText = 'click here';\r\n\r\n  static get styles() {\r\n    return css`\r\n    .str-btn {\r\n      padding: 8px;\r\n      border: 1px solid #c8c8c8;\r\n      box-shadow: .5px .5px #c8c8c8;\r\n      margin: 1rem;\r\n      background-color: var(--btn-background);\r\n    color: var(--btn-color);\r\n  }\r\n  str-btn.active { \r\n    transform: scale(0.98); \r\n    /* Scaling button to 0.98 to its original size */ \r\n    -webkit-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    -moz-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n} \r\n    `;\r\n  }\r\n\r\n\r\n  render(){\r\n    return html`<button type=\"button\" class=\"str-btn\">${this.buttonText}</button>`;\r\n  }\r\n}",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-btn')\r\nexport class storeButton extends LitElement {\r\n\r\n  @property()\r\n  buttonText = 'click here';\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n    .str-btn {\r\n      padding: 8px;\r\n      border: 1px solid #c8c8c8;\r\n      box-shadow: .5px .5px #c8c8c8;\r\n      margin: 1rem;\r\n      background-color: var(--btn-background);\r\n    color: var(--btn-color);\r\n  }\r\n  str-btn.active { \r\n    transform: scale(0.98); \r\n    /* Scaling button to 0.98 to its original size */ \r\n    -webkit-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    -moz-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n} \r\n    `,\r\n    mediaQueries\r\n    ];\r\n  }\r\n\r\n\r\n  render(){\r\n    return html`<button type=\"button\" class=\"str-btn\">${this.buttonText}</button>`;\r\n  }\r\n}",
             "properties": [
                 {
                     "name": "buttonText",
@@ -1017,7 +1017,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 8,
+                    "line": 9,
                     "decorators": [
                         {
                             "name": "property",
@@ -1033,7 +1033,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 31
+                    "line": 35
                 }
             ],
             "indexSignatures": [],
@@ -1045,24 +1045,24 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 10
+                        "line": 11
                     }
                 }
             }
         },
         {
             "name": "storeCard",
-            "id": "class-storeCard-820b9ae803f167374e5a7fb868ce96ae",
+            "id": "class-storeCard-d28b538fcc97843fcceeeaff2c05358f",
             "file": "src/components/card.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-card')\r\nexport class storeCard extends LitElement {\r\n\r\n    @property()\r\n    productName: string;\r\n\r\n    @property()\r\n    productDescription: string;\r\n\r\n    @property()\r\n    imageUrl: string;\r\n\r\n    @property()\r\n    productPrice: number;\r\n\r\n    @property()\r\n    createdBy: string;\r\n\r\n    @property()\r\n    currentUser: string;\r\n\r\n    @property()\r\n    productId: number;\r\n\r\n    @property()\r\n    updatebuttonText: string;\r\n\r\n    @property()\r\n    deletebuttonText: string;\r\n\r\n    static get styles() {\r\n        return css`\r\n        .card {\r\n            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\r\n            transition: 0.3s;\r\n            border-radius: 5px;\r\n            background-color: #fff;\r\n            height:100%;\r\n            display: flex;\r\n            flex-direction: column;\r\n            justify-content: space-around;\r\n            align-items: center;\r\n            border:none;\r\n            width:100%;\r\n          }\r\n          \r\n          .card:hover {\r\n            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\r\n          }\r\n          \r\n          .product-image {\r\n            border-radius: 5px 5px 0 0;\r\n          }\r\n          \r\n          .container {\r\n            padding: 2px 16px;\r\n          }\r\n          .card-font-small {\r\n              font-size: 0.8rem;\r\n          }\r\n          .card-font-medium {\r\n              font-size: 0.9rem;\r\n          }\r\n          .card-header-margin {\r\n            margin: 0.8rem;\r\n        }\r\n        .card-details-margin {\r\n            margin: 0.5rem;\r\n        }\r\n        .str-card-buttons {\r\n          width:6rem;\r\n          background-color: var(--form-btn-background);\r\n          color: var(--form-btn-color);\r\n          margin: 10px;\r\n        }\r\n        .text-center{\r\n            text-align: center;\r\n        }\r\n    `;\r\n    }\r\n\r\n    viewProduct() {\r\n        const click = new CustomEvent('viewProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                },\r\n            }\r\n        });\r\n        this.dispatchEvent(click);\r\n    }\r\n\r\n    updateProduct(event) {\r\n        event.stopPropagation();\r\n        const update = new CustomEvent('updateProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                }\r\n            }\r\n        });\r\n        this.dispatchEvent(update);\r\n    }\r\n\r\n    deleteProduct(event) {\r\n        event.stopPropagation();\r\n        const deleteProduct = new CustomEvent('deleteProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                }\r\n            },\r\n        });\r\n        this.dispatchEvent(deleteProduct);\r\n    }\r\n\r\n\r\n    render() {\r\n        let ownerButtons: TemplateResult = html``;\r\n        if (this.currentUser === this.createdBy) {\r\n            ownerButtons = html`<div class=\"text-center str-card-buttons-container\" >\r\n            <str-form-btn @click=\"${this.updateProduct}\" buttonText=\"${this.updatebuttonText}\" isCardButton=\"true\" aria-label=\"Update Product\"></str-form-btn>\r\n            <str-form-btn @click=\"${this.deleteProduct}\" buttonText=\"${this.deletebuttonText}\" isCardButton=\"true\" aria-label=\"Delete Product\"></str-form-btn>    \r\n            </div>`\r\n        }\r\n\r\n        return html`\r\n    \r\n    <button type=\"button\" class=\"card\" @click=\"${this.viewProduct}\" aria-label=\"View product details\" >\r\n    <div class=\"text-center\">\r\n        <img src=\"${this.imageUrl}\" class=\"product-image\" alt=\"Avatar\" width=\"200\" width=\"200\" height=\"200\">\r\n    </div>\r\n    <div class=\"container card-details\">\r\n        <h4 class=\"text-center card-font-medium card-header-margin\"><b>${this.productName}</b></h4>\r\n        <p class=\"text-center card-font-small card-details-margin\">${this.productDescription}</p>\r\n        <p class=\"text-center card-font-small card-details-margin\"><b><span>&#8377; </span>${this.productPrice}</b></p>\r\n    </div>\r\n        ${ownerButtons}\r\n    </button>\r\n                `;\r\n    }\r\n}\r\n",
+            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-card')\r\nexport class storeCard extends LitElement {\r\n\r\n    @property()\r\n    productName: string;\r\n\r\n    @property()\r\n    productDescription: string;\r\n\r\n    @property()\r\n    imageUrl: string;\r\n\r\n    @property()\r\n    productPrice: number;\r\n\r\n    @property()\r\n    createdBy: string;\r\n\r\n    @property()\r\n    currentUser: string;\r\n\r\n    @property()\r\n    productId: number;\r\n\r\n    @property()\r\n    updatebuttonText: string;\r\n\r\n    @property()\r\n    deletebuttonText: string;\r\n\r\n    static get styles() {\r\n        return [\r\n            css`\r\n        .card {\r\n            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\r\n            transition: 0.3s;\r\n            border-radius: 5px;\r\n            background-color: #fff;\r\n            height:100%;\r\n            display: flex;\r\n            flex-direction: column;\r\n            justify-content: space-around;\r\n            align-items: center;\r\n            border:none;\r\n            width:100%;\r\n          }\r\n          \r\n          .card:hover {\r\n            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\r\n          }\r\n          \r\n          .product-image {\r\n            border-radius: 5px 5px 0 0;\r\n          }\r\n          \r\n          .container {\r\n            padding: 2px 16px;\r\n          }\r\n          .card-font-small {\r\n              font-size: 0.8rem;\r\n          }\r\n          .card-font-medium {\r\n              font-size: 0.9rem;\r\n          }\r\n          .card-header-margin {\r\n            margin: 0.8rem;\r\n        }\r\n        .card-details-margin {\r\n            margin: 0.5rem;\r\n        }\r\n        .str-card-buttons {\r\n          width:6rem;\r\n          background-color: var(--form-btn-background);\r\n          color: var(--form-btn-color);\r\n          margin: 10px;\r\n        }\r\n        .text-center{\r\n            text-align: center;\r\n        }\r\n    `,\r\n    mediaQueries\r\n        ];\r\n    }\r\n\r\n    viewProduct() {\r\n        const click = new CustomEvent('viewProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                },\r\n            }\r\n        });\r\n        this.dispatchEvent(click);\r\n    }\r\n\r\n    updateProduct(event) {\r\n        event.stopPropagation();\r\n        const update = new CustomEvent('updateProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                }\r\n            }\r\n        });\r\n        this.dispatchEvent(update);\r\n    }\r\n\r\n    deleteProduct(event) {\r\n        event.stopPropagation();\r\n        const deleteProduct = new CustomEvent('deleteProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                }\r\n            },\r\n        });\r\n        this.dispatchEvent(deleteProduct);\r\n    }\r\n\r\n\r\n    render() {\r\n        let ownerButtons: TemplateResult = html``;\r\n        if (this.currentUser === this.createdBy) {\r\n            ownerButtons = html`<div class=\"text-center str-card-buttons-container\" >\r\n            <str-form-btn @click=\"${this.updateProduct}\" buttonText=\"${this.updatebuttonText}\" isCardButton=\"true\" aria-label=\"Update Product\"></str-form-btn>\r\n            <str-form-btn @click=\"${this.deleteProduct}\" buttonText=\"${this.deletebuttonText}\" isCardButton=\"true\" aria-label=\"Delete Product\"></str-form-btn>    \r\n            </div>`\r\n        }\r\n\r\n        return html`\r\n    \r\n    <button type=\"button\" class=\"card\" @click=\"${this.viewProduct}\" aria-label=\"View product details\" >\r\n    <div class=\"text-center\">\r\n        <img src=\"${this.imageUrl}\" class=\"product-image\" alt=\"Avatar\" width=\"200\" width=\"200\" height=\"200\">\r\n    </div>\r\n    <div class=\"container card-details\">\r\n        <h4 class=\"text-center card-font-medium card-header-margin\"><b>${this.productName}</b></h4>\r\n        <p class=\"text-center card-font-small card-details-margin\">${this.productDescription}</p>\r\n        <p class=\"text-center card-font-small card-details-margin\"><b><span>&#8377; </span>${this.productPrice}</b></p>\r\n    </div>\r\n        ${ownerButtons}\r\n    </button>\r\n                `;\r\n    }\r\n}\r\n",
             "properties": [
                 {
                     "name": "createdBy",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 20,
+                    "line": 21,
                     "decorators": [
                         {
                             "name": "property",
@@ -1075,7 +1075,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 23,
+                    "line": 24,
                     "decorators": [
                         {
                             "name": "property",
@@ -1088,7 +1088,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 32,
+                    "line": 33,
                     "decorators": [
                         {
                             "name": "property",
@@ -1101,7 +1101,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 15,
                     "decorators": [
                         {
                             "name": "property",
@@ -1114,7 +1114,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 11,
+                    "line": 12,
                     "decorators": [
                         {
                             "name": "property",
@@ -1127,7 +1127,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 26,
+                    "line": 27,
                     "decorators": [
                         {
                             "name": "property",
@@ -1140,7 +1140,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 8,
+                    "line": 9,
                     "decorators": [
                         {
                             "name": "property",
@@ -1153,7 +1153,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 18,
                     "decorators": [
                         {
                             "name": "property",
@@ -1166,7 +1166,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 29,
+                    "line": 30,
                     "decorators": [
                         {
                             "name": "property",
@@ -1187,7 +1187,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 118,
+                    "line": 122,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -1204,7 +1204,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 136
+                    "line": 140
                 },
                 {
                     "name": "updateProduct",
@@ -1217,7 +1217,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 101,
+                    "line": 105,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -1234,7 +1234,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 85
+                    "line": 89
                 }
             ],
             "indexSignatures": [],
@@ -1246,7 +1246,7 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 34
+                        "line": 35
                     }
                 }
             }
@@ -1298,10 +1298,10 @@
         },
         {
             "name": "storeFormButton",
-            "id": "class-storeFormButton-afca76d91b8415c887383f0bda493573",
+            "id": "class-storeFormButton-901676d2ceee276a66ff796833c1ee02",
             "file": "src/components/form-button.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-form-btn')\r\nexport class storeFormButton extends LitElement {\r\n\r\n  @property()\r\n  buttonText = 'click here';\r\n\r\n  @property()\r\n  isCardButton = false;\r\n\r\n\r\n  static get styles() {\r\n    return css`\r\n    .str-btn {\r\n      padding: 8px;\r\n      border: 1px solid #c8c8c8;\r\n      box-shadow: .5px .5px #c8c8c8;\r\n      margin: 1rem;\r\n      background-color: var(--btn-background);\r\n    color: var(--btn-color);\r\n  }\r\n  .str-btn.active { \r\n    transform: scale(0.98); \r\n    /* Scaling button to 0.98 to its original size */ \r\n    -webkit-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    -moz-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n} \r\n  .str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.str-card-buttons {\r\n  width:6rem;\r\n  background-color: var(--form-btn-background);\r\n  color: var(--form-btn-color);\r\n  margin: 10px;\r\n}\r\n    `;\r\n  }\r\n\r\n  inputHandler() {\r\n    const inputValueChanged = new Event('click', {});\r\n  this.dispatchEvent(inputValueChanged);\r\n  }\r\n\r\n  render(){\r\n    if(this.isCardButton) {\r\n      return html`<button class=\"str-card-buttons str-btn\">${this.buttonText}</button>`;\r\n    } else {\r\n      return html`<button class=\"str-submit-btn str-btn\" @click=${this.inputHandler}>${this.buttonText}</button>`;\r\n    }\r\n  }\r\n}",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-form-btn')\r\nexport class storeFormButton extends LitElement {\r\n\r\n  @property()\r\n  buttonText = 'click here';\r\n\r\n  @property()\r\n  isCardButton = false;\r\n\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n    .str-btn {\r\n      padding: 8px;\r\n      border: 1px solid #c8c8c8;\r\n      box-shadow: .5px .5px #c8c8c8;\r\n      margin: 1rem;\r\n      background-color: var(--btn-background);\r\n    color: var(--btn-color);\r\n  }\r\n  .str-btn.active { \r\n    transform: scale(0.98); \r\n    /* Scaling button to 0.98 to its original size */ \r\n    -webkit-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    -moz-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n} \r\n  .str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.str-card-buttons {\r\n  width:6rem;\r\n  background-color: var(--form-btn-background);\r\n  color: var(--form-btn-color);\r\n  margin: 10px;\r\n}\r\n    `,\r\n    mediaQueries\r\n    ];\r\n  }\r\n\r\n  inputHandler() {\r\n    const inputValueChanged = new Event('click', {});\r\n  this.dispatchEvent(inputValueChanged);\r\n  }\r\n\r\n  render(){\r\n    if(this.isCardButton) {\r\n      return html`<button class=\"str-card-buttons str-btn\">${this.buttonText}</button>`;\r\n    } else {\r\n      return html`<button class=\"str-submit-btn str-btn\" @click=${this.inputHandler}>${this.buttonText}</button>`;\r\n    }\r\n  }\r\n}",
             "properties": [
                 {
                     "name": "buttonText",
@@ -1309,7 +1309,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 8,
+                    "line": 9,
                     "decorators": [
                         {
                             "name": "property",
@@ -1323,7 +1323,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 11,
+                    "line": 12,
                     "decorators": [
                         {
                             "name": "property",
@@ -1339,7 +1339,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45
+                    "line": 49
                 },
                 {
                     "name": "render",
@@ -1347,7 +1347,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 50
+                    "line": 54
                 }
             ],
             "indexSignatures": [],
@@ -1359,24 +1359,24 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 14
+                        "line": 15
                     }
                 }
             }
         },
         {
             "name": "storeHeaderElement",
-            "id": "class-storeHeaderElement-6cc46ed5f969efd8c6979643dd909ff0",
+            "id": "class-storeHeaderElement-6c3ecc3a3c8c2ecc39b36352aea77e9f",
             "file": "src/components/header.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-header')\r\nexport class storeHeaderElement extends LitElement {\r\n\r\n\r\n    @property()\r\n    strlogo: string;\r\n\r\n    @property()\r\n    changeLanguageButtonText: string;\r\n\r\n    @property()\r\n    changeThemeButtonText: string;\r\n\r\n    @property()\r\n    addProductButtonText: string;\r\n\r\n    @property()\r\n    logoutButtonText: string;\r\n\r\n    @property()\r\n    isAuthenticated: Boolean;\r\n\r\n    static get styles() {\r\n        return css`\r\n        .header-logout {\r\n            display:flex;\r\n            align-items: center;\r\n            flex-wrap: wrap;\r\n        }\r\n\r\n        .header{\r\n            display: flex;\r\n            justify-content: space-between;\r\n            padding:15px;\r\n            background-color: var(--header-background-color);\r\n            flex-wrap: wrap;\r\n        }\r\n    `;\r\n    }\r\n\r\n    changeLanguage() {\r\n        const onChangeLanguage = new CustomEvent('onChangeLanguage', {});\r\n        this.dispatchEvent(onChangeLanguage);\r\n    }\r\n    \r\n    addProduct() {\r\n        const onAddProduct = new CustomEvent('onAddProduct', {});\r\n        this.dispatchEvent(onAddProduct);\r\n    }\r\n\r\n    changeTheme() {\r\n        const onChangeTheme = new CustomEvent('onChangeTheme', {});\r\n        this.dispatchEvent(onChangeTheme);\r\n    }\r\n\r\n    logout() {\r\n        const onLogout = new CustomEvent('onLogout', {});\r\n        this.dispatchEvent(onLogout);\r\n    }\r\n\r\n    render() {\r\n        let authenticatedButtons:TemplateResult = html``;\r\n        if(this.isAuthenticated) {\r\n            authenticatedButtons = html`\r\n            <str-btn aria-label=\"Add Product\" buttonText=\"${this.addProductButtonText}\" @click=\"${this.addProduct}\"></str-btn>\r\n            <str-btn buttonText=\"${this.logoutButtonText}\" @click=\"${this.logout}\" aria-label=\"Log out\"></str-btn>\r\n           `\r\n        }\r\n        return html`  \r\n        <div class=\"header\">\r\n        <img src=\"${this.strlogo}\" alt=\"App Logo\" tabindex=\"0\" aria-label=\"App logo\">\r\n        <div class=\"header-logout\">\r\n                <str-btn @click=\"${this.changeLanguage}\" aria-label=\"Change language\" buttonText=\"${this.changeLanguageButtonText}\"></str-btn>\r\n                <str-btn buttonText=\"${this.changeThemeButtonText}\" @click=\"${this.changeTheme}\" aria-label=\"Change theme\"></str-btn>\r\n                ${authenticatedButtons}\r\n        </div>\r\n        </div>\r\n    `;\r\n    }\r\n}\r\n\r\n",
+            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-header')\r\nexport class storeHeaderElement extends LitElement {\r\n\r\n\r\n    @property()\r\n    strlogo: string;\r\n\r\n    @property()\r\n    changeLanguageButtonText: string;\r\n\r\n    @property()\r\n    changeThemeButtonText: string;\r\n\r\n    @property()\r\n    addProductButtonText: string;\r\n\r\n    @property()\r\n    logoutButtonText: string;\r\n\r\n    @property()\r\n    isAuthenticated: string;\r\n\r\n    static get styles() {\r\n        return [\r\n            css`\r\n        .header-logout {\r\n            display:flex;\r\n            align-items: center;\r\n            flex-wrap: wrap;\r\n        }\r\n\r\n        .header{\r\n            display: flex;\r\n            justify-content: space-between;\r\n            padding:15px;\r\n            background-color: var(--header-background-color);\r\n            flex-wrap: wrap;\r\n        }\r\n    `,\r\n    mediaQueries\r\n        ];\r\n    }\r\n\r\n    changeLanguage() {\r\n        const onChangeLanguage = new CustomEvent('onChangeLanguage', {});\r\n        this.dispatchEvent(onChangeLanguage);\r\n    }\r\n    \r\n    addProduct() {\r\n        const onAddProduct = new CustomEvent('onAddProduct', {});\r\n        this.dispatchEvent(onAddProduct);\r\n    }\r\n\r\n    changeTheme() {\r\n        const onChangeTheme = new CustomEvent('onChangeTheme', {});\r\n        this.dispatchEvent(onChangeTheme);\r\n    }\r\n\r\n    logout() {\r\n        const onLogout = new CustomEvent('onLogout', {});\r\n        this.dispatchEvent(onLogout);\r\n    }\r\n\r\n    render() {\r\n        let authenticatedButtons:TemplateResult = html``;\r\n        if(this.isAuthenticated === 'true') {\r\n            authenticatedButtons = html`\r\n            <str-btn aria-label=\"Add Product\" buttonText=\"${this.addProductButtonText}\" @click=\"${this.addProduct}\"></str-btn>\r\n            <str-btn buttonText=\"${this.logoutButtonText}\" @click=\"${this.logout}\" aria-label=\"Log out\"></str-btn>\r\n           `\r\n        }\r\n        return html`  \r\n        <div class=\"header\">\r\n        <img src=\"${this.strlogo}\" alt=\"App Logo\" tabindex=\"0\" aria-label=\"App logo\">\r\n        <div class=\"header-logout\">\r\n                <str-btn @click=\"${this.changeLanguage}\" aria-label=\"Change language\" buttonText=\"${this.changeLanguageButtonText}\"></str-btn>\r\n                <str-btn buttonText=\"${this.changeThemeButtonText}\" @click=\"${this.changeTheme}\" aria-label=\"Change theme\"></str-btn>\r\n                ${authenticatedButtons}\r\n        </div>\r\n        </div>\r\n    `;\r\n    }\r\n}\r\n\r\n",
             "properties": [
                 {
                     "name": "addProductButtonText",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 19,
+                    "line": 20,
                     "decorators": [
                         {
                             "name": "property",
@@ -1389,7 +1389,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 13,
+                    "line": 14,
                     "decorators": [
                         {
                             "name": "property",
@@ -1402,7 +1402,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 16,
+                    "line": 17,
                     "decorators": [
                         {
                             "name": "property",
@@ -1412,10 +1412,10 @@
                 },
                 {
                     "name": "isAuthenticated",
-                    "type": "Boolean",
+                    "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 25,
+                    "line": 26,
                     "decorators": [
                         {
                             "name": "property",
@@ -1428,7 +1428,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 22,
+                    "line": 23,
                     "decorators": [
                         {
                             "name": "property",
@@ -1441,7 +1441,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 10,
+                    "line": 11,
                     "decorators": [
                         {
                             "name": "property",
@@ -1457,7 +1457,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 50
+                    "line": 54
                 },
                 {
                     "name": "changeLanguage",
@@ -1465,7 +1465,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45
+                    "line": 49
                 },
                 {
                     "name": "changeTheme",
@@ -1473,7 +1473,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 55
+                    "line": 59
                 },
                 {
                     "name": "logout",
@@ -1481,7 +1481,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 60
+                    "line": 64
                 },
                 {
                     "name": "render",
@@ -1489,7 +1489,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 65
+                    "line": 69
                 }
             ],
             "indexSignatures": [],
@@ -1501,24 +1501,24 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 27
+                        "line": 28
                     }
                 }
             }
         },
         {
             "name": "storeImageInputElement",
-            "id": "class-storeImageInputElement-225c47780323c15ed70b31598b9a7693",
+            "id": "class-storeImageInputElement-f21eacd7071106f9172a9140c72655a7",
             "file": "src/components/image-input.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-image-input')\r\nexport class storeImageInputElement extends LitElement {\r\n\r\n    @property()\r\n    ariaLabel: string;\r\n\r\n    @property()\r\n    isReadonly: string;\r\n\r\n    @property()\r\n    inputValue: string = null;\r\n\r\n    @property()\r\n    labelValue: string = \"Choose an image\";\r\n\r\n    static get styles() {\r\n        return css`\r\n        .image-label {\r\n            font-size: 12px;\r\n            margin: 10px;\r\n            display: block;\r\n            color: #666666;\r\n        }\r\n    `;\r\n    }\r\n\r\n    inputHandler(event) {\r\n        const inputValueChanged = new CustomEvent('inputValueChanged', {\r\n            detail: {\r\n                value: event.path[0].files[0]\r\n            },\r\n        });\r\n        this.dispatchEvent(inputValueChanged);\r\n    }\r\n\r\n    render() {\r\n        let readonlyValue;\r\n        if (this.isReadonly === 'true') {\r\n            readonlyValue = true;\r\n        }\r\n        return html`  \r\n        <label for=\"\" class=\"image-label\" >${this.labelValue}</label>\r\n        <input aria-label=\"${this.ariaLabel}\" type=\"file\" path=\"../assets/images/\" ?readonly= \"${readonlyValue}\"\r\n         @change=\"${this.inputHandler}\">\r\n    `;\r\n    }\r\n}",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-image-input')\r\nexport class storeImageInputElement extends LitElement {\r\n\r\n    @property()\r\n    ariaLabel: string;\r\n\r\n    @property()\r\n    isReadonly: string;\r\n\r\n    @property()\r\n    inputValue: string = null;\r\n\r\n    @property()\r\n    labelValue: string = \"Choose an image\";\r\n\r\n    static get styles() {\r\n        return [\r\n            css`\r\n        .image-label {\r\n            font-size: 12px;\r\n            margin: 10px;\r\n            display: block;\r\n            color: #666666;\r\n        }\r\n    `,\r\n      mediaQueries  ];\r\n    }\r\n\r\n    inputHandler(event) {\r\n        const inputValueChanged = new CustomEvent('inputValueChanged', {\r\n            detail: {\r\n                value: event.path[0].files[0]\r\n            },\r\n        });\r\n        this.dispatchEvent(inputValueChanged);\r\n    }\r\n\r\n    render() {\r\n        let readonlyValue;\r\n        if (this.isReadonly === 'true') {\r\n            readonlyValue = true;\r\n        }\r\n        return html`  \r\n        <label for=\"\" class=\"image-label\" >${this.labelValue}</label>\r\n        <input aria-label=\"${this.ariaLabel}\" type=\"file\" path=\"../assets/images/\" ?readonly= \"${readonlyValue}\"\r\n         @change=\"${this.inputHandler}\">\r\n    `;\r\n    }\r\n}",
             "properties": [
                 {
                     "name": "ariaLabel",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 8,
+                    "line": 9,
                     "decorators": [
                         {
                             "name": "property",
@@ -1532,7 +1532,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 15,
                     "decorators": [
                         {
                             "name": "property",
@@ -1545,7 +1545,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 11,
+                    "line": 12,
                     "decorators": [
                         {
                             "name": "property",
@@ -1559,7 +1559,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 18,
                     "decorators": [
                         {
                             "name": "property",
@@ -1580,7 +1580,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30,
+                    "line": 33,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -1597,7 +1597,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 39
+                    "line": 42
                 }
             ],
             "indexSignatures": [],
@@ -1609,24 +1609,24 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 19
+                        "line": 20
                     }
                 }
             }
         },
         {
             "name": "storeInputElement",
-            "id": "class-storeInputElement-c602e26847e9e48c917d45ffb83c31b3",
+            "id": "class-storeInputElement-afc3ef2fcf65a6bbbdc002a6f0c3887b",
             "file": "src/components/text-input-element.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-input')\r\nexport class storeInputElement extends LitElement {\r\n\r\n     @property()\r\n     ariaLabel: string;\r\n\r\n     @property()\r\n     inputType: string;\r\n\r\n     @property()\r\n     inputPlaceholder: string;\r\n\r\n     @property()\r\n     isReadonly: string;\r\n\r\n     @property()\r\n     inputValue: string = null;\r\n  \r\n  static get styles() {\r\n    return css`\r\n    .str-input {\r\n        width: 20rem;\r\n        height: 2rem;\r\n        border: 1px solid #bdbdbd;\r\n        border-radius: 5px;\r\n        margin: 15px auto 0px 0px;\r\n        padding-left: 10px;\r\n    }\r\n    `;\r\n  }\r\n\r\n\r\n  inputHandler(event) {\r\n      const inputValueChanged = new CustomEvent('inputValueChanged', {\r\n        detail: {\r\n            value: event.composedPath()[0].value\r\n        },\r\n    });\r\n    this.dispatchEvent(inputValueChanged);\r\n  }\r\n\r\n  render(){\r\n    let readonlyValue;\r\n    if(this.isReadonly === 'true') {\r\n      readonlyValue = true;\r\n    }\r\n    return html`<input aria-label=\"${this.ariaLabel}\" class=\"str-input\" type=\"${this.inputType}\"\r\n    placeholder=\"${this.inputPlaceholder}\" @input=${this.inputHandler} .value=\"${this.inputValue}\"\r\n    ?readonly=\"${readonlyValue}\"/>`;\r\n  }\r\n}",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-input')\r\nexport class storeInputElement extends LitElement {\r\n\r\n     @property()\r\n     ariaLabel: string;\r\n\r\n     @property()\r\n     inputType: string;\r\n\r\n     @property()\r\n     inputPlaceholder: string;\r\n\r\n     @property()\r\n     isReadonly: string;\r\n\r\n     @property()\r\n     inputValue: string = null;\r\n  \r\n  static get styles() {\r\n    return [\r\n      css`\r\n    .str-input {\r\n        width: 20rem;\r\n        height: 2rem;\r\n        border: 1px solid #bdbdbd;\r\n        border-radius: 5px;\r\n        margin: 15px auto 0px 0px;\r\n        padding-left: 10px;\r\n    }\r\n    `, mediaQueries\r\n    ];\r\n  }\r\n\r\n\r\n  inputHandler(event) {\r\n      const inputValueChanged = new CustomEvent('inputValueChanged', {\r\n        detail: {\r\n            value: event.composedPath()[0].value\r\n        },\r\n    });\r\n    this.dispatchEvent(inputValueChanged);\r\n  }\r\n\r\n  render(){\r\n    let readonlyValue;\r\n    if(this.isReadonly === 'true') {\r\n      readonlyValue = true;\r\n    }\r\n    return html`<input aria-label=\"${this.ariaLabel}\" class=\"str-input\" type=\"${this.inputType}\"\r\n    placeholder=\"${this.inputPlaceholder}\" @input=${this.inputHandler} .value=\"${this.inputValue}\"\r\n    ?readonly=\"${readonlyValue}\"/>`;\r\n  }\r\n}",
             "properties": [
                 {
                     "name": "ariaLabel",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 8,
+                    "line": 9,
                     "decorators": [
                         {
                             "name": "property",
@@ -1639,7 +1639,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 15,
                     "decorators": [
                         {
                             "name": "property",
@@ -1652,7 +1652,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 11,
+                    "line": 12,
                     "decorators": [
                         {
                             "name": "property",
@@ -1666,7 +1666,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 20,
+                    "line": 21,
                     "decorators": [
                         {
                             "name": "property",
@@ -1679,7 +1679,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 18,
                     "decorators": [
                         {
                             "name": "property",
@@ -1700,7 +1700,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 36,
+                    "line": 39,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -1717,7 +1717,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 45
+                    "line": 48
                 }
             ],
             "indexSignatures": [],
@@ -1729,7 +1729,7 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 22
+                        "line": 23
                     }
                 }
             }
@@ -1793,17 +1793,17 @@
         },
         {
             "name": "storeTextareaElement",
-            "id": "class-storeTextareaElement-86ae4910fbcdf547f8ea4fa4de27849f",
+            "id": "class-storeTextareaElement-90354d4eda97c63086464802351ae4a8",
             "file": "src/components/textarea-input.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-textarea')\r\nexport class storeTextareaElement extends LitElement {\r\n\r\n    @property()\r\n    ariaLabel: string;\r\n\r\n\r\n    @property()\r\n    inputPlaceholder: string;\r\n\r\n    @property()\r\n    isReadonly: string;\r\n\r\n    @property()\r\n    inputValue: string = null;\r\n\r\n    @property()\r\n    rows: string = \"10\";\r\n\r\n    @property()\r\n    columns: string = \"30\";\r\n\r\n    static get styles() {\r\n        return css`\r\n    .str-textarea {\r\n        width: 20rem;\r\n        border: 1px solid #bdbdbd;\r\n        border-radius: 5px;\r\n        margin: 15px auto 0px 0px;\r\n        padding-left: 10px;\r\n    }\r\n    `;\r\n    }\r\n\r\n\r\n    inputHandler(event) {\r\n        const inputValueChanged = new CustomEvent('inputValueChanged', {\r\n            detail: {\r\n                value: event.composedPath()[0].value\r\n            },\r\n        });\r\n        this.dispatchEvent(inputValueChanged);\r\n    }\r\n\r\n    render() {\r\n        let readonlyValue;\r\n        if (this.isReadonly === 'true') {\r\n            readonlyValue = true;\r\n        }\r\n        return html`  \r\n    <textarea aria-label=\"${this.ariaLabel}\" class=\"str-textarea\" cols=\"${this.columns}\" rows=\"${this.rows}\"\r\n     @input=${this.inputHandler}  placeholder=\"${this.inputPlaceholder}\" ?readonly= \"${readonlyValue}\" .value=\"${this.inputValue}\">\r\n    </textarea>`;\r\n    }\r\n}",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-textarea')\r\nexport class storeTextareaElement extends LitElement {\r\n\r\n    @property()\r\n    ariaLabel: string;\r\n\r\n\r\n    @property()\r\n    inputPlaceholder: string;\r\n\r\n    @property()\r\n    isReadonly: string;\r\n\r\n    @property()\r\n    inputValue: string = null;\r\n\r\n    @property()\r\n    rows: string = \"10\";\r\n\r\n    @property()\r\n    columns: string = \"30\";\r\n\r\n    static get styles() {\r\n        return [\r\n            css`\r\n    .str-textarea {\r\n        width: 20rem;\r\n        border: 1px solid #bdbdbd;\r\n        border-radius: 5px;\r\n        margin: 15px auto 0px 0px;\r\n        padding-left: 10px;\r\n    }\r\n    `,\r\n    mediaQueries\r\n        ];\r\n    }\r\n\r\n\r\n    inputHandler(event) {\r\n        const inputValueChanged = new CustomEvent('inputValueChanged', {\r\n            detail: {\r\n                value: event.composedPath()[0].value\r\n            },\r\n        });\r\n        this.dispatchEvent(inputValueChanged);\r\n    }\r\n\r\n    render() {\r\n        let readonlyValue;\r\n        if (this.isReadonly === 'true') {\r\n            readonlyValue = true;\r\n        }\r\n        return html`  \r\n    <textarea aria-label=\"${this.ariaLabel}\" class=\"str-textarea\" cols=\"${this.columns}\" rows=\"${this.rows}\"\r\n     @input=${this.inputHandler}  placeholder=\"${this.inputPlaceholder}\" ?readonly= \"${readonlyValue}\" .value=\"${this.inputValue}\">\r\n    </textarea>`;\r\n    }\r\n}",
             "properties": [
                 {
                     "name": "ariaLabel",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 8,
+                    "line": 9,
                     "decorators": [
                         {
                             "name": "property",
@@ -1817,7 +1817,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 24,
+                    "line": 25,
                     "decorators": [
                         {
                             "name": "property",
@@ -1830,7 +1830,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 13,
                     "decorators": [
                         {
                             "name": "property",
@@ -1844,7 +1844,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 18,
+                    "line": 19,
                     "decorators": [
                         {
                             "name": "property",
@@ -1857,7 +1857,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 15,
+                    "line": 16,
                     "decorators": [
                         {
                             "name": "property",
@@ -1871,7 +1871,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 21,
+                    "line": 22,
                     "decorators": [
                         {
                             "name": "property",
@@ -1892,7 +1892,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 39,
+                    "line": 43,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -1909,7 +1909,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 48
+                    "line": 52
                 }
             ],
             "indexSignatures": [],
@@ -1921,7 +1921,7 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 26
+                        "line": 27
                     }
                 }
             }
@@ -2400,7 +2400,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import '../shared/styles/variables.scss'; \r\n\r\n\r\n.str-footer {\r\n    padding:15px;\r\n    font-size: 10px;\r\n    background-color: var(--footer-background-color);\r\n    color: var(--footer-color);\r\n}",
+                    "data": "",
                     "styleUrl": "./footer.component.scss"
                 }
             ],
@@ -2444,7 +2444,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import '../shared/styles/variables.scss'; \r\n\r\n\r\n.str-footer {\r\n    padding:15px;\r\n    font-size: 10px;\r\n    background-color: var(--footer-background-color);\r\n    color: var(--footer-color);\r\n}",
+                    "data": "",
                     "styleUrl": "../../app/footer/footer.component.scss"
                 }
             ],
@@ -2526,7 +2526,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import '../shared/styles/variables.scss';\r\n@import '../shared/styles/utils.scss';\r\n.header{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding:15px;\r\n    background-color: var(--header-background-color);\r\n    flex-wrap: wrap;\r\n}\r\n.header-logout {\r\n    display:flex;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n}\r\n.str-btn-colors {\r\n    background-color: var(--btn-background);\r\n    color: var(--btn-color);\r\n}\r\n",
+                    "data": "",
                     "styleUrl": "./header.component.scss"
                 }
             ],
@@ -2639,7 +2639,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import '../shared/styles/variables.scss';\r\n@import '../shared/styles/utils.scss';\r\n.header{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding:15px;\r\n    background-color: var(--header-background-color);\r\n    flex-wrap: wrap;\r\n}\r\n.header-logout {\r\n    display:flex;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n}\r\n.str-btn-colors {\r\n    background-color: var(--btn-background);\r\n    color: var(--btn-color);\r\n}\r\n",
+                    "data": "",
                     "styleUrl": "../../app/header/header.component.scss"
                 }
             ],
@@ -2680,7 +2680,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import '../../shared/styles/variables.scss';\r\n\r\n.str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.signup-link {\r\n    font-size: 12px;\r\n    display: block;\r\n    margin-bottom: 1rem;\r\n}\r\n.tab{\r\n    list-style: none;\r\n    text-align: center;\r\n    font-weight: bold;\r\n    padding:1rem;\r\n    background-color: var(--tab-active-background);\r\n    color: var(--tab-active-color);\r\n}",
+                    "data": ".signup-link {\r\n    font-size: 12px;\r\n    display: block;\r\n    margin-bottom: 1rem;\r\n}\r\n.tab{\r\n    text-align: center;\r\n    font-weight: bold;\r\n    padding:1rem;\r\n    background-color: var(--tab-active-background);\r\n    color: var(--tab-active-color);\r\n}",
                     "styleUrl": "../../app/auth/login/login.component.scss"
                 }
             ],
@@ -2831,7 +2831,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import '../../shared/styles/variables.scss';\r\n\r\n.str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.signup-link {\r\n    font-size: 12px;\r\n    display: block;\r\n    margin-bottom: 1rem;\r\n}\r\n.tab{\r\n    list-style: none;\r\n    text-align: center;\r\n    font-weight: bold;\r\n    padding:1rem;\r\n    background-color: var(--tab-active-background);\r\n    color: var(--tab-active-color);\r\n}",
+                    "data": ".signup-link {\r\n    font-size: 12px;\r\n    display: block;\r\n    margin-bottom: 1rem;\r\n}\r\n.tab{\r\n    text-align: center;\r\n    font-weight: bold;\r\n    padding:1rem;\r\n    background-color: var(--tab-active-background);\r\n    color: var(--tab-active-color);\r\n}",
                     "styleUrl": "./login.component.scss"
                 }
             ],
@@ -2906,7 +2906,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import '../../shared/styles/variables.scss';\r\n\r\n.container {\r\n    width: 50%;\r\n    margin: 3rem auto 0rem auto;\r\n    border-radius: 5px;\r\n}\r\n\r\n.str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.image-label {\r\n    font-size: 12px;\r\n    margin: 10px;\r\n    display: block;\r\n    color: $dark-gray\r\n}\r\n\r\n",
+                    "data": ".container {\r\n    width: 50%;\r\n    margin: 3rem auto 0rem auto;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n",
                     "styleUrl": "../../app/products/product-operations/product-operations.component.scss"
                 }
             ],
@@ -3183,7 +3183,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import '../../shared/styles/variables.scss';\r\n\r\n.container {\r\n    width: 50%;\r\n    margin: 3rem auto 0rem auto;\r\n    border-radius: 5px;\r\n}\r\n\r\n.str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.image-label {\r\n    font-size: 12px;\r\n    margin: 10px;\r\n    display: block;\r\n    color: $dark-gray\r\n}\r\n\r\n",
+                    "data": ".container {\r\n    width: 50%;\r\n    margin: 3rem auto 0rem auto;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n",
                     "styleUrl": "./product-operations.component.scss"
                 }
             ],
@@ -3483,7 +3483,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import '../../shared/styles/variables.scss';\r\n\r\n.str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.tab{\r\n    list-style: none;\r\n    text-align: center;\r\n    font-weight: bold;\r\n    padding:1rem;\r\n    background-color: var(--tab-active-background);\r\n    color: var(--tab-active-color);\r\n}",
+                    "data": ".tab{\r\n    text-align: center;\r\n    font-weight: bold;\r\n    padding:1rem;\r\n    background-color: var(--tab-active-background);\r\n    color: var(--tab-active-color);\r\n}",
                     "styleUrl": "../../app/auth/registration/registration.component.scss"
                 }
             ],
@@ -3670,7 +3670,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import '../../shared/styles/variables.scss';\r\n\r\n.str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.tab{\r\n    list-style: none;\r\n    text-align: center;\r\n    font-weight: bold;\r\n    padding:1rem;\r\n    background-color: var(--tab-active-background);\r\n    color: var(--tab-active-color);\r\n}",
+                    "data": ".tab{\r\n    text-align: center;\r\n    font-weight: bold;\r\n    padding:1rem;\r\n    background-color: var(--tab-active-background);\r\n    color: var(--tab-active-color);\r\n}",
                     "styleUrl": "./registration.component.scss"
                 }
             ],
@@ -4133,6 +4133,14 @@
                 "defaultValue": "'[Header Page] Logout'"
             },
             {
+                "name": "mediaQueries",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/media-queries.ts",
+                "type": "",
+                "defaultValue": "css\r\n`\r\n@media screen and (min-width: 320px) and (max-width: 500px) {\r\n    .auth-container {\r\n      width: 80%;\r\n    }\r\n    .str-input {\r\n      width: 80%;\r\n    }\r\n    .str-textarea {\r\n      width: 80%;\r\n    }\r\n    .card-container {\r\n      grid-template-columns: 100%;\r\n    }\r\n  }\r\n  \r\n  @media screen and (min-width: 501px) and (max-width: 600px) {\r\n      .card-container {\r\n          grid-template-columns: 100%;\r\n      }\r\n  }\r\n  \r\n  @media screen and (min-width: 601px) and (max-width: 720px) {\r\n      .card-container {\r\n          grid-template-columns: 40% 40%;\r\n      }\r\n  }\r\n  \r\n  @media screen and (min-width: 721px) and (max-width: 999px) {\r\n    .card-container {\r\n      grid-template-columns: 30% 30% 30%;\r\n  }\r\n  }\r\n  \r\n  @media screen and (min-width: 501px) and (max-width: 720px) {\r\n    .str-input {\r\n      width: 80%;\r\n    }\r\n    .str-textarea {\r\n      width: 80%;\r\n    }\r\n  }\r\n  \r\n\r\n`"
+            },
+            {
                 "name": "mock",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -4516,7 +4524,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/footer/Footer.stories.ts",
+                "file": "src/stories/card/Card.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -4536,7 +4544,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/card/Card.stories.ts",
+                "file": "src/stories/footer/Footer.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -4596,7 +4604,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/registration/Registration.stories.ts",
+                "file": "src/stories/products/ProductOperations.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -4616,7 +4624,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/products/ProductOperations.stories.ts",
+                "file": "src/stories/registration/Registration.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -5080,6 +5088,16 @@
                     "defaultValue": "createAction(\r\n  SIGNUP_SUCCESS,\r\n  props<{email:string; password:string;}>()\r\n)"
                 }
             ],
+            "src/components/media-queries.ts": [
+                {
+                    "name": "mediaQueries",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/media-queries.ts",
+                    "type": "",
+                    "defaultValue": "css\r\n`\r\n@media screen and (min-width: 320px) and (max-width: 500px) {\r\n    .auth-container {\r\n      width: 80%;\r\n    }\r\n    .str-input {\r\n      width: 80%;\r\n    }\r\n    .str-textarea {\r\n      width: 80%;\r\n    }\r\n    .card-container {\r\n      grid-template-columns: 100%;\r\n    }\r\n  }\r\n  \r\n  @media screen and (min-width: 501px) and (max-width: 600px) {\r\n      .card-container {\r\n          grid-template-columns: 100%;\r\n      }\r\n  }\r\n  \r\n  @media screen and (min-width: 601px) and (max-width: 720px) {\r\n      .card-container {\r\n          grid-template-columns: 40% 40%;\r\n      }\r\n  }\r\n  \r\n  @media screen and (min-width: 721px) and (max-width: 999px) {\r\n    .card-container {\r\n      grid-template-columns: 30% 30% 30%;\r\n  }\r\n  }\r\n  \r\n  @media screen and (min-width: 501px) and (max-width: 720px) {\r\n    .str-input {\r\n      width: 80%;\r\n    }\r\n    .str-textarea {\r\n      width: 80%;\r\n    }\r\n  }\r\n  \r\n\r\n`"
+                }
+            ],
             "src/jest-config/globalmocks.ts": [
                 {
                     "name": "mock",
@@ -5354,10 +5372,10 @@
                     ]
                 }
             ],
-            "src/stories/footer/Footer.stories.ts": [
+            "src/stories/card/Card.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/footer/Footer.stories.ts",
+                    "file": "src/stories/card/Card.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -5376,10 +5394,10 @@
                     ]
                 }
             ],
-            "src/stories/card/Card.stories.ts": [
+            "src/stories/footer/Footer.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/card/Card.stories.ts",
+                    "file": "src/stories/footer/Footer.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -5442,10 +5460,10 @@
                     ]
                 }
             ],
-            "src/stories/registration/Registration.stories.ts": [
+            "src/stories/products/ProductOperations.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/registration/Registration.stories.ts",
+                    "file": "src/stories/products/ProductOperations.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -5464,10 +5482,10 @@
                     ]
                 }
             ],
-            "src/stories/products/ProductOperations.stories.ts": [
+            "src/stories/registration/Registration.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/products/ProductOperations.stories.ts",
+                    "file": "src/stories/registration/Registration.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -6440,6 +6458,16 @@
                 "name": "storeImageInputElement",
                 "coveragePercent": 0,
                 "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/media-queries.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "mediaQueries",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

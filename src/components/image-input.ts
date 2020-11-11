@@ -1,5 +1,6 @@
 import { html, LitElement, css } from 'lit-element';
 import { customElement, property } from 'lit-element/lib/decorators';
+import {mediaQueries} from './media-queries';
 
 @customElement('str-image-input')
 export class storeImageInputElement extends LitElement {
@@ -17,14 +18,16 @@ export class storeImageInputElement extends LitElement {
     labelValue: string = "Choose an image";
 
     static get styles() {
-        return css`
+        return [
+            css`
         .image-label {
             font-size: 12px;
             margin: 10px;
             display: block;
             color: #666666;
         }
-    `;
+    `,
+      mediaQueries  ];
     }
 
     inputHandler(event) {

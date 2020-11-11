@@ -1,5 +1,6 @@
 import { html, LitElement, css } from 'lit-element';
 import { customElement, property  } from 'lit-element/lib/decorators';
+import {mediaQueries} from './media-queries';
 
 @customElement('str-input')
 export class storeInputElement extends LitElement {
@@ -20,7 +21,8 @@ export class storeInputElement extends LitElement {
      inputValue: string = null;
   
   static get styles() {
-    return css`
+    return [
+      css`
     .str-input {
         width: 20rem;
         height: 2rem;
@@ -29,7 +31,8 @@ export class storeInputElement extends LitElement {
         margin: 15px auto 0px 0px;
         padding-left: 10px;
     }
-    `;
+    `, mediaQueries
+    ];
   }
 
 

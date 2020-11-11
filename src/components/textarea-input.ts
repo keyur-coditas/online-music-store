@@ -1,5 +1,6 @@
 import { html, LitElement, css } from 'lit-element';
 import { customElement, property } from 'lit-element/lib/decorators';
+import {mediaQueries} from './media-queries';
 
 @customElement('str-textarea')
 export class storeTextareaElement extends LitElement {
@@ -24,7 +25,8 @@ export class storeTextareaElement extends LitElement {
     columns: string = "30";
 
     static get styles() {
-        return css`
+        return [
+            css`
     .str-textarea {
         width: 20rem;
         border: 1px solid #bdbdbd;
@@ -32,7 +34,9 @@ export class storeTextareaElement extends LitElement {
         margin: 15px auto 0px 0px;
         padding-left: 10px;
     }
-    `;
+    `,
+    mediaQueries
+        ];
     }
 
 

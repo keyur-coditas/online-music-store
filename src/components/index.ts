@@ -6,6 +6,7 @@ import * as storeTextareaElement from './textarea-input';
 import * as storeImageInput from './image-input';
 import * as storeHeaderElement from './header';
 import * as storeFooterElement from './footer';
+import * as mediaQueries from './media-queries';
 export {
     storeButton, 
     storeFormButton, 
@@ -14,5 +15,6 @@ export {
     storeTextareaElement, 
     storeImageInput, 
     storeHeaderElement,
-    storeFooterElement
+    storeFooterElement,
+    mediaQueries
 }
