@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
@@ -11,7 +12,8 @@ describe('FooterComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ FooterComponent ],
       providers: [TranslateService],
-      imports: [TranslateModule.forRoot()]
+      imports: [TranslateModule.forRoot()],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });
