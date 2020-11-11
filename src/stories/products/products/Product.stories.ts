@@ -12,7 +12,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { StorybookMocks } from '../../mocks';
 import ProductsComponent from './products.component';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CardComponent } from '../../../app/products/card/card.component';
 import { object, withKnobs } from '@storybook/addon-knobs';
 import { StoreProduct } from '../../../app/shared/store/products/products.model';
 import { provideMockStore } from '@ngrx/store/testing';
@@ -36,7 +35,7 @@ export default {
   component: ProductsComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ProductsComponent, CardComponent],
+      declarations: [ProductsComponent],
       imports: [
         CommonModule,
         TranslateModule.forRoot({

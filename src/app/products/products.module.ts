@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
 import { ProductOperationsComponent } from './product-operations/product-operations.component';
-import { CardComponent } from './card/card.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -16,8 +15,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     ProductsComponent,
-    ProductOperationsComponent,
-    CardComponent
+    ProductOperationsComponent
   ],
   imports: [
     ProductsRoutingModule,

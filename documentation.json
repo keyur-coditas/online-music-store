@@ -2170,206 +2170,6 @@
             "templateData": "<div class=\"auth-container\">\r\n  <div class=\"text-center\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>\r\n"
         },
         {
-            "name": "CardComponent",
-            "id": "component-CardComponent-00475dabe6f5588c4eb763b3e9ef2418",
-            "file": "src/stories/card/card.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "storybook-card",
-            "styleUrls": [
-                "../../app/products/card/card.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "../../app/products/card/card.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'storybook-card',\r\n  templateUrl: '../../app/products/card/card.component.html' ,\r\n  styleUrls: ['../../app/products/card/card.component.scss'],\r\n})\r\nexport default class CardComponent {\r\n \r\n}\r\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "@import '../../shared/styles/variables.scss';\r\n.card {\r\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\r\n    transition: 0.3s;\r\n    border-radius: 5px;\r\n    background-color: $white;\r\n    height:100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    border:none;\r\n    width:100%;\r\n  }\r\n  \r\n  .card:hover {\r\n    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\r\n  }\r\n  \r\n  .product-image {\r\n    border-radius: 5px 5px 0 0;\r\n  }\r\n  \r\n  .container {\r\n    padding: 2px 16px;\r\n  }\r\n  .card-font-small {\r\n      font-size: 0.8rem;\r\n  }\r\n  .card-font-medium {\r\n      font-size: 0.9rem;\r\n  }\r\n  .card-header-margin {\r\n    margin: 0.8rem;\r\n}\r\n.card-details-margin {\r\n    margin: 0.5rem;\r\n}\r\n.str-card-buttons {\r\n  width:6rem;\r\n  background-color: var(--form-btn-background);\r\n  color: var(--form-btn-color);\r\n  margin: 10px;\r\n}\r\n",
-                    "styleUrl": "../../app/products/card/card.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "templateData": "<button type=\"button\" class=\"card\" (click)=\"viewProduct()\" aria-label=\"View product details\" >\r\n    <div class=\"text-center\">\r\n        <img [src]=\"product.imageUrl\" class=\"product-image\" alt=\"Avatar\" onerror=\"this.src='../../../assets/images/noimage.webp';\" width=\"200\" width=\"200\" height=\"200\">\r\n    </div>\r\n    <div class=\"container card-details\">\r\n        <h4 class=\"text-center card-font-medium card-header-margin\"><b>{{product.name}}</b></h4>\r\n        <p class=\"text-center card-font-small card-details-margin\">{{product.description}}</p>\r\n        <p class=\"text-center card-font-small card-details-margin\"><b><span>&#8377; </span> {{product.price}}</b></p>\r\n    </div>\r\n    <div class=\"text-center str-card-buttons-container\">\r\n        <str-form-btn *ngIf=\"currentUser === product.createdBy\" (click)=\"updateProduct($event)\" buttonText=\"{{'products.card.update-button'| translate}}\" isCardButton=\"true\" aria-label=\"Update Product\"></str-form-btn>\r\n        <str-form-btn *ngIf=\"currentUser === product.createdBy\" (click)=\"deleteProduct($event)\" buttonText=\"{{'products.card.delete-button'| translate}}\" isCardButton=\"true\" aria-label=\"Delete Product\"></str-form-btn>\r\n    </div>\r\n</button>"
-        },
-        {
-            "name": "CardComponent",
-            "id": "component-CardComponent-8848cc5fd9a5b07fea070f1a7d8bc5e7-1",
-            "file": "src/app/products/card/card.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-card",
-            "styleUrls": [
-                "./card.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./card.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "product",
-                    "line": 19,
-                    "type": "StoreProduct"
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "currentUser",
-                    "defaultValue": "''",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 20
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "deleteProduct",
-                    "args": [
-                        {
-                            "name": "evt",
-                            "type": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 44,
-                    "jsdoctags": [
-                        {
-                            "name": "evt",
-                            "type": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 26
-                },
-                {
-                    "name": "updateProduct",
-                    "args": [
-                        {
-                            "name": "evt",
-                            "type": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 34,
-                    "jsdoctags": [
-                        {
-                            "name": "evt",
-                            "type": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "viewProduct",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 49
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\nimport { ProductOperationInfo } from '../../shared/models/product';\r\nimport { ProductService } from '../products.service';\r\nimport * as APP_CONSTANTS from '../../shared/app.constants';\r\nimport { Router } from '@angular/router';\r\nimport { Store } from '@ngrx/store';\r\nimport * as ProductActions from '../../shared/store/products/product.actions';\r\nimport { map } from 'rxjs/operators';\r\nimport { CurrentUser } from '../../shared/models/user';\r\nimport { StoreProduct } from '../../shared/store/products/products.model';\r\nimport { AppState } from '../../shared/store/app.state';\r\n@Component({\r\n  selector: 'app-card',\r\n  templateUrl: './card.component.html',\r\n  styleUrls: ['./card.component.scss']\r\n})\r\nexport class CardComponent implements OnInit {\r\n\r\n  @Input() product: StoreProduct;\r\n  currentUser: string = '';\r\n  constructor(\r\n    private productService:ProductService,\r\n    private router: Router,\r\n    private store: Store<AppState>) { }\r\n\r\n  ngOnInit(): void {\r\n     this.store.pipe(\r\n      map((state) => state['auth'].currentUser))\r\n     .subscribe((user:CurrentUser) => {\r\n      this.currentUser = user.email;\r\n    })\r\n  }\r\n\r\n  updateProduct(evt) {\r\n    evt.stopPropagation();\r\n    let productOpInfo: ProductOperationInfo = {\r\n      productOperation: APP_CONSTANTS.PRODUCT_UPDATE,\r\n      disableFormFields: false\r\n    }\r\n    this.productService.setProductInfo(productOpInfo);\r\n    this.productService.setProduct(this.product);\r\n    this.router.navigate(['products/product-update']);\r\n  }\r\n  deleteProduct(evt) {\r\n    evt.stopPropagation();\r\n    const product = this.product;\r\n    this.store.dispatch(ProductActions.productDeleteAttempt({product}))\r\n  }\r\n  viewProduct() {\r\n    let productOpInfo: ProductOperationInfo = {\r\n      productOperation: APP_CONSTANTS.PRODUCT_VIEW,\r\n      disableFormFields: true\r\n    }\r\n    this.productService.setProductInfo(productOpInfo);\r\n    this.productService.setProduct(this.product);\r\n    this.router.navigate(['products/product-update']);\r\n  }\r\n}\r\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "@import '../../shared/styles/variables.scss';\r\n.card {\r\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\r\n    transition: 0.3s;\r\n    border-radius: 5px;\r\n    background-color: $white;\r\n    height:100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    border:none;\r\n    width:100%;\r\n  }\r\n  \r\n  .card:hover {\r\n    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\r\n  }\r\n  \r\n  .product-image {\r\n    border-radius: 5px 5px 0 0;\r\n  }\r\n  \r\n  .container {\r\n    padding: 2px 16px;\r\n  }\r\n  .card-font-small {\r\n      font-size: 0.8rem;\r\n  }\r\n  .card-font-medium {\r\n      font-size: 0.9rem;\r\n  }\r\n  .card-header-margin {\r\n    margin: 0.8rem;\r\n}\r\n.card-details-margin {\r\n    margin: 0.5rem;\r\n}\r\n.str-card-buttons {\r\n  width:6rem;\r\n  background-color: var(--form-btn-background);\r\n  color: var(--form-btn-color);\r\n  margin: 10px;\r\n}\r\n",
-                    "styleUrl": "./card.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [
-                    {
-                        "name": "productService",
-                        "type": "ProductService"
-                    },
-                    {
-                        "name": "router",
-                        "type": "Router"
-                    },
-                    {
-                        "name": "store",
-                        "type": "Store<AppState>"
-                    }
-                ],
-                "line": 20,
-                "jsdoctags": [
-                    {
-                        "name": "productService",
-                        "type": "ProductService",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    },
-                    {
-                        "name": "router",
-                        "type": "Router",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    },
-                    {
-                        "name": "store",
-                        "type": "Store<AppState>",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            "implements": [
-                "OnInit"
-            ],
-            "isDuplicate": true,
-            "duplicateId": 1,
-            "duplicateName": "CardComponent-1",
-            "templateData": "<button type=\"button\" class=\"card\" (click)=\"viewProduct()\" aria-label=\"View product details\" >\r\n    <div class=\"text-center\">\r\n        <img [src]=\"product.imageUrl\" class=\"product-image\" alt=\"Avatar\" onerror=\"this.src='../../../assets/images/noimage.webp';\" width=\"200\" width=\"200\" height=\"200\">\r\n    </div>\r\n    <div class=\"container card-details\">\r\n        <h4 class=\"text-center card-font-medium card-header-margin\"><b>{{product.name}}</b></h4>\r\n        <p class=\"text-center card-font-small card-details-margin\">{{product.description}}</p>\r\n        <p class=\"text-center card-font-small card-details-margin\"><b><span>&#8377; </span> {{product.price}}</b></p>\r\n    </div>\r\n    <div class=\"text-center str-card-buttons-container\">\r\n        <str-form-btn *ngIf=\"currentUser === product.createdBy\" (click)=\"updateProduct($event)\" buttonText=\"{{'products.card.update-button'| translate}}\" isCardButton=\"true\" aria-label=\"Update Product\"></str-form-btn>\r\n        <str-form-btn *ngIf=\"currentUser === product.createdBy\" (click)=\"deleteProduct($event)\" buttonText=\"{{'products.card.delete-button'| translate}}\" isCardButton=\"true\" aria-label=\"Delete Product\"></str-form-btn>\r\n    </div>\r\n</button>"
-        },
-        {
             "name": "FooterComponent",
             "id": "component-FooterComponent-ff49f20195434c07f84d5e8406aefb53",
             "file": "src/app/footer/footer.component.ts",
@@ -4149,22 +3949,6 @@
                 "defaultValue": "() => {\r\n    let storage = {};\r\n    return {\r\n      getItem: key => (key in storage ? storage[key] : null),\r\n      setItem: (key, value) => (storage[key] = value || ''),\r\n      removeItem: key => delete storage[key],\r\n      clear: () => (storage = {}),\r\n    };\r\n  }"
             },
             {
-                "name": "nonOwner",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/card/Card.stories.ts",
-                "type": "",
-                "defaultValue": "() => ({\r\n  component: CardComponent,\r\n  props: {\r\n    product: object('product', { ...productData }),\r\n    currentUser: 'xyz@gmail.com',\r\n    viewProduct: StorybookMocks.mockCardActions().viewProduct,\r\n  },\r\n})"
-            },
-            {
-                "name": "owner",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/card/Card.stories.ts",
-                "type": "",
-                "defaultValue": "() => ({\r\n  component: CardComponent,\r\n  props: {\r\n    product: object('product', { ...productData }),\r\n    currentUser: 'keyur@gmail.com',\r\n    updateProduct: StorybookMocks.mockCardActions().updateProduct,\r\n    deleteProduct: StorybookMocks.mockCardActions().deleteProduct,\r\n    viewProduct: StorybookMocks.mockCardActions().viewProduct,\r\n  },\r\n})"
-            },
-            {
                 "name": "PRODUCT_ADD",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -4299,14 +4083,6 @@
                 "file": "src/app/shared/store/products/product.actions.ts",
                 "type": "",
                 "defaultValue": "createAction(\r\n  PRODUCT_ADD_SUCCESS,\r\n  props<{product: StoreProduct}>()\r\n)"
-            },
-            {
-                "name": "productData",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/card/Card.stories.ts",
-                "type": "object",
-                "defaultValue": "{\r\n  name: 'Laney, Acoustic Guitar Amp, 80W A1+',\r\n  description:\r\n    'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.',\r\n  price: 26460,\r\n  imageUrl: '../../../assets/images/acoustic_amp.webp',\r\n  createdBy: 'keyur@gmail.com',\r\n  id: 7,\r\n}"
             },
             {
                 "name": "productData",
@@ -4505,26 +4281,6 @@
             {
                 "name": "HttpLoaderFactory",
                 "file": "src/app/products/products.module.ts",
-                "ctype": "miscellaneous",
-                "subtype": "function",
-                "description": "",
-                "args": [
-                    {
-                        "name": "http"
-                    }
-                ],
-                "jsdoctags": [
-                    {
-                        "name": "http",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            {
-                "name": "HttpLoaderFactory",
-                "file": "src/stories/card/Card.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -5108,32 +4864,6 @@
                     "defaultValue": "() => {\r\n    let storage = {};\r\n    return {\r\n      getItem: key => (key in storage ? storage[key] : null),\r\n      setItem: (key, value) => (storage[key] = value || ''),\r\n      removeItem: key => delete storage[key],\r\n      clear: () => (storage = {}),\r\n    };\r\n  }"
                 }
             ],
-            "src/stories/card/Card.stories.ts": [
-                {
-                    "name": "nonOwner",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/card/Card.stories.ts",
-                    "type": "",
-                    "defaultValue": "() => ({\r\n  component: CardComponent,\r\n  props: {\r\n    product: object('product', { ...productData }),\r\n    currentUser: 'xyz@gmail.com',\r\n    viewProduct: StorybookMocks.mockCardActions().viewProduct,\r\n  },\r\n})"
-                },
-                {
-                    "name": "owner",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/card/Card.stories.ts",
-                    "type": "",
-                    "defaultValue": "() => ({\r\n  component: CardComponent,\r\n  props: {\r\n    product: object('product', { ...productData }),\r\n    currentUser: 'keyur@gmail.com',\r\n    updateProduct: StorybookMocks.mockCardActions().updateProduct,\r\n    deleteProduct: StorybookMocks.mockCardActions().deleteProduct,\r\n    viewProduct: StorybookMocks.mockCardActions().viewProduct,\r\n  },\r\n})"
-                },
-                {
-                    "name": "productData",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/card/Card.stories.ts",
-                    "type": "object",
-                    "defaultValue": "{\r\n  name: 'Laney, Acoustic Guitar Amp, 80W A1+',\r\n  description:\r\n    'The A1+ is designed to give the discerning acoustic player an amplified acoustic performance to match the tone and dynamics of the top acoustic instruments on the market.',\r\n  price: 26460,\r\n  imageUrl: '../../../assets/images/acoustic_amp.webp',\r\n  createdBy: 'keyur@gmail.com',\r\n  id: 7,\r\n}"
-                }
-            ],
             "src/app/shared/store/products/product.actions.ts": [
                 {
                     "name": "PRODUCT_ADD_ATTEMPT",
@@ -5354,28 +5084,6 @@
                 {
                     "name": "HttpLoaderFactory",
                     "file": "src/app/products/products.module.ts",
-                    "ctype": "miscellaneous",
-                    "subtype": "function",
-                    "description": "",
-                    "args": [
-                        {
-                            "name": "http"
-                        }
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "http",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "src/stories/card/Card.stories.ts": [
-                {
-                    "name": "HttpLoaderFactory",
-                    "file": "src/stories/card/Card.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -5697,15 +5405,6 @@
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/7",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/products/card/card.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "CardComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -6514,54 +6213,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "mock",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/card/Card.stories.ts",
-                "type": "function",
-                "linksubtype": "function",
-                "name": "HttpLoaderFactory",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/card/Card.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "nonOwner",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/card/Card.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "owner",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/card/Card.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "productData",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/card/card.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "CardComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

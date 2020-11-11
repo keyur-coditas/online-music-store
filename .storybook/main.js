@@ -1,6 +1,5 @@
 module.exports = {
   "stories": [
-    "../src/stories/card/Card.stories.ts",
     "../src/stories/footer/Footer.stories.ts",
     "../src/stories/header/Header.stories.ts",
     "../src/stories/login/Login.stories.ts",
