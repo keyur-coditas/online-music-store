@@ -1,9 +1,13 @@
-<header class="header">
-        <img src="../../assets/images/logo.webp" alt="App Logo" tabindex="0" aria-label="App logo">
-    <div class="header-logout">
-            <str-btn (click)="changeLanguage()" aria-label="Change language" buttonText="{{'header.change-language' | translate}}"></str-btn>
-            <str-btn *ngIf="isAuthenticated()" aria-label="Add Product" buttonText="{{'header.add-product-button' | translate}}" (click)="addProduct()"></str-btn>
-            <str-btn buttonText="{{'header.theme-button' | translate}}" (click)="changeTheme()" aria-label="Change theme"></str-btn>
-            <str-btn *ngIf="isAuthenticated()" buttonText="{{'header.logout-button' | translate}}" (click)="logout()" aria-label="Log out"></str-btn>
-    </div>
+<header>
+    <str-header
+     strlogo="../../assets/images/logo.webp"
+     changeLanguageButtonText="{{'header.change-language' | translate}}"
+     changeThemeButtonText="{{'header.theme-button' | translate}}"
+     addProductButtonText="{{'header.add-product-button' | translate}}"
+     logoutButtonText="{{'header.logout-button' | translate}}"
+     isAuthenticated="{{isAuthenticated()}}"
+     (onChangeLanguage)="changeLanguage()"
+     (onAddProduct)="addProduct()"
+     (onChangeTheme)="changeTheme()"
+     (onLogout)="logout()"></str-header>
 </header>

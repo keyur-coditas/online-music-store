@@ -4,4 +4,14 @@ import * as storeCard from './card';
 import * as storeInputElement from './text-input-element';
 import * as storeTextareaElement from './textarea-input';
 import * as storeImageInput from './image-input';
-export {storeButton, storeFormButton, storeCard, storeInputElement, storeTextareaElement, storeImageInput}
+import * as storeHeaderElement from './header';
+
+export {
+    storeButton, 
+    storeFormButton, 
+    storeCard, 
+    storeInputElement, 
+    storeTextareaElement, 
+    storeImageInput, 
+    storeHeaderElement
+}
