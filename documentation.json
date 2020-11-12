@@ -1006,239 +1006,15 @@
         },
         {
             "name": "storeButton",
-            "id": "class-storeButton-8012734bb18fba31e8213a043abc503a",
+            "id": "class-storeButton-db9117c9c257fa24fe3634e963a527df",
             "file": "src/components/button.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-btn')\r\nexport class storeButton extends LitElement {\r\n\r\n  @property({type:String})\r\n  buttonText = 'click here';\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n    .str-btn {\r\n      padding: 8px;\r\n      border: 1px solid #c8c8c8;\r\n      box-shadow: .5px .5px #c8c8c8;\r\n      margin: 1rem;\r\n      background-color: var(--btn-background);\r\n    color: var(--btn-color);\r\n  }\r\n  str-btn.active { \r\n    transform: scale(0.98); \r\n    /* Scaling button to 0.98 to its original size */ \r\n    -webkit-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    -moz-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n} \r\n    `,\r\n    mediaQueries\r\n    ];\r\n  }\r\n\r\n\r\n  render(){\r\n    return html`<button type=\"button\" class=\"str-btn\">${this.buttonText}</button>`;\r\n  }\r\n}",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { mediaQueries } from './media-queries';\r\n\r\n@customElement('str-btn')\r\nexport class storeButton extends LitElement {\r\n  @property({ type: String })\r\n  buttonText = 'click here';\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n        .str-btn {\r\n          padding: 8px;\r\n          border: 1px solid #c8c8c8;\r\n          box-shadow: 0.5px 0.5px #c8c8c8;\r\n          margin: 1rem;\r\n          background-color: var(--btn-background);\r\n          color: var(--btn-color);\r\n        }\r\n        str-btn.active {\r\n          transform: scale(0.98);\r\n          /* Scaling button to 0.98 to its original size */\r\n          -webkit-box-shadow: -1px -1px 5px -1px rgba(0, 0, 0, 0.75);\r\n          -moz-box-shadow: -1px -1px 5px -1px rgba(0, 0, 0, 0.75);\r\n          box-shadow: -1px -1px 5px -1px rgba(0, 0, 0, 0.75);\r\n        }\r\n      `,\r\n      mediaQueries,\r\n    ];\r\n  }\r\n\r\n  render() {\r\n    return html`<button type=\"button\" class=\"str-btn\">\r\n      ${this.buttonText}\r\n    </button>`;\r\n  }\r\n}\r\n",
             "properties": [
                 {
                     "name": "buttonText",
                     "defaultValue": "'click here'",
                     "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 9,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                }
-            ],
-            "methods": [
-                {
-                    "name": "render",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 35
-                }
-            ],
-            "indexSignatures": [],
-            "extends": "LitElement",
-            "accessors": {
-                "styles": {
-                    "name": "styles",
-                    "getSignature": {
-                        "name": "styles",
-                        "type": "",
-                        "returnType": "",
-                        "line": 11
-                    }
-                }
-            }
-        },
-        {
-            "name": "storeCard",
-            "id": "class-storeCard-a45f85395487971dfa50911c2019510c",
-            "file": "src/components/card.ts",
-            "type": "class",
-            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { mediaQueries } from './media-queries';\r\nimport * as EVENTS from './constants';\r\n@customElement('str-card')\r\nexport class storeCard extends LitElement {\r\n\r\n    @property({type:String})\r\n    productName;\r\n\r\n    @property({type:String})\r\n    productDescription;\r\n\r\n    @property({type:String})\r\n    imageUrl;\r\n\r\n    @property({type:Number})\r\n    productPrice;\r\n\r\n    @property()\r\n    createdBy;\r\n\r\n    @property({type:String})\r\n    currentUser;\r\n\r\n    @property({type:Number})\r\n    productId: number;\r\n\r\n    @property({type:String})\r\n    updatebuttonText: string;\r\n\r\n    @property({type:String})\r\n    deletebuttonText;\r\n\r\n    static get styles() {\r\n        return [\r\n            css`\r\n        .card {\r\n            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\r\n            transition: 0.3s;\r\n            border-radius: 5px;\r\n            background-color: #fff;\r\n            height:100%;\r\n            display: flex;\r\n            flex-direction: column;\r\n            justify-content: space-around;\r\n            align-items: center;\r\n            border:none;\r\n            width:100%;\r\n          }\r\n          \r\n          .card:hover {\r\n            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\r\n          }\r\n          \r\n          .product-image {\r\n            border-radius: 5px 5px 0 0;\r\n          }\r\n          \r\n          .container {\r\n            padding: 2px 16px;\r\n          }\r\n          .card-font-small {\r\n              font-size: 0.8rem;\r\n          }\r\n          .card-font-medium {\r\n              font-size: 0.9rem;\r\n          }\r\n          .card-header-margin {\r\n            margin: 0.8rem;\r\n        }\r\n        .card-details-margin {\r\n            margin: 0.5rem;\r\n        }\r\n        .str-card-buttons {\r\n          width:6rem;\r\n          background-color: var(--form-btn-background);\r\n          color: var(--form-btn-color);\r\n          margin: 10px;\r\n        }\r\n        .text-center{\r\n            text-align: center;\r\n        }\r\n    `,\r\n            mediaQueries\r\n        ];\r\n    }\r\n\r\n    onProductOperation(eventType: string) {\r\n\r\n        const click = new CustomEvent(eventType, {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                },\r\n            },\r\n            bubbles:false\r\n        });\r\n        this.dispatchEvent(click);\r\n    }\r\n\r\n    getOwnerButtonsHtml() {\r\n       let ownerButtons:TemplateResult = html``;\r\n        if (this.currentUser === this.createdBy) {\r\n            ownerButtons = html`<div class=\"text-center str-card-buttons-container\" >\r\n            <str-form-btn isFormButton buttonText=\"${this.updatebuttonText}\" isFormButton isCardButton aria-label=\"Update Product\" @click=\"${(e) => {e.stopPropagation(); this.onProductOperation(EVENTS.UPDATE_PRODUCT)}}\"></str-form-btn>\r\n            <str-form-btn isFormButton buttonText=\"${this.deletebuttonText}\" isFormButton isCardButton aria-label=\"Delete Product\" @click=\"${(e) => {e.stopPropagation(); this.onProductOperation(EVENTS.DELETE_PRODUCT)}}\"></str-form-btn>    \r\n            </div>`\r\n        }\r\n        return ownerButtons;\r\n    }\r\n\r\n    render() {\r\n        let ownerButtons: TemplateResult = this.getOwnerButtonsHtml();\r\n        return html`\r\n    <button type=\"button\" class=\"card\" @click=\"${this.onProductOperation.bind(this, EVENTS.VIEW_PRODUCT)}\" aria-label=\"View product details\" >\r\n    <div class=\"text-center\">\r\n        <img src=\"${this.imageUrl}\" class=\"product-image\" alt=\"Avatar\" width=\"200\" width=\"200\" height=\"200\">\r\n    </div>\r\n    <div class=\"container card-details\">\r\n        <h4 class=\"text-center card-font-medium card-header-margin\"><b>${this.productName}</b></h4>\r\n        <p class=\"text-center card-font-small card-details-margin\">${this.productDescription}</p>\r\n        <p class=\"text-center card-font-small card-details-margin\"><b><span>&#8377; </span>${this.productPrice}</b></p>\r\n    </div>\r\n        ${ownerButtons}\r\n    </button>\r\n                `;\r\n    }\r\n}\r\n",
-            "properties": [
-                {
-                    "name": "createdBy",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 21,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "currentUser",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 24,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                },
-                {
-                    "name": "deletebuttonText",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 33,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                },
-                {
-                    "name": "imageUrl",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 15,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                },
-                {
-                    "name": "productDescription",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 12,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                },
-                {
-                    "name": "productId",
-                    "type": "number",
-                    "optional": false,
-                    "description": "",
-                    "line": 27,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: Number}"
-                        }
-                    ]
-                },
-                {
-                    "name": "productName",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 9,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                },
-                {
-                    "name": "productPrice",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 18,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: Number}"
-                        }
-                    ]
-                },
-                {
-                    "name": "updatebuttonText",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 30,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                }
-            ],
-            "methods": [
-                {
-                    "name": "getOwnerButtonsHtml",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 107
-                },
-                {
-                    "name": "onProductOperation",
-                    "args": [
-                        {
-                            "name": "eventType",
-                            "type": "string"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 89,
-                    "jsdoctags": [
-                        {
-                            "name": "eventType",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "render",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 118
-                }
-            ],
-            "indexSignatures": [],
-            "extends": "LitElement",
-            "accessors": {
-                "styles": {
-                    "name": "styles",
-                    "getSignature": {
-                        "name": "styles",
-                        "type": "",
-                        "returnType": "",
-                        "line": 35
-                    }
-                }
-            }
-        },
-        {
-            "name": "storeFooterElement",
-            "id": "class-storeFooterElement-6405c3ea631d6cd7bb6d3c02b302bb5c",
-            "file": "src/components/footer.ts",
-            "type": "class",
-            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-footer')\r\nexport class storeFooterElement extends LitElement {\r\n    @property({type:String})\r\n    footerText;\r\n\r\n    static get styles() {\r\n        return css`\r\n        .str-footer {\r\n            padding:15px;\r\n            font-size: 10px;\r\n            background-color: var(--footer-background-color);\r\n            color: var(--footer-color);\r\n        }\r\n    `;\r\n    }\r\n\r\n    \r\n\r\n    render() {\r\n        return html`  \r\n        <div class=\"str-footer\">\r\n        ${this.footerText}\r\n     </div>\r\n     \r\n    `;\r\n    }\r\n}\r\n\r\n",
-            "properties": [
-                {
-                    "name": "footerText",
-                    "type": "",
                     "optional": false,
                     "description": "",
                     "line": 8,
@@ -1257,7 +1033,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 23
+                    "line": 33
                 }
             ],
             "indexSignatures": [],
@@ -1275,96 +1051,14 @@
             }
         },
         {
-            "name": "storeFormButton",
-            "id": "class-storeFormButton-f9b6c5e3f9490843a946beb0d8776a6a",
-            "file": "src/components/form-button.ts",
+            "name": "storeCard",
+            "id": "class-storeCard-46ab406c64c9cfb827a4082386437b67",
+            "file": "src/components/card.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-form-btn')\r\nexport class storeFormButton extends LitElement {\r\n\r\n  @property({type:String})\r\n  buttonText = 'click here';\r\n\r\n  @property({type: Boolean})\r\n  isCardButton = false;\r\n\r\n  @property({type: Boolean})\r\n  isFormButton = false;\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n    .str-btn {\r\n      padding: 8px;\r\n      border: 1px solid #c8c8c8;\r\n      box-shadow: .5px .5px #c8c8c8;\r\n      margin: 1rem;\r\n      background-color: var(--btn-background);\r\n    color: var(--btn-color);\r\n  }\r\n  .str-btn.active { \r\n    transform: scale(0.98); \r\n    /* Scaling button to 0.98 to its original size */ \r\n    -webkit-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    -moz-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n} \r\n  .str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n    padding: 8px;\r\n    border: 1px solid #c8c8c8;\r\n    box-shadow: .5px .5px #c8c8c8;\r\n    margin: 1rem;\r\n}\r\n.str-card-buttons {\r\n  width:6rem;\r\n  background-color: var(--form-btn-background);\r\n  color: var(--form-btn-color);\r\n  margin: 10px;\r\n}\r\n    `,\r\n    mediaQueries\r\n    ];\r\n  }\r\n\r\n  getFormButtonsHtml() {\r\n    if(this.isCardButton) {\r\n      return html`<button type=\"button\" class=\"str-card-buttons str-btn\">${this.buttonText}</button>`;\r\n    } else {\r\n      return html`<button type=\"button\" class=\"str-submit-btn\">${this.buttonText}</button>`;\r\n    }\r\n  }\r\n\r\n  render(){\r\n    if(this.isFormButton) {\r\n     return this.getFormButtonsHtml();\r\n    } else {\r\n      return html`<button type=\"button\" class=\"str-btn\">${this.buttonText}</button>`;\r\n    }\r\n  }\r\n}",
+            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { mediaQueries } from './media-queries';\r\nimport * as EVENTS from './constants';\r\n@customElement('str-card')\r\nexport class storeCard extends LitElement {\r\n  @property({ type: String })\r\n  productName;\r\n\r\n  @property({ type: String })\r\n  productDescription;\r\n\r\n  @property({ type: String })\r\n  imageUrl;\r\n\r\n  @property({ type: Number })\r\n  productPrice;\r\n\r\n  @property()\r\n  createdBy;\r\n\r\n  @property({ type: String })\r\n  currentUser;\r\n\r\n  @property({ type: Number })\r\n  productId: number;\r\n\r\n  @property({ type: String })\r\n  updatebuttonText: string;\r\n\r\n  @property({ type: String })\r\n  deletebuttonText;\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n        .card {\r\n          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\r\n          transition: 0.3s;\r\n          border-radius: 5px;\r\n          background-color: #fff;\r\n          height: 100%;\r\n          display: flex;\r\n          flex-direction: column;\r\n          justify-content: space-around;\r\n          align-items: center;\r\n          border: none;\r\n          width: 100%;\r\n        }\r\n\r\n        .card:hover {\r\n          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\r\n        }\r\n\r\n        .product-image {\r\n          border-radius: 5px 5px 0 0;\r\n        }\r\n\r\n        .container {\r\n          padding: 2px 16px;\r\n        }\r\n        .card-font-small {\r\n          font-size: 0.8rem;\r\n        }\r\n        .card-font-medium {\r\n          font-size: 0.9rem;\r\n        }\r\n        .card-header-margin {\r\n          margin: 0.8rem;\r\n        }\r\n        .card-details-margin {\r\n          margin: 0.5rem;\r\n        }\r\n        .str-card-buttons {\r\n          width: 6rem;\r\n          background-color: var(--form-btn-background);\r\n          color: var(--form-btn-color);\r\n          margin: 10px;\r\n        }\r\n        .text-center {\r\n          text-align: center;\r\n        }\r\n      `,\r\n      mediaQueries,\r\n    ];\r\n  }\r\n\r\n  onProductOperation(eventType: string) {\r\n    const click = new CustomEvent(eventType, {\r\n      detail: {\r\n        product: {\r\n          name: this.productName,\r\n          description: this.productDescription,\r\n          imageUrl: this.imageUrl,\r\n          createdBy: this.createdBy,\r\n          price: this.productPrice,\r\n          id: this.productId,\r\n        },\r\n      },\r\n      bubbles: false,\r\n    });\r\n    this.dispatchEvent(click);\r\n  }\r\n\r\n  getOwnerButtonsHtml() {\r\n    let ownerButtons: TemplateResult = html``;\r\n    if (this.currentUser === this.createdBy) {\r\n      ownerButtons = html` <div class=\"text-center str-card-buttons-container\">\r\n        <str-form-btn\r\n          buttonText=\"${this.updatebuttonText}\"\r\n          isFormButton\r\n          isCardButton\r\n          aria-label=\"Update Product\"\r\n          @click=\"${(e) => {\r\n            e.stopPropagation();\r\n            this.onProductOperation(EVENTS.UPDATE_PRODUCT);\r\n          }}\"\r\n        >\r\n        </str-form-btn>\r\n        <str-form-btn\r\n          buttonText=\"${this.deletebuttonText}\"\r\n          isFormButton\r\n          isCardButton\r\n          aria-label=\"Delete Product\"\r\n          @click=\"${(e) => {\r\n            e.stopPropagation();\r\n            this.onProductOperation(EVENTS.DELETE_PRODUCT);\r\n          }}\"\r\n        >\r\n        </str-form-btn>\r\n      </div>`;\r\n    }\r\n    return ownerButtons;\r\n  }\r\n\r\n  render() {\r\n    let ownerButtons: TemplateResult = this.getOwnerButtonsHtml();\r\n    return html`\r\n      <button\r\n        type=\"button\"\r\n        class=\"card\"\r\n        @click=\"${this.onProductOperation.bind(this, EVENTS.VIEW_PRODUCT)}\"\r\n        aria-label=\"View product details\"\r\n      >\r\n        <div class=\"text-center\">\r\n          <img\r\n            src=\"${this.imageUrl}\"\r\n            class=\"product-image\"\r\n            alt=\"Avatar\"\r\n            width=\"200\"\r\n            width=\"200\"\r\n            height=\"200\"\r\n          />\r\n        </div>\r\n        <div class=\"container card-details\">\r\n          <h4 class=\"text-center card-font-medium card-header-margin\">\r\n            <b>${this.productName}</b>\r\n          </h4>\r\n          <p class=\"text-center card-font-small card-details-margin\">\r\n            ${this.productDescription}\r\n          </p>\r\n          <p class=\"text-center card-font-small card-details-margin\">\r\n            <b><span>&#8377; </span>${this.productPrice}</b>\r\n          </p>\r\n        </div>\r\n        ${ownerButtons}\r\n      </button>\r\n    `;\r\n  }\r\n}\r\n",
             "properties": [
                 {
-                    "name": "buttonText",
-                    "defaultValue": "'click here'",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 9,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                },
-                {
-                    "name": "isCardButton",
-                    "defaultValue": "false",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 12,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: Boolean}"
-                        }
-                    ]
-                },
-                {
-                    "name": "isFormButton",
-                    "defaultValue": "false",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 15,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: Boolean}"
-                        }
-                    ]
-                }
-            ],
-            "methods": [
-                {
-                    "name": "getFormButtonsHtml",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 55
-                },
-                {
-                    "name": "render",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 63
-                }
-            ],
-            "indexSignatures": [],
-            "extends": "LitElement",
-            "accessors": {
-                "styles": {
-                    "name": "styles",
-                    "getSignature": {
-                        "name": "styles",
-                        "type": "",
-                        "returnType": "",
-                        "line": 17
-                    }
-                }
-            }
-        },
-        {
-            "name": "storeHeaderElement",
-            "id": "class-storeHeaderElement-bc0537d9c77db7549055bfc99db2b970",
-            "file": "src/components/header.ts",
-            "type": "class",
-            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\nimport * as EVENTS from './constants';\r\n\r\n@customElement('str-header')\r\nexport class storeHeaderElement extends LitElement {\r\n\r\n    @property({type:String})\r\n    strlogo;\r\n\r\n    @property({type:String})\r\n    changeLanguageButtonText;\r\n\r\n    @property({type:String})\r\n    changeThemeButtonText;\r\n\r\n    @property({type:String})\r\n    addProductButtonText;\r\n\r\n    @property({type:String})\r\n    logoutButtonText;\r\n\r\n    @property({type:Boolean})\r\n    isAuthenticated;\r\n\r\n    static get styles() {\r\n        return [\r\n            css`\r\n        .header-logout {\r\n            display:flex;\r\n            align-items: center;\r\n            flex-wrap: wrap;\r\n        }\r\n\r\n        .header{\r\n            display: flex;\r\n            justify-content: space-between;\r\n            padding:15px;\r\n            background-color: var(--header-background-color);\r\n            flex-wrap: wrap;\r\n        }\r\n    `,\r\n    mediaQueries\r\n        ];\r\n    }\r\n\r\n    onClick(eventType: string) {\r\n        const onAddProduct = new CustomEvent(eventType, {});\r\n        this.dispatchEvent(onAddProduct);\r\n    }\r\n\r\n    getLoggedInUserButtonsHtml() {\r\n       let authenticatedButtons:TemplateResult = html``;\r\n        if(this.isAuthenticated) {\r\n            authenticatedButtons = html`\r\n            <str-form-btn aria-label=\"Add Product\" buttonText=\"${this.addProductButtonText}\" @click=\"${this.onClick.bind(this, EVENTS.ADD_PRODUCT)}\"></str-form-btn>\r\n            <str-form-btn buttonText=\"${this.logoutButtonText}\" @click=\"${this.onClick.bind(this, EVENTS.LOGOUT)}\" aria-label=\"Log out\"></str-form-btn>\r\n           `\r\n        }\r\n        return authenticatedButtons;\r\n    }\r\n\r\n    render() {\r\n        let authenticatedButtons:TemplateResult = this.getLoggedInUserButtonsHtml();\r\n        return html`  \r\n        <div class=\"header\">\r\n        <img src=\"${this.strlogo}\" alt=\"App Logo\" tabindex=\"0\" aria-label=\"App logo\">\r\n        <div class=\"header-logout\">\r\n                <str-form-btn @click=\"${this.onClick.bind(this, EVENTS.CHANGE_LANGUAGE)}\" aria-label=\"Change language\" buttonText=\"${this.changeLanguageButtonText}\"></str-form-btn>\r\n                <str-form-btn buttonText=\"${this.changeThemeButtonText}\" @click=\"${this.onClick.bind(this,EVENTS.CHANGE_THEME)}\" aria-label=\"Change theme\"></str-form-btn>\r\n                ${authenticatedButtons}\r\n        </div>\r\n        </div>\r\n    `;\r\n    }\r\n}\r\n\r\n",
-            "properties": [
-                {
-                    "name": "addProductButtonText",
+                    "name": "createdBy",
                     "type": "",
                     "optional": false,
                     "description": "",
@@ -1372,51 +1066,12 @@
                     "decorators": [
                         {
                             "name": "property",
-                            "stringifiedArguments": "{type: String}"
+                            "stringifiedArguments": ""
                         }
                     ]
                 },
                 {
-                    "name": "changeLanguageButtonText",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 14,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                },
-                {
-                    "name": "changeThemeButtonText",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 17,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                },
-                {
-                    "name": "isAuthenticated",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 26,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: Boolean}"
-                        }
-                    ]
-                },
-                {
-                    "name": "logoutButtonText",
+                    "name": "currentUser",
                     "type": "",
                     "optional": false,
                     "description": "",
@@ -1429,7 +1084,33 @@
                     ]
                 },
                 {
-                    "name": "strlogo",
+                    "name": "deletebuttonText",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 32,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: String}"
+                        }
+                    ]
+                },
+                {
+                    "name": "imageUrl",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: String}"
+                        }
+                    ]
+                },
+                {
+                    "name": "productDescription",
                     "type": "",
                     "optional": false,
                     "description": "",
@@ -1440,19 +1121,71 @@
                             "stringifiedArguments": "{type: String}"
                         }
                     ]
+                },
+                {
+                    "name": "productId",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 26,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: Number}"
+                        }
+                    ]
+                },
+                {
+                    "name": "productName",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: String}"
+                        }
+                    ]
+                },
+                {
+                    "name": "productPrice",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: Number}"
+                        }
+                    ]
+                },
+                {
+                    "name": "updatebuttonText",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 29,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: String}"
+                        }
+                    ]
                 }
             ],
             "methods": [
                 {
-                    "name": "getLoggedInUserButtonsHtml",
+                    "name": "getOwnerButtonsHtml",
                     "args": [],
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 54
+                    "line": 105
                 },
                 {
-                    "name": "onClick",
+                    "name": "onProductOperation",
                     "args": [
                         {
                             "name": "eventType",
@@ -1462,7 +1195,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 49,
+                    "line": 88,
                     "jsdoctags": [
                         {
                             "name": "eventType",
@@ -1479,7 +1212,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 65
+                    "line": 136
                 }
             ],
             "indexSignatures": [],
@@ -1491,24 +1224,291 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 28
+                        "line": 34
+                    }
+                }
+            }
+        },
+        {
+            "name": "storeFooterElement",
+            "id": "class-storeFooterElement-c1941db1bc64184781d920c40f5e81e5",
+            "file": "src/components/footer.ts",
+            "type": "class",
+            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\n\r\n@customElement('str-footer')\r\nexport class storeFooterElement extends LitElement {\r\n  @property({ type: String })\r\n  footerText;\r\n\r\n  static get styles() {\r\n    return css`\r\n      .str-footer {\r\n        padding: 15px;\r\n        font-size: 10px;\r\n        background-color: var(--footer-background-color);\r\n        color: var(--footer-color);\r\n      }\r\n    `;\r\n  }\r\n\r\n  render() {\r\n    return html`\r\n      <div class=\"str-footer\">\r\n        ${this.footerText}\r\n      </div>\r\n    `;\r\n  }\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "footerText",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 7,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: String}"
+                        }
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "render",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 20
+                }
+            ],
+            "indexSignatures": [],
+            "extends": "LitElement",
+            "accessors": {
+                "styles": {
+                    "name": "styles",
+                    "getSignature": {
+                        "name": "styles",
+                        "type": "",
+                        "returnType": "",
+                        "line": 9
+                    }
+                }
+            }
+        },
+        {
+            "name": "storeFormButton",
+            "id": "class-storeFormButton-b21e586dcdef6893a1f495ee808aeb00",
+            "file": "src/components/form-button.ts",
+            "type": "class",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { mediaQueries } from './media-queries';\r\n\r\n@customElement('str-form-btn')\r\nexport class storeFormButton extends LitElement {\r\n  @property({ type: String })\r\n  buttonText = 'click here';\r\n\r\n  @property({ type: Boolean })\r\n  isCardButton = false;\r\n\r\n  @property({ type: Boolean })\r\n  isFormButton = false;\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n        .str-btn {\r\n          padding: 8px;\r\n          border: 1px solid #c8c8c8;\r\n          box-shadow: 0.5px 0.5px #c8c8c8;\r\n          margin: 1rem;\r\n          background-color: var(--btn-background);\r\n          color: var(--btn-color);\r\n        }\r\n        .str-btn.active {\r\n          transform: scale(0.98);\r\n          /* Scaling button to 0.98 to its original size */\r\n          -webkit-box-shadow: -1px -1px 5px -1px rgba(0, 0, 0, 0.75);\r\n          -moz-box-shadow: -1px -1px 5px -1px rgba(0, 0, 0, 0.75);\r\n          box-shadow: -1px -1px 5px -1px rgba(0, 0, 0, 0.75);\r\n        }\r\n        .str-submit-btn {\r\n          width: 8rem;\r\n          background-color: var(--form-btn-background);\r\n          color: var(--form-btn-color);\r\n          padding: 8px;\r\n          border: 1px solid #c8c8c8;\r\n          box-shadow: 0.5px 0.5px #c8c8c8;\r\n          margin: 1rem;\r\n        }\r\n        .str-card-buttons {\r\n          width: 6rem;\r\n          background-color: var(--form-btn-background);\r\n          color: var(--form-btn-color);\r\n          margin: 10px;\r\n        }\r\n      `,\r\n      mediaQueries,\r\n    ];\r\n  }\r\n\r\n  getFormButtonsHtml() {\r\n    if (this.isCardButton) {\r\n      return html`<button type=\"button\" class=\"str-card-buttons str-btn\">\r\n        ${this.buttonText}\r\n      </button>`;\r\n    } else {\r\n      return html`<button type=\"button\" class=\"str-submit-btn\">\r\n        ${this.buttonText}\r\n      </button>`;\r\n    }\r\n  }\r\n\r\n  render() {\r\n    if (this.isFormButton) {\r\n      return this.getFormButtonsHtml();\r\n    } else {\r\n      return html`<button type=\"button\" class=\"str-btn\">\r\n        ${this.buttonText}\r\n      </button>`;\r\n    }\r\n  }\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "buttonText",
+                    "defaultValue": "'click here'",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: String}"
+                        }
+                    ]
+                },
+                {
+                    "name": "isCardButton",
+                    "defaultValue": "false",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: Boolean}"
+                        }
+                    ]
+                },
+                {
+                    "name": "isFormButton",
+                    "defaultValue": "false",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: Boolean}"
+                        }
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "getFormButtonsHtml",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 54
+                },
+                {
+                    "name": "render",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 66
+                }
+            ],
+            "indexSignatures": [],
+            "extends": "LitElement",
+            "accessors": {
+                "styles": {
+                    "name": "styles",
+                    "getSignature": {
+                        "name": "styles",
+                        "type": "",
+                        "returnType": "",
+                        "line": 16
+                    }
+                }
+            }
+        },
+        {
+            "name": "storeHeaderElement",
+            "id": "class-storeHeaderElement-dee59cc93dd3efaaab3b0ca873a4ce04",
+            "file": "src/components/header.ts",
+            "type": "class",
+            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { mediaQueries } from './media-queries';\r\nimport * as EVENTS from './constants';\r\n\r\n@customElement('str-header')\r\nexport class storeHeaderElement extends LitElement {\r\n  @property({ type: String })\r\n  strlogo;\r\n\r\n  @property({ type: String })\r\n  changeLanguageButtonText;\r\n\r\n  @property({ type: String })\r\n  changeThemeButtonText;\r\n\r\n  @property({ type: String })\r\n  addProductButtonText;\r\n\r\n  @property({ type: String })\r\n  logoutButtonText;\r\n\r\n  @property({ type: Boolean })\r\n  isAuthenticated;\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n        .header-logout {\r\n          display: flex;\r\n          align-items: center;\r\n          flex-wrap: wrap;\r\n        }\r\n\r\n        .header {\r\n          display: flex;\r\n          justify-content: space-between;\r\n          padding: 15px;\r\n          background-color: var(--header-background-color);\r\n          flex-wrap: wrap;\r\n        }\r\n      `,\r\n      mediaQueries,\r\n    ];\r\n  }\r\n\r\n  onClick(eventType: string) {\r\n    const onAddProduct = new CustomEvent(eventType, {});\r\n    this.dispatchEvent(onAddProduct);\r\n  }\r\n\r\n  getLoggedInUserButtonsHtml() {\r\n    let authenticatedButtons: TemplateResult = html``;\r\n    if (this.isAuthenticated) {\r\n      authenticatedButtons = html`\r\n        <str-form-btn\r\n          aria-label=\"Add Product\"\r\n          buttonText=\"${this.addProductButtonText}\"\r\n          @click=\"${this.onClick.bind(this, EVENTS.ADD_PRODUCT)}\"\r\n        ></str-form-btn>\r\n        <str-form-btn\r\n          buttonText=\"${this.logoutButtonText}\"\r\n          @click=\"${this.onClick.bind(this, EVENTS.LOGOUT)}\"\r\n          aria-label=\"Log out\"\r\n        ></str-form-btn>\r\n      `;\r\n    }\r\n    return authenticatedButtons;\r\n  }\r\n\r\n  render() {\r\n    let authenticatedButtons: TemplateResult = this.getLoggedInUserButtonsHtml();\r\n    return html`\r\n      <div class=\"header\">\r\n        <img\r\n          src=\"${this.strlogo}\"\r\n          alt=\"App Logo\"\r\n          tabindex=\"0\"\r\n          aria-label=\"App logo\"\r\n        />\r\n        <div class=\"header-logout\">\r\n          <str-form-btn\r\n            @click=\"${this.onClick.bind(this, EVENTS.CHANGE_LANGUAGE)}\"\r\n            aria-label=\"Change language\"\r\n            buttonText=\"${this.changeLanguageButtonText}\"\r\n          ></str-form-btn>\r\n          <str-form-btn\r\n            buttonText=\"${this.changeThemeButtonText}\"\r\n            @click=\"${this.onClick.bind(this, EVENTS.CHANGE_THEME)}\"\r\n            aria-label=\"Change theme\"\r\n          ></str-form-btn>\r\n          ${authenticatedButtons}\r\n        </div>\r\n      </div>\r\n    `;\r\n  }\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "addProductButtonText",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: String}"
+                        }
+                    ]
+                },
+                {
+                    "name": "changeLanguageButtonText",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: String}"
+                        }
+                    ]
+                },
+                {
+                    "name": "changeThemeButtonText",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: String}"
+                        }
+                    ]
+                },
+                {
+                    "name": "isAuthenticated",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: Boolean}"
+                        }
+                    ]
+                },
+                {
+                    "name": "logoutButtonText",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: String}"
+                        }
+                    ]
+                },
+                {
+                    "name": "strlogo",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: String}"
+                        }
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "getLoggedInUserButtonsHtml",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 52
+                },
+                {
+                    "name": "onClick",
+                    "args": [
+                        {
+                            "name": "eventType",
+                            "type": "string"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 47,
+                    "jsdoctags": [
+                        {
+                            "name": "eventType",
+                            "type": "string",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "render",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 71
+                }
+            ],
+            "indexSignatures": [],
+            "extends": "LitElement",
+            "accessors": {
+                "styles": {
+                    "name": "styles",
+                    "getSignature": {
+                        "name": "styles",
+                        "type": "",
+                        "returnType": "",
+                        "line": 26
                     }
                 }
             }
         },
         {
             "name": "storeImageInputElement",
-            "id": "class-storeImageInputElement-cf4b5fc9b474184e7ccf7a57a4a5df3f",
+            "id": "class-storeImageInputElement-82d6963713f6870ef31ea20ae9f92fb8",
             "file": "src/components/image-input.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { mediaQueries } from './media-queries';\r\nimport * as EVENTS from './constants';\r\n@customElement('str-image-input')\r\nexport class storeImageInputElement extends LitElement {\r\n\r\n    @property({ type: String })\r\n    ariaLabel;\r\n\r\n    @property({ type: Boolean })\r\n    isReadonly;\r\n\r\n    @property({ type: String })\r\n    labelValue = \"Choose an image\";\r\n\r\n    static get styles() {\r\n        return [\r\n            css`\r\n        .image-label {\r\n            font-size: 12px;\r\n            margin: 10px;\r\n            display: block;\r\n            color: #666666;\r\n        }\r\n    `,\r\n            mediaQueries];\r\n    }\r\n\r\n    inputHandler(event) {\r\n        const inputValueChanged = new CustomEvent(EVENTS.INPUT_CHANGED, {\r\n            detail: {\r\n                value: event.path[0].files[0]\r\n            },\r\n        });\r\n        this.dispatchEvent(inputValueChanged);\r\n    }\r\n\r\n    render() {\r\n        let isReadonlyValue;\r\n        if (this.isReadonly === 'true') {\r\n            isReadonlyValue = true;\r\n        }\r\n        return html`  \r\n        <label for=\"\" class=\"image-label\" >${this.labelValue}</label>\r\n        <input aria-label=\"${this.ariaLabel}\" type=\"file\" path=\"../assets/images/\" ?readonly= \"${isReadonlyValue}\"\r\n         @change=\"${this.inputHandler}\">\r\n    `;\r\n    }\r\n}",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { mediaQueries } from './media-queries';\r\nimport * as EVENTS from './constants';\r\n@customElement('str-image-input')\r\nexport class storeImageInputElement extends LitElement {\r\n  @property({ type: String })\r\n  ariaLabel;\r\n\r\n  @property({ type: Boolean })\r\n  isReadonly;\r\n\r\n  @property({ type: String })\r\n  labelValue = 'Choose an image';\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n        .image-label {\r\n          font-size: 12px;\r\n          margin: 10px;\r\n          display: block;\r\n          color: #666666;\r\n        }\r\n      `,\r\n      mediaQueries,\r\n    ];\r\n  }\r\n\r\n  inputHandler(event) {\r\n    const inputValueChanged = new CustomEvent(EVENTS.INPUT_CHANGED, {\r\n      detail: {\r\n        value: event.path[0].files[0],\r\n      },\r\n    });\r\n    this.dispatchEvent(inputValueChanged);\r\n  }\r\n\r\n  render() {\r\n    let isReadonlyValue;\r\n    if (this.isReadonly === 'true') {\r\n      isReadonlyValue = true;\r\n    }\r\n    return html`\r\n      <label for=\"\" class=\"image-label\">${this.labelValue}</label>\r\n      <input\r\n        aria-label=\"${this.ariaLabel}\"\r\n        type=\"file\"\r\n        path=\"../assets/images/\"\r\n        ?readonly=\"${isReadonlyValue}\"\r\n        @change=\"${this.inputHandler}\"\r\n      />\r\n    `;\r\n  }\r\n}\r\n",
             "properties": [
                 {
                     "name": "ariaLabel",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 8,
                     "decorators": [
                         {
                             "name": "property",
@@ -1521,7 +1521,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 11,
                     "decorators": [
                         {
                             "name": "property",
@@ -1531,11 +1531,11 @@
                 },
                 {
                     "name": "labelValue",
-                    "defaultValue": "\"Choose an image\"",
+                    "defaultValue": "'Choose an image'",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 15,
+                    "line": 14,
                     "decorators": [
                         {
                             "name": "property",
@@ -1585,24 +1585,24 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 17
+                        "line": 16
                     }
                 }
             }
         },
         {
             "name": "storeInputElement",
-            "id": "class-storeInputElement-4a519fecce1ff5e57fbc4132b2a8a9c0",
+            "id": "class-storeInputElement-9951e481729c54e891dff8373fcbc7af",
             "file": "src/components/text-input-element.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\nimport * as EVENTS from './constants';\r\n@customElement('str-input')\r\nexport class storeInputElement extends LitElement {\r\n\r\n     @property({type: String})\r\n     ariaLabel;\r\n\r\n     @property({type: String})\r\n     inputType;\r\n\r\n     @property({type: String})\r\n     inputPlaceholder;\r\n\r\n     @property({type: Boolean, reflect:false})\r\n     isReadonly;\r\n\r\n     @property({type: String})\r\n     inputValue = '';\r\n\r\n\r\n  \r\n  static get styles() {\r\n    return [\r\n      css`\r\n    .str-input {\r\n        width: 20rem;\r\n        height: 2rem;\r\n        border: 1px solid #bdbdbd;\r\n        border-radius: 5px;\r\n        margin: 15px auto 0px 0px;\r\n        padding-left: 10px;\r\n    }\r\n    `, mediaQueries\r\n    ];\r\n  }\r\n\r\n\r\n  inputHandler(event) {\r\n      const inputValueChanged = new CustomEvent(EVENTS.INPUT_CHANGED, {\r\n        detail: {\r\n            value: event.composedPath()[0].value\r\n        },\r\n    });\r\n    this.dispatchEvent(inputValueChanged);\r\n  }\r\n\r\n  render(){\r\n    let isReadonlyValue;\r\n    if(this.isReadonly === 'true') {\r\n      isReadonlyValue = true;\r\n    }\r\n    return html`<input aria-label=\"${this.ariaLabel}\" class=\"str-input\" type=\"${this.inputType}\"\r\n    placeholder=\"${this.inputPlaceholder}\" @input=${this.inputHandler} .value=\"${this.inputValue}\"\r\n    ?readonly=\"${isReadonlyValue}\"/>`;\r\n  }\r\n}",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { mediaQueries } from './media-queries';\r\nimport * as EVENTS from './constants';\r\n@customElement('str-input')\r\nexport class storeInputElement extends LitElement {\r\n  @property({ type: String })\r\n  ariaLabel;\r\n\r\n  @property({ type: String })\r\n  inputType;\r\n\r\n  @property({ type: String })\r\n  inputPlaceholder;\r\n\r\n  @property({ type: Boolean, reflect: false })\r\n  isReadonly;\r\n\r\n  @property({ type: String })\r\n  inputValue = '';\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n        .str-input {\r\n          width: 20rem;\r\n          height: 2rem;\r\n          border: 1px solid #bdbdbd;\r\n          border-radius: 5px;\r\n          margin: 15px auto 0px 0px;\r\n          padding-left: 10px;\r\n        }\r\n      `,\r\n      mediaQueries,\r\n    ];\r\n  }\r\n\r\n  inputHandler(event) {\r\n    const inputValueChanged = new CustomEvent(EVENTS.INPUT_CHANGED, {\r\n      detail: {\r\n        value: event.composedPath()[0].value,\r\n      },\r\n    });\r\n    this.dispatchEvent(inputValueChanged);\r\n  }\r\n\r\n  render() {\r\n    let isReadonlyValue;\r\n    if (this.isReadonly === 'true') {\r\n      isReadonlyValue = true;\r\n    }\r\n    return html`<input\r\n      aria-label=\"${this.ariaLabel}\"\r\n      class=\"str-input\"\r\n      type=\"${this.inputType}\"\r\n      placeholder=\"${this.inputPlaceholder}\"\r\n      @input=${this.inputHandler}\r\n      .value=\"${this.inputValue}\"\r\n      ?readonly=\"${isReadonlyValue}\"\r\n    />`;\r\n  }\r\n}\r\n",
             "properties": [
                 {
                     "name": "ariaLabel",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 8,
                     "decorators": [
                         {
                             "name": "property",
@@ -1615,7 +1615,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 15,
+                    "line": 14,
                     "decorators": [
                         {
                             "name": "property",
@@ -1628,7 +1628,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 11,
                     "decorators": [
                         {
                             "name": "property",
@@ -1642,7 +1642,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 21,
+                    "line": 20,
                     "decorators": [
                         {
                             "name": "property",
@@ -1655,7 +1655,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 18,
+                    "line": 17,
                     "decorators": [
                         {
                             "name": "property",
@@ -1676,7 +1676,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 41,
+                    "line": 38,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -1693,7 +1693,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 50
+                    "line": 47
                 }
             ],
             "indexSignatures": [],
@@ -1705,7 +1705,7 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 25
+                        "line": 22
                     }
                 }
             }
@@ -1769,17 +1769,17 @@
         },
         {
             "name": "storeTextareaElement",
-            "id": "class-storeTextareaElement-1649f88d08d4f30f0f8d954c5c00b26c",
+            "id": "class-storeTextareaElement-302494373754516e47f80122ac847e48",
             "file": "src/components/textarea-input.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\nimport * as EVENTS from './constants';\r\n@customElement('str-textarea')\r\nexport class storeTextareaElement extends LitElement {\r\n\r\n    @property({type: String})\r\n    ariaLabel;\r\n\r\n    @property({type: String})\r\n    inputPlaceholder;\r\n\r\n    @property({type: String})\r\n    isReadonly;\r\n\r\n    @property({type: String})\r\n    inputValue = '';\r\n\r\n    @property({type: Number})\r\n    rows = 10;\r\n\r\n    @property({type: Number})\r\n    columns = 30;\r\n\r\n    static get styles() {\r\n        return [\r\n            css`\r\n    .str-textarea {\r\n        width: 20rem;\r\n        border: 1px solid #bdbdbd;\r\n        border-radius: 5px;\r\n        margin: 15px auto 0px 0px;\r\n        padding-left: 10px;\r\n    }\r\n    `,\r\n    mediaQueries\r\n        ];\r\n    }\r\n\r\n\r\n    inputHandler(event) {\r\n        const inputValueChanged = new CustomEvent(EVENTS.INPUT_CHANGED, {\r\n            detail: {\r\n                value: event.composedPath()[0].value\r\n            },\r\n        });\r\n        this.dispatchEvent(inputValueChanged);\r\n    }\r\n\r\n    render() {\r\n        let isReadonlyValue;\r\n        if (this.isReadonly === 'true') {\r\n            isReadonlyValue = true;\r\n        }\r\n        return html`  \r\n    <textarea aria-label=\"${this.ariaLabel}\" class=\"str-textarea\" cols=\"${this.columns}\" rows=\"${this.rows}\"\r\n     @input=${this.inputHandler}  placeholder=\"${this.inputPlaceholder}\" ?readonly= \"${isReadonlyValue}\" .value=\"${this.inputValue}\">\r\n    </textarea>`;\r\n    }\r\n}",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { mediaQueries } from './media-queries';\r\nimport * as EVENTS from './constants';\r\n@customElement('str-textarea')\r\nexport class storeTextareaElement extends LitElement {\r\n  @property({ type: String })\r\n  ariaLabel;\r\n\r\n  @property({ type: String })\r\n  inputPlaceholder;\r\n\r\n  @property({ type: String })\r\n  isReadonly;\r\n\r\n  @property({ type: String })\r\n  inputValue = '';\r\n\r\n  @property({ type: Number })\r\n  rows = 10;\r\n\r\n  @property({ type: Number })\r\n  columns = 30;\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n        .str-textarea {\r\n          width: 20rem;\r\n          border: 1px solid #bdbdbd;\r\n          border-radius: 5px;\r\n          margin: 15px auto 0px 0px;\r\n          padding-left: 10px;\r\n        }\r\n      `,\r\n      mediaQueries,\r\n    ];\r\n  }\r\n\r\n  inputHandler(event) {\r\n    const inputValueChanged = new CustomEvent(EVENTS.INPUT_CHANGED, {\r\n      detail: {\r\n        value: event.composedPath()[0].value,\r\n      },\r\n    });\r\n    this.dispatchEvent(inputValueChanged);\r\n  }\r\n\r\n  render() {\r\n    let isReadonlyValue;\r\n    if (this.isReadonly === 'true') {\r\n      isReadonlyValue = true;\r\n    }\r\n    return html` <textarea\r\n      aria-label=\"${this.ariaLabel}\"\r\n      class=\"str-textarea\"\r\n      cols=\"${this.columns}\"\r\n      rows=\"${this.rows}\"\r\n      @input=${this.inputHandler}\r\n      placeholder=\"${this.inputPlaceholder}\"\r\n      ?readonly=\"${isReadonlyValue}\"\r\n      .value=\"${this.inputValue}\"\r\n    >\r\n    </textarea>`;\r\n  }\r\n}\r\n",
             "properties": [
                 {
                     "name": "ariaLabel",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 8,
                     "decorators": [
                         {
                             "name": "property",
@@ -1793,7 +1793,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 24,
+                    "line": 23,
                     "decorators": [
                         {
                             "name": "property",
@@ -1806,7 +1806,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 11,
                     "decorators": [
                         {
                             "name": "property",
@@ -1820,7 +1820,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 18,
+                    "line": 17,
                     "decorators": [
                         {
                             "name": "property",
@@ -1833,7 +1833,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 15,
+                    "line": 14,
                     "decorators": [
                         {
                             "name": "property",
@@ -1847,7 +1847,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 21,
+                    "line": 20,
                     "decorators": [
                         {
                             "name": "property",
@@ -1868,7 +1868,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 42,
+                    "line": 40,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -1885,7 +1885,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 51
+                    "line": 49
                 }
             ],
             "indexSignatures": [],
@@ -1897,7 +1897,7 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 26
+                        "line": 25
                     }
                 }
             }
@@ -3784,17 +3784,17 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
+                "file": "src/environments/environment.ts",
                 "type": "object",
-                "defaultValue": "{\r\n  production: true\r\n}"
+                "defaultValue": "{\r\n  production: false\r\n}"
             },
             {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
+                "file": "src/environments/environment.prod.ts",
                 "type": "object",
-                "defaultValue": "{\r\n  production: false\r\n}"
+                "defaultValue": "{\r\n  production: true\r\n}"
             },
             {
                 "name": "HOST",
@@ -3962,7 +3962,7 @@
                 "subtype": "variable",
                 "file": "src/components/media-queries.ts",
                 "type": "",
-                "defaultValue": "css\r\n`\r\n@media screen and (min-width: 320px) and (max-width: 500px) {\r\n    .auth-container {\r\n      width: 80%;\r\n    }\r\n    .str-input {\r\n      width: 80%;\r\n    }\r\n    .str-textarea {\r\n      width: 80%;\r\n    }\r\n    .card-container {\r\n      grid-template-columns: 100%;\r\n    }\r\n  }\r\n  \r\n  @media screen and (min-width: 501px) and (max-width: 600px) {\r\n      .card-container {\r\n          grid-template-columns: 100%;\r\n      }\r\n  }\r\n  \r\n  @media screen and (min-width: 601px) and (max-width: 720px) {\r\n      .card-container {\r\n          grid-template-columns: 40% 40%;\r\n      }\r\n  }\r\n  \r\n  @media screen and (min-width: 721px) and (max-width: 999px) {\r\n    .card-container {\r\n      grid-template-columns: 30% 30% 30%;\r\n  }\r\n  }\r\n  \r\n  @media screen and (min-width: 501px) and (max-width: 720px) {\r\n    .str-input {\r\n      width: 80%;\r\n    }\r\n    .str-textarea {\r\n      width: 80%;\r\n    }\r\n  }\r\n  \r\n\r\n`"
+                "defaultValue": "css`\r\n  @media screen and (min-width: 320px) and (max-width: 500px) {\r\n    .auth-container {\r\n      width: 80%;\r\n    }\r\n    .str-input {\r\n      width: 80%;\r\n    }\r\n    .str-textarea {\r\n      width: 80%;\r\n    }\r\n    .card-container {\r\n      grid-template-columns: 100%;\r\n    }\r\n  }\r\n\r\n  @media screen and (min-width: 501px) and (max-width: 600px) {\r\n    .card-container {\r\n      grid-template-columns: 100%;\r\n    }\r\n  }\r\n\r\n  @media screen and (min-width: 601px) and (max-width: 720px) {\r\n    .card-container {\r\n      grid-template-columns: 40% 40%;\r\n    }\r\n  }\r\n\r\n  @media screen and (min-width: 721px) and (max-width: 999px) {\r\n    .card-container {\r\n      grid-template-columns: 30% 30% 30%;\r\n    }\r\n  }\r\n\r\n  @media screen and (min-width: 501px) and (max-width: 720px) {\r\n    .str-input {\r\n      width: 80%;\r\n    }\r\n    .str-textarea {\r\n      width: 80%;\r\n    }\r\n  }\r\n`"
             },
             {
                 "name": "mock",
@@ -4340,7 +4340,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/header/Header.stories.ts",
+                "file": "src/stories/footer/Footer.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -4360,7 +4360,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/footer/Footer.stories.ts",
+                "file": "src/stories/header/Header.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -4728,16 +4728,6 @@
                     "defaultValue": "[\r\n  {\r\n    name: 'test',\r\n  description: 'test',\r\n  imageUrl: '../../../assets/images/chateau_acoustic_guitar.webp',\r\n  createdBy: 'xyz@gmail.com',\r\n  price: 1000,\r\n  }\r\n]"
                 }
             ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "type": "object",
-                    "defaultValue": "{\r\n  production: true\r\n}"
-                }
-            ],
             "src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -4746,6 +4736,16 @@
                     "file": "src/environments/environment.ts",
                     "type": "object",
                     "defaultValue": "{\r\n  production: false\r\n}"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "type": "object",
+                    "defaultValue": "{\r\n  production: true\r\n}"
                 }
             ],
             "src/app/shared/urls.ts": [
@@ -4957,7 +4957,7 @@
                     "subtype": "variable",
                     "file": "src/components/media-queries.ts",
                     "type": "",
-                    "defaultValue": "css\r\n`\r\n@media screen and (min-width: 320px) and (max-width: 500px) {\r\n    .auth-container {\r\n      width: 80%;\r\n    }\r\n    .str-input {\r\n      width: 80%;\r\n    }\r\n    .str-textarea {\r\n      width: 80%;\r\n    }\r\n    .card-container {\r\n      grid-template-columns: 100%;\r\n    }\r\n  }\r\n  \r\n  @media screen and (min-width: 501px) and (max-width: 600px) {\r\n      .card-container {\r\n          grid-template-columns: 100%;\r\n      }\r\n  }\r\n  \r\n  @media screen and (min-width: 601px) and (max-width: 720px) {\r\n      .card-container {\r\n          grid-template-columns: 40% 40%;\r\n      }\r\n  }\r\n  \r\n  @media screen and (min-width: 721px) and (max-width: 999px) {\r\n    .card-container {\r\n      grid-template-columns: 30% 30% 30%;\r\n  }\r\n  }\r\n  \r\n  @media screen and (min-width: 501px) and (max-width: 720px) {\r\n    .str-input {\r\n      width: 80%;\r\n    }\r\n    .str-textarea {\r\n      width: 80%;\r\n    }\r\n  }\r\n  \r\n\r\n`"
+                    "defaultValue": "css`\r\n  @media screen and (min-width: 320px) and (max-width: 500px) {\r\n    .auth-container {\r\n      width: 80%;\r\n    }\r\n    .str-input {\r\n      width: 80%;\r\n    }\r\n    .str-textarea {\r\n      width: 80%;\r\n    }\r\n    .card-container {\r\n      grid-template-columns: 100%;\r\n    }\r\n  }\r\n\r\n  @media screen and (min-width: 501px) and (max-width: 600px) {\r\n    .card-container {\r\n      grid-template-columns: 100%;\r\n    }\r\n  }\r\n\r\n  @media screen and (min-width: 601px) and (max-width: 720px) {\r\n    .card-container {\r\n      grid-template-columns: 40% 40%;\r\n    }\r\n  }\r\n\r\n  @media screen and (min-width: 721px) and (max-width: 999px) {\r\n    .card-container {\r\n      grid-template-columns: 30% 30% 30%;\r\n    }\r\n  }\r\n\r\n  @media screen and (min-width: 501px) and (max-width: 720px) {\r\n    .str-input {\r\n      width: 80%;\r\n    }\r\n    .str-textarea {\r\n      width: 80%;\r\n    }\r\n  }\r\n`"
                 }
             ],
             "src/jest-config/globalmocks.ts": [
@@ -5208,10 +5208,10 @@
                     ]
                 }
             ],
-            "src/stories/header/Header.stories.ts": [
+            "src/stories/footer/Footer.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/header/Header.stories.ts",
+                    "file": "src/stories/footer/Footer.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -5230,10 +5230,10 @@
                     ]
                 }
             ],
-            "src/stories/footer/Footer.stories.ts": [
+            "src/stories/header/Header.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/footer/Footer.stories.ts",
+                    "file": "src/stories/header/Header.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
