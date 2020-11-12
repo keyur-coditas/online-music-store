@@ -2,28 +2,28 @@
 import { html, LitElement, css, TemplateResult } from 'lit-element';
 import { customElement, property } from 'lit-element/lib/decorators';
 import {mediaQueries} from './media-queries';
+import * as EVENTS from './constants';
 
 @customElement('str-header')
 export class storeHeaderElement extends LitElement {
 
+    @property({type:String})
+    strlogo;
 
-    @property()
-    strlogo: string;
+    @property({type:String})
+    changeLanguageButtonText;
 
-    @property()
-    changeLanguageButtonText: string;
+    @property({type:String})
+    changeThemeButtonText;
 
-    @property()
-    changeThemeButtonText: string;
+    @property({type:String})
+    addProductButtonText;
 
-    @property()
-    addProductButtonText: string;
+    @property({type:String})
+    logoutButtonText;
 
-    @property()
-    logoutButtonText: string;
-
-    @property()
-    isAuthenticated: string;
+    @property({type:Boolean})
+    isAuthenticated;
 
     static get styles() {
         return [
@@ -46,40 +46,30 @@ export class storeHeaderElement extends LitElement {
         ];
     }
 
-    changeLanguage() {
-        const onChangeLanguage = new CustomEvent('onChangeLanguage', {});
-        this.dispatchEvent(onChangeLanguage);
-    }
-    
-    addProduct() {
-        const onAddProduct = new CustomEvent('onAddProduct', {});
+    onClick(eventType: string) {
+        const onAddProduct = new CustomEvent(eventType, {});
         this.dispatchEvent(onAddProduct);
     }
 
-    changeTheme() {
-        const onChangeTheme = new CustomEvent('onChangeTheme', {});
-        this.dispatchEvent(onChangeTheme);
-    }
-
-    logout() {
-        const onLogout = new CustomEvent('onLogout', {});
-        this.dispatchEvent(onLogout);
+    getLoggedInUserButtonsHtml() {
+       let authenticatedButtons:TemplateResult = html``;
+        if(this.isAuthenticated) {
+            authenticatedButtons = html`
+            <str-form-btn aria-label="Add Product" buttonText="${this.addProductButtonText}" @click="${this.onClick.bind(this, EVENTS.ADD_PRODUCT)}"></str-form-btn>
+            <str-form-btn buttonText="${this.logoutButtonText}" @click="${this.onClick.bind(this, EVENTS.LOGOUT)}" aria-label="Log out"></str-form-btn>
+           `
+        }
+        return authenticatedButtons;
     }
 
     render() {
-        let authenticatedButtons:TemplateResult = html``;
-        if(this.isAuthenticated === 'true') {
-            authenticatedButtons = html`
-            <str-form-btn aria-label="Add Product" buttonText="${this.addProductButtonText}" @click="${this.addProduct}"></str-form-btn>
-            <str-form-btn buttonText="${this.logoutButtonText}" @click="${this.logout}" aria-label="Log out"></str-form-btn>
-           `
-        }
+        let authenticatedButtons:TemplateResult = this.getLoggedInUserButtonsHtml();
         return html`  
         <div class="header">
         <img src="${this.strlogo}" alt="App Logo" tabindex="0" aria-label="App logo">
         <div class="header-logout">
-                <str-form-btn @click="${this.changeLanguage}" aria-label="Change language" buttonText="${this.changeLanguageButtonText}"></str-form-btn>
-                <str-form-btn buttonText="${this.changeThemeButtonText}" @click="${this.changeTheme}" aria-label="Change theme"></str-form-btn>
+                <str-form-btn @click="${this.onClick.bind(this, EVENTS.CHANGE_LANGUAGE)}" aria-label="Change language" buttonText="${this.changeLanguageButtonText}"></str-form-btn>
+                <str-form-btn buttonText="${this.changeThemeButtonText}" @click="${this.onClick.bind(this,EVENTS.CHANGE_THEME)}" aria-label="Change theme"></str-form-btn>
                 ${authenticatedButtons}
         </div>
         </div>

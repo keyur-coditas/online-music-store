@@ -5,7 +5,7 @@ import {mediaQueries} from './media-queries';
 @customElement('str-btn')
 export class storeButton extends LitElement {
 
-  @property()
+  @property({type:String})
   buttonText = 'click here';
 
   static get styles() {

@@ -5,14 +5,14 @@ import {mediaQueries} from './media-queries';
 @customElement('str-form-btn')
 export class storeFormButton extends LitElement {
 
-  @property()
+  @property({type:String})
   buttonText = 'click here';
 
   @property({type: Boolean})
   isCardButton = false;
 
   @property({type: Boolean})
-  isSubmitButton = false;
+  isFormButton = false;
 
   static get styles() {
     return [
@@ -52,14 +52,17 @@ export class storeFormButton extends LitElement {
     ];
   }
 
+  getFormButtonsHtml() {
+    if(this.isCardButton) {
+      return html`<button type="button" class="str-card-buttons str-btn">${this.buttonText}</button>`;
+    } else {
+      return html`<button type="button" class="str-submit-btn">${this.buttonText}</button>`;
+    }
+  }
 
   render(){
-    if(this.isSubmitButton) {
-      if(this.isCardButton) {
-        return html`<button type="button" class="str-card-buttons str-btn">${this.buttonText}</button>`;
-      } else {
-        return html`<button type="button" class="str-submit-btn">${this.buttonText}</button>`;
-      }
+    if(this.isFormButton) {
+     return this.getFormButtonsHtml();
     } else {
       return html`<button type="button" class="str-btn">${this.buttonText}</button>`;
     }

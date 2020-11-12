@@ -1,21 +1,18 @@
 import { html, LitElement, css } from 'lit-element';
 import { customElement, property } from 'lit-element/lib/decorators';
-import {mediaQueries} from './media-queries';
-
+import { mediaQueries } from './media-queries';
+import * as EVENTS from './constants';
 @customElement('str-image-input')
 export class storeImageInputElement extends LitElement {
 
-    @property()
-    ariaLabel: string;
+    @property({ type: String })
+    ariaLabel;
 
-    @property()
-    isReadonly: string;
+    @property({ type: Boolean })
+    isReadonly;
 
-    @property()
-    inputValue: string = null;
-
-    @property()
-    labelValue: string = "Choose an image";
+    @property({ type: String })
+    labelValue = "Choose an image";
 
     static get styles() {
         return [
@@ -27,11 +24,11 @@ export class storeImageInputElement extends LitElement {
             color: #666666;
         }
     `,
-      mediaQueries  ];
+            mediaQueries];
     }
 
     inputHandler(event) {
-        const inputValueChanged = new CustomEvent('inputValueChanged', {
+        const inputValueChanged = new CustomEvent(EVENTS.INPUT_CHANGED, {
             detail: {
                 value: event.path[0].files[0]
             },
@@ -40,13 +37,13 @@ export class storeImageInputElement extends LitElement {
     }
 
     render() {
-        let readonlyValue;
+        let isReadonlyValue;
         if (this.isReadonly === 'true') {
-            readonlyValue = true;
+            isReadonlyValue = true;
         }
         return html`  
         <label for="" class="image-label" >${this.labelValue}</label>
-        <input aria-label="${this.ariaLabel}" type="file" path="../assets/images/" ?readonly= "${readonlyValue}"
+        <input aria-label="${this.ariaLabel}" type="file" path="../assets/images/" ?readonly= "${isReadonlyValue}"
          @change="${this.inputHandler}">
     `;
     }

@@ -4,8 +4,8 @@ import { customElement, property } from 'lit-element/lib/decorators';
 
 @customElement('str-footer')
 export class storeFooterElement extends LitElement {
-    @property()
-    footerText:string;
+    @property({type:String})
+    footerText;
 
     static get styles() {
         return css`

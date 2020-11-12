@@ -1,28 +1,27 @@
 import { html, LitElement, css } from 'lit-element';
 import { customElement, property } from 'lit-element/lib/decorators';
 import {mediaQueries} from './media-queries';
-
+import * as EVENTS from './constants';
 @customElement('str-textarea')
 export class storeTextareaElement extends LitElement {
 
-    @property()
-    ariaLabel: string;
+    @property({type: String})
+    ariaLabel;
 
+    @property({type: String})
+    inputPlaceholder;
 
-    @property()
-    inputPlaceholder: string;
+    @property({type: String})
+    isReadonly;
 
-    @property()
-    isReadonly: string;
+    @property({type: String})
+    inputValue = '';
 
-    @property()
-    inputValue: string = null;
+    @property({type: Number})
+    rows = 10;
 
-    @property()
-    rows: string = "10";
-
-    @property()
-    columns: string = "30";
+    @property({type: Number})
+    columns = 30;
 
     static get styles() {
         return [
@@ -41,7 +40,7 @@ export class storeTextareaElement extends LitElement {
 
 
     inputHandler(event) {
-        const inputValueChanged = new CustomEvent('inputValueChanged', {
+        const inputValueChanged = new CustomEvent(EVENTS.INPUT_CHANGED, {
             detail: {
                 value: event.composedPath()[0].value
             },
@@ -50,13 +49,13 @@ export class storeTextareaElement extends LitElement {
     }
 
     render() {
-        let readonlyValue;
+        let isReadonlyValue;
         if (this.isReadonly === 'true') {
-            readonlyValue = true;
+            isReadonlyValue = true;
         }
         return html`  
     <textarea aria-label="${this.ariaLabel}" class="str-textarea" cols="${this.columns}" rows="${this.rows}"
-     @input=${this.inputHandler}  placeholder="${this.inputPlaceholder}" ?readonly= "${readonlyValue}" .value="${this.inputValue}">
+     @input=${this.inputHandler}  placeholder="${this.inputPlaceholder}" ?readonly= "${isReadonlyValue}" .value="${this.inputValue}">
     </textarea>`;
     }
 }

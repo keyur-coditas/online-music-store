@@ -1,36 +1,36 @@
 import { html, LitElement, css, TemplateResult } from 'lit-element';
 import { customElement, property } from 'lit-element/lib/decorators';
 import { mediaQueries } from './media-queries';
-
+import * as EVENTS from './constants';
 @customElement('str-card')
 export class storeCard extends LitElement {
 
-    @property()
-    productName: string;
+    @property({type:String})
+    productName;
+
+    @property({type:String})
+    productDescription;
+
+    @property({type:String})
+    imageUrl;
+
+    @property({type:Number})
+    productPrice;
 
     @property()
-    productDescription: string;
+    createdBy;
 
-    @property()
-    imageUrl: string;
+    @property({type:String})
+    currentUser;
 
-    @property()
-    productPrice: number;
-
-    @property()
-    createdBy: string;
-
-    @property()
-    currentUser: string;
-
-    @property()
+    @property({type:Number})
     productId: number;
 
-    @property()
+    @property({type:String})
     updatebuttonText: string;
 
-    @property()
-    deletebuttonText: string;
+    @property({type:String})
+    deletebuttonText;
 
     static get styles() {
         return [
@@ -86,8 +86,9 @@ export class storeCard extends LitElement {
         ];
     }
 
-    viewProduct() {
-        const click = new CustomEvent('viewProduct', {
+    onProductOperation(eventType: string) {
+
+        const click = new CustomEvent(eventType, {
             detail: {
                 product: {
                     name: this.productName,
@@ -97,58 +98,27 @@ export class storeCard extends LitElement {
                     price: this.productPrice,
                     id: this.productId
                 },
-            }
+            },
+            bubbles:false
         });
         this.dispatchEvent(click);
     }
 
-    updateProduct(event) {
-        event.stopPropagation();
-        const update = new CustomEvent('updateProduct', {
-            detail: {
-                product: {
-                    name: this.productName,
-                    description: this.productDescription,
-                    imageUrl: this.imageUrl,
-                    createdBy: this.createdBy,
-                    price: this.productPrice,
-                    id: this.productId
-                }
-            }
-        });
-        this.dispatchEvent(update);
-    }
-
-    deleteProduct(event) {
-        event.stopPropagation();
-        const deleteProduct = new CustomEvent('deleteProduct', {
-            detail: {
-                product: {
-                    name: this.productName,
-                    description: this.productDescription,
-                    imageUrl: this.imageUrl,
-                    createdBy: this.createdBy,
-                    price: this.productPrice,
-                    id: this.productId
-                }
-            },
-        });
-        this.dispatchEvent(deleteProduct);
-    }
-
-
-    render() {
-        let ownerButtons: TemplateResult = html``;
+    getOwnerButtonsHtml() {
+       let ownerButtons:TemplateResult = html``;
         if (this.currentUser === this.createdBy) {
             ownerButtons = html`<div class="text-center str-card-buttons-container" >
-            <str-form-btn isSubmitButton buttonText="${this.updatebuttonText}" isSubmitButton isCardButton aria-label="Update Product" @click="${this.updateProduct}"></str-form-btn>
-            <str-form-btn isSubmitButton buttonText="${this.deletebuttonText}" isSubmitButton isCardButton aria-label="Delete Product" @click="${this.deleteProduct}"></str-form-btn>    
+            <str-form-btn isFormButton buttonText="${this.updatebuttonText}" isFormButton isCardButton aria-label="Update Product" @click="${(e) => {e.stopPropagation(); this.onProductOperation(EVENTS.UPDATE_PRODUCT)}}"></str-form-btn>
+            <str-form-btn isFormButton buttonText="${this.deletebuttonText}" isFormButton isCardButton aria-label="Delete Product" @click="${(e) => {e.stopPropagation(); this.onProductOperation(EVENTS.DELETE_PRODUCT)}}"></str-form-btn>    
             </div>`
         }
+        return ownerButtons;
+    }
 
+    render() {
+        let ownerButtons: TemplateResult = this.getOwnerButtonsHtml();
         return html`
-    
-    <button type="button" class="card" @click="${this.viewProduct}" aria-label="View product details" >
+    <button type="button" class="card" @click="${this.onProductOperation.bind(this, EVENTS.VIEW_PRODUCT)}" aria-label="View product details" >
     <div class="text-center">
         <img src="${this.imageUrl}" class="product-image" alt="Avatar" width="200" width="200" height="200">
     </div>

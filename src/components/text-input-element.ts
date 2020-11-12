@@ -1,24 +1,26 @@
 import { html, LitElement, css } from 'lit-element';
 import { customElement, property  } from 'lit-element/lib/decorators';
 import {mediaQueries} from './media-queries';
-
+import * as EVENTS from './constants';
 @customElement('str-input')
 export class storeInputElement extends LitElement {
 
-     @property()
-     ariaLabel: string;
+     @property({type: String})
+     ariaLabel;
 
      @property({type: String})
      inputType;
 
-     @property()
-     inputPlaceholder: string;
+     @property({type: String})
+     inputPlaceholder;
 
-     @property()
-     isReadonly: string;
+     @property({type: Boolean, reflect:false})
+     isReadonly;
 
      @property({type: String})
-     inputValue: string = '';
+     inputValue = '';
+
+
   
   static get styles() {
     return [
@@ -37,7 +39,7 @@ export class storeInputElement extends LitElement {
 
 
   inputHandler(event) {
-      const inputValueChanged = new CustomEvent('inputValueChanged', {
+      const inputValueChanged = new CustomEvent(EVENTS.INPUT_CHANGED, {
         detail: {
             value: event.composedPath()[0].value
         },
@@ -46,12 +48,12 @@ export class storeInputElement extends LitElement {
   }
 
   render(){
-    let readonlyValue;
+    let isReadonlyValue;
     if(this.isReadonly === 'true') {
-      readonlyValue = true;
+      isReadonlyValue = true;
     }
     return html`<input aria-label="${this.ariaLabel}" class="str-input" type="${this.inputType}"
     placeholder="${this.inputPlaceholder}" @input=${this.inputHandler} .value="${this.inputValue}"
-    ?readonly="${readonlyValue}"/>`;
+    ?readonly="${isReadonlyValue}"/>`;
   }
 }
