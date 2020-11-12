@@ -70,16 +70,16 @@ export class storeHeaderElement extends LitElement {
         let authenticatedButtons:TemplateResult = html``;
         if(this.isAuthenticated === 'true') {
             authenticatedButtons = html`
-            <str-btn aria-label="Add Product" buttonText="${this.addProductButtonText}" @click="${this.addProduct}"></str-btn>
-            <str-btn buttonText="${this.logoutButtonText}" @click="${this.logout}" aria-label="Log out"></str-btn>
+            <str-form-btn aria-label="Add Product" buttonText="${this.addProductButtonText}" @click="${this.addProduct}"></str-form-btn>
+            <str-form-btn buttonText="${this.logoutButtonText}" @click="${this.logout}" aria-label="Log out"></str-form-btn>
            `
         }
         return html`  
         <div class="header">
         <img src="${this.strlogo}" alt="App Logo" tabindex="0" aria-label="App logo">
         <div class="header-logout">
-                <str-btn @click="${this.changeLanguage}" aria-label="Change language" buttonText="${this.changeLanguageButtonText}"></str-btn>
-                <str-btn buttonText="${this.changeThemeButtonText}" @click="${this.changeTheme}" aria-label="Change theme"></str-btn>
+                <str-form-btn @click="${this.changeLanguage}" aria-label="Change language" buttonText="${this.changeLanguageButtonText}"></str-form-btn>
+                <str-form-btn buttonText="${this.changeThemeButtonText}" @click="${this.changeTheme}" aria-label="Change theme"></str-form-btn>
                 ${authenticatedButtons}
         </div>
         </div>

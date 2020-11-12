@@ -59,11 +59,13 @@
                 [attr.aria-label]="productOperationInfo.productOperation" 
                 *ngIf="productOperationInfo.productOperation !== 'View'"
                 buttonText="{{ 'products.product-operations.' + buttonText | translate}}" 
+                isSubmitButton
                 (click)="onSubmit()">
             </str-form-btn>
             <str-form-btn  
               aria-label="Back to products list"
               buttonText="{{'products.product-operations.cancel-button' | translate}}"
+              isSubmitButton
              (click)="cancel()" >
             </str-form-btn>
         </div>

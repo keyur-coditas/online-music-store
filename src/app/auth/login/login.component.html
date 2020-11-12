@@ -24,7 +24,12 @@
         </div>
     </div>
     <div class="text-center">
-        <str-form-btn (click)="onSubmit()" buttonText="{{'auth.submit-button' | translate}}" aria-label="Log in"></str-form-btn>
+        <str-form-btn
+         buttonText="{{'auth.submit-button' | translate}}" 
+         aria-label="Log in" 
+         isSubmitButton
+         (click)="onSubmit()">
+        </str-form-btn>
         <a class="signup-link" (click)="navigate($event)" href="#" aria-label="Click to signup">{{'auth.signup-link' | translate}}</a>
     </div>
 </form>

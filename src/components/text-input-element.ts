@@ -8,8 +8,8 @@ export class storeInputElement extends LitElement {
      @property()
      ariaLabel: string;
 
-     @property()
-     inputType: string;
+     @property({type: String})
+     inputType;
 
      @property()
      inputPlaceholder: string;
@@ -17,8 +17,8 @@ export class storeInputElement extends LitElement {
      @property()
      isReadonly: string;
 
-     @property()
-     inputValue: string = null;
+     @property({type: String})
+     inputValue: string = '';
   
   static get styles() {
     return [

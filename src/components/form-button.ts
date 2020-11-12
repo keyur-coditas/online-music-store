@@ -8,9 +8,11 @@ export class storeFormButton extends LitElement {
   @property()
   buttonText = 'click here';
 
-  @property()
+  @property({type: Boolean})
   isCardButton = false;
 
+  @property({type: Boolean})
+  isSubmitButton = false;
 
   static get styles() {
     return [
@@ -34,6 +36,10 @@ export class storeFormButton extends LitElement {
     width:8rem;
     background-color: var(--form-btn-background);
     color: var(--form-btn-color);
+    padding: 8px;
+    border: 1px solid #c8c8c8;
+    box-shadow: .5px .5px #c8c8c8;
+    margin: 1rem;
 }
 .str-card-buttons {
   width:6rem;
@@ -48,10 +54,14 @@ export class storeFormButton extends LitElement {
 
 
   render(){
-    if(this.isCardButton) {
-      return html`<button type="button" class="str-card-buttons str-btn">${this.buttonText}</button>`;
+    if(this.isSubmitButton) {
+      if(this.isCardButton) {
+        return html`<button type="button" class="str-card-buttons str-btn">${this.buttonText}</button>`;
+      } else {
+        return html`<button type="button" class="str-submit-btn">${this.buttonText}</button>`;
+      }
     } else {
-      return html`<button type="button" class="str-submit-btn str-btn">${this.buttonText}</button>`;
+      return html`<button type="button" class="str-btn">${this.buttonText}</button>`;
     }
   }
 }

@@ -1052,10 +1052,10 @@
         },
         {
             "name": "storeCard",
-            "id": "class-storeCard-d28b538fcc97843fcceeeaff2c05358f",
+            "id": "class-storeCard-693e775d03601c3933fbe51c5d581722",
             "file": "src/components/card.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-card')\r\nexport class storeCard extends LitElement {\r\n\r\n    @property()\r\n    productName: string;\r\n\r\n    @property()\r\n    productDescription: string;\r\n\r\n    @property()\r\n    imageUrl: string;\r\n\r\n    @property()\r\n    productPrice: number;\r\n\r\n    @property()\r\n    createdBy: string;\r\n\r\n    @property()\r\n    currentUser: string;\r\n\r\n    @property()\r\n    productId: number;\r\n\r\n    @property()\r\n    updatebuttonText: string;\r\n\r\n    @property()\r\n    deletebuttonText: string;\r\n\r\n    static get styles() {\r\n        return [\r\n            css`\r\n        .card {\r\n            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\r\n            transition: 0.3s;\r\n            border-radius: 5px;\r\n            background-color: #fff;\r\n            height:100%;\r\n            display: flex;\r\n            flex-direction: column;\r\n            justify-content: space-around;\r\n            align-items: center;\r\n            border:none;\r\n            width:100%;\r\n          }\r\n          \r\n          .card:hover {\r\n            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\r\n          }\r\n          \r\n          .product-image {\r\n            border-radius: 5px 5px 0 0;\r\n          }\r\n          \r\n          .container {\r\n            padding: 2px 16px;\r\n          }\r\n          .card-font-small {\r\n              font-size: 0.8rem;\r\n          }\r\n          .card-font-medium {\r\n              font-size: 0.9rem;\r\n          }\r\n          .card-header-margin {\r\n            margin: 0.8rem;\r\n        }\r\n        .card-details-margin {\r\n            margin: 0.5rem;\r\n        }\r\n        .str-card-buttons {\r\n          width:6rem;\r\n          background-color: var(--form-btn-background);\r\n          color: var(--form-btn-color);\r\n          margin: 10px;\r\n        }\r\n        .text-center{\r\n            text-align: center;\r\n        }\r\n    `,\r\n    mediaQueries\r\n        ];\r\n    }\r\n\r\n    viewProduct() {\r\n        const click = new CustomEvent('viewProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                },\r\n            }\r\n        });\r\n        this.dispatchEvent(click);\r\n    }\r\n\r\n    updateProduct(event) {\r\n        event.stopPropagation();\r\n        const update = new CustomEvent('updateProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                }\r\n            }\r\n        });\r\n        this.dispatchEvent(update);\r\n    }\r\n\r\n    deleteProduct(event) {\r\n        event.stopPropagation();\r\n        const deleteProduct = new CustomEvent('deleteProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                }\r\n            },\r\n        });\r\n        this.dispatchEvent(deleteProduct);\r\n    }\r\n\r\n\r\n    render() {\r\n        let ownerButtons: TemplateResult = html``;\r\n        if (this.currentUser === this.createdBy) {\r\n            ownerButtons = html`<div class=\"text-center str-card-buttons-container\" >\r\n            <str-form-btn @click=\"${this.updateProduct}\" buttonText=\"${this.updatebuttonText}\" isCardButton=\"true\" aria-label=\"Update Product\"></str-form-btn>\r\n            <str-form-btn @click=\"${this.deleteProduct}\" buttonText=\"${this.deletebuttonText}\" isCardButton=\"true\" aria-label=\"Delete Product\"></str-form-btn>    \r\n            </div>`\r\n        }\r\n\r\n        return html`\r\n    \r\n    <button type=\"button\" class=\"card\" @click=\"${this.viewProduct}\" aria-label=\"View product details\" >\r\n    <div class=\"text-center\">\r\n        <img src=\"${this.imageUrl}\" class=\"product-image\" alt=\"Avatar\" width=\"200\" width=\"200\" height=\"200\">\r\n    </div>\r\n    <div class=\"container card-details\">\r\n        <h4 class=\"text-center card-font-medium card-header-margin\"><b>${this.productName}</b></h4>\r\n        <p class=\"text-center card-font-small card-details-margin\">${this.productDescription}</p>\r\n        <p class=\"text-center card-font-small card-details-margin\"><b><span>&#8377; </span>${this.productPrice}</b></p>\r\n    </div>\r\n        ${ownerButtons}\r\n    </button>\r\n                `;\r\n    }\r\n}\r\n",
+            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { mediaQueries } from './media-queries';\r\n\r\n@customElement('str-card')\r\nexport class storeCard extends LitElement {\r\n\r\n    @property()\r\n    productName: string;\r\n\r\n    @property()\r\n    productDescription: string;\r\n\r\n    @property()\r\n    imageUrl: string;\r\n\r\n    @property()\r\n    productPrice: number;\r\n\r\n    @property()\r\n    createdBy: string;\r\n\r\n    @property()\r\n    currentUser: string;\r\n\r\n    @property()\r\n    productId: number;\r\n\r\n    @property()\r\n    updatebuttonText: string;\r\n\r\n    @property()\r\n    deletebuttonText: string;\r\n\r\n    static get styles() {\r\n        return [\r\n            css`\r\n        .card {\r\n            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\r\n            transition: 0.3s;\r\n            border-radius: 5px;\r\n            background-color: #fff;\r\n            height:100%;\r\n            display: flex;\r\n            flex-direction: column;\r\n            justify-content: space-around;\r\n            align-items: center;\r\n            border:none;\r\n            width:100%;\r\n          }\r\n          \r\n          .card:hover {\r\n            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\r\n          }\r\n          \r\n          .product-image {\r\n            border-radius: 5px 5px 0 0;\r\n          }\r\n          \r\n          .container {\r\n            padding: 2px 16px;\r\n          }\r\n          .card-font-small {\r\n              font-size: 0.8rem;\r\n          }\r\n          .card-font-medium {\r\n              font-size: 0.9rem;\r\n          }\r\n          .card-header-margin {\r\n            margin: 0.8rem;\r\n        }\r\n        .card-details-margin {\r\n            margin: 0.5rem;\r\n        }\r\n        .str-card-buttons {\r\n          width:6rem;\r\n          background-color: var(--form-btn-background);\r\n          color: var(--form-btn-color);\r\n          margin: 10px;\r\n        }\r\n        .text-center{\r\n            text-align: center;\r\n        }\r\n    `,\r\n            mediaQueries\r\n        ];\r\n    }\r\n\r\n    viewProduct() {\r\n        const click = new CustomEvent('viewProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                },\r\n            }\r\n        });\r\n        this.dispatchEvent(click);\r\n    }\r\n\r\n    updateProduct(event) {\r\n        event.stopPropagation();\r\n        const update = new CustomEvent('updateProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                }\r\n            }\r\n        });\r\n        this.dispatchEvent(update);\r\n    }\r\n\r\n    deleteProduct(event) {\r\n        event.stopPropagation();\r\n        const deleteProduct = new CustomEvent('deleteProduct', {\r\n            detail: {\r\n                product: {\r\n                    name: this.productName,\r\n                    description: this.productDescription,\r\n                    imageUrl: this.imageUrl,\r\n                    createdBy: this.createdBy,\r\n                    price: this.productPrice,\r\n                    id: this.productId\r\n                }\r\n            },\r\n        });\r\n        this.dispatchEvent(deleteProduct);\r\n    }\r\n\r\n\r\n    render() {\r\n        let ownerButtons: TemplateResult = html``;\r\n        if (this.currentUser === this.createdBy) {\r\n            ownerButtons = html`<div class=\"text-center str-card-buttons-container\" >\r\n            <str-form-btn isSubmitButton buttonText=\"${this.updatebuttonText}\" isSubmitButton isCardButton aria-label=\"Update Product\" @click=\"${this.updateProduct}\"></str-form-btn>\r\n            <str-form-btn isSubmitButton buttonText=\"${this.deletebuttonText}\" isSubmitButton isCardButton aria-label=\"Delete Product\" @click=\"${this.deleteProduct}\"></str-form-btn>    \r\n            </div>`\r\n        }\r\n\r\n        return html`\r\n    \r\n    <button type=\"button\" class=\"card\" @click=\"${this.viewProduct}\" aria-label=\"View product details\" >\r\n    <div class=\"text-center\">\r\n        <img src=\"${this.imageUrl}\" class=\"product-image\" alt=\"Avatar\" width=\"200\" width=\"200\" height=\"200\">\r\n    </div>\r\n    <div class=\"container card-details\">\r\n        <h4 class=\"text-center card-font-medium card-header-margin\"><b>${this.productName}</b></h4>\r\n        <p class=\"text-center card-font-small card-details-margin\">${this.productDescription}</p>\r\n        <p class=\"text-center card-font-small card-details-margin\"><b><span>&#8377; </span>${this.productPrice}</b></p>\r\n    </div>\r\n        ${ownerButtons}\r\n    </button>\r\n                `;\r\n    }\r\n}\r\n",
             "properties": [
                 {
                     "name": "createdBy",
@@ -1298,10 +1298,10 @@
         },
         {
             "name": "storeFormButton",
-            "id": "class-storeFormButton-05a357c91bd204a4f004c64306164da9",
+            "id": "class-storeFormButton-ab149edf3a6a4a6e8206dc16f782f42d",
             "file": "src/components/form-button.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-form-btn')\r\nexport class storeFormButton extends LitElement {\r\n\r\n  @property()\r\n  buttonText = 'click here';\r\n\r\n  @property()\r\n  isCardButton = false;\r\n\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n    .str-btn {\r\n      padding: 8px;\r\n      border: 1px solid #c8c8c8;\r\n      box-shadow: .5px .5px #c8c8c8;\r\n      margin: 1rem;\r\n      background-color: var(--btn-background);\r\n    color: var(--btn-color);\r\n  }\r\n  .str-btn.active { \r\n    transform: scale(0.98); \r\n    /* Scaling button to 0.98 to its original size */ \r\n    -webkit-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    -moz-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n} \r\n  .str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n}\r\n.str-card-buttons {\r\n  width:6rem;\r\n  background-color: var(--form-btn-background);\r\n  color: var(--form-btn-color);\r\n  margin: 10px;\r\n}\r\n    `,\r\n    mediaQueries\r\n    ];\r\n  }\r\n\r\n\r\n  render(){\r\n    if(this.isCardButton) {\r\n      return html`<button type=\"button\" class=\"str-card-buttons str-btn\">${this.buttonText}</button>`;\r\n    } else {\r\n      return html`<button type=\"button\" class=\"str-submit-btn str-btn\">${this.buttonText}</button>`;\r\n    }\r\n  }\r\n}",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-form-btn')\r\nexport class storeFormButton extends LitElement {\r\n\r\n  @property()\r\n  buttonText = 'click here';\r\n\r\n  @property({type: Boolean})\r\n  isCardButton = false;\r\n\r\n  @property({type: Boolean})\r\n  isSubmitButton = false;\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n    .str-btn {\r\n      padding: 8px;\r\n      border: 1px solid #c8c8c8;\r\n      box-shadow: .5px .5px #c8c8c8;\r\n      margin: 1rem;\r\n      background-color: var(--btn-background);\r\n    color: var(--btn-color);\r\n  }\r\n  .str-btn.active { \r\n    transform: scale(0.98); \r\n    /* Scaling button to 0.98 to its original size */ \r\n    -webkit-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    -moz-box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n    box-shadow: -1px -1px 5px -1px rgba(0,0,0,0.75);\r\n} \r\n  .str-submit-btn {\r\n    width:8rem;\r\n    background-color: var(--form-btn-background);\r\n    color: var(--form-btn-color);\r\n    padding: 8px;\r\n    border: 1px solid #c8c8c8;\r\n    box-shadow: .5px .5px #c8c8c8;\r\n    margin: 1rem;\r\n}\r\n.str-card-buttons {\r\n  width:6rem;\r\n  background-color: var(--form-btn-background);\r\n  color: var(--form-btn-color);\r\n  margin: 10px;\r\n}\r\n    `,\r\n    mediaQueries\r\n    ];\r\n  }\r\n\r\n\r\n  render(){\r\n    if(this.isSubmitButton) {\r\n      if(this.isCardButton) {\r\n        return html`<button type=\"button\" class=\"str-card-buttons str-btn\">${this.buttonText}</button>`;\r\n      } else {\r\n        return html`<button type=\"button\" class=\"str-submit-btn\">${this.buttonText}</button>`;\r\n      }\r\n    } else {\r\n      return html`<button type=\"button\" class=\"str-btn\">${this.buttonText}</button>`;\r\n    }\r\n  }\r\n}",
             "properties": [
                 {
                     "name": "buttonText",
@@ -1327,7 +1327,21 @@
                     "decorators": [
                         {
                             "name": "property",
-                            "stringifiedArguments": ""
+                            "stringifiedArguments": "{type: Boolean}"
+                        }
+                    ]
+                },
+                {
+                    "name": "isSubmitButton",
+                    "defaultValue": "false",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": "{type: Boolean}"
                         }
                     ]
                 }
@@ -1339,7 +1353,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 50
+                    "line": 56
                 }
             ],
             "indexSignatures": [],
@@ -1351,17 +1365,17 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 15
+                        "line": 17
                     }
                 }
             }
         },
         {
             "name": "storeHeaderElement",
-            "id": "class-storeHeaderElement-6c3ecc3a3c8c2ecc39b36352aea77e9f",
+            "id": "class-storeHeaderElement-2b65381c95ec0a4bb93b35725e86815f",
             "file": "src/components/header.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-header')\r\nexport class storeHeaderElement extends LitElement {\r\n\r\n\r\n    @property()\r\n    strlogo: string;\r\n\r\n    @property()\r\n    changeLanguageButtonText: string;\r\n\r\n    @property()\r\n    changeThemeButtonText: string;\r\n\r\n    @property()\r\n    addProductButtonText: string;\r\n\r\n    @property()\r\n    logoutButtonText: string;\r\n\r\n    @property()\r\n    isAuthenticated: string;\r\n\r\n    static get styles() {\r\n        return [\r\n            css`\r\n        .header-logout {\r\n            display:flex;\r\n            align-items: center;\r\n            flex-wrap: wrap;\r\n        }\r\n\r\n        .header{\r\n            display: flex;\r\n            justify-content: space-between;\r\n            padding:15px;\r\n            background-color: var(--header-background-color);\r\n            flex-wrap: wrap;\r\n        }\r\n    `,\r\n    mediaQueries\r\n        ];\r\n    }\r\n\r\n    changeLanguage() {\r\n        const onChangeLanguage = new CustomEvent('onChangeLanguage', {});\r\n        this.dispatchEvent(onChangeLanguage);\r\n    }\r\n    \r\n    addProduct() {\r\n        const onAddProduct = new CustomEvent('onAddProduct', {});\r\n        this.dispatchEvent(onAddProduct);\r\n    }\r\n\r\n    changeTheme() {\r\n        const onChangeTheme = new CustomEvent('onChangeTheme', {});\r\n        this.dispatchEvent(onChangeTheme);\r\n    }\r\n\r\n    logout() {\r\n        const onLogout = new CustomEvent('onLogout', {});\r\n        this.dispatchEvent(onLogout);\r\n    }\r\n\r\n    render() {\r\n        let authenticatedButtons:TemplateResult = html``;\r\n        if(this.isAuthenticated === 'true') {\r\n            authenticatedButtons = html`\r\n            <str-btn aria-label=\"Add Product\" buttonText=\"${this.addProductButtonText}\" @click=\"${this.addProduct}\"></str-btn>\r\n            <str-btn buttonText=\"${this.logoutButtonText}\" @click=\"${this.logout}\" aria-label=\"Log out\"></str-btn>\r\n           `\r\n        }\r\n        return html`  \r\n        <div class=\"header\">\r\n        <img src=\"${this.strlogo}\" alt=\"App Logo\" tabindex=\"0\" aria-label=\"App logo\">\r\n        <div class=\"header-logout\">\r\n                <str-btn @click=\"${this.changeLanguage}\" aria-label=\"Change language\" buttonText=\"${this.changeLanguageButtonText}\"></str-btn>\r\n                <str-btn buttonText=\"${this.changeThemeButtonText}\" @click=\"${this.changeTheme}\" aria-label=\"Change theme\"></str-btn>\r\n                ${authenticatedButtons}\r\n        </div>\r\n        </div>\r\n    `;\r\n    }\r\n}\r\n\r\n",
+            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-header')\r\nexport class storeHeaderElement extends LitElement {\r\n\r\n\r\n    @property()\r\n    strlogo: string;\r\n\r\n    @property()\r\n    changeLanguageButtonText: string;\r\n\r\n    @property()\r\n    changeThemeButtonText: string;\r\n\r\n    @property()\r\n    addProductButtonText: string;\r\n\r\n    @property()\r\n    logoutButtonText: string;\r\n\r\n    @property()\r\n    isAuthenticated: string;\r\n\r\n    static get styles() {\r\n        return [\r\n            css`\r\n        .header-logout {\r\n            display:flex;\r\n            align-items: center;\r\n            flex-wrap: wrap;\r\n        }\r\n\r\n        .header{\r\n            display: flex;\r\n            justify-content: space-between;\r\n            padding:15px;\r\n            background-color: var(--header-background-color);\r\n            flex-wrap: wrap;\r\n        }\r\n    `,\r\n    mediaQueries\r\n        ];\r\n    }\r\n\r\n    changeLanguage() {\r\n        const onChangeLanguage = new CustomEvent('onChangeLanguage', {});\r\n        this.dispatchEvent(onChangeLanguage);\r\n    }\r\n    \r\n    addProduct() {\r\n        const onAddProduct = new CustomEvent('onAddProduct', {});\r\n        this.dispatchEvent(onAddProduct);\r\n    }\r\n\r\n    changeTheme() {\r\n        const onChangeTheme = new CustomEvent('onChangeTheme', {});\r\n        this.dispatchEvent(onChangeTheme);\r\n    }\r\n\r\n    logout() {\r\n        const onLogout = new CustomEvent('onLogout', {});\r\n        this.dispatchEvent(onLogout);\r\n    }\r\n\r\n    render() {\r\n        let authenticatedButtons:TemplateResult = html``;\r\n        if(this.isAuthenticated === 'true') {\r\n            authenticatedButtons = html`\r\n            <str-form-btn aria-label=\"Add Product\" buttonText=\"${this.addProductButtonText}\" @click=\"${this.addProduct}\"></str-form-btn>\r\n            <str-form-btn buttonText=\"${this.logoutButtonText}\" @click=\"${this.logout}\" aria-label=\"Log out\"></str-form-btn>\r\n           `\r\n        }\r\n        return html`  \r\n        <div class=\"header\">\r\n        <img src=\"${this.strlogo}\" alt=\"App Logo\" tabindex=\"0\" aria-label=\"App logo\">\r\n        <div class=\"header-logout\">\r\n                <str-form-btn @click=\"${this.changeLanguage}\" aria-label=\"Change language\" buttonText=\"${this.changeLanguageButtonText}\"></str-form-btn>\r\n                <str-form-btn buttonText=\"${this.changeThemeButtonText}\" @click=\"${this.changeTheme}\" aria-label=\"Change theme\"></str-form-btn>\r\n                ${authenticatedButtons}\r\n        </div>\r\n        </div>\r\n    `;\r\n    }\r\n}\r\n\r\n",
             "properties": [
                 {
                     "name": "addProductButtonText",
@@ -1608,10 +1622,10 @@
         },
         {
             "name": "storeInputElement",
-            "id": "class-storeInputElement-afc3ef2fcf65a6bbbdc002a6f0c3887b",
+            "id": "class-storeInputElement-910413d1745d135d778d3e9d4b6d99e7",
             "file": "src/components/text-input-element.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-input')\r\nexport class storeInputElement extends LitElement {\r\n\r\n     @property()\r\n     ariaLabel: string;\r\n\r\n     @property()\r\n     inputType: string;\r\n\r\n     @property()\r\n     inputPlaceholder: string;\r\n\r\n     @property()\r\n     isReadonly: string;\r\n\r\n     @property()\r\n     inputValue: string = null;\r\n  \r\n  static get styles() {\r\n    return [\r\n      css`\r\n    .str-input {\r\n        width: 20rem;\r\n        height: 2rem;\r\n        border: 1px solid #bdbdbd;\r\n        border-radius: 5px;\r\n        margin: 15px auto 0px 0px;\r\n        padding-left: 10px;\r\n    }\r\n    `, mediaQueries\r\n    ];\r\n  }\r\n\r\n\r\n  inputHandler(event) {\r\n      const inputValueChanged = new CustomEvent('inputValueChanged', {\r\n        detail: {\r\n            value: event.composedPath()[0].value\r\n        },\r\n    });\r\n    this.dispatchEvent(inputValueChanged);\r\n  }\r\n\r\n  render(){\r\n    let readonlyValue;\r\n    if(this.isReadonly === 'true') {\r\n      readonlyValue = true;\r\n    }\r\n    return html`<input aria-label=\"${this.ariaLabel}\" class=\"str-input\" type=\"${this.inputType}\"\r\n    placeholder=\"${this.inputPlaceholder}\" @input=${this.inputHandler} .value=\"${this.inputValue}\"\r\n    ?readonly=\"${readonlyValue}\"/>`;\r\n  }\r\n}",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property  } from 'lit-element/lib/decorators';\r\nimport {mediaQueries} from './media-queries';\r\n\r\n@customElement('str-input')\r\nexport class storeInputElement extends LitElement {\r\n\r\n     @property()\r\n     ariaLabel: string;\r\n\r\n     @property({type: String})\r\n     inputType;\r\n\r\n     @property()\r\n     inputPlaceholder: string;\r\n\r\n     @property()\r\n     isReadonly: string;\r\n\r\n     @property({type: String})\r\n     inputValue: string = '';\r\n  \r\n  static get styles() {\r\n    return [\r\n      css`\r\n    .str-input {\r\n        width: 20rem;\r\n        height: 2rem;\r\n        border: 1px solid #bdbdbd;\r\n        border-radius: 5px;\r\n        margin: 15px auto 0px 0px;\r\n        padding-left: 10px;\r\n    }\r\n    `, mediaQueries\r\n    ];\r\n  }\r\n\r\n\r\n  inputHandler(event) {\r\n      const inputValueChanged = new CustomEvent('inputValueChanged', {\r\n        detail: {\r\n            value: event.composedPath()[0].value\r\n        },\r\n    });\r\n    this.dispatchEvent(inputValueChanged);\r\n  }\r\n\r\n  render(){\r\n    let readonlyValue;\r\n    if(this.isReadonly === 'true') {\r\n      readonlyValue = true;\r\n    }\r\n    return html`<input aria-label=\"${this.ariaLabel}\" class=\"str-input\" type=\"${this.inputType}\"\r\n    placeholder=\"${this.inputPlaceholder}\" @input=${this.inputHandler} .value=\"${this.inputValue}\"\r\n    ?readonly=\"${readonlyValue}\"/>`;\r\n  }\r\n}",
             "properties": [
                 {
                     "name": "ariaLabel",
@@ -1641,20 +1655,20 @@
                 },
                 {
                     "name": "inputType",
-                    "type": "string",
+                    "type": "",
                     "optional": false,
                     "description": "",
                     "line": 12,
                     "decorators": [
                         {
                             "name": "property",
-                            "stringifiedArguments": ""
+                            "stringifiedArguments": "{type: String}"
                         }
                     ]
                 },
                 {
                     "name": "inputValue",
-                    "defaultValue": "null",
+                    "defaultValue": "''",
                     "type": "string",
                     "optional": false,
                     "description": "",
@@ -1662,7 +1676,7 @@
                     "decorators": [
                         {
                             "name": "property",
-                            "stringifiedArguments": ""
+                            "stringifiedArguments": "{type: String}"
                         }
                     ]
                 },
@@ -2477,7 +2491,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"tab\">{{'auth.login-tab' | translate}}</div>\r\n<form [formGroup]=\"loginForm\" class=\"text-center\">\r\n    <div>\r\n        <div>\r\n            <str-input \r\n                ariaLabel=\"Enter email\" \r\n                inputType=\"email\" \r\n                inputPlaceholder=\"{{'auth.email-placeholder'|translate}}\"\r\n                (inputValueChanged)=\"emailValueChanged($event)\"\r\n            ></str-input>\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"emailInvalid\">{{'auth.email-validation' | translate}}</p>\r\n        </div>\r\n        <div>\r\n                <str-input \r\n                    ariaLabel=\"Enter password\" \r\n                    inputType=\"password\" \r\n                    inputPlaceholder=\"{{'auth.password-placeholder'|translate}}\"\r\n                    (inputValueChanged)=\"passwordValueChanged($event)\"\r\n                ></str-input>\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"passwordInvalid\">{{'auth.password-validation' | translate}}\r\n                </p>\r\n        </div>\r\n    </div>\r\n    <div class=\"text-center\">\r\n        <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Log in\"></str-form-btn>\r\n        <a class=\"signup-link\" (click)=\"navigate($event)\" href=\"#\" aria-label=\"Click to signup\">{{'auth.signup-link' | translate}}</a>\r\n    </div>\r\n</form>"
+            "templateData": "<div class=\"tab\">{{'auth.login-tab' | translate}}</div>\r\n<form [formGroup]=\"loginForm\" class=\"text-center\">\r\n    <div>\r\n        <div>\r\n            <str-input \r\n                ariaLabel=\"Enter email\" \r\n                inputType=\"email\" \r\n                inputPlaceholder=\"{{'auth.email-placeholder'|translate}}\"\r\n                (inputValueChanged)=\"emailValueChanged($event)\"\r\n            ></str-input>\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"emailInvalid\">{{'auth.email-validation' | translate}}</p>\r\n        </div>\r\n        <div>\r\n                <str-input \r\n                    ariaLabel=\"Enter password\" \r\n                    inputType=\"password\" \r\n                    inputPlaceholder=\"{{'auth.password-placeholder'|translate}}\"\r\n                    (inputValueChanged)=\"passwordValueChanged($event)\"\r\n                ></str-input>\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"passwordInvalid\">{{'auth.password-validation' | translate}}\r\n                </p>\r\n        </div>\r\n    </div>\r\n    <div class=\"text-center\">\r\n        <str-form-btn\r\n         buttonText=\"{{'auth.submit-button' | translate}}\" \r\n         aria-label=\"Log in\" \r\n         isSubmitButton\r\n         (click)=\"onSubmit()\">\r\n        </str-form-btn>\r\n        <a class=\"signup-link\" (click)=\"navigate($event)\" href=\"#\" aria-label=\"Click to signup\">{{'auth.signup-link' | translate}}</a>\r\n    </div>\r\n</form>"
         },
         {
             "name": "LoginComponent",
@@ -2665,7 +2679,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "LoginComponent-1",
-            "templateData": "<div class=\"tab\">{{'auth.login-tab' | translate}}</div>\r\n<form [formGroup]=\"loginForm\" class=\"text-center\">\r\n    <div>\r\n        <div>\r\n            <str-input \r\n                ariaLabel=\"Enter email\" \r\n                inputType=\"email\" \r\n                inputPlaceholder=\"{{'auth.email-placeholder'|translate}}\"\r\n                (inputValueChanged)=\"emailValueChanged($event)\"\r\n            ></str-input>\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"emailInvalid\">{{'auth.email-validation' | translate}}</p>\r\n        </div>\r\n        <div>\r\n                <str-input \r\n                    ariaLabel=\"Enter password\" \r\n                    inputType=\"password\" \r\n                    inputPlaceholder=\"{{'auth.password-placeholder'|translate}}\"\r\n                    (inputValueChanged)=\"passwordValueChanged($event)\"\r\n                ></str-input>\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"passwordInvalid\">{{'auth.password-validation' | translate}}\r\n                </p>\r\n        </div>\r\n    </div>\r\n    <div class=\"text-center\">\r\n        <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Log in\"></str-form-btn>\r\n        <a class=\"signup-link\" (click)=\"navigate($event)\" href=\"#\" aria-label=\"Click to signup\">{{'auth.signup-link' | translate}}</a>\r\n    </div>\r\n</form>"
+            "templateData": "<div class=\"tab\">{{'auth.login-tab' | translate}}</div>\r\n<form [formGroup]=\"loginForm\" class=\"text-center\">\r\n    <div>\r\n        <div>\r\n            <str-input \r\n                ariaLabel=\"Enter email\" \r\n                inputType=\"email\" \r\n                inputPlaceholder=\"{{'auth.email-placeholder'|translate}}\"\r\n                (inputValueChanged)=\"emailValueChanged($event)\"\r\n            ></str-input>\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"emailInvalid\">{{'auth.email-validation' | translate}}</p>\r\n        </div>\r\n        <div>\r\n                <str-input \r\n                    ariaLabel=\"Enter password\" \r\n                    inputType=\"password\" \r\n                    inputPlaceholder=\"{{'auth.password-placeholder'|translate}}\"\r\n                    (inputValueChanged)=\"passwordValueChanged($event)\"\r\n                ></str-input>\r\n                <p class=\"str-error-msg-class\"\r\n                    *ngIf=\"passwordInvalid\">{{'auth.password-validation' | translate}}\r\n                </p>\r\n        </div>\r\n    </div>\r\n    <div class=\"text-center\">\r\n        <str-form-btn\r\n         buttonText=\"{{'auth.submit-button' | translate}}\" \r\n         aria-label=\"Log in\" \r\n         isSubmitButton\r\n         (click)=\"onSubmit()\">\r\n        </str-form-btn>\r\n        <a class=\"signup-link\" (click)=\"navigate($event)\" href=\"#\" aria-label=\"Click to signup\">{{'auth.signup-link' | translate}}</a>\r\n    </div>\r\n</form>"
         },
         {
             "name": "ProductOperationsComponent",
@@ -2703,11 +2717,11 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <str-input \r\n                ariaLabel=\"name\" \r\n                inputType=\"text\" \r\n                inputPlaceholder=\"{{'products.product-operations.enter-product-placeholder'|translate}}\"\r\n                isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{name.value}}\"\r\n                (inputValueChanged)=\"nameValueChanged($event)\"            \r\n            ></str-input>\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"nameInvalid\">{{'products.product-operations.product-name-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <div>\r\n                    <str-input \r\n                    ariaLabel=\"price\" \r\n                    inputType=\"number\" \r\n                    inputPlaceholder=\"{{'products.product-operations.enter-price-placeholder'|translate}}\"\r\n                    isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                    inputValue=\"{{price.value}}\"\r\n                    (inputValueChanged)=\"priceValueChanged($event)\"\r\n                ></str-input>\r\n                </div>\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"priceInvalid\">{{'products.product-operations.product-price-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <str-textarea \r\n                ariaLabel=\"description\"\r\n                columns=\"30\" \r\n                rows=\"10\"\r\n                inputPlaceholder=\"{{'products.product-operations.product-description-placeholder'|translate}}\" \r\n                isReadonly= \"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{description.value}}\"\r\n                (inputValueChanged)=\"descriptionValueChanged($event)\">\r\n                </str-textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                 <str-image-input \r\n                  ariaLabel=\"product-image\"\r\n                  isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                  inputValue=\"imageUrl\"\r\n                  labelValue=\"Choose a product image\"\r\n                  (inputValueChanged)=\"onImagePicked($event)\">\r\n                </str-image-input>\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <str-form-btn \r\n                [attr.aria-label]=\"productOperationInfo.productOperation\" \r\n                *ngIf=\"productOperationInfo.productOperation !== 'View'\"\r\n                buttonText=\"{{ 'products.product-operations.' + buttonText | translate}}\" \r\n                (click)=\"onSubmit()\">\r\n            </str-form-btn>\r\n            <str-form-btn  \r\n              aria-label=\"Back to products list\"\r\n              buttonText=\"{{'products.product-operations.cancel-button' | translate}}\"\r\n             (click)=\"cancel()\" >\r\n            </str-form-btn>\r\n        </div>\r\n    </form>\r\n</div>"
+            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <str-input \r\n                ariaLabel=\"name\" \r\n                inputType=\"text\" \r\n                inputPlaceholder=\"{{'products.product-operations.enter-product-placeholder'|translate}}\"\r\n                isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{name.value}}\"\r\n                (inputValueChanged)=\"nameValueChanged($event)\"            \r\n            ></str-input>\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"nameInvalid\">{{'products.product-operations.product-name-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <div>\r\n                    <str-input \r\n                    ariaLabel=\"price\" \r\n                    inputType=\"number\" \r\n                    inputPlaceholder=\"{{'products.product-operations.enter-price-placeholder'|translate}}\"\r\n                    isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                    inputValue=\"{{price.value}}\"\r\n                    (inputValueChanged)=\"priceValueChanged($event)\"\r\n                ></str-input>\r\n                </div>\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"priceInvalid\">{{'products.product-operations.product-price-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <str-textarea \r\n                ariaLabel=\"description\"\r\n                columns=\"30\" \r\n                rows=\"10\"\r\n                inputPlaceholder=\"{{'products.product-operations.product-description-placeholder'|translate}}\" \r\n                isReadonly= \"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{description.value}}\"\r\n                (inputValueChanged)=\"descriptionValueChanged($event)\">\r\n                </str-textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                 <str-image-input \r\n                  ariaLabel=\"product-image\"\r\n                  isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                  inputValue=\"imageUrl\"\r\n                  labelValue=\"Choose a product image\"\r\n                  (inputValueChanged)=\"onImagePicked($event)\">\r\n                </str-image-input>\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <str-form-btn \r\n                [attr.aria-label]=\"productOperationInfo.productOperation\" \r\n                *ngIf=\"productOperationInfo.productOperation !== 'View'\"\r\n                buttonText=\"{{ 'products.product-operations.' + buttonText | translate}}\" \r\n                isSubmitButton\r\n                (click)=\"onSubmit()\">\r\n            </str-form-btn>\r\n            <str-form-btn  \r\n              aria-label=\"Back to products list\"\r\n              buttonText=\"{{'products.product-operations.cancel-button' | translate}}\"\r\n              isSubmitButton\r\n             (click)=\"cancel()\" >\r\n            </str-form-btn>\r\n        </div>\r\n    </form>\r\n</div>"
         },
         {
             "name": "ProductOperationsComponent",
-            "id": "component-ProductOperationsComponent-d82da931779480f3624b8cb2eeb3d4b7-1",
+            "id": "component-ProductOperationsComponent-ea59310913867edcc80b2421d059b4be-1",
             "file": "src/app/products/product-operations/product-operations.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2835,7 +2849,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 100
+                    "line": 99
                 },
                 {
                     "name": "createProductFormGroup",
@@ -2856,7 +2870,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 118,
+                    "line": 117,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -2873,7 +2887,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 93
+                    "line": 92
                 },
                 {
                     "name": "nameValueChanged",
@@ -2886,7 +2900,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 110,
+                    "line": 109,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -2916,7 +2930,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 86,
+                    "line": 85,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -2946,7 +2960,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 114,
+                    "line": 113,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -2963,7 +2977,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 103
+                    "line": 102
                 }
             ],
             "hostBindings": [],
@@ -2971,7 +2985,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\r\nimport { Store } from '@ngrx/store';\r\nimport { ProductService } from '../products.service';\r\nimport * as ProductActions from '../../shared/store/products/product.actions';\r\nimport { StoreProduct } from '../../shared/store/products/products.model';\r\nimport * as APP_CONSTANTS from '../../shared/app.constants';\r\nimport { Router } from '@angular/router';\r\nimport { map } from 'rxjs/operators';\r\nimport { ProductOperationInfo } from '../../shared/models/product';\r\nimport { CurrentUser } from '../../shared/models/user';\r\nimport { TranslateService } from '@ngx-translate/core';\r\n@Component({\r\n  selector: 'app-product-operations',\r\n  templateUrl: './product-operations.component.html',\r\n  styleUrls: ['./product-operations.component.scss']\r\n})\r\nexport class ProductOperationsComponent implements OnInit {\r\n  productForm: FormGroup;\r\n  productOperationInfo: ProductOperationInfo;\r\n  imagePath: string = '';\r\n  path: string = '../../../assets/images/';\r\n  currentUser: string = '';\r\n  imageUrlPreview: string;\r\n  selectedProduct: StoreProduct;\r\n  name: FormControl;\r\n  description: FormControl;\r\n  price: FormControl;\r\n  imageUrl: FormControl;\r\n  buttonText: string;\r\n  nameInvalid: boolean;\r\n  priceInvalid: boolean;\r\n  constructor(\r\n    private productService:ProductService,\r\n    private store: Store,\r\n    private router: Router) {}\r\n\r\n  ngOnInit(): void {\r\n    this.productOperationInfo = this.productService.getProductInfo();\r\n    this.productForm = this.createProductFormGroup();\r\n    this.selectedProduct = this.productService.getProduct();\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_UPDATE || this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_VIEW) {\r\n     this.initializeFormData();\r\n    }\r\n    \r\n    this.store.pipe(\r\n      map((state) => state['auth'].currentUser))\r\n    .subscribe((data:CurrentUser) => {\r\n      this.currentUser = data.email;\r\n    })\r\n\r\n    this.setButtonText();\r\n  }\r\n\r\n  createProductFormGroup() {\r\n    this.name = new FormControl('', [Validators.required]);\r\n    this.description = new FormControl('');\r\n    this.price = new FormControl('',[Validators.required]);\r\n    this.imageUrl = new FormControl();\r\n    return new FormGroup({\r\n        name: this.name,\r\n        description: this.description,\r\n        price: this.price,\r\n        imageUrl: this.imageUrl\r\n    });\r\n}\r\nonSubmit() {\r\n  console.log('prod on submit');\r\n  if(this.productForm.valid) {\r\n    const product:StoreProduct = {\r\n      name: this.name.value,\r\n      description: this.description.value,\r\n      price: this.price.value,\r\n      imageUrl: this.imageUrlPreview,\r\n      createdBy: this.currentUser\r\n    }\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {\r\n  \r\n      this.store.dispatch(ProductActions.productAddAttempted({product}));\r\n    } else {\r\n      product.id = this.selectedProduct.id;\r\n      this.store.dispatch(ProductActions.productUpdateAttempt({product}))\r\n    }\r\n  }\r\n}\r\nonImagePicked(event) {\r\n const file = event.detail.value;\r\nif(file) {\r\n  this.imagePath = this.path+file.name;\r\n  this.imageUrlPreview = this.imagePath;\r\n}\r\n}\r\ninitializeFormData() {\r\n  const {name, description, price, imageUrl} = this.selectedProduct;\r\n  this.name.setValue(name);\r\n  this.imageUrlPreview = imageUrl;\r\n  this.price.setValue(price);\r\n  this.description.setValue(description);\r\n}\r\n  cancel() {\r\n    this.router.navigate(['products']);\r\n  }\r\n  setButtonText() {\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {\r\n      this.buttonText = 'add-button';\r\n    } else {\r\n      this.buttonText = 'update-button';\r\n    }\r\n  }\r\n  nameValueChanged(event) {\r\n    this.name.setValue(event.detail.value);\r\n    this.nameInvalid = !this.productForm.controls['name'].valid;\r\n  }\r\n  priceValueChanged(event) {\r\n    this.price.setValue(event.detail.value);\r\n    this.priceInvalid = !this.productForm.controls['price'].valid;\r\n  }\r\n  descriptionValueChanged(event) {\r\n    this.description.setValue(event.detail.value);\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\r\nimport { Store } from '@ngrx/store';\r\nimport { ProductService } from '../products.service';\r\nimport * as ProductActions from '../../shared/store/products/product.actions';\r\nimport { StoreProduct } from '../../shared/store/products/products.model';\r\nimport * as APP_CONSTANTS from '../../shared/app.constants';\r\nimport { Router } from '@angular/router';\r\nimport { map } from 'rxjs/operators';\r\nimport { ProductOperationInfo } from '../../shared/models/product';\r\nimport { CurrentUser } from '../../shared/models/user';\r\nimport { TranslateService } from '@ngx-translate/core';\r\n@Component({\r\n  selector: 'app-product-operations',\r\n  templateUrl: './product-operations.component.html',\r\n  styleUrls: ['./product-operations.component.scss']\r\n})\r\nexport class ProductOperationsComponent implements OnInit {\r\n  productForm: FormGroup;\r\n  productOperationInfo: ProductOperationInfo;\r\n  imagePath: string = '';\r\n  path: string = '../../../assets/images/';\r\n  currentUser: string = '';\r\n  imageUrlPreview: string;\r\n  selectedProduct: StoreProduct;\r\n  name: FormControl;\r\n  description: FormControl;\r\n  price: FormControl;\r\n  imageUrl: FormControl;\r\n  buttonText: string;\r\n  nameInvalid: boolean;\r\n  priceInvalid: boolean;\r\n  constructor(\r\n    private productService:ProductService,\r\n    private store: Store,\r\n    private router: Router) {}\r\n\r\n  ngOnInit(): void {\r\n    this.productOperationInfo = this.productService.getProductInfo();\r\n    this.productForm = this.createProductFormGroup();\r\n    this.selectedProduct = this.productService.getProduct();\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_UPDATE || this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_VIEW) {\r\n     this.initializeFormData();\r\n    }\r\n    \r\n    this.store.pipe(\r\n      map((state) => state['auth'].currentUser))\r\n    .subscribe((data:CurrentUser) => {\r\n      this.currentUser = data.email;\r\n    })\r\n\r\n    this.setButtonText();\r\n  }\r\n\r\n  createProductFormGroup() {\r\n    this.name = new FormControl('', [Validators.required]);\r\n    this.description = new FormControl('');\r\n    this.price = new FormControl('',[Validators.required]);\r\n    this.imageUrl = new FormControl();\r\n    return new FormGroup({\r\n        name: this.name,\r\n        description: this.description,\r\n        price: this.price,\r\n        imageUrl: this.imageUrl\r\n    });\r\n}\r\nonSubmit() {\r\n  if(this.productForm.valid) {\r\n    const product:StoreProduct = {\r\n      name: this.name.value,\r\n      description: this.description.value,\r\n      price: this.price.value,\r\n      imageUrl: this.imageUrlPreview,\r\n      createdBy: this.currentUser\r\n    }\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {\r\n  \r\n      this.store.dispatch(ProductActions.productAddAttempted({product}));\r\n    } else {\r\n      product.id = this.selectedProduct.id;\r\n      this.store.dispatch(ProductActions.productUpdateAttempt({product}))\r\n    }\r\n  }\r\n}\r\nonImagePicked(event) {\r\n const file = event.detail.value;\r\nif(file) {\r\n  this.imagePath = this.path+file.name;\r\n  this.imageUrlPreview = this.imagePath;\r\n}\r\n}\r\ninitializeFormData() {\r\n  const {name, description, price, imageUrl} = this.selectedProduct;\r\n  this.name.setValue(name);\r\n  this.imageUrlPreview = imageUrl;\r\n  this.price.setValue(price);\r\n  this.description.setValue(description);\r\n}\r\n  cancel() {\r\n    this.router.navigate(['products']);\r\n  }\r\n  setButtonText() {\r\n    if(this.productOperationInfo.productOperation === APP_CONSTANTS.PRODUCT_ADD) {\r\n      this.buttonText = 'add-button';\r\n    } else {\r\n      this.buttonText = 'update-button';\r\n    }\r\n  }\r\n  nameValueChanged(event) {\r\n    this.name.setValue(event.detail.value);\r\n    this.nameInvalid = !this.productForm.controls['name'].valid;\r\n  }\r\n  priceValueChanged(event) {\r\n    this.price.setValue(event.detail.value);\r\n    this.priceInvalid = !this.productForm.controls['price'].valid;\r\n  }\r\n  descriptionValueChanged(event) {\r\n    this.description.setValue(event.detail.value);\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3028,7 +3042,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "ProductOperationsComponent-1",
-            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <str-input \r\n                ariaLabel=\"name\" \r\n                inputType=\"text\" \r\n                inputPlaceholder=\"{{'products.product-operations.enter-product-placeholder'|translate}}\"\r\n                isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{name.value}}\"\r\n                (inputValueChanged)=\"nameValueChanged($event)\"            \r\n            ></str-input>\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"nameInvalid\">{{'products.product-operations.product-name-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <div>\r\n                    <str-input \r\n                    ariaLabel=\"price\" \r\n                    inputType=\"number\" \r\n                    inputPlaceholder=\"{{'products.product-operations.enter-price-placeholder'|translate}}\"\r\n                    isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                    inputValue=\"{{price.value}}\"\r\n                    (inputValueChanged)=\"priceValueChanged($event)\"\r\n                ></str-input>\r\n                </div>\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"priceInvalid\">{{'products.product-operations.product-price-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <str-textarea \r\n                ariaLabel=\"description\"\r\n                columns=\"30\" \r\n                rows=\"10\"\r\n                inputPlaceholder=\"{{'products.product-operations.product-description-placeholder'|translate}}\" \r\n                isReadonly= \"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{description.value}}\"\r\n                (inputValueChanged)=\"descriptionValueChanged($event)\">\r\n                </str-textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                 <str-image-input \r\n                  ariaLabel=\"product-image\"\r\n                  isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                  inputValue=\"imageUrl\"\r\n                  labelValue=\"Choose a product image\"\r\n                  (inputValueChanged)=\"onImagePicked($event)\">\r\n                </str-image-input>\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <str-form-btn \r\n                [attr.aria-label]=\"productOperationInfo.productOperation\" \r\n                *ngIf=\"productOperationInfo.productOperation !== 'View'\"\r\n                buttonText=\"{{ 'products.product-operations.' + buttonText | translate}}\" \r\n                (click)=\"onSubmit()\">\r\n            </str-form-btn>\r\n            <str-form-btn  \r\n              aria-label=\"Back to products list\"\r\n              buttonText=\"{{'products.product-operations.cancel-button' | translate}}\"\r\n             (click)=\"cancel()\" >\r\n            </str-form-btn>\r\n        </div>\r\n    </form>\r\n</div>"
+            "templateData": "\r\n<div class=\"container\">\r\n    <form [formGroup]=\"productForm\">\r\n        <div class=\"text-center\">\r\n            <div>\r\n                <str-input \r\n                ariaLabel=\"name\" \r\n                inputType=\"text\" \r\n                inputPlaceholder=\"{{'products.product-operations.enter-product-placeholder'|translate}}\"\r\n                isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{name.value}}\"\r\n                (inputValueChanged)=\"nameValueChanged($event)\"            \r\n            ></str-input>\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"nameInvalid\">{{'products.product-operations.product-name-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <div>\r\n                    <str-input \r\n                    ariaLabel=\"price\" \r\n                    inputType=\"number\" \r\n                    inputPlaceholder=\"{{'products.product-operations.enter-price-placeholder'|translate}}\"\r\n                    isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                    inputValue=\"{{price.value}}\"\r\n                    (inputValueChanged)=\"priceValueChanged($event)\"\r\n                ></str-input>\r\n                </div>\r\n                <div>\r\n                    <span class=\"str-error-msg-class\" *ngIf=\"priceInvalid\">{{'products.product-operations.product-price-validation'|translate}}</span>\r\n                </div>\r\n            </div>\r\n            <div>\r\n                <str-textarea \r\n                ariaLabel=\"description\"\r\n                columns=\"30\" \r\n                rows=\"10\"\r\n                inputPlaceholder=\"{{'products.product-operations.product-description-placeholder'|translate}}\" \r\n                isReadonly= \"{{productOperationInfo.disableFormFields}}\"\r\n                inputValue=\"{{description.value}}\"\r\n                (inputValueChanged)=\"descriptionValueChanged($event)\">\r\n                </str-textarea>\r\n            </div>\r\n            <div *ngIf=\"imageUrlPreview\">\r\n                <img width=\"200\" height=\"200\" [src]=\"imageUrlPreview\" alt=\"\">\r\n            </div>\r\n            <div>\r\n                 <str-image-input \r\n                  ariaLabel=\"product-image\"\r\n                  isReadonly=\"{{productOperationInfo.disableFormFields}}\"\r\n                  inputValue=\"imageUrl\"\r\n                  labelValue=\"Choose a product image\"\r\n                  (inputValueChanged)=\"onImagePicked($event)\">\r\n                </str-image-input>\r\n            </div>\r\n        </div>\r\n        <div class=\"text-center\">\r\n            <str-form-btn \r\n                [attr.aria-label]=\"productOperationInfo.productOperation\" \r\n                *ngIf=\"productOperationInfo.productOperation !== 'View'\"\r\n                buttonText=\"{{ 'products.product-operations.' + buttonText | translate}}\" \r\n                isSubmitButton\r\n                (click)=\"onSubmit()\">\r\n            </str-form-btn>\r\n            <str-form-btn  \r\n              aria-label=\"Back to products list\"\r\n              buttonText=\"{{'products.product-operations.cancel-button' | translate}}\"\r\n              isSubmitButton\r\n             (click)=\"cancel()\" >\r\n            </str-form-btn>\r\n        </div>\r\n    </form>\r\n</div>"
         },
         {
             "name": "ProductsComponent",
@@ -3280,7 +3294,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"tab\">{{'auth.register-tab' | translate}}</div>\r\n<form [formGroup]=\"registrationForm\" class=\"text-center\">\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"Enter email\" \r\n    inputType=\"email\" \r\n    inputPlaceholder=\"{{'auth.email-placeholder'|translate}}\"\r\n    (inputValueChanged)=\"emailValueChanged($event)\">\r\n   </str-input>\r\n    <p class=\"str-error-msg-class\" *ngIf=\"emailInvalid\">{{'auth.email-validation' | translate}}</p>\r\n  </div>\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"Enter password\" \r\n    inputType=\"password\"\r\n    inputPlaceholder=\"{{'auth.password-placeholder'|translate}}\" \r\n    (inputValueChanged)=\"passwordValueChanged($event)\">\r\n    </str-input>\r\n    <p class=\"str-error-msg-class\" *ngIf=\"passwordInvalid\">{{'auth.password-validation' | translate}}\r\n    </p>\r\n  </div>\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"confirm password\" \r\n    inputType=\"password\"\r\n    inputPlaceholder=\"{{'auth.retype-password-placeholder'|translate}}\"\r\n    (inputValueChanged)=\"confirmPasswordValueChanged($event)\">\r\n  </str-input>\r\n    <p class=\"str-error-msg-class\"\r\n      *ngIf=\"confirmPasswordInvalid\">\r\n      {{'auth.confirm-password-validation' | translate}}\r\n    </p>\r\n  </div>\r\n  <p class=\"str-error-msg-class\" *ngIf=\"passwordMismatch\">{{'auth.password-mismatch-validation' | translate}}</p>\r\n  <div class=\"text-center\">\r\n    <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Sign up\">\r\n    </str-form-btn>\r\n  </div>\r\n</form>"
+            "templateData": "<div class=\"tab\">{{'auth.register-tab' | translate}}</div>\r\n<form [formGroup]=\"registrationForm\" class=\"text-center\">\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"Enter email\" \r\n    inputType=\"email\" \r\n    inputPlaceholder=\"{{'auth.email-placeholder'|translate}}\"\r\n    (inputValueChanged)=\"emailValueChanged($event)\">\r\n   </str-input>\r\n    <p class=\"str-error-msg-class\" *ngIf=\"emailInvalid\">{{'auth.email-validation' | translate}}</p>\r\n  </div>\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"Enter password\" \r\n    inputType=\"password\"\r\n    inputPlaceholder=\"{{'auth.password-placeholder'|translate}}\" \r\n    (inputValueChanged)=\"passwordValueChanged($event)\">\r\n    </str-input>\r\n    <p class=\"str-error-msg-class\" *ngIf=\"passwordInvalid\">{{'auth.password-validation' | translate}}\r\n    </p>\r\n  </div>\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"confirm password\" \r\n    inputType=\"password\"\r\n    inputPlaceholder=\"{{'auth.retype-password-placeholder'|translate}}\"\r\n    (inputValueChanged)=\"confirmPasswordValueChanged($event)\">\r\n  </str-input>\r\n    <p class=\"str-error-msg-class\"\r\n      *ngIf=\"confirmPasswordInvalid\">\r\n      {{'auth.confirm-password-validation' | translate}}\r\n    </p>\r\n  </div>\r\n  <p class=\"str-error-msg-class\" *ngIf=\"passwordMismatch\">{{'auth.password-mismatch-validation' | translate}}</p>\r\n  <div class=\"text-center\">\r\n    <str-form-btn \r\n    buttonText=\"{{'auth.submit-button' | translate}}\" \r\n    aria-label=\"Sign up\"\r\n    isSubmitButton\r\n    (click)=\"onSubmit()\">\r\n    </str-form-btn>\r\n  </div>\r\n</form>"
         },
         {
             "name": "RegistrationComponent",
@@ -3493,7 +3507,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "RegistrationComponent-1",
-            "templateData": "<div class=\"tab\">{{'auth.register-tab' | translate}}</div>\r\n<form [formGroup]=\"registrationForm\" class=\"text-center\">\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"Enter email\" \r\n    inputType=\"email\" \r\n    inputPlaceholder=\"{{'auth.email-placeholder'|translate}}\"\r\n    (inputValueChanged)=\"emailValueChanged($event)\">\r\n   </str-input>\r\n    <p class=\"str-error-msg-class\" *ngIf=\"emailInvalid\">{{'auth.email-validation' | translate}}</p>\r\n  </div>\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"Enter password\" \r\n    inputType=\"password\"\r\n    inputPlaceholder=\"{{'auth.password-placeholder'|translate}}\" \r\n    (inputValueChanged)=\"passwordValueChanged($event)\">\r\n    </str-input>\r\n    <p class=\"str-error-msg-class\" *ngIf=\"passwordInvalid\">{{'auth.password-validation' | translate}}\r\n    </p>\r\n  </div>\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"confirm password\" \r\n    inputType=\"password\"\r\n    inputPlaceholder=\"{{'auth.retype-password-placeholder'|translate}}\"\r\n    (inputValueChanged)=\"confirmPasswordValueChanged($event)\">\r\n  </str-input>\r\n    <p class=\"str-error-msg-class\"\r\n      *ngIf=\"confirmPasswordInvalid\">\r\n      {{'auth.confirm-password-validation' | translate}}\r\n    </p>\r\n  </div>\r\n  <p class=\"str-error-msg-class\" *ngIf=\"passwordMismatch\">{{'auth.password-mismatch-validation' | translate}}</p>\r\n  <div class=\"text-center\">\r\n    <str-form-btn (click)=\"onSubmit()\" buttonText=\"{{'auth.submit-button' | translate}}\" aria-label=\"Sign up\">\r\n    </str-form-btn>\r\n  </div>\r\n</form>"
+            "templateData": "<div class=\"tab\">{{'auth.register-tab' | translate}}</div>\r\n<form [formGroup]=\"registrationForm\" class=\"text-center\">\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"Enter email\" \r\n    inputType=\"email\" \r\n    inputPlaceholder=\"{{'auth.email-placeholder'|translate}}\"\r\n    (inputValueChanged)=\"emailValueChanged($event)\">\r\n   </str-input>\r\n    <p class=\"str-error-msg-class\" *ngIf=\"emailInvalid\">{{'auth.email-validation' | translate}}</p>\r\n  </div>\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"Enter password\" \r\n    inputType=\"password\"\r\n    inputPlaceholder=\"{{'auth.password-placeholder'|translate}}\" \r\n    (inputValueChanged)=\"passwordValueChanged($event)\">\r\n    </str-input>\r\n    <p class=\"str-error-msg-class\" *ngIf=\"passwordInvalid\">{{'auth.password-validation' | translate}}\r\n    </p>\r\n  </div>\r\n  <div>\r\n    <str-input \r\n    ariaLabel=\"confirm password\" \r\n    inputType=\"password\"\r\n    inputPlaceholder=\"{{'auth.retype-password-placeholder'|translate}}\"\r\n    (inputValueChanged)=\"confirmPasswordValueChanged($event)\">\r\n  </str-input>\r\n    <p class=\"str-error-msg-class\"\r\n      *ngIf=\"confirmPasswordInvalid\">\r\n      {{'auth.confirm-password-validation' | translate}}\r\n    </p>\r\n  </div>\r\n  <p class=\"str-error-msg-class\" *ngIf=\"passwordMismatch\">{{'auth.password-mismatch-validation' | translate}}</p>\r\n  <div class=\"text-center\">\r\n    <str-form-btn \r\n    buttonText=\"{{'auth.submit-button' | translate}}\" \r\n    aria-label=\"Sign up\"\r\n    isSubmitButton\r\n    (click)=\"onSubmit()\">\r\n    </str-form-btn>\r\n  </div>\r\n</form>"
         }
     ],
     "modules": [
@@ -3800,17 +3814,17 @@
                 "name": "initialState",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/store/auth/auth.reducer.ts",
-                "type": "AuthState",
-                "defaultValue": "{\r\n  currentUser: {\r\n    accessToken: '',\r\n    email: '',\r\n    isLoggedIn: false\r\n  }\r\n}"
+                "file": "src/app/shared/store/products/product.reducer.ts",
+                "type": "ProductsState",
+                "defaultValue": "{\r\n    products: []\r\n}"
             },
             {
                 "name": "initialState",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/store/products/product.reducer.ts",
-                "type": "ProductsState",
-                "defaultValue": "{\r\n    products: []\r\n}"
+                "file": "src/app/shared/store/auth/auth.reducer.ts",
+                "type": "AuthState",
+                "defaultValue": "{\r\n  currentUser: {\r\n    accessToken: '',\r\n    email: '',\r\n    isLoggedIn: false\r\n  }\r\n}"
             },
             {
                 "name": "light",
@@ -4292,7 +4306,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/footer/Footer.stories.ts",
+                "file": "src/stories/header/Header.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -4312,7 +4326,7 @@
             },
             {
                 "name": "HttpLoaderFactory",
-                "file": "src/stories/header/Header.stories.ts",
+                "file": "src/stories/footer/Footer.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -4412,7 +4426,7 @@
             },
             {
                 "name": "reducer",
-                "file": "src/app/shared/store/auth/auth.reducer.ts",
+                "file": "src/app/shared/store/products/product.reducer.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -4441,7 +4455,7 @@
             },
             {
                 "name": "reducer",
-                "file": "src/app/shared/store/products/product.reducer.ts",
+                "file": "src/app/shared/store/auth/auth.reducer.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "description": "",
@@ -4668,24 +4682,6 @@
                     "defaultValue": "'register'"
                 }
             ],
-            "src/app/shared/store/auth/auth.reducer.ts": [
-                {
-                    "name": "initialState",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/shared/store/auth/auth.reducer.ts",
-                    "type": "AuthState",
-                    "defaultValue": "{\r\n  currentUser: {\r\n    accessToken: '',\r\n    email: '',\r\n    isLoggedIn: false\r\n  }\r\n}"
-                },
-                {
-                    "name": "loginCompleteReducer",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/shared/store/auth/auth.reducer.ts",
-                    "type": "",
-                    "defaultValue": "createReducer(\r\n  initialState,\r\n  on(AuthActions.loginSuccess, (state, payload:any) => {\r\n      return {\r\n          ...state,\r\n          currentUser: {\r\n            email: payload.email,\r\n            accessToken: payload.accessToken,\r\n            isLoggedIn: true\r\n          }\r\n      }\r\n  }),\r\n\r\n  on(AuthActions.logout, (state) => {\r\n    \r\n    return {\r\n        ...state,\r\n        currentUser: {\r\n          email: '',\r\n          accessToken: '',\r\n          isLoggedIn: false\r\n        }\r\n    }\r\n})\r\n)"
-                }
-            ],
             "src/app/shared/store/products/product.reducer.ts": [
                 {
                     "name": "initialState",
@@ -4702,6 +4698,24 @@
                     "file": "src/app/shared/store/products/product.reducer.ts",
                     "type": "",
                     "defaultValue": "createReducer(\r\n  initialState,\r\n  on(ProductActions.productAddSuccess, (state, payload:any) => {\r\n    return {\r\n        ...state,\r\n        products: [...state.products, payload ]\r\n    }\r\n}),\r\non(ProductActions.productFetchSuccess, (state, payload:any) => {\r\n  return {\r\n      ...state,\r\n      products: payload.data\r\n  }\r\n}),\r\non(ProductActions.productUpdateSuccess, (state, payload:any) => {\r\n  return {\r\n      ...state,\r\n      products: [...state.products, payload.data]\r\n  }\r\n}),\r\non(ProductActions.productDeleteSuccess, (state, payload:any) => {\r\n  const stateCopy = {...state};\r\n  const deleteId = payload.action.product.id;\r\n  const updatedProducts = state.products.filter((prod) =>  deleteId !== prod.id);\r\n  return {\r\n      ...state,\r\n      products: [...updatedProducts]\r\n  }\r\n}),\r\n)"
+                }
+            ],
+            "src/app/shared/store/auth/auth.reducer.ts": [
+                {
+                    "name": "initialState",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/store/auth/auth.reducer.ts",
+                    "type": "AuthState",
+                    "defaultValue": "{\r\n  currentUser: {\r\n    accessToken: '',\r\n    email: '',\r\n    isLoggedIn: false\r\n  }\r\n}"
+                },
+                {
+                    "name": "loginCompleteReducer",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/store/auth/auth.reducer.ts",
+                    "type": "",
+                    "defaultValue": "createReducer(\r\n  initialState,\r\n  on(AuthActions.loginSuccess, (state, payload:any) => {\r\n      return {\r\n          ...state,\r\n          currentUser: {\r\n            email: payload.email,\r\n            accessToken: payload.accessToken,\r\n            isLoggedIn: true\r\n          }\r\n      }\r\n  }),\r\n\r\n  on(AuthActions.logout, (state) => {\r\n    \r\n    return {\r\n        ...state,\r\n        currentUser: {\r\n          email: '',\r\n          accessToken: '',\r\n          isLoggedIn: false\r\n        }\r\n    }\r\n})\r\n)"
                 }
             ],
             "src/stories/header/Header.stories.ts": [
@@ -5094,10 +5108,10 @@
                     ]
                 }
             ],
-            "src/stories/footer/Footer.stories.ts": [
+            "src/stories/header/Header.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/footer/Footer.stories.ts",
+                    "file": "src/stories/header/Header.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -5116,10 +5130,10 @@
                     ]
                 }
             ],
-            "src/stories/header/Header.stories.ts": [
+            "src/stories/footer/Footer.stories.ts": [
                 {
                     "name": "HttpLoaderFactory",
-                    "file": "src/stories/header/Header.stories.ts",
+                    "file": "src/stories/footer/Footer.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -5226,10 +5240,10 @@
                     ]
                 }
             ],
-            "src/app/shared/store/auth/auth.reducer.ts": [
+            "src/app/shared/store/products/product.reducer.ts": [
                 {
                     "name": "reducer",
-                    "file": "src/app/shared/store/auth/auth.reducer.ts",
+                    "file": "src/app/shared/store/products/product.reducer.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -5257,10 +5271,10 @@
                     ]
                 }
             ],
-            "src/app/shared/store/products/product.reducer.ts": [
+            "src/app/shared/store/auth/auth.reducer.ts": [
                 {
                     "name": "reducer",
-                    "file": "src/app/shared/store/products/product.reducer.ts",
+                    "file": "src/app/shared/store/auth/auth.reducer.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "description": "",
@@ -6130,7 +6144,7 @@
                 "linktype": "classe",
                 "name": "storeFormButton",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {

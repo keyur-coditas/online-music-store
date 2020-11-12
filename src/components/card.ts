@@ -1,6 +1,6 @@
 import { html, LitElement, css, TemplateResult } from 'lit-element';
 import { customElement, property } from 'lit-element/lib/decorators';
-import {mediaQueries} from './media-queries';
+import { mediaQueries } from './media-queries';
 
 @customElement('str-card')
 export class storeCard extends LitElement {
@@ -82,7 +82,7 @@ export class storeCard extends LitElement {
             text-align: center;
         }
     `,
-    mediaQueries
+            mediaQueries
         ];
     }
 
@@ -141,8 +141,8 @@ export class storeCard extends LitElement {
         let ownerButtons: TemplateResult = html``;
         if (this.currentUser === this.createdBy) {
             ownerButtons = html`<div class="text-center str-card-buttons-container" >
-            <str-form-btn @click="${this.updateProduct}" buttonText="${this.updatebuttonText}" isCardButton="true" aria-label="Update Product"></str-form-btn>
-            <str-form-btn @click="${this.deleteProduct}" buttonText="${this.deletebuttonText}" isCardButton="true" aria-label="Delete Product"></str-form-btn>    
+            <str-form-btn isSubmitButton buttonText="${this.updatebuttonText}" isSubmitButton isCardButton aria-label="Update Product" @click="${this.updateProduct}"></str-form-btn>
+            <str-form-btn isSubmitButton buttonText="${this.deletebuttonText}" isSubmitButton isCardButton aria-label="Delete Product" @click="${this.deleteProduct}"></str-form-btn>    
             </div>`
         }
 

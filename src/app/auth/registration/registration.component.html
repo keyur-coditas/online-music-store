@@ -33,7 +33,11 @@
   </div>
   <p class="str-error-msg-class" *ngIf="passwordMismatch">{{'auth.password-mismatch-validation' | translate}}</p>
   <div class="text-center">
-    <str-form-btn (click)="onSubmit()" buttonText="{{'auth.submit-button' | translate}}" aria-label="Sign up">
+    <str-form-btn 
+    buttonText="{{'auth.submit-button' | translate}}" 
+    aria-label="Sign up"
+    isSubmitButton
+    (click)="onSubmit()">
     </str-form-btn>
   </div>
 </form>
