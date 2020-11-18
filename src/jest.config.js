@@ -11,5 +11,7 @@ module.exports = {
   coverageDirectory: 'coverage/my-app',
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}, {
     prefix: '<rootDir>/'
-  })
+  }),
+  runner: 'jest-electron/runner',
+  testEnvironment: 'jest-electron/environment'
 };

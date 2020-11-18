@@ -9,6 +9,8 @@ import { AppMocks } from '../../shared/mocks/mocks';
 import { ProductService } from '../products.service';
 import { ProductOperationsComponent } from './product-operations.component';
 import * as APP_CONSTANTS from '../../shared/app.constants';
+import { StoreProduct } from 'src/app/shared/store/products/products.model';
+
 describe('ProductOperationsComponent', () => {
   let component: ProductOperationsComponent;
   let fixture: ComponentFixture<ProductOperationsComponent>;
@@ -17,25 +19,25 @@ describe('ProductOperationsComponent', () => {
     auth: {
       currentUser: {
         email: '',
-        accessToken: ''
-      }
+        accessToken: '',
+      },
     },
-      products: {
-        products: [{}]
-      }
-  }
+    products: {
+      products: [{}],
+    },
+  };
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductOperationsComponent ],
-      schemas:[CUSTOM_ELEMENTS_SCHEMA],
+      declarations: [ProductOperationsComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         { provide: ProductService, useValue: AppMocks.getMockProductService() },
         { provide: Router, useValue: AppMocks.getMockRouterService() },
-         provideMockStore({initialState}),
-         TranslateService
+        provideMockStore({ initialState }),
+        TranslateService,
       ],
-      imports: [ ReactiveFormsModule, FormsModule, TranslateModule.forRoot()]
-    }).compileComponents();  
+      imports: [ReactiveFormsModule, FormsModule, TranslateModule.forRoot()],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -59,13 +61,13 @@ describe('ProductOperationsComponent', () => {
   test('setButtonText', () => {
     component.productOperationInfo = {
       productOperation: APP_CONSTANTS.PRODUCT_ADD,
-      disableFormFields: false
-    }
+      disableFormFields: false,
+    };
     component.setButtonText();
     component.productOperationInfo = {
       productOperation: APP_CONSTANTS.PRODUCT_UPDATE,
-      disableFormFields: false
-    }
+      disableFormFields: false,
+    };
     component.setButtonText();
   });
   test('createFormGroup', () => {
@@ -74,25 +76,76 @@ describe('ProductOperationsComponent', () => {
   test('nameValueChanged', () => {
     const inputValueChanged = new CustomEvent('inputValueChanged', {
       detail: {
-          value: 'test'
+        value: 'test',
       },
-  });
+    });
     component.nameValueChanged(inputValueChanged);
   });
   test('priceValueChanged', () => {
     const inputValueChanged = new CustomEvent('inputValueChanged', {
       detail: {
-          value: 'test'
+        value: 'test',
       },
-  });
+    });
     component.priceValueChanged(inputValueChanged);
   });
   test('descriptionValueChanged', () => {
     const inputValueChanged = new CustomEvent('inputValueChanged', {
       detail: {
-          value: 'test'
+        value: 'test',
       },
-  });
+    });
     component.descriptionValueChanged(inputValueChanged);
+  });
+
+  test('initializeFormData', () => {
+    component.selectedProduct = {
+      name: 'test',
+      description: 'test',
+      imageUrl: 'test',
+      createdBy: 'test',
+      price: 111,
+      id: 1,
+    };
+    component.initializeFormData();
+  });
+
+  test('onImagePicked', () => {
+    component.path = '';
+    const event = {
+      detail: {
+        value: {
+          name: 'test',
+        },
+      },
+    };
+    component.onImagePicked(event);
+  });
+
+  test('onSubmit', () => {
+    const mockFormGroup = AppMocks.getMockFormGroup();
+    const dispatchSpy = spyOn(component['store'], 'dispatch');
+    component.productForm = mockFormGroup;
+    component.productOperationInfo = {
+      productOperation: APP_CONSTANTS.PRODUCT_ADD,
+      disableFormFields: false,
+    };
+    component.onSubmit();
+    expect(dispatchSpy).toHaveBeenCalled();
+
+    component.selectedProduct = {
+      name: 'test',
+      description: 'test',
+      imageUrl: 'test',
+      createdBy: 'test',
+      price: 111,
+      id: 1,
+    };
+    component.productOperationInfo = {
+      productOperation: APP_CONSTANTS.PRODUCT_UPDATE,
+      disableFormFields: false,
+    };
+    component.onSubmit();
+    expect(dispatchSpy).toHaveBeenCalled();
   });
 });

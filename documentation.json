@@ -883,10 +883,10 @@
     "classes": [
         {
             "name": "AppMocks",
-            "id": "class-AppMocks-cd8b6ec59525c57769f85bc138427ea5",
+            "id": "class-AppMocks-d80c2144da311ac03404563010b3c386",
             "file": "src/app/shared/mocks/mocks.ts",
             "type": "class",
-            "sourceCode": "import { FormBuilder } from '@angular/forms'\r\nimport { of } from 'rxjs'\r\nimport * as APP_CONSTANTS from '../app.constants';\r\nexport class AppMocks {\r\n     public static getThemeServiceMock = () => {\r\n        return {\r\n            isDarkTheme: jest.fn(() => false),\r\n            setDarkTheme: jest.fn(() => {}),\r\n            setLightTheme: jest.fn(() => {}),\r\n            setActiveTheme: jest.fn(() => {})\r\n         }\r\n        \r\n     }\r\n\r\n     public static getMockProductService = () => {\r\n        return {\r\n            getAllProducts: jest.fn(() => false),\r\n            getProductInfo: jest.fn(() => {\r\n                return {\r\n                    productOperation: APP_CONSTANTS.PRODUCT_ADD,\r\n                    disableFormFields: false,\r\n                  };\r\n            }),\r\n            setProductInfo: jest.fn(() => {}),\r\n            addProduct: jest.fn(() => {}),\r\n            setProduct: jest.fn((val) => {}),\r\n            getProduct: jest.fn((val) => {\r\n                return  {\r\n                name: '',\r\n                description: '',\r\n                imageUrl: '',\r\n                createdBy: '',\r\n                price: 10,\r\n                id: 1\r\n            }\r\n            })\r\n         }\r\n     }\r\n\r\n     public static getMockRouterService = () => {\r\n        return {\r\n            navigate: jest.fn((nav) => {})\r\n           }\r\n     }\r\n\r\n     public static getMockStoreService = () => {\r\n        return {\r\n                dispatch: jest.fn(() => {}),\r\n                pipe: jest.fn(() => of({}))\r\n           }\r\n     }\r\n\r\n     public static getMockAppService = () => {\r\n        return {\r\n            isAuthenticated: jest.fn(() => {})\r\n           }\r\n    }\r\n\r\n    public static getMockFormGroup = () => {\r\n        const myModel = {\r\n            valid: true,\r\n            value: null\r\n         };\r\n         const fb = new FormBuilder();\r\n         return fb.group(myModel);\r\n    }\r\n\r\n    public static getMockHttpService = () => {\r\n        return {\r\n            get: jest.fn(() => {}),\r\n            put: jest.fn(() => {}),\r\n            post: jest.fn((val) => {}),\r\n            delete: jest.fn(() => {})\r\n           }\r\n    }\r\n}\r\n\r\n\r\n\r\n",
+            "sourceCode": "import { FormBuilder } from '@angular/forms'\r\nimport { of } from 'rxjs'\r\nimport * as APP_CONSTANTS from '../app.constants';\r\nexport class AppMocks {\r\n     public static getThemeServiceMock = () => {\r\n        return {\r\n            isDarkTheme: jest.fn(() => false),\r\n            setDarkTheme: jest.fn(() => {}),\r\n            setLightTheme: jest.fn(() => {}),\r\n            setActiveTheme: jest.fn(() => {})\r\n         }\r\n        \r\n     }\r\n\r\n     public static getMockProductService = () => {\r\n        return {\r\n            getAllProducts: jest.fn(() => false),\r\n            getProductInfo: jest.fn(() => {\r\n                return {\r\n                    productOperation: APP_CONSTANTS.PRODUCT_ADD,\r\n                    disableFormFields: false,\r\n                  };\r\n            }),\r\n            setProductInfo: jest.fn(() => {}),\r\n            addProduct: jest.fn(() => {}),\r\n            setProduct: jest.fn((val) => {}),\r\n            getProduct: jest.fn((val) => {\r\n                return  {\r\n                name: '',\r\n                description: '',\r\n                imageUrl: '',\r\n                createdBy: '',\r\n                price: 10,\r\n                id: 1\r\n            }\r\n            }),\r\n            updateProduct: jest.fn((val) => {}),\r\n            deleteProduct: jest.fn((val) => {}),\r\n         }\r\n     }\r\n\r\n     public static getMockRouterService = () => {\r\n        return {\r\n            navigate: jest.fn((nav) => {})\r\n           }\r\n     }\r\n\r\n     public static getMockStoreService = () => {\r\n        return {\r\n                dispatch: jest.fn(() => {}),\r\n                pipe: jest.fn(() => of({}))\r\n           }\r\n     }\r\n\r\n     public static getMockAppService = () => {\r\n        return {\r\n            isAuthenticated: jest.fn(() => {})\r\n           }\r\n    }\r\n\r\n    public static getMockFormGroup = () => {\r\n        const myModel = {\r\n            valid: true,\r\n            value: null\r\n         };\r\n         const fb = new FormBuilder();\r\n         return fb.group(myModel);\r\n    }\r\n\r\n    public static getMockHttpService = () => {\r\n        return {\r\n            get: jest.fn(() => {}),\r\n            put: jest.fn(() => {}),\r\n            post: jest.fn((val) => {}),\r\n            delete: jest.fn(() => {})\r\n           }\r\n    }\r\n\r\n    public static getMockAuthService = () => {\r\n        return {\r\n            login: jest.fn((val) => {}),\r\n            register: jest.fn((val) => {})\r\n           }\r\n    }\r\n\r\n    public static getMockToastrService = () => {\r\n        return {\r\n            success: jest.fn((val) => {}),\r\n            error: jest.fn((val) => {})\r\n           }\r\n    }\r\n}\r\n\r\n\r\n\r\n",
             "properties": [
                 {
                     "name": "getMockAppService",
@@ -894,7 +894,18 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 53,
+                    "line": 55,
+                    "modifierKind": [
+                        115
+                    ]
+                },
+                {
+                    "name": "getMockAuthService",
+                    "defaultValue": "() => {...}",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 79,
                     "modifierKind": [
                         115
                     ]
@@ -905,7 +916,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 59,
+                    "line": 61,
                     "modifierKind": [
                         115
                     ]
@@ -916,7 +927,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 68,
+                    "line": 70,
                     "modifierKind": [
                         115
                     ]
@@ -938,7 +949,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 40,
+                    "line": 42,
                     "modifierKind": [
                         115
                     ]
@@ -949,7 +960,18 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 46,
+                    "line": 48,
+                    "modifierKind": [
+                        115
+                    ]
+                },
+                {
+                    "name": "getMockToastrService",
+                    "defaultValue": "() => {...}",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 86,
                     "modifierKind": [
                         115
                     ]
@@ -1358,10 +1380,10 @@
         },
         {
             "name": "storeHeaderElement",
-            "id": "class-storeHeaderElement-dee59cc93dd3efaaab3b0ca873a4ce04",
+            "id": "class-storeHeaderElement-a36e4e2d1d87a3b9310fcfaa67651347",
             "file": "src/components/header.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { mediaQueries } from './media-queries';\r\nimport * as EVENTS from './constants';\r\n\r\n@customElement('str-header')\r\nexport class storeHeaderElement extends LitElement {\r\n  @property({ type: String })\r\n  strlogo;\r\n\r\n  @property({ type: String })\r\n  changeLanguageButtonText;\r\n\r\n  @property({ type: String })\r\n  changeThemeButtonText;\r\n\r\n  @property({ type: String })\r\n  addProductButtonText;\r\n\r\n  @property({ type: String })\r\n  logoutButtonText;\r\n\r\n  @property({ type: Boolean })\r\n  isAuthenticated;\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n        .header-logout {\r\n          display: flex;\r\n          align-items: center;\r\n          flex-wrap: wrap;\r\n        }\r\n\r\n        .header {\r\n          display: flex;\r\n          justify-content: space-between;\r\n          padding: 15px;\r\n          background-color: var(--header-background-color);\r\n          flex-wrap: wrap;\r\n        }\r\n      `,\r\n      mediaQueries,\r\n    ];\r\n  }\r\n\r\n  onClick(eventType: string) {\r\n    const onAddProduct = new CustomEvent(eventType, {});\r\n    this.dispatchEvent(onAddProduct);\r\n  }\r\n\r\n  getLoggedInUserButtonsHtml() {\r\n    let authenticatedButtons: TemplateResult = html``;\r\n    if (this.isAuthenticated) {\r\n      authenticatedButtons = html`\r\n        <str-form-btn\r\n          aria-label=\"Add Product\"\r\n          buttonText=\"${this.addProductButtonText}\"\r\n          @click=\"${this.onClick.bind(this, EVENTS.ADD_PRODUCT)}\"\r\n        ></str-form-btn>\r\n        <str-form-btn\r\n          buttonText=\"${this.logoutButtonText}\"\r\n          @click=\"${this.onClick.bind(this, EVENTS.LOGOUT)}\"\r\n          aria-label=\"Log out\"\r\n        ></str-form-btn>\r\n      `;\r\n    }\r\n    return authenticatedButtons;\r\n  }\r\n\r\n  render() {\r\n    let authenticatedButtons: TemplateResult = this.getLoggedInUserButtonsHtml();\r\n    return html`\r\n      <div class=\"header\">\r\n        <img\r\n          src=\"${this.strlogo}\"\r\n          alt=\"App Logo\"\r\n          tabindex=\"0\"\r\n          aria-label=\"App logo\"\r\n        />\r\n        <div class=\"header-logout\">\r\n          <str-form-btn\r\n            @click=\"${this.onClick.bind(this, EVENTS.CHANGE_LANGUAGE)}\"\r\n            aria-label=\"Change language\"\r\n            buttonText=\"${this.changeLanguageButtonText}\"\r\n          ></str-form-btn>\r\n          <str-form-btn\r\n            buttonText=\"${this.changeThemeButtonText}\"\r\n            @click=\"${this.onClick.bind(this, EVENTS.CHANGE_THEME)}\"\r\n            aria-label=\"Change theme\"\r\n          ></str-form-btn>\r\n          ${authenticatedButtons}\r\n        </div>\r\n      </div>\r\n    `;\r\n  }\r\n}\r\n",
+            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { mediaQueries } from './media-queries';\r\nimport * as EVENTS from './constants';\r\n\r\n@customElement('str-header')\r\nexport class storeHeaderElement extends LitElement {\r\n  @property({ type: String })\r\n  strlogo;\r\n\r\n  @property({ type: String })\r\n  changeLanguageButtonText;\r\n\r\n  @property({ type: String })\r\n  changeThemeButtonText;\r\n\r\n  @property({ type: String })\r\n  addProductButtonText;\r\n\r\n  @property({ type: String })\r\n  logoutButtonText;\r\n\r\n  @property({ type: String })\r\n  isAuthenticated;\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n        .header-logout {\r\n          display: flex;\r\n          align-items: center;\r\n          flex-wrap: wrap;\r\n        }\r\n\r\n        .header {\r\n          display: flex;\r\n          justify-content: space-between;\r\n          padding: 15px;\r\n          background-color: var(--header-background-color);\r\n          flex-wrap: wrap;\r\n        }\r\n      `,\r\n      mediaQueries,\r\n    ];\r\n  }\r\n\r\n  onClick(eventType: string) {\r\n    const onAddProduct = new CustomEvent(eventType, {});\r\n    this.dispatchEvent(onAddProduct);\r\n  }\r\n\r\n  getLoggedInUserButtonsHtml() {\r\n    let authenticatedButtons: TemplateResult = html``;\r\n    if (this.isAuthenticated === 'true') {\r\n      authenticatedButtons = html`\r\n        <str-form-btn\r\n          aria-label=\"Add Product\"\r\n          buttonText=\"${this.addProductButtonText}\"\r\n          @click=\"${this.onClick.bind(this, EVENTS.ADD_PRODUCT)}\"\r\n        ></str-form-btn>\r\n        <str-form-btn\r\n          buttonText=\"${this.logoutButtonText}\"\r\n          @click=\"${this.onClick.bind(this, EVENTS.LOGOUT)}\"\r\n          aria-label=\"Log out\"\r\n        ></str-form-btn>\r\n      `;\r\n    }\r\n    return authenticatedButtons;\r\n  }\r\n\r\n  render() {\r\n    let authenticatedButtons: TemplateResult = this.getLoggedInUserButtonsHtml();\r\n    return html`\r\n      <div class=\"header\">\r\n        <img\r\n          src=\"${this.strlogo}\"\r\n          alt=\"App Logo\"\r\n          tabindex=\"0\"\r\n          aria-label=\"App logo\"\r\n        />\r\n        <div class=\"header-logout\">\r\n          <str-form-btn\r\n            @click=\"${this.onClick.bind(this, EVENTS.CHANGE_LANGUAGE)}\"\r\n            aria-label=\"Change language\"\r\n            buttonText=\"${this.changeLanguageButtonText}\"\r\n          ></str-form-btn>\r\n          <str-form-btn\r\n            buttonText=\"${this.changeThemeButtonText}\"\r\n            @click=\"${this.onClick.bind(this, EVENTS.CHANGE_THEME)}\"\r\n            aria-label=\"Change theme\"\r\n          ></str-form-btn>\r\n          ${authenticatedButtons}\r\n        </div>\r\n      </div>\r\n    `;\r\n  }\r\n}\r\n",
             "properties": [
                 {
                     "name": "addProductButtonText",
@@ -1411,7 +1433,7 @@
                     "decorators": [
                         {
                             "name": "property",
-                            "stringifiedArguments": "{type: Boolean}"
+                            "stringifiedArguments": "{type: String}"
                         }
                     ]
                 },
@@ -1712,10 +1734,16 @@
         },
         {
             "name": "StoreProduct",
-            "id": "class-StoreProduct-44fc4af19c1b3e05ecf4af7ae34cf9e7",
+            "id": "class-StoreProduct-38df164605921dcbfb3789e7fa4c371f",
             "file": "src/app/shared/store/products/products.model.ts",
             "type": "class",
-            "sourceCode": "export class StoreProduct {\r\n    name: string;\r\n    description: string;\r\n    imageUrl: string;\r\n    createdBy: string;\r\n    price: number;\r\n    id?: number;\r\n}",
+            "sourceCode": "export class StoreProduct {\r\n    name: string;\r\n    description: string;\r\n    imageUrl: string;\r\n    createdBy: string;\r\n    price: number;\r\n    id?: number;\r\n\r\n    constructor() {}\r\n}",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 7
+            },
             "properties": [
                 {
                     "name": "createdBy",
@@ -2382,7 +2410,7 @@
                     }
                 ]
             },
-            "templateData": "<header>\r\n    <str-header\r\n     strlogo=\"../../assets/images/logo.webp\"\r\n     changeLanguageButtonText=\"{{'header.change-language' | translate}}\"\r\n     changeThemeButtonText=\"{{'header.theme-button' | translate}}\"\r\n     addProductButtonText=\"{{'header.add-product-button' | translate}}\"\r\n     logoutButtonText=\"{{'header.logout-button' | translate}}\"\r\n     isAuthenticated\r\n     (onChangeLanguage)=\"changeLanguage()\"\r\n     (onAddProduct)=\"addProduct()\"\r\n     (onChangeTheme)=\"changeTheme()\"\r\n     (onLogout)=\"logout()\"></str-header>\r\n</header>\r\n"
+            "templateData": "<header>\r\n    <str-header\r\n     strlogo=\"../../assets/images/logo.webp\"\r\n     changeLanguageButtonText=\"{{'header.change-language' | translate}}\"\r\n     changeThemeButtonText=\"{{'header.theme-button' | translate}}\"\r\n     addProductButtonText=\"{{'header.add-product-button' | translate}}\"\r\n     logoutButtonText=\"{{'header.logout-button' | translate}}\"\r\n     isAuthenticated=\"{{isAuthenticated()}}\"\r\n     (onChangeLanguage)=\"changeLanguage()\"\r\n     (onAddProduct)=\"addProduct()\"\r\n     (onChangeTheme)=\"changeTheme()\"\r\n     (onLogout)=\"logout()\"></str-header>\r\n</header>\r\n"
         },
         {
             "name": "HeaderComponent",
@@ -2423,7 +2451,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "HeaderComponent-1",
-            "templateData": "<header>\r\n    <str-header\r\n     strlogo=\"../../assets/images/logo.webp\"\r\n     changeLanguageButtonText=\"{{'header.change-language' | translate}}\"\r\n     changeThemeButtonText=\"{{'header.theme-button' | translate}}\"\r\n     addProductButtonText=\"{{'header.add-product-button' | translate}}\"\r\n     logoutButtonText=\"{{'header.logout-button' | translate}}\"\r\n     isAuthenticated\r\n     (onChangeLanguage)=\"changeLanguage()\"\r\n     (onAddProduct)=\"addProduct()\"\r\n     (onChangeTheme)=\"changeTheme()\"\r\n     (onLogout)=\"logout()\"></str-header>\r\n</header>\r\n"
+            "templateData": "<header>\r\n    <str-header\r\n     strlogo=\"../../assets/images/logo.webp\"\r\n     changeLanguageButtonText=\"{{'header.change-language' | translate}}\"\r\n     changeThemeButtonText=\"{{'header.theme-button' | translate}}\"\r\n     addProductButtonText=\"{{'header.add-product-button' | translate}}\"\r\n     logoutButtonText=\"{{'header.logout-button' | translate}}\"\r\n     isAuthenticated=\"{{isAuthenticated()}}\"\r\n     (onChangeLanguage)=\"changeLanguage()\"\r\n     (onAddProduct)=\"addProduct()\"\r\n     (onChangeTheme)=\"changeTheme()\"\r\n     (onLogout)=\"logout()\"></str-header>\r\n</header>\r\n"
         },
         {
             "name": "LoginComponent",
@@ -5623,7 +5651,7 @@
                 "linktype": "classe",
                 "name": "AppMocks",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
@@ -6130,7 +6158,7 @@
                 "linktype": "classe",
                 "name": "StoreProduct",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {

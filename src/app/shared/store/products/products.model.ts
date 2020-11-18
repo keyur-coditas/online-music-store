@@ -5,4 +5,6 @@ export class StoreProduct {
     createdBy: string;
     price: number;
     id?: number;
+
+    constructor() {}
 }

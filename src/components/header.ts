@@ -20,7 +20,7 @@ export class storeHeaderElement extends LitElement {
   @property({ type: String })
   logoutButtonText;
 
-  @property({ type: Boolean })
+  @property({ type: String })
   isAuthenticated;
 
   static get styles() {
@@ -51,7 +51,7 @@ export class storeHeaderElement extends LitElement {
 
   getLoggedInUserButtonsHtml() {
     let authenticatedButtons: TemplateResult = html``;
-    if (this.isAuthenticated) {
+    if (this.isAuthenticated === 'true') {
       authenticatedButtons = html`
         <str-form-btn
           aria-label="Add Product"

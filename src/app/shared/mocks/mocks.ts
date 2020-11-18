@@ -33,7 +33,9 @@ export class AppMocks {
                 price: 10,
                 id: 1
             }
-            })
+            }),
+            updateProduct: jest.fn((val) => {}),
+            deleteProduct: jest.fn((val) => {}),
          }
      }
 
@@ -71,6 +73,20 @@ export class AppMocks {
             put: jest.fn(() => {}),
             post: jest.fn((val) => {}),
             delete: jest.fn(() => {})
+           }
+    }
+
+    public static getMockAuthService = () => {
+        return {
+            login: jest.fn((val) => {}),
+            register: jest.fn((val) => {})
+           }
+    }
+
+    public static getMockToastrService = () => {
+        return {
+            success: jest.fn((val) => {}),
+            error: jest.fn((val) => {})
            }
     }
 }
