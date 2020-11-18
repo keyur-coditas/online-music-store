@@ -1380,128 +1380,19 @@
         },
         {
             "name": "storeHeaderElement",
-            "id": "class-storeHeaderElement-a36e4e2d1d87a3b9310fcfaa67651347",
+            "id": "class-storeHeaderElement-ded00a361df57974b6d3a1f096138892",
             "file": "src/components/header.ts",
             "type": "class",
-            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { mediaQueries } from './media-queries';\r\nimport * as EVENTS from './constants';\r\n\r\n@customElement('str-header')\r\nexport class storeHeaderElement extends LitElement {\r\n  @property({ type: String })\r\n  strlogo;\r\n\r\n  @property({ type: String })\r\n  changeLanguageButtonText;\r\n\r\n  @property({ type: String })\r\n  changeThemeButtonText;\r\n\r\n  @property({ type: String })\r\n  addProductButtonText;\r\n\r\n  @property({ type: String })\r\n  logoutButtonText;\r\n\r\n  @property({ type: String })\r\n  isAuthenticated;\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n        .header-logout {\r\n          display: flex;\r\n          align-items: center;\r\n          flex-wrap: wrap;\r\n        }\r\n\r\n        .header {\r\n          display: flex;\r\n          justify-content: space-between;\r\n          padding: 15px;\r\n          background-color: var(--header-background-color);\r\n          flex-wrap: wrap;\r\n        }\r\n      `,\r\n      mediaQueries,\r\n    ];\r\n  }\r\n\r\n  onClick(eventType: string) {\r\n    const onAddProduct = new CustomEvent(eventType, {});\r\n    this.dispatchEvent(onAddProduct);\r\n  }\r\n\r\n  getLoggedInUserButtonsHtml() {\r\n    let authenticatedButtons: TemplateResult = html``;\r\n    if (this.isAuthenticated === 'true') {\r\n      authenticatedButtons = html`\r\n        <str-form-btn\r\n          aria-label=\"Add Product\"\r\n          buttonText=\"${this.addProductButtonText}\"\r\n          @click=\"${this.onClick.bind(this, EVENTS.ADD_PRODUCT)}\"\r\n        ></str-form-btn>\r\n        <str-form-btn\r\n          buttonText=\"${this.logoutButtonText}\"\r\n          @click=\"${this.onClick.bind(this, EVENTS.LOGOUT)}\"\r\n          aria-label=\"Log out\"\r\n        ></str-form-btn>\r\n      `;\r\n    }\r\n    return authenticatedButtons;\r\n  }\r\n\r\n  render() {\r\n    let authenticatedButtons: TemplateResult = this.getLoggedInUserButtonsHtml();\r\n    return html`\r\n      <div class=\"header\">\r\n        <img\r\n          src=\"${this.strlogo}\"\r\n          alt=\"App Logo\"\r\n          tabindex=\"0\"\r\n          aria-label=\"App logo\"\r\n        />\r\n        <div class=\"header-logout\">\r\n          <str-form-btn\r\n            @click=\"${this.onClick.bind(this, EVENTS.CHANGE_LANGUAGE)}\"\r\n            aria-label=\"Change language\"\r\n            buttonText=\"${this.changeLanguageButtonText}\"\r\n          ></str-form-btn>\r\n          <str-form-btn\r\n            buttonText=\"${this.changeThemeButtonText}\"\r\n            @click=\"${this.onClick.bind(this, EVENTS.CHANGE_THEME)}\"\r\n            aria-label=\"Change theme\"\r\n          ></str-form-btn>\r\n          ${authenticatedButtons}\r\n        </div>\r\n      </div>\r\n    `;\r\n  }\r\n}\r\n",
-            "properties": [
-                {
-                    "name": "addProductButtonText",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 18,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                },
-                {
-                    "name": "changeLanguageButtonText",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 12,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                },
-                {
-                    "name": "changeThemeButtonText",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 15,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                },
-                {
-                    "name": "isAuthenticated",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 24,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                },
-                {
-                    "name": "logoutButtonText",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 21,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                },
-                {
-                    "name": "strlogo",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 9,
-                    "decorators": [
-                        {
-                            "name": "property",
-                            "stringifiedArguments": "{type: String}"
-                        }
-                    ]
-                }
-            ],
+            "sourceCode": "import { html, LitElement, css, TemplateResult } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { mediaQueries } from './media-queries';\r\nimport * as EVENTS from './constants';\r\n\r\n@customElement('str-header')\r\nexport class storeHeaderElement extends LitElement {\r\n\r\n  static get styles() {\r\n    return [\r\n      css`\r\n        .header-logout {\r\n          display: flex;\r\n          align-items: center;\r\n          flex-wrap: wrap;\r\n        }\r\n\r\n        .header {\r\n          display: flex;\r\n          justify-content: space-between;\r\n          padding: 15px;\r\n          background-color: var(--header-background-color);\r\n          flex-wrap: wrap;\r\n        }\r\n      `,\r\n      mediaQueries,\r\n    ];\r\n  }\r\n\r\n\r\n  render() {\r\n    return html`\r\n      <div class=\"header\">\r\n      <slot name=\"one\"></slot>\r\n      <slot name=\"two\" class=\"header-logout\"></slot>\r\n      </div>\r\n    `;\r\n  }\r\n}\r\n",
+            "properties": [],
             "methods": [
-                {
-                    "name": "getLoggedInUserButtonsHtml",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 52
-                },
-                {
-                    "name": "onClick",
-                    "args": [
-                        {
-                            "name": "eventType",
-                            "type": "string"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 47,
-                    "jsdoctags": [
-                        {
-                            "name": "eventType",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
                 {
                     "name": "render",
                     "args": [],
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 71
+                    "line": 31
                 }
             ],
             "indexSignatures": [],
@@ -1513,7 +1404,7 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 26
+                        "line": 9
                     }
                 }
             }
@@ -2410,7 +2301,7 @@
                     }
                 ]
             },
-            "templateData": "<header>\r\n    <str-header\r\n     strlogo=\"../../assets/images/logo.webp\"\r\n     changeLanguageButtonText=\"{{'header.change-language' | translate}}\"\r\n     changeThemeButtonText=\"{{'header.theme-button' | translate}}\"\r\n     addProductButtonText=\"{{'header.add-product-button' | translate}}\"\r\n     logoutButtonText=\"{{'header.logout-button' | translate}}\"\r\n     isAuthenticated=\"{{isAuthenticated()}}\"\r\n     (onChangeLanguage)=\"changeLanguage()\"\r\n     (onAddProduct)=\"addProduct()\"\r\n     (onChangeTheme)=\"changeTheme()\"\r\n     (onLogout)=\"logout()\"></str-header>\r\n</header>\r\n"
+            "templateData": "<header>\r\n  <str-header>\r\n    <img\r\n      src=\"../../assets/images/logo.webp\"\r\n      alt=\"App Logo\"\r\n      tabindex=\"0\"\r\n      aria-label=\"App logo\"\r\n      slot=\"one\"\r\n    />\r\n    <str-form-btn\r\n      aria-label=\"Change Theme\"\r\n      buttonText=\"{{ 'header.theme-button' | translate }}\"\r\n      (click)=\"changeTheme()\"\r\n      slot=\"two\"\r\n    ></str-form-btn>\r\n    <str-form-btn\r\n      (click)=\"changeLanguage()\"\r\n      aria-label=\"Change language\"\r\n      buttonText=\"{{ 'header.change-language' | translate }}\"\r\n      slot=\"two\"\r\n    ></str-form-btn>\r\n    <str-form-btn\r\n      (click)=\"addProduct()\"\r\n      aria-label=\"Add product\"\r\n      buttonText=\"{{ 'header.add-product-button' | translate }}\"\r\n      slot=\"two\"\r\n      *ngIf=\"isAuthenticated()\"\r\n    ></str-form-btn>\r\n    <str-form-btn\r\n      (click)=\"logout()\"\r\n      aria-label=\"Log out\"\r\n      buttonText=\"{{ 'header.logout-button' | translate }}\"\r\n      slot=\"two\"\r\n      *ngIf=\"isAuthenticated()\"\r\n    ></str-form-btn>\r\n  </str-header>\r\n</header>\r\n"
         },
         {
             "name": "HeaderComponent",
@@ -2451,7 +2342,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "HeaderComponent-1",
-            "templateData": "<header>\r\n    <str-header\r\n     strlogo=\"../../assets/images/logo.webp\"\r\n     changeLanguageButtonText=\"{{'header.change-language' | translate}}\"\r\n     changeThemeButtonText=\"{{'header.theme-button' | translate}}\"\r\n     addProductButtonText=\"{{'header.add-product-button' | translate}}\"\r\n     logoutButtonText=\"{{'header.logout-button' | translate}}\"\r\n     isAuthenticated=\"{{isAuthenticated()}}\"\r\n     (onChangeLanguage)=\"changeLanguage()\"\r\n     (onAddProduct)=\"addProduct()\"\r\n     (onChangeTheme)=\"changeTheme()\"\r\n     (onLogout)=\"logout()\"></str-header>\r\n</header>\r\n"
+            "templateData": "<header>\r\n  <str-header>\r\n    <img\r\n      src=\"../../assets/images/logo.webp\"\r\n      alt=\"App Logo\"\r\n      tabindex=\"0\"\r\n      aria-label=\"App logo\"\r\n      slot=\"one\"\r\n    />\r\n    <str-form-btn\r\n      aria-label=\"Change Theme\"\r\n      buttonText=\"{{ 'header.theme-button' | translate }}\"\r\n      (click)=\"changeTheme()\"\r\n      slot=\"two\"\r\n    ></str-form-btn>\r\n    <str-form-btn\r\n      (click)=\"changeLanguage()\"\r\n      aria-label=\"Change language\"\r\n      buttonText=\"{{ 'header.change-language' | translate }}\"\r\n      slot=\"two\"\r\n    ></str-form-btn>\r\n    <str-form-btn\r\n      (click)=\"addProduct()\"\r\n      aria-label=\"Add product\"\r\n      buttonText=\"{{ 'header.add-product-button' | translate }}\"\r\n      slot=\"two\"\r\n      *ngIf=\"isAuthenticated()\"\r\n    ></str-form-btn>\r\n    <str-form-btn\r\n      (click)=\"logout()\"\r\n      aria-label=\"Log out\"\r\n      buttonText=\"{{ 'header.logout-button' | translate }}\"\r\n      slot=\"two\"\r\n      *ngIf=\"isAuthenticated()\"\r\n    ></str-form-btn>\r\n  </str-header>\r\n</header>\r\n"
         },
         {
             "name": "LoginComponent",
@@ -3812,17 +3703,17 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
+                "file": "src/environments/environment.prod.ts",
                 "type": "object",
-                "defaultValue": "{\r\n  production: false\r\n}"
+                "defaultValue": "{\r\n  production: true\r\n}"
             },
             {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
+                "file": "src/environments/environment.ts",
                 "type": "object",
-                "defaultValue": "{\r\n  production: true\r\n}"
+                "defaultValue": "{\r\n  production: false\r\n}"
             },
             {
                 "name": "HOST",
@@ -4756,16 +4647,6 @@
                     "defaultValue": "[\r\n  {\r\n    name: 'test',\r\n  description: 'test',\r\n  imageUrl: '../../../assets/images/chateau_acoustic_guitar.webp',\r\n  createdBy: 'xyz@gmail.com',\r\n  price: 1000,\r\n  }\r\n]"
                 }
             ],
-            "src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.ts",
-                    "type": "object",
-                    "defaultValue": "{\r\n  production: false\r\n}"
-                }
-            ],
             "src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -4774,6 +4655,16 @@
                     "file": "src/environments/environment.prod.ts",
                     "type": "object",
                     "defaultValue": "{\r\n  production: true\r\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "type": "object",
+                    "defaultValue": "{\r\n  production: false\r\n}"
                 }
             ],
             "src/app/shared/urls.ts": [
@@ -6361,7 +6252,7 @@
                 "linktype": "classe",
                 "name": "storeHeaderElement",
                 "coveragePercent": 0,
-                "coverageCount": "0/10",
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {

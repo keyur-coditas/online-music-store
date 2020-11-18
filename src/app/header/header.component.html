@@ -1,13 +1,37 @@
 <header>
-    <str-header
-     strlogo="../../assets/images/logo.webp"
-     changeLanguageButtonText="{{'header.change-language' | translate}}"
-     changeThemeButtonText="{{'header.theme-button' | translate}}"
-     addProductButtonText="{{'header.add-product-button' | translate}}"
-     logoutButtonText="{{'header.logout-button' | translate}}"
-     isAuthenticated="{{isAuthenticated()}}"
-     (onChangeLanguage)="changeLanguage()"
-     (onAddProduct)="addProduct()"
-     (onChangeTheme)="changeTheme()"
-     (onLogout)="logout()"></str-header>
+  <str-header>
+    <img
+      src="../../assets/images/logo.webp"
+      alt="App Logo"
+      tabindex="0"
+      aria-label="App logo"
+      slot="one"
+    />
+    <str-form-btn
+      aria-label="Change Theme"
+      buttonText="{{ 'header.theme-button' | translate }}"
+      (click)="changeTheme()"
+      slot="two"
+    ></str-form-btn>
+    <str-form-btn
+      (click)="changeLanguage()"
+      aria-label="Change language"
+      buttonText="{{ 'header.change-language' | translate }}"
+      slot="two"
+    ></str-form-btn>
+    <str-form-btn
+      (click)="addProduct()"
+      aria-label="Add product"
+      buttonText="{{ 'header.add-product-button' | translate }}"
+      slot="two"
+      *ngIf="isAuthenticated()"
+    ></str-form-btn>
+    <str-form-btn
+      (click)="logout()"
+      aria-label="Log out"
+      buttonText="{{ 'header.logout-button' | translate }}"
+      slot="two"
+      *ngIf="isAuthenticated()"
+    ></str-form-btn>
+  </str-header>
 </header>

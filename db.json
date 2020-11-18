@@ -77,14 +77,6 @@
       "imageUrl": "../../../assets/images/acoustic_amp.webp",
       "createdBy": "keyur@gmail.com",
       "id": 7
-    },
-    {
-      "name": "1 edit",
-      "description": "3 edit",
-      "price": "111111",
-      "imageUrl": "../../../assets/images/grand_piano.webp",
-      "createdBy": "keyur@gmail.com",
-      "id": 8
     }
   ]
 }
