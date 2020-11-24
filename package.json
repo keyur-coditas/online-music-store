@@ -91,7 +91,6 @@
       "<rootDir>/src/test.ts"
     ],
     "collectCoverageFrom": [
-      "<rootDir>/src/components/*.ts",
       "<rootDir>/src/app/**/*.ts",
       "!<rootDir>/src/app/app.module.ts",
       "!<rootDir>/src/app/app-routing.module.ts",
